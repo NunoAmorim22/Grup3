@@ -50,7 +50,7 @@ const query =connect.con.query ('SELECT * FROM Suspect WHERE ? AND active = 1 or
 // funcao para inserir um determinado suspeito na base de dados post atualizar dados na BD nome da tabela postSuspect
 
 function postSuspect (req,res){
-    //req.sanitize('id_suspect').escape();
+    req.sanitize('id_suspect').escape();
     req.sanitize('name').escape();
     req.sanitize('naturality').escape();
     req.sanitize("phone_number").escape();
@@ -83,7 +83,7 @@ function postSuspect (req,res){
     const body_shape = req.body.body_shape;
     const active = 1;
     
-    if (genre !='NULL' && typeof(genre) != 'undefined') {
+
         const post = {
             //id_suspect:idSuspect,
             name : name,
@@ -98,7 +98,7 @@ function postSuspect (req,res){
             height: height,
             body_shape: body_shape,
             active:active
-        };
+        }       
         const query = connect.con.query ('INSERT INTO Suspect SET ?',post, function(err,post, fields){
             console.log(query.sql);
             if(!err){
@@ -113,8 +113,7 @@ function postSuspect (req,res){
                     res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
                 }
             });
-        }  else
-            res.status(jsonMessages.db.requiredData.status).send(jsonMessages.db.requiredData.msg);
+        
         }
     }
 
