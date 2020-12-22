@@ -50,7 +50,7 @@ const query =connect.con.query ('SELECT * FROM Suspect WHERE ? AND active = 1 or
 // funcao para inserir um determinado suspeito na base de dados post atualizar dados na BD nome da tabela postSuspect
 
 function postSuspect (req,res){
-    req.sanitize('id_suspect').escape();
+    //req.sanitize('id_suspect').escape();
     req.sanitize('name').escape();
     req.sanitize('naturality').escape();
     req.sanitize("phone_number").escape();
@@ -69,7 +69,7 @@ function postSuspect (req,res){
        return;
    }
    else{
-    const idSuspect= req.body.id_suspect;
+    //const idSuspect= req.body.id_suspect;
     const name = req.body.name;
     const naturality = req.body.naturality;
     const phone_number = req.body.phone_number;
@@ -83,9 +83,9 @@ function postSuspect (req,res){
     const body_shape = req.body.body_shape;
     const active = 1;
     
-    if (idSuspect !='NULL' && typeof(idSuspect) != 'undefined') {
+    if (genre !='NULL' && typeof(genre) != 'undefined') {
         const post = {
-            id_suspect:idSuspect,
+            //id_suspect:idSuspect,
             name : name,
             naturality : naturality,
             phone_number: phone_number,

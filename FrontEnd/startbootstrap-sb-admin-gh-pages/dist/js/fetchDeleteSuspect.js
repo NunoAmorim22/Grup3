@@ -3,7 +3,7 @@ function DeleteSuspect() {
     data.id_suspect= document.getElementById("idSuspeito").value;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:8080/Suspect/${data.id_suspect}`, {
+    fetch(`http://localhost:3000/Suspects/${data.id_suspect}`, {
     headers: {'Content-Type': 'application/json'},
     method: 'DELETE',
     body: JSON.stringify(data)
