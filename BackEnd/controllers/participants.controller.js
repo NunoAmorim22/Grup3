@@ -183,7 +183,7 @@ function getParticipants(req,res) {
             return;
         }
         else{
-            const idParticipant = req.body.id_participant;
+            const idParticipant = req.params.id;
             const name = req.body.name;
             const address = req.body.address;
             const genre = req.body.genre;

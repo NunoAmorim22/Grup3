@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const participantController = require("../controllers/participant.controller");
+const participantController = require("../controllers/participants.controller");
 
 router.get('/', function(req, res) {
 
