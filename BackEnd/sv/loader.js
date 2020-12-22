@@ -66,4 +66,7 @@ app.use("/suspects", suspectRouter);
 
 //app.use('/users', auth);
 
+const participantsRouter = require("../routes/participants.route");
+app.use ("/participants",participantsRouter);
+
 module.exports = app;
