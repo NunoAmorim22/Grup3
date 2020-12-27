@@ -7,12 +7,16 @@ router.get('/', function(req, res) {
     res.end();
 });
 
-router.get('/all', participationsController.);
-router.get('/:id', participantController.getParticipantsId);
+router.get('/all', participationsController.getALL);
+router.get('/allsuspects', participationsController.getALLSuspects);
+router.get("/allparticipants",participationsController.getALLParticipants);
+router.get("/suspectsoccurrences/:id",participationsController.getSuspectOccurrencebyID);
+router.get("/participantsocurrences/:id",participationsController.getParticipantOccurrencebyID);
+/*
 router.post('/postParticipants',participantController.postParticipants);
 router.put("/del/:id",participantController.deleteParticipantsL);
 router.delete("/:id",participantController.deleteParticipantsF);
-router.put("/:id",participantController.updatePartcipants);
+router.put("/:id",participantController.updatePartcipants);*/
 
 //No final do DOC
 module.exports = router ;

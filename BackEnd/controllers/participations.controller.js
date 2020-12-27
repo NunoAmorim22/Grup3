@@ -115,3 +115,10 @@ function getParticipantOccurrencebyID(req,res){
 }
 
 //EXPORTAR AS FUNÇÕES
+module.exports={
+    getALL:getALL,
+    getALLSuspects: getALLSuspects,
+    getALLParticipants: getALLParticipants,
+    getSuspectOccurrencebyID:getSuspectOccurrencebyID,
+    getParticipantOccurrencebyID:getParticipantOccurrencebyID,
+};
