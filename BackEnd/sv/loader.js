@@ -69,4 +69,7 @@ app.use("/suspects", suspectRouter);
 const participantsRouter = require("../routes/participants.route");
 app.use ("/participants",participantsRouter);
 
+const participationsRouter = require("../routes/participations.route");
+app.use("/participations",participationsRouter);
+
 module.exports = app;
