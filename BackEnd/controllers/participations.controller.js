@@ -46,7 +46,7 @@ function getALLSuspects(req,res) {
 
 //Saber tudo dos participantes das ocorrencias
 function getALLParticipants(req,res) {
-    const query = connect.con.query("SELECT o.id_occurrence, p.* FROM Occurrence o , Participant p WHERE o.id_occurrence  IN (SELECT id_occurrence  FROM Participation) AND id_paricipant IN (SELECT id_participant FROM Participation) AND p.active=1 ORDER BY o.id_occurrence", function(err, rows, fields){
+    const query = connect.con.query("SELECT o.id_occurrence, p.* FROM Occurrence o , Participant p WHERE o.id_occurrence  IN (SELECT id_occurrence  FROM Participation) AND id_participant IN (SELECT id_participant FROM Participation) AND p.active=1 ORDER BY o.id_occurrence", function(err, rows, fields){
         console.log(query.sql);
         
         if(err) {
@@ -71,7 +71,7 @@ function getSuspectOccurrencebyID(req,res){
     const idOccurrence = req.body.id_occurrence;
     const post = {id_suspect:idSuspect,
                   id_occurrence:idOccurrence};
-    const query =connect.con.query ("SELECT o.id_occurrence, s.* FROM Occurrence o, Suspect s WHERE o.id_occurrence  IN (SELECT id_occurrence  FROM Participation) AND s.id_suspect IN (SELECT id_suspect FROM Participation) AND s.active=1 ORDER BY o.id_occurrence", post, function(err, rows, fields){
+    const query =connect.con.query ("SELECT o.id_occurrence, s.* FROM Occurrence o, Suspect s WHERE o.id_occurrence=?  IN (SELECT id_occurrence  FROM Participation) AND s.id_suspect=? IN (SELECT id_suspect FROM Participation) AND s.active=1 ORDER BY o.id_occurrence", post, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
