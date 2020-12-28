@@ -18,20 +18,71 @@ function refreshSuspect() {
     const users = await response.json();
 
     id_suspect.setAttribute("value", users[0].id_suspect);
-    name.setAttribute("value", users[0].name);
-    naturality.setAttribute("value", users[0].naturality);
-    genre.setAttribute("value", users[0].genre);
-    cc_number.setAttribute("value", users[0].cc_number);
-    job.setAttribute("value", users[0].job);
-    skin_color.setAttribute("value", users[0].skin_color);
-    eyes_color.setAttribute("value", users[0].eyes_color);
-    hair_color.setAttribute("value", users[0].hair_color);
-    height.setAttribute("value", users[0].height);
-    body_shape.setAttribute("value", users[0].body_shape);
+    if (users.name == null) {
+      name.setAttribute("value", "");
+    }
+    else {
+      name.setAttribute("value", users[0].name);
+    }
+    if (users.naturality == null) {
+      naturality.setAttribute("value", "");
+    }
+    else {
+      naturality.setAttribute("value", users[0].naturality);
+    }
+    if (users.genre == null) {
+      genre.setAttribute("value", "");
+    }
+    else {
+      genre.setAttribute("value", users[0].genre);
+    }
+    if (users.cc_number == null) {
+      cc_number.setAttribute("value", "");
+    }
+    else {
+      cc_number.setAttribute("value", users[0].cc_number);
+    }
+    if (users.job == null) {
+      job.setAttribute("value", "");
+    }
+    else {
+      job.setAttribute("value", users[0].job);
+    }
+    if (users.skin_color == null) {
+      skin_color.setAttribute("value", "");
+    }
+    else {
+      skin_color.setAttribute("value", users[0].skin_color);
+    }
+    if (users.eyes_color == null) {
+      eyes_color.setAttribute("value", "");
+    }
+    else {
+      eyes_color.setAttribute("value", users[0].eyes_color);
+    }
+    if (users.hair_color == null) {
+      hair_color.setAttribute("value", "");
+    }
+    else {
+      hair_color.setAttribute("value", users[0].hair_color);
+    }
+    if (users.height == null) {
+      height.setAttribute("value", "");
+    }
+    else {
+      height.setAttribute("value", users[0].height);
+    }
+    if (users.body_shape == null) {
+      body_shape.setAttribute("value", "");
+    }
+    else {
+      body_shape.setAttribute("value", users[0].body_shape);
+    }
+
 
     console.log(users[0].id_suspect);
     console.log(users[0].name);
-    
+
   }
   //chama a função fetchAsync()
   fetchAsync()
