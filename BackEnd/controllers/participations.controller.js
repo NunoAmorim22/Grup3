@@ -69,8 +69,9 @@ function getALLParticipants(req,res) {
 function getSuspectOccurrencebyID(req,res){
     const idSuspect= req.params.id;
     const idOccurrence = req.params.id;
-    const update = [idOccurrence,idOccurrence,idOccurrence,idSuspect,idSuspect,idSuspect,idOccurrence];
-    const query =connect.con.query ("SELECT o.id_occurrence, s.*FROM Occurrence o, Suspect s, Participation p WHERE s.id_suspect =p.id_suspect AND s.id_suspect=3 AND o.id_occurrence =p.id_occurrence AND o.id_occurrence=1 AND active=1", update, function(err, rows, fields){
+    const post ={ id_suspect : idSuspect,
+                  id_occurrence : idOccurrence };
+    const query =connect.con.query ("SELECT o.id_occurrence, s.* FROM Occurrence o, Suspect s, Participation p WHERE s.id_suspect =p.id_suspect AND s.id_suspect=? AND o.id_occurrence = p.id_occurrence AND o.id_occurrence=? AND active=1", post, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
@@ -90,11 +91,13 @@ function getSuspectOccurrencebyID(req,res){
 }
 //Saber tudo de um participante numa determinada ocorrencia
 function getParticipantOccurrencebyID(req,res){
-    const idParticipant= req.params.id_par;
-    const idOccurrence = req.params.id_occu;
+    const idParticipant= req.params.id;
+    const idOccurrence = req.params.id;
+    const typep = req.params.id; 
     const post = {id_participant:idParticipant,
-                  id_occurrence:idOccurrence};
-    const query =connect.con.query ("SELECT o.id_occurrence, p.* FROM Occurrence o, Participant p WHERE o.id_occurrence  IN (SELECT id_occurrence  FROM Participation) AND p.id_participant IN (SELECT id_participant FROM Participation) AND p.active=1 ORDER BY o.id_occurrence", post, function(err, rows, fields){
+                  id_occurrence:idOccurrence,
+                  participant_type : typep};                             
+    const query =connect.con.query ("SELECT o.id_occurrence, pa.* FROM Occurrence o, Participant pa, Participation pe WHERE pa.id_participant =pe.id_participant AND pa.id_participant=? AND pa.participant_type=? AND o.id_occurrence =pe.id_occurrence AND o.id_occurrence=? AND active=1", post, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
