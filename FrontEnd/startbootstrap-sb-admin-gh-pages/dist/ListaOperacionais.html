@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <title>Confirmar Chegada</title>
+  <title>Lista Operacionais</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="assets/img/favicon-32x32.png" />
   <link href="css/styles.css" rel="stylesheet" />
@@ -16,27 +16,25 @@
 </head>
 
 <body>
-  <!--Nave-->
+  <!--nave-->
   <div class="nave">
     <nav class="fixed-nav-bar sb-topnav navbar navbar-expand navbar-dark bg-dark sticky-top">
-      <a class="navbar-brand" href=""><i class="fas fa-street-view"></i> Confirmação de Chegada</a>
+      <a class="navbar-brand" href="">
+        <i class="fas fa-user"></i> Lista de Operacionais</a>
     </nav>
   </div>
-  <!--Div com informação-->
-  <div class="container">
-    <div>
-      <label>Localização:</label><label></label>
-    </div>
-    <div class="container-fluid" id="googleMap">
-      <div class="row">
-        <button onclick="myMap()" class="btn btn-primary btn-width" id="googleMap">Abrir mapa</button>
-      </div>
-    </div>
-    <br>
-    <div align=center>
-      <button class="btn btn-primary btn-xl btn-width" onclick="arrivalConfirmation()" id="" type=""> Confirmar Chegada</button>
+  <!--div com info-->
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status" id="loading">
+      <span class="sr-only">Loading...</span>
     </div>
   </div>
+  <div class="pre-scrollable" >
+    <div class="container">
+      <table id="lista-operacionais" class="table"></table>
+    </div>
+  </div>
+
   <!--footer-->
   <div class="footer">
     <footer class="py-4 bg-light mt-auto ">
@@ -45,20 +43,20 @@
           <div>
             <div class="row">
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="MenuOcorrencia.html"><i
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="MenuPrincipal.html"><i
                     class="fas fa-arrow-left buttons-footer"></i></a>
               </div>
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="MenuPrincipal.html"><i
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" onclick="cantGo()"><i
                     class="fas fa-home buttons-footer"></i></a>
               </div>
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="Perfil.html"><i
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" onclick="cantGo()"><i
                     class="fas fa-user buttons-footer"></i></a>
               </div>
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="ConfirmacaoPresenca.html"><i
-                    class="far fa-calendar-check buttons-footer"></i></i></a>
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" onclick="cantGo()"><i
+                    class="far fa-calendar-check buttons-footer"></i></a>
               </div>
             </div>
           </div>
@@ -67,6 +65,9 @@
     </footer>
   </div>
   <script src="js/scripts.js"></script>
+  <script src="js/.js"></script>
+
 </body>
+
 
 </html>
