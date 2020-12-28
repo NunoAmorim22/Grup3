@@ -15,7 +15,9 @@ router.get("/participantsocurrences/occurrences/:id_occu/participants/:id_part/t
 router.post("/postsuspects/:id", participationsController.updateSuspect);
 router.post("/postvictims/:id", participationsController.updateVictim);
 router.post("/postwits/:id", participationsController.updateWit);
-router.delete("/delete")
+router.delete("/deletewits/:id",participationsController.deleteTestemunhaF);
+router.delete("/deleteVictims/:id",participationsController.deleteVitimaF);
+router.delete("/deletesuspects/:id",participationsController.deleteSuspectF);
 /*
 router.post('/postParticipants',participantController.postParticipants);
 router.put("/del/:id",participantController.deleteParticipantsL);
