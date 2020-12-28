@@ -68,10 +68,9 @@ function getALLParticipants(req,res) {
 //Saber tudo de um suspeito numa determinada ocorrencia
 function getSuspectOccurrencebyID(req,res){
     const idSuspect= req.params.id;
-    const idOccurrence = req.body.id_occurrence;
-    const post = {id_suspect:idSuspect,
-                  id_occurrence:idOccurrence};
-    const query =connect.con.query ("SELECT o.id_occurrence, s.* FROM Occurrence o, Suspect s WHERE o.id_occurrence=?  IN (SELECT id_occurrence  FROM Participation) AND s.id_suspect=? IN (SELECT id_suspect FROM Participation) AND s.active=1 ORDER BY o.id_occurrence", post, function(err, rows, fields){
+    const idOccurrence = req.params.id;
+    const update = [idOccurrence,idOccurrence,idOccurrence,idSuspect,idSuspect,idSuspect,idOccurrence];
+    const query =connect.con.query ("SELECT o.id_occurrence, s.* FROM Occurrence o, Suspect s WHERE o.id_occurrence IN (SELECT id_occurrence  FROM Participation) AND s.id_suspect IN (SELECT id_suspect FROM Participation) AND s.active=1 AND id_suspect=? AND id_occurrence=? ORDER BY o.id_occurrence", update, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
@@ -91,8 +90,8 @@ function getSuspectOccurrencebyID(req,res){
 }
 //Saber tudo de um participante numa determinada ocorrencia
 function getParticipantOccurrencebyID(req,res){
-    const idParticipant= req.params.id;
-    const idOccurrence = req.body.id_occurrence;
+    const idParticipant= req.params.id_par;
+    const idOccurrence = req.params.id_occu;
     const post = {id_participant:idParticipant,
                   id_occurrence:idOccurrence};
     const query =connect.con.query ("SELECT o.id_occurrence, p.* FROM Occurrence o, Participant p WHERE o.id_occurrence  IN (SELECT id_occurrence  FROM Participation) AND p.id_participant IN (SELECT id_participant FROM Participation) AND p.active=1 ORDER BY o.id_occurrence", post, function(err, rows, fields){

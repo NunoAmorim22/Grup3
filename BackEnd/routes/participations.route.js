@@ -10,8 +10,8 @@ router.get('/', function(req, res) {
 router.get('/all', participationsController.getALL);
 router.get('/allsuspects', participationsController.getALLSuspects);
 router.get("/allparticipants",participationsController.getALLParticipants);
-router.get("/suspectsoccurrences/:id",participationsController.getSuspectOccurrencebyID);
-router.get("/participantsocurrences/:id",participationsController.getParticipantOccurrencebyID);
+router.get("/suspectsoccurrences/occurrences/:id/suspects/:id",participationsController.getSuspectOccurrencebyID);
+router.get("/participantsocurrences/:id_occu/:id_par",participationsController.getParticipantOccurrencebyID);
 /*
 router.post('/postParticipants',participantController.postParticipants);
 router.put("/del/:id",participantController.deleteParticipantsL);
