@@ -29,7 +29,7 @@ function show(data) {
   // Loop to access all rows
   for (let r of data) {
     if(r.active === 1){
-    tab += `<tr><td>${r.name} </td> <td>${r.id_witness}</td><td><a class="btn" onclick = "transportidTestemunha(${r.id_witness})"><i class="fas fa-folder-plus"></i></a></td></tr>`;
+    tab += `<tr><td>${r.name} </td> <td>${r.id_participant}</td><td><a class="btn" onclick = "transportidTestemunha(${r.id_participant})"><i class="fas fa-folder-plus"></i></a></td></tr>`;
     }
   }
   // Setting innerHTML as tab variable
