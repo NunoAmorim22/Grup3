@@ -24,17 +24,21 @@ function getALL(req,res) {
     }
 
 //Saber tudo dos suspeitos e das ocorrencias
-function getALLSuspects(req,res) {
-    const query = connect.con.query("SELECT o.id_occurrence, s.* FROM Occurrence o, Suspect s , Participant p WHERE o.id_occurrence  IN (SELECT id_occurrence  FROM Participation) AND s.id_suspect IN (SELECT id_suspect FROM Participation) AND s.active=1 ORDER BY o.id_occurrence", function(err, rows, fields){
+function getALLSuspects(req,res){
+    const idOccurrence = req.params.id;
+    
+    
+        update =[idOccurrence];
+    const query =connect.con.query ("SELECT o.id_occurrence, s.* FROM Occurrence o, Suspect s, Participation p WHERE s.id_suspect =p.id_suspect AND o.id_occurrence =p.id_occurrence AND o.id_occurrence=? AND active=1", update, function(err, rows, fields){
         console.log(query.sql);
-        
+    
         if(err) {
             console.log(err);
             res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
                 }
                 else{
                     if(rows.length==0) {
-                        res.status(jsonMessages.db.noRecords.status).send (jsonMessages.db.noRecords);
+                        res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
                     }
                     else{
                         res.send(rows);
@@ -42,20 +46,24 @@ function getALLSuspects(req,res) {
                 }
     
     });
-    }
+}
 
 //Saber tudo dos participantes das ocorrencias
-function getALLParticipants(req,res) {
-    const query = connect.con.query("SELECT o.id_occurrence, p.* FROM Occurrence o , Participant p WHERE o.id_occurrence  IN (SELECT id_occurrence  FROM Participation) AND id_participant IN (SELECT id_participant FROM Participation) AND p.active=1 ORDER BY o.id_occurrence", function(err, rows, fields){
+function getALLParticipants(req,res){
+    const idOccurrence = req.params.id_occu;
+    const typep=req.params.type;
+    
+        update =[typep,idOccurrence];
+    const query =connect.con.query ("SELECT o.id_occurrence, pa.* FROM Occurrence o, Participant pa, Participation pe WHERE pa.id_participant =pe.id_participant AND pa.participant_type=? AND o.id_occurrence =pe.id_occurrence AND o.id_occurrence=? AND active=1", update, function(err, rows, fields){
         console.log(query.sql);
-        
+    
         if(err) {
             console.log(err);
             res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
                 }
                 else{
                     if(rows.length==0) {
-                        res.status(jsonMessages.db.noRecords.status).send (jsonMessages.db.noRecords);
+                        res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
                     }
                     else{
                         res.send(rows);
@@ -63,7 +71,7 @@ function getALLParticipants(req,res) {
                 }
     
     });
-    }
+}
 
 //Saber tudo de um suspeito numa determinada ocorrencia
 function getSuspectOccurrencebyID(req,res){
@@ -116,6 +124,11 @@ function getParticipantOccurrencebyID(req,res){
     });
 }
 
+//inserir um suspeito numa ocorrencia
+//inserir participante numa occorencia
+
+
+//fazer update do suspeito
 //EXPORTAR AS FUNÇÕES
 module.exports={
     getALL:getALL,

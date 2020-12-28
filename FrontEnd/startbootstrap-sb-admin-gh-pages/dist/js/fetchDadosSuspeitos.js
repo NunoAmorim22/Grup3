@@ -18,61 +18,63 @@ function refreshSuspect() {
     const users = await response.json();
 
     id_suspect.setAttribute("value", users[0].id_suspect);
-    if (users.name == null) {
+
+
+    if (users[0].name == "null") {
       name.setAttribute("value", "");
     }
     else {
       name.setAttribute("value", users[0].name);
     }
-    if (users.naturality == null) {
+    if (users[0].naturality == "null") {
       naturality.setAttribute("value", "");
     }
     else {
       naturality.setAttribute("value", users[0].naturality);
     }
-    if (users.genre == null) {
+    if (users[0].genre == "null") {
       genre.setAttribute("value", "");
     }
     else {
       genre.setAttribute("value", users[0].genre);
     }
-    if (users.cc_number == null) {
+    if (users[0].cc_number == "null") {
       cc_number.setAttribute("value", "");
     }
     else {
       cc_number.setAttribute("value", users[0].cc_number);
     }
-    if (users.job == null) {
+    if (users[0].job == "null") {
       job.setAttribute("value", "");
     }
     else {
       job.setAttribute("value", users[0].job);
     }
-    if (users.skin_color == null) {
+    if (users[0].skin_color == "null") {
       skin_color.setAttribute("value", "");
     }
     else {
       skin_color.setAttribute("value", users[0].skin_color);
     }
-    if (users.eyes_color == null) {
+    if (users[0].eyes_color == "null") {
       eyes_color.setAttribute("value", "");
     }
     else {
       eyes_color.setAttribute("value", users[0].eyes_color);
     }
-    if (users.hair_color == null) {
+    if (users[0].hair_color == "null") {
       hair_color.setAttribute("value", "");
     }
     else {
       hair_color.setAttribute("value", users[0].hair_color);
     }
-    if (users.height == null) {
+    if (users[0].height == "null") {
       height.setAttribute("value", "");
     }
     else {
       height.setAttribute("value", users[0].height);
     }
-    if (users.body_shape == null) {
+    if (users[0].body_shape == "null") {
       body_shape.setAttribute("value", "");
     }
     else {
