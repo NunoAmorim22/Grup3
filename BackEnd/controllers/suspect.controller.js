@@ -24,6 +24,7 @@ const query = connect.con.query ('SELECT * FROM Suspect order by id_suspect', fu
 
 });
 }
+
 //pag 271 fazer uma funcao para ler dados especificos dos suspeitos getSuspectId
 function getSuspectId (req,res) {
 const idSuspect = req.params.id;
