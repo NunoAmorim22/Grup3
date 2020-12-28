@@ -19,6 +19,15 @@ function refreshSuspect() {
 
     id_suspect.setAttribute("value", users[0].id_suspect);
     name.setAttribute("value", users[0].name);
+    naturality.setAttribute("value", users[0].naturality);
+    genre.setAttribute("value", users[0].genre);
+    cc_number.setAttribute("value", users[0].cc_number);
+    job.setAttribute("value", users[0].job);
+    skin_color.setAttribute("value", users[0].skin_color);
+    eyes_color.setAttribute("value", users[0].eyes_color);
+    hair_color.setAttribute("value", users[0].hair_color);
+    height.setAttribute("value", users[0].height);
+    body_shape.setAttribute("value", users[0].body_shape);
 
     console.log(users[0].id_suspect);
     console.log(users[0].name);
