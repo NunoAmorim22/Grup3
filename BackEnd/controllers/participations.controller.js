@@ -67,11 +67,12 @@ function getALLParticipants(req,res) {
 
 //Saber tudo de um suspeito numa determinada ocorrencia
 function getSuspectOccurrencebyID(req,res){
-    const idSuspect= req.params.id;
-    const idOccurrence = req.params.id;
-    const post ={ id_suspect : idSuspect,
-                  id_occurrence : idOccurrence };
-    const query =connect.con.query ("SELECT o.id_occurrence, s.* FROM Occurrence o, Suspect s, Participation p WHERE s.id_suspect =p.id_suspect AND s.id_suspect=? AND o.id_occurrence =p.id_occurrence AND o.id_occurrence= ? AND active=1", post, function(err, rows, fields){
+    const idOccurrence = req.params.id_occu;
+    const idSuspect= req.params.id_susp;
+    
+    const post ={ id_suspect : idSuspect, 
+        id_occurrence : idOccurrence};
+    const query =connect.con.query ("SELECT o.id_occurrence, s.* FROM Occurrence o, Suspect s, Participation p WHERE s.id_suspect =p.id_suspect AND s.id_suspect=?  AND o.id_occurrence =p.id_occurrence AND o.id_occurrence= ? AND active=1", post, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {

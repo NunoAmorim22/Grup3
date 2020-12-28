@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
 router.get('/all', participationsController.getALL);
 router.get('/allsuspects', participationsController.getALLSuspects);
 router.get("/allparticipants",participationsController.getALLParticipants);
-router.get("/suspectsoccurrences/occurrences/:id/suspects/:id",participationsController.getSuspectOccurrencebyID);
+router.get("/suspectsoccurrences/occurrences/:id_occu/suspects/:id_susp",participationsController.getSuspectOccurrencebyID);
 router.get("/participantsocurrences/occurrences/:id/participants/:id/type/:id",participationsController.getParticipantOccurrencebyID);
 /*
 router.post('/postParticipants',participantController.postParticipants);
