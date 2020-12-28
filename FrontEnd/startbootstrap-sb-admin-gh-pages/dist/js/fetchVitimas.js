@@ -1,5 +1,5 @@
 //------------------------Funçao para fazer get dos suspeitos e colocar numa tabela-------------------------//
-const api_url = "";
+const api_url = "http://localhost:3000/participations/allparticipants/occurrence/1/type/Vitima";
 
 // Defining async function
 async function getapi(url) {
@@ -24,14 +24,14 @@ function hideloader() {
 
 // Function to define innerHTML for HTML table
 function show(data) {
-  let tab = `<tr><th>Nome</th> <th>Id Suspeito</th></tr>`;
+  let tab = `<tr><th>Nome</th> <th>Id Vítima</th></tr>`;
 
   // Loop to access all rows
   for (let r of data) {
     if(r.active === 1){
-    tab += `<tr><td>${r.name} </td> <td>${r.id_suspect}</td><td><a class="btn" onclick = "transportid(${r.id_suspect})"><i class="fas fa-folder-plus"></i></a></td></tr>`;
+    tab += `<tr><td>${r.name} </td> <td>${r.id_participant}</td><td><a class="btn" onclick = "transportidVitima(${r.id_participant})"><i class="fas fa-folder-plus"></i></a></td></tr>`;
     }
   }
   // Setting innerHTML as tab variable
-  document.getElementById("lista-suspeitos").innerHTML = tab;
+  document.getElementById("lista-Vitimas").innerHTML = tab;
 }
