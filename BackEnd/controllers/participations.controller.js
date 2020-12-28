@@ -329,22 +329,49 @@ function updateVictim(req,res){
     }
 }
 //eliminar fisico de testemunha 
-
+function deleteTestemunhaF (req , res) {
+    const idParticipant =req.params.id;
+    const update = [idParticipant,"Testemunha"];
+    const query = connect.con.query("DELETE FROM Participant WHERE id_participant=? AND participant_type=?", update , function (err, rows, fields){
+        console.log(query.sql);
+        if (!err){
+            res.status(jsonMessages.db.successDeleteU.status).send (jsonMessages.db.successDeleteU);
+                }
+                else{
+                    console.log(err);
+                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+    });
+}
 //eliminar fisico de vitima
-
+function deleteVitimaF (req , res) {
+    const idParticipant =req.params.id;
+    const update = [idParticipant,"Vitima"];
+    const query = connect.con.query("DELETE FROM Participant WHERE id_participant=? AND participant_type=?", update , function (err, rows, fields){
+        console.log(query.sql);
+        if (!err){
+            res.status(jsonMessages.db.successDeleteU.status).send (jsonMessages.db.successDeleteU);
+                }
+                else{
+                    console.log(err);
+                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+    });
+}
 //eliminar fisico de suspeito
-
-
-
-//-------------------------------------
-//eliminar logico de suspeito
-//se necc
-//eliminar logico de vitima
-//se necc
-//eliminar logico de testemunha
-//se necc
-
-
+function deleteSuspectF (req , res) {
+    const update =req.params.id;
+    const query = connect.con.query("DELETE FROM Suspect WHERE id_suspect = ?", update , function (err, rows, fields){
+        console.log(query.sql);
+        if (!err){
+            res.status(jsonMessages.db.successDeleteU.status).send (jsonMessages.db.successDeleteU);
+                }
+                else{
+                    console.log(err);
+                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+    });
+}
 
 
 //EXPORTAR AS FUNÇÕES
@@ -356,6 +383,8 @@ module.exports={
     getParticipantOccurrencebyID:getParticipantOccurrencebyID,
     updateSuspect:updateSuspect,
     updateVictim:updateVictim,
-    updateWit:updateWit
-    
+    updateWit:updateWit,
+    deleteTestemunhaF:deleteTestemunhaF,
+    deleteVitimaF:deleteVitimaF,
+    deleteSuspectF:deleteSuspectF    
 };
