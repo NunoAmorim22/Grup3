@@ -93,13 +93,11 @@ function getSuspectOccurrencebyID(req,res){
 }
 //Saber tudo de um participante numa determinada ocorrencia
 function getParticipantOccurrencebyID(req,res){
-    const idParticipant= req.params.id;
-    const idOccurrence = req.params.id;
-    const typep = req.params.id; 
-    const post = {id_participant:idParticipant,
-                  id_occurrence:idOccurrence,
-                  participant_type : typep};                             
-    const query =connect.con.query ("SELECT o.id_occurrence, pa.* FROM Occurrence o, Participant pa, Participation pe WHERE pa.id_participant =pe.id_participant AND pa.id_participant=? AND pa.participant_type=? AND o.id_occurrence =pe.id_occurrence AND o.id_occurrence=? AND active=1", post, function(err, rows, fields){
+    const idParticipant= req.params.id_part;
+    const idOccurrence = req.params.id_occu;
+    const typep = req.params.type; 
+   update=[idParticipant,typep,idOccurrence];                          
+    const query =connect.con.query ("SELECT o.id_occurrence, pa.* FROM Occurrence o, Participant pa, Participation pe WHERE pa.id_participant =pe.id_participant AND pa.id_participant=? AND pa.participant_type=? AND o.id_occurrence =pe.id_occurrence AND o.id_occurrence=? AND active=1", update, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
