@@ -33,5 +33,5 @@ function show(data) {
     }
   }
   // Setting innerHTML as tab variable
-  document.getElementById("lista-Vitimas").innerHTML = tab;
+  document.getElementById("lista-vitimas").innerHTML = tab;
 }
