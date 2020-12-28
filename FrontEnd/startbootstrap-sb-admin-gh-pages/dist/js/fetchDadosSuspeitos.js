@@ -1,9 +1,10 @@
 function refreshSuspect() {
   async function fetchAsync() {
     let id_suspect = document.getElementById("idSuspeito");
+    let id = localStorage.getItem("id_suspect");
     let name = document.getElementById("nomeSuspeito");
     const renderUsers = document.getElementById("result");
-    const response = await fetch("http://localhost:3000/Suspects/1");
+    const response = await fetch(`http://localhost:3000/Suspects/${id}`);
     const users = await response.json();
 
     id_suspect.setAttribute("value", users[0].id_suspect);

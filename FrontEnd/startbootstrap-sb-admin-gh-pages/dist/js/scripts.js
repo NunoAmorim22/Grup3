@@ -481,3 +481,8 @@ function erraseVictim() {
     document.location.href = "";
   }
 }
+
+function transportid(idtotransport){
+  localStorage.setItem("id_suspect", idtotransport); 
+  document.location.href = "./DadosSuspeitos.html";
+}
