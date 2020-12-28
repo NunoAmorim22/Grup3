@@ -23,42 +23,15 @@
     </nav>
   </div>
   <!--div com info-->
+  <div class="d-flex justify-content-center">
+    <div class="spinner-border" role="status" id="loading">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
   <div class="pre-scrollable">
     <div class="container">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">ID Ocorrência</th>
-            <th scope="col"> Nome</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>1234</td>
-            <td>Marco Castro</td>
-
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>4321</td>
-            <td>Maria Rodrigues</td>
-
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>4567</td>
-            <td>José Faria</td>
-
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>6789</td>
-            <td>Marco Castro</td>
-
-          </tr>
-        </tbody>
+      <table class="table" id="lista-testemunhas">
+        
       </table>
     </div>
   </div>
@@ -70,19 +43,19 @@
           <div>
             <div class="row">
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href=""><i
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="DadosOcorrencia.html"><i
                     class="fas fa-arrow-left buttons-footer"></i></a>
               </div>
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="MenuPrincipal.html"><i
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" onclick="cantGo()"><i
                     class="fas fa-home buttons-footer"></i></a>
               </div>
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="Perfil.html"><i
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" onclick="cantGo()"><i
                     class="fas fa-user buttons-footer"></i></a>
               </div>
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="ConfirmacaoPresenca.html"><i
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" onclick="cantGo()"><i
                     class="far fa-calendar-check buttons-footer"></i></i></a>
               </div>
             </div>
@@ -91,4 +64,7 @@
       </div>
     </footer>
   </div>
+  <script src="js/scripts.js"></script>
+  <script src="js/fetchTestemunhas.js"></script>
 </body>
+</html>
