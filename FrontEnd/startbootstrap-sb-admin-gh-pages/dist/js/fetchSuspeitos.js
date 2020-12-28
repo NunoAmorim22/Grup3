@@ -28,7 +28,9 @@ function show(data) {
 
   // Loop to access all rows
   for (let r of data) {
+    if(r.active === 1){
     tab += `<tr><td>${r.name} </td> <td>${r.id_suspect}</td><td><a class="btn" onclick = "transportid(${r.id_suspect})"><i class="fas fa-folder-plus"></i></a></td></tr>`;
+    }
   }
   // Setting innerHTML as tab variable
   document.getElementById("lista-suspeitos").innerHTML = tab;
