@@ -124,11 +124,31 @@ function getParticipantOccurrencebyID(req,res){
     });
 }
 
-//inserir um suspeito numa ocorrencia
-//inserir participante numa occorencia
-
-
 //fazer update do suspeito
+
+//fazer update de uma vitima
+
+//fazer update de uma testemunha
+
+//eliminar fisico de testemunha 
+
+//eliminar fisico de vitima
+
+//eliminar fisico de suspeito
+
+
+
+//-------------------------------------
+//eliminar logico de suspeito
+//se necc
+//eliminar logico de vitima
+//se necc
+//eliminar logico de testemunha
+//se necc
+
+
+
+
 //EXPORTAR AS FUNÇÕES
 module.exports={
     getALL:getALL,
