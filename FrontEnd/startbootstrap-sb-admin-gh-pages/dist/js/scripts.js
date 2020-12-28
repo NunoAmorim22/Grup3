@@ -491,3 +491,8 @@ function transportidTestemunha(idtotransport){
   localStorage.setItem("id_witness", idtotransport); 
   document.location.href = "./DadosTestemunha.html";
 }
+
+function transportidVitima(idtotransport){
+  localStorage.setItem("id_victim", idtotransport); 
+  document.location.href = "./DadosVitimas.html";
+}
