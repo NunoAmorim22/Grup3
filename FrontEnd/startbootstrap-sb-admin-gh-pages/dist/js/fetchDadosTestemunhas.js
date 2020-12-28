@@ -1,23 +1,23 @@
 function refreshWitness() {
     async function fetchAsync() {
-      let id_suspect = document.getElementById("idSuspeito");
-      let id = localStorage.getItem("id_suspect");
-      let name = document.getElementById("nomeSuspeito");
-      let naturality = document.getElementById("naturalidadeSuspeito");
-      let genre = document.getElementById("sexoSuspeito");
-      let cc_number = document.getElementById("ccSuspeito");
-      let job = document.getElementById("profissaoSuspeito");
-      let skin_color = document.getElementById("peleSuspeito");
-      let eyes_color = document.getElementById("olhosSuspeito");
-      let hair_color = document.getElementById("cabeloSuspeito");
-      let height = document.getElementById("alturaSuspeito");
-      let body_shape = document.getElementById("corpoSuspeito");
+      let id_participant = document.getElementById("idTestemunha");
+      let id = localStorage.getItem("id_witness");
+      let name = document.getElementById("nomeTestemunha");
+      let naturality = document.getElementById("naturalidadeTestemunha");
+      let genre = document.getElementById("sexoTestemunha");
+      let cc_number = document.getElementById("ccTestemunha");
+      let job = document.getElementById("profissaoTestemunha");
+      let birth_date = document.getElementById("dataTestemunha");
+      let address = document.getElementById("moradaTestemunha");
+      let phone_number = document.getElementById("contactoTestemunha");
+      let email = document.getElementById("emailTestemunha");
+      let city = document.getElementById("localidadeTestemunha");
   
       const renderUsers = document.getElementById("result");
-      const response = await fetch(`http://localhost:3000/Suspects/${id}`);
+      const response = await fetch(`http://localhost:3000/participations/participantsocurrences/occurrences/1/participants/${id}/type/Testemunha`);
       const users = await response.json();
   
-      id_suspect.setAttribute("value", users[0].id_suspect);
+      id_participant.setAttribute("value", users[0].id_participant);
   
   
       if (users[0].name == "null") {
@@ -50,35 +50,35 @@ function refreshWitness() {
       else {
         job.setAttribute("value", users[0].job);
       }
-      if (users[0].skin_color == "null") {
-        skin_color.setAttribute("value", "");
+      if (users[0].birth_date == "null") {
+        birth_date.setAttribute("value", "");
       }
       else {
-        skin_color.setAttribute("value", users[0].skin_color);
+        birth_date.setAttribute("value", users[0].birth_date);
       }
-      if (users[0].eyes_color == "null") {
-        eyes_color.setAttribute("value", "");
-      }
-      else {
-        eyes_color.setAttribute("value", users[0].eyes_color);
-      }
-      if (users[0].hair_color == "null") {
-        hair_color.setAttribute("value", "");
+      if (users[0].phone_number == "null") {
+        phone_number.setAttribute("value", "");
       }
       else {
-        hair_color.setAttribute("value", users[0].hair_color);
+        phone_number.setAttribute("value", users[0].phone_number);
       }
-      if (users[0].height == "null") {
-        height.setAttribute("value", "");
-      }
-      else {
-        height.setAttribute("value", users[0].height);
-      }
-      if (users[0].body_shape == "null") {
-        body_shape.setAttribute("value", "");
+      if (users[0].address == "null") {
+        address.setAttribute("value", "");
       }
       else {
-        body_shape.setAttribute("value", users[0].body_shape);
+        address.setAttribute("value", users[0].address);
+      }
+      if (users[0].email == "null") {
+        email.setAttribute("value", "");
+      }
+      else {
+        email.setAttribute("value", users[0].email);
+      }
+      if (users[0].city == "null") {
+        city.setAttribute("value", "");
+      }
+      else {
+        city.setAttribute("value", users[0].city);
       }
   
   
@@ -92,4 +92,4 @@ function refreshWitness() {
       .catch((reason) => console.log(reason.message));
   }
   
-  refreshSuspect();
+  refreshWitness();
