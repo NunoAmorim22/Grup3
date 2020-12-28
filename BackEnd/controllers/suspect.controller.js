@@ -2,8 +2,6 @@
 const connect = require('../config/connect.js');
 const jsonMessages = require("../assets/jsonMessages/bd");
 
-
-
 //funcao para ir buscar tudo de todos os suspeitos 
 function getSuspects(req,res) {
 const query = connect.con.query ('SELECT * FROM Suspect order by id_suspect', function(err, rows, fields){
