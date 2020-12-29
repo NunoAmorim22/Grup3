@@ -12,9 +12,9 @@ router.get('/allsuspects/occurrence/:id', participationsController.getALLSuspect
 router.get("/allparticipants/occurrence/:id_occu/type/:type",participationsController.getALLParticipants);
 router.get("/suspectsoccurrences/occurrences/:id_occu/suspects/:id_susp",participationsController.getSuspectOccurrencebyID);
 router.get("/participantsocurrences/occurrences/:id_occu/participants/:id_part/type/:type",participationsController.getParticipantOccurrencebyID);
-router.post("/postsuspects/:id", participationsController.updateSuspect);
-router.post("/postvictims/:id", participationsController.updateVictim);
-router.post("/postwits/:id", participationsController.updateWit);
+router.put("/suspects/:id", participationsController.updateSuspect);
+router.put("/victims/:id", participationsController.updateVictim);
+router.put("/wits/:id", participationsController.updateWit);
 router.delete("/deletewits/:id",participationsController.deleteTestemunhaF);
 router.delete("/deleteVictims/:id",participationsController.deleteVitimaF);
 router.delete("/deletesuspects/:id",participationsController.deleteSuspectF);
