@@ -1,5 +1,5 @@
 //------------------------Funçao para fazer get dos suspeitos e colocar numa tabela-------------------------//
-const api_url = "http://localhost:3000/suspects/all";
+const api_url = "http://localhost:3000/participations/allsuspects/occurrence/1";
 
 // Defining async function
 async function getapi(url) {

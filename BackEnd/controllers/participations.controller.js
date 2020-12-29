@@ -81,7 +81,7 @@ function getSuspectOccurrencebyID(req,res){
     //const post ={ id_suspect : idSuspect, 
        // id_occurrence : idOccurrence};
         update =[idSuspect,idOccurrence];
-    const query =connect.con.query ("SELECT o.id_occurrence, s.* FROM Occurrence o, Suspect s, Participation p WHERE s.id_suspect =p.id_suspect AND s.id_suspect=? AND o.id_occurrence =p.id_occurrence AND o.id_occurrence=? s.AND active=1", update, function(err, rows, fields){
+    const query =connect.con.query ("SELECT o.id_occurrence, s.* FROM Occurrence o, Suspect s, Participation p WHERE s.id_suspect =p.id_suspect AND s.id_suspect=? AND o.id_occurrence =p.id_occurrence AND o.id_occurrence=? AND s.active=1", update, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
