@@ -105,7 +105,7 @@ function getParticipantOccurrencebyID(req,res){
     const idOccurrence = req.params.id_occu;
     const typep = req.params.type; 
    update=[idParticipant,typep,idOccurrence];                          
-    const query =connect.con.query ("SELECT o.id_occurrence, pa.* FROM Occurrence o, Participant pa, Participation pe WHERE pa.id_participant =pe.id_participant AND pa.id_participant=? AND pa.participant_type=? AND o.id_occurrence =pe.id_occurrence AND o.id_occurrence=? AND p.active=1", update, function(err, rows, fields){
+    const query =connect.con.query ("SELECT o.id_occurrence, pa.* FROM Occurrence o, Participant pa, Participation pe WHERE pa.id_participant =pe.id_participant AND pa.id_participant=? AND pa.participant_type=? AND o.id_occurrence =pe.id_occurrence AND o.id_occurrence=? AND pa.active=1", update, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
