@@ -3,7 +3,7 @@ function EditSuspect() {
   data.id_suspect = document.getElementById("idSuspeito").value;
   data.name = document.getElementById("nomeSuspeito").value;
   data.naturality = document.getElementById("naturalidadeSuspeito").value;
-  data.genre = document.getElementById("sexoSuspeito");
+  data.genre = document.getElementById("sexoSuspeito").value;
   data.cc_number = document.getElementById("ccSuspeito").value;
   data.job = document.getElementById("profissaoSuspeito").value;
   data.skin_color = document.getElementById("peleSuspeito").value;
