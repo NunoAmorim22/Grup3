@@ -16,6 +16,7 @@ function DeleteSuspect() {
     Swal.fire("Suspeito Apagado");
    console.log("Success DELETE");
    console.log(response);
+   document.location.href = "./ListaSuspeitos.html";
     }
     }).then(function (result) {console.log(result);
     }).catch(function (err) {alert("Submission error"); console.error(err);
