@@ -446,16 +446,15 @@ function postSuspect(req,res){
         }   */ 
 
        
-        const query = connect.con.query ('INSERT INTO Suspect SET name=?,naturality=?,phone_number=? ,genre=? ,cc_number=? ,job=? ,skin_color=? ,eyes_color=? ,hair_color=? ,height=? ,body_shape=? ,active=?',update, function(err,post, fields){
+        const query = connect.con.query ('INSERT INTO Suspect SET name=?,naturality=?,phone_number=? ,genre=? ,cc_number=? ,job=? ,skin_color=? ,eyes_color=? ,hair_color=? ,height=? ,body_shape=? ,active=?',update, function(err,rows, fields){
             console.log(query.sql);
            
-           LastIDSuspect=[idOccurrence]; //usado na query 2
-           post=[];
-        
-          const query = connect.con.query ('INSERT INTO ParticipationS SET id_occurrence=?, id_suspect=LAST_INSERT_ID()',update, function(err,post, fields){
-            console.log(query.sql);
             if(!err){
+                post=[idOccurrence, res.location(rowns.insertId)];
                 res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
+                const query = connect.con.query ('INSERT INTO ParticipationS SET id_occurrence=?, id_suspect=LAST_INSERT_ID()',update, function(err,rows, fields){
+                    console.log(query.sql);
+                });
             }
             else{
                 console.log(err);
@@ -465,7 +464,6 @@ function postSuspect(req,res){
                 else
                     res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
                 }
-        });
     });
     }    
 }
