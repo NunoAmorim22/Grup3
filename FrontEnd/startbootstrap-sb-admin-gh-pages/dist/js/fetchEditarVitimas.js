@@ -24,9 +24,18 @@ function EditVictim() {
           console.log(response.statusText); //=> String
           console.log(response.headers); //=> Headers
         } else {
-          Swal.fire("Vitima Atualizada");
+         // Swal.fire("Vitima Atualizada");
           console.log("Success PUT");
           console.log(response);
+          swal.fire({
+            title: "Success!",
+            text: "Vitima Atualizada",
+            type: "success"
+          }).then(function () {
+            // Redirect the user
+            window.location.href = "./ListaVitimas.html";
+            console.log('The Ok Button was clicked.');
+          });
         }
       })
       .then(function (result) {

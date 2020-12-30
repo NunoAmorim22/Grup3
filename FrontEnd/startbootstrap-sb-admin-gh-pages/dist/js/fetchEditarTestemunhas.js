@@ -24,9 +24,18 @@ function EditWitness() {
           console.log(response.statusText); //=> String
           console.log(response.headers); //=> Headers
         } else {
-          Swal.fire("Testemunha atualizada Atualizada");
+          //Swal.fire("Testemunha atualizada Atualizada");
           console.log("Success PUT");
           console.log(response);
+          swal.fire({
+            title: "Success!",
+            text: "Testemunha Atualizada!",
+            type: "success"
+          }).then(function () {
+            // Redirect the user
+            window.location.href = "./ListaTestemunhas.html";
+            console.log('The Ok Button was clicked.');
+          });
         }
       })
       .then(function (result) {

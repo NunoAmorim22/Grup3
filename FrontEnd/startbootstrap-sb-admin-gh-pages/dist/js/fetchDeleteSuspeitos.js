@@ -13,10 +13,18 @@ function DeleteSuspect() {
     console.log(response.statusText); //=> String
     console.log(response.headers); //=> Headers
     } else {
-    Swal.fire("Suspeito Apagado").then(document.location.href = "./ListaSuspeitos.html");
+    //Swal.fire("Suspeito Apagado").then(document.location.href = "./ListaSuspeitos.html");
    console.log("Success DELETE");
    console.log(response);
-   //document.location.href = "./ListaSuspeitos.html";
+   swal.fire({
+    title: "Success!",
+    text: "Suspeito Apagado",
+    type: "success"
+}).then(function () {
+    // Redirect the user
+    window.location.href = "./ListaSuspeitos.html";
+    console.log('The Ok Button was clicked.');
+});
     }
     }).then(function (result) {console.log(result);
     }).catch(function (err) {alert("Submission error"); console.error(err);

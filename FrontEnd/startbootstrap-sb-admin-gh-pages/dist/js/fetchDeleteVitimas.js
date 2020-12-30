@@ -14,16 +14,15 @@ function DeleteVictim() {
             console.log(response.headers); //=> Headers
         } else {
             //Swal.fire("Vitima Apagada");
-            sweetAlert({
-                title: 'Warning!',
-                text: 'Vitima apagada!',
-                type: 'warning'
-            }, function (isConfirm) {
-                alert('ok');
-            });
-            $('.swal2-confirm').click(function () {
-                window.location.href = './ListaVitimas.html';
-            });
+            swal.fire({
+                title: "Success!",
+                text: "Vitima Apagada",
+                type: "success"
+              }).then(function () {
+                // Redirect the user
+                window.location.href = "./ListaVitimas.html";
+                console.log('The Ok Button was clicked.');
+              });
             console.log("Success DELETE");
             console.log(response);
             //document.location.href="./ListaVitimas.html";
