@@ -554,6 +554,89 @@ function Insertparticipant(req,res){
     }    
 }
 
+//Inserir testemunhas numa determinada ocorrência
+function Insertwits(req,res){
+    req.sanitize("id_occurrence").escape();
+    req.sanitize("id_participant").escape();
+    req.sanitize('name').escape();
+    req.sanitize('address').escape();
+    req.sanitize("genre").escape();
+    req.sanitize("cc_number").escape();
+    req.sanitize('naturality').escape();
+    req.sanitize('phone_number').escape();
+    req.sanitize('email').escape();
+    req.sanitize('job').escape();
+    req.sanitize('birth_date').escape();
+    req.sanitize('participant_type').escape();
+    req.sanitize('city').escape();
+    req.sanitize("active").escape();
+
+    
+    const errors = req.validationErrors();
+    console.log(errors);
+    if(errors){
+        res.send(errors);
+        return;
+    }
+    else{
+        const idOccurrence = req.params.id;
+        const name = req.body.name;
+        const address = req.body.address;
+        const genre = req.body.genre;
+        const cc_number = req.body.cc_number;
+        const naturality = req.body.naturality;
+        const phone_number = req.body.phone_number;
+        const email = req.body.email;
+        const job = req.body.job;
+        const birth_date = req.body.birth_date;
+        const participant_type = "Testemunha";
+        const city = req.body.city;
+        const active = 1;
+    
+
+        const update = [name,address,genre,cc_number,naturality,phone_number,email,job,birth_date,participant_type,city,active];
+           
+            /*//id_suspect:idSuspect,
+            //id_participant:idParticipant,
+            name : name,
+            naturality : naturality,
+            phone_number: phone_number,
+            genre : genre,
+            cc_number : cc_number,
+            job : job,
+            skin_color : skin_color,
+            eyes_color : eyes_color,
+            hair_color : hair_color,
+            height: height,
+            body_shape: body_shape,
+            active:active,
+            id_occurrence:idOccurrence
+        }   */ 
+
+       
+        const query = connect.con.query ('INSERT INTO Participant SET name=?,address=?,genre=? ,cc_number=? ,naturality=? ,phone_number=? ,email=? ,job=? ,birth_date=? ,participant_type=? ,city=?, active=?',update, function(err, rows, fields){
+            console.log(query.sql);
+           
+            if(!err){
+                //insertquery = res.location(rows.insertId);
+                //post=[idOccurrence,insertquery];
+                post=[idOccurrence];
+                const query = connect.con.query ('INSERT INTO ParticipationP SET id_occurrence=?, id_participant=(SELECT MAX(id_participant)FROM Participant)',post, function(err,rows, fields){
+                    console.log(query.sql);
+                    res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
+                });
+            }
+            else{
+                console.log(err);
+                if(err.code == 'ER_DUP_ENTRY'){
+                    res.status(jsonMessages.db.duplicateId.status).send(jsonMessages.db.duplicateId);
+                }
+                else
+                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+    });
+    }    
+}
 
 //EXPORTAR AS FUNÇÕES
 module.exports={
@@ -569,5 +652,6 @@ module.exports={
     deleteVitimaF:deleteVitimaF,
     deleteSuspectF:deleteSuspectF,
     postSuspect:postSuspect,
-    Insertparticipant:Insertparticipant   
+    Insertparticipant:Insertparticipant,
+    Insertwits:Insertwits   
 };

@@ -20,6 +20,7 @@ router.delete("/deleteVictims/:id",participationsController.deleteVitimaF);
 router.delete("/deletesuspects/:id",participationsController.deleteSuspectF);
 router.post("/occurrences/:id_occu",participationsController.postSuspect);
 router.post("/occurrences/vitima/:id",participationsController.Insertparticipant);
+router.post("/occurrences/wits/:id",participationsController.Insertwits);
 
 //No final do DOC
 module.exports = router ;
