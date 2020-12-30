@@ -409,7 +409,7 @@ function postSuspect(req,res){
    }
    else{
     const idOccurrence = req.params.id_occu;
-    const idSuspect= req.params.id_susp;
+    //const idSuspect= req.params.id_susp;
     const idParticipant = req.params.id_participant;
     const name = req.body.name;
     const naturality = req.body.naturality;
