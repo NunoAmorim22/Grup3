@@ -1,6 +1,6 @@
 function EditWitness() {
     var data = {};
-    data.id_victim = document.getElementById("idTestemunha").value;
+    data.id_wits = document.getElementById("idTestemunha").value;
     data.name = document.getElementById("nomeTestemunha").value;
     data.naturality = document.getElementById("naturalidadeTestemunha").value;
     data.genre = document.getElementById("sexoTestemunha").value;
@@ -13,7 +13,7 @@ function EditWitness() {
     data.city = document.getElementById("localidadeTestemunha").value;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/participations/wits/${data.id_victim}`, {
+    fetch(`http://localhost:3000/participations/wits/${data.id_wits}`, {
       headers: { "Content-Type": "application/json" },
       method: "PUT",
       body: JSON.stringify(data),
@@ -24,7 +24,7 @@ function EditWitness() {
           console.log(response.statusText); //=> String
           console.log(response.headers); //=> Headers
         } else {
-          Swal.fire("Vitima Atualizada");
+          Swal.fire("Testemunha atualizada Atualizada");
           console.log("Success PUT");
           console.log(response);
         }
