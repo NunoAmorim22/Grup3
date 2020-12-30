@@ -471,7 +471,7 @@ function postSuspect(req,res){
 }
 
 //inserir participantes numa determinada ocorrência
-function postParticipant(req,res){
+function Insertparticipant(req,res){
     req.sanitize("id_occurrence").escape();
     req.sanitize("id_participant").escape();
     req.sanitize('name').escape();
@@ -569,5 +569,5 @@ module.exports={
     deleteVitimaF:deleteVitimaF,
     deleteSuspectF:deleteSuspectF,
     postSuspect:postSuspect,
-    postParticipant:postParticipant   
+    Insertparticipant:Insertparticipant   
 };
