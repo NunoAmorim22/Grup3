@@ -453,7 +453,7 @@ function postSuspect(req,res){
                 insertquery = res.location(rowns.insertId);
                 post=[idOccurrence,insertquery];
                 res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
-                const query = connect.con.query ('INSERT INTO ParticipationS SET id_occurrence=?, id_suspect=insertquery',update, function(err,rows, fields){
+                const query = connect.con.query ('INSERT INTO ParticipationS SET id_occurrence=?, id_suspect=insertquery',post, function(err,rows, fields){
                     console.log(query.sql);
                 });
             }
