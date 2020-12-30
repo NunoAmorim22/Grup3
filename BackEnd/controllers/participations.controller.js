@@ -449,7 +449,8 @@ function postSuspect(req,res){
         const query = connect.con.query ('INSERT INTO Suspect SET name=?,naturality=?,phone_number=? ,genre=? ,cc_number=? ,job=? ,skin_color=? ,eyes_color=? ,hair_color=? ,height=? ,body_shape=? ,active=?',update, function(err,post, fields){
             console.log(query.sql);
            
-           update=[idOccurrence]; //usado na query 2
+           LastIDSuspect=[idOccurrence]; //usado na query 2
+           post=[];
         
           const query = connect.con.query ('INSERT INTO ParticipationS SET id_occurrence=?, id_suspect=LAST_INSERT_ID()',update, function(err,post, fields){
             console.log(query.sql);
