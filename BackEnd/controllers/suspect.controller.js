@@ -195,7 +195,7 @@ function updateSuspect (req,res){
      const hair_color = req.body.hair_color;
      const height = req.body.height;
      const body_shape = req.body.body_shape;
-     const active = req.body.active;
+     const active = 1;
         
      if (idSuspect !='NULL' && typeof(idSuspect) != 'undefined') {
         
