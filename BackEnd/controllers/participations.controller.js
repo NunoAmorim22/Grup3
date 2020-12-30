@@ -173,8 +173,9 @@ function updateSuspect (req,res){
      const hair_color = req.body.hair_color;
      const height = req.body.height;
      const body_shape = req.body.body_shape;
-     const active = req.body.active;
-        
+     //const active = req.body.active;
+     const active = 1;
+
      if (idSuspect !='NULL' && typeof(idSuspect) != 'undefined') {
         
         const update = [name,naturality,phone_number,genre,cc_number,job,skin_color,eyes_color,hair_color,height,body_shape,active,idSuspect];
@@ -241,7 +242,7 @@ function updateWit(req,res){
      const birth_date = req.body.birth_date;
      //const typep = req.body.participant_type;
      const city = req.body.city;
-     const active = req.body.active;
+     const active = 1;
         
      if (idParticipant !='NULL' && typeof(idParticipant != 'undefined')) {
         
@@ -310,7 +311,7 @@ function updateVictim(req,res){
      const birth_date = req.body.birth_date;
      //const typep = req.body.participant_type;
      const city = req.body.city;
-     const active = req.body.active;
+     const active = 1;
         
      if (idParticipant !='NULL' && typeof(idParticipant != 'undefined')) {
         
