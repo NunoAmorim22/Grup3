@@ -448,9 +448,11 @@ function postSuspect(req,res){
        
         const query = connect.con.query ('INSERT INTO Suspect SET name=?,naturality=?,phone_number=? ,genre=? ,cc_number=? ,job=? ,skin_color=? ,eyes_color=? ,hair_color=? ,height=? ,body_shape=? ,active=?',update, function(err,post, fields){
             console.log(query.sql);
-           //idSuspect=post.id_suspect;
+           
            update=[idOccurrence]; //usado na query 2
-          //INSERT INTO ParticipationS SET id_occurrence=?, id_suspect=LAST_INSERT_ID()'
+        
+          const query = connect.con.query ('INSERT INTO ParticipationS SET id_occurrence=?, id_suspect=LAST_INSERT_ID()',update, function(err,post, fields){
+            console.log(query.sql);
             if(!err){
                 res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
             }
@@ -463,6 +465,7 @@ function postSuspect(req,res){
                     res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
                 }
         });
+    });
     }    
 }
 
