@@ -369,7 +369,7 @@ function deleteVitimaF (req , res) {
 function deleteSuspectF (req , res) {
     const update =req.params.id;
 
-    if (idSuspect !='NULL' && typeof(idSuspect) != 'undefined') {
+    if (update!='NULL' && typeof(update) != 'undefined') {
     const query = connect.con.query("DELETE FROM Suspect WHERE id_suspect = ?", update , function (err, rows, fields){
         console.log(query.sql);
         if (!err){
