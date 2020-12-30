@@ -408,8 +408,8 @@ function postSuspect(req,res){
        return;
    }
    else{
-    const idOccurrence = req.params.id_occurrence;
-    const idSuspect= req.params.id_suspect;
+    const idOccurrence = req.params.id_occu;
+    const idSuspect= req.params.id_susp;
     const idParticipant = req.params.id_participant;
     const name = req.body.name;
     const naturality = req.body.naturality;
@@ -426,9 +426,9 @@ function postSuspect(req,res){
     
 
         const post = {
-            id_occurrence:idOccurrence,
+            //id_occurrence:idOccurrence,
             id_suspect:idSuspect,
-            id_participant:idParticipant,
+            //id_participant:idParticipant,
             name : name,
             naturality : naturality,
             phone_number: phone_number,
@@ -442,7 +442,8 @@ function postSuspect(req,res){
             body_shape: body_shape,
             active:active
         }    
-        
+
+        update=[idOccurrence,idSuspect]; //usado na query 2
         const query = connect.con.query ('INSERT INTO Suspect SET ?',post, function(err,post, fields){
             console.log(query.sql);
             if(!err){
@@ -463,8 +464,10 @@ function postSuspect(req,res){
             return;
         }
         else{
-            //Query
-            const query = connect.con.query ('INSERT INTO Participation SET ?',post, function(err,post, fields){
+            //depois de criado o novo suspeito é preciso inseri-lo na respetiva ocorrencia para isso recorremos á tabela ParticipationS que une ocorrencias a suspeitos que tenham participado nelas
+           
+            //Query 2
+            const query = connect.con.query ('INSERT INTO ParticipationS SET id_occurrence=?, idSuspect=?',update, function(err,post, fields){
                 console.log(query.sql);
                 if(!err){
                     res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
