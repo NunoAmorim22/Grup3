@@ -384,7 +384,7 @@ function deleteSuspectF (req , res) {
 }
 
 
-//inserir suspeitos numa determinada ocorrência
+//inserir suspeitos numa determinada ocorrência              
 function postSuspect(req,res){
     req.sanitize("id_occurrence").escape();
     req.sanitize('id_suspect').escape();

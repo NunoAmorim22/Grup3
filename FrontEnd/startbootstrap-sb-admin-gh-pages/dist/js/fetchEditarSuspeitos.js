@@ -24,7 +24,7 @@ function EditSuspect() {
         console.log(response.statusText); //=> String
         console.log(response.headers); //=> Headers
       } else {
-       // Swal.fire("Suspeito Atualizado");
+        // Swal.fire("Suspeito Atualizado");
         console.log("Success PUT");
         console.log(response);
         swal.fire({
@@ -46,4 +46,4 @@ function EditSuspect() {
       console.error(err);
     });
 }
-EditSuspect();
+//EditSuspect();
