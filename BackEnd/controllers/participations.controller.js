@@ -465,7 +465,6 @@ function postSuspect(req,res){
         }
         else{
             //depois de criado o novo suspeito é preciso inseri-lo na respetiva ocorrencia para isso recorremos á tabela ParticipationS que une ocorrencias a suspeitos que tenham participado nelas
-           
             //Query 2
             const query = connect.con.query ('INSERT INTO ParticipationS SET id_occurrence=?, idSuspect=?',update, function(err,post, fields){
                 console.log(query.sql);
