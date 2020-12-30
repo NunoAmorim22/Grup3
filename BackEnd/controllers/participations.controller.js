@@ -29,7 +29,7 @@ function getALLSuspects(req,res){
     
     
         update =[idOccurrence];
-    const query =connect.con.query ("SELECT o.id_occurrence, s.* FROM Occurrence o, Suspect s, Participation p WHERE s.id_suspect =p.id_suspect AND o.id_occurrence =p.id_occurrence AND o.id_occurrence=? AND s.active=1", update, function(err, rows, fields){
+    const query =connect.con.query ("SELECT o.id_occurrence, s.* FROM Occurrence o, Suspect s, ParticipationS p WHERE s.id_suspect =p.id_suspect AND o.id_occurrence =p.id_occurrence AND o.id_occurrence=? AND s.active=1", update, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
@@ -54,7 +54,7 @@ function getALLParticipants(req,res){
     const typep=req.params.type;
     
         update =[typep,idOccurrence];
-    const query =connect.con.query ("SELECT o.id_occurrence, pa.* FROM Occurrence o, Participant pa, Participation pe WHERE pa.id_participant =pe.id_participant AND pa.participant_type=? AND o.id_occurrence =pe.id_occurrence AND o.id_occurrence=? AND pa.active=1", update, function(err, rows, fields){
+    const query =connect.con.query ("SELECT o.id_occurrence, pa.* FROM Occurrence o, Participant pa, ParticipationP pe WHERE pa.id_participant =pe.id_participant AND pa.participant_type=? AND o.id_occurrence =pe.id_occurrence AND o.id_occurrence=? AND pa.active=1", update, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
@@ -81,7 +81,7 @@ function getSuspectOccurrencebyID(req,res){
     //const post ={ id_suspect : idSuspect, 
        // id_occurrence : idOccurrence};
         update =[idSuspect,idOccurrence];
-    const query =connect.con.query ("SELECT o.id_occurrence, s.* FROM Occurrence o, Suspect s, Participation p WHERE s.id_suspect =p.id_suspect AND s.id_suspect=? AND o.id_occurrence =p.id_occurrence AND o.id_occurrence=? AND s.active=1", update, function(err, rows, fields){
+    const query =connect.con.query ("SELECT o.id_occurrence, s.* FROM Occurrence o, Suspect s, ParticipationS p WHERE s.id_suspect =p.id_suspect AND s.id_suspect=? AND o.id_occurrence =p.id_occurrence AND o.id_occurrence=? AND s.active=1", update, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
@@ -105,7 +105,7 @@ function getParticipantOccurrencebyID(req,res){
     const idOccurrence = req.params.id_occu;
     const typep = req.params.type; 
    update=[idParticipant,typep,idOccurrence];                          
-    const query =connect.con.query ("SELECT o.id_occurrence, pa.* FROM Occurrence o, Participant pa, Participation pe WHERE pa.id_participant =pe.id_participant AND pa.id_participant=? AND pa.participant_type=? AND o.id_occurrence =pe.id_occurrence AND o.id_occurrence=? AND pa.active=1", update, function(err, rows, fields){
+    const query =connect.con.query ("SELECT o.id_occurrence, pa.* FROM Occurrence o, Participant pa, ParticipationP pe WHERE pa.id_participant =pe.id_participant AND pa.id_participant=? AND pa.participant_type=? AND o.id_occurrence =pe.id_occurrence AND o.id_occurrence=? AND pa.active=1", update, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
