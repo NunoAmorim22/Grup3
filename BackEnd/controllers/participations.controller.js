@@ -452,10 +452,10 @@ function postSuspect(req,res){
             if(!err){
                 //insertquery = res.location(rows.insertId);
                 //post=[idOccurrence,insertquery];
-                //res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
-                post[idOccurrence];
+                post=[idOccurrence];
                 const query = connect.con.query ('INSERT INTO ParticipationS SET id_occurrence=?, id_suspect=(SELECT MAX(id_suspect)FROM Suspect)',post, function(err,rows, fields){
                     console.log(query.sql);
+                    res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
                 });
             }
             else{
