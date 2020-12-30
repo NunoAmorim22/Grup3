@@ -385,7 +385,9 @@ function deleteSuspectF (req , res) {
 
 //inserir suspeitos numa determinada ocorrência
 function postSuspect(req,res){
+    req.sanitize("id_occurrence").escape();
     req.sanitize('id_suspect').escape();
+    req.sanitize("id_participant").escape();
     req.sanitize('name').escape();
     req.sanitize('naturality').escape();
     req.sanitize("phone_number").escape();
@@ -398,13 +400,17 @@ function postSuspect(req,res){
     req.sanitize('height').escape();
     req.sanitize('body_shape').escape();
     
+
+    
    const errors = req.validationErrors();
    if(errors){
        res.send(errors);
        return;
    }
    else{
-    //const idSuspect= req.body.id_suspect;
+    const idOccurrence = req.params.id_occurrence;
+    const idSuspect= req.params.id_suspect;
+    const idParticipant = req.params.id_participant;
     const name = req.body.name;
     const naturality = req.body.naturality;
     const phone_number = req.body.phone_number;
@@ -420,7 +426,9 @@ function postSuspect(req,res){
     
 
         const post = {
-            //id_suspect:idSuspect,
+            id_occurrence:idOccurrence,
+            id_suspect:idSuspect,
+            id_participant:idParticipant,
             name : name,
             naturality : naturality,
             phone_number: phone_number,
@@ -449,9 +457,30 @@ function postSuspect(req,res){
                     res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
                 }
             });
-        
         }
-    }
+        if(errors){
+            res.send(errors);
+            return;
+        }
+        else{
+            //Query
+            const query = connect.con.query ('INSERT INTO Participation SET ?',post, function(err,post, fields){
+                console.log(query.sql);
+                if(!err){
+                    res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
+                }
+                else{
+                    console.log(err);
+                    if(err.code == 'ER_DUP_ENTRY'){
+                        res.status(jsonMessages.db.duplicateId.status).send(jsonMessages.db.duplicateId);
+                    }
+                    else
+                        res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                    }
+                });
+        }
+        
+}
 
 //inserir participantes numa determinada ocorrência
 
@@ -469,5 +498,6 @@ module.exports={
     updateWit:updateWit,
     deleteTestemunhaF:deleteTestemunhaF,
     deleteVitimaF:deleteVitimaF,
-    deleteSuspectF:deleteSuspectF    
+    deleteSuspectF:deleteSuspectF,
+    postSuspect:postSuspect   
 };
