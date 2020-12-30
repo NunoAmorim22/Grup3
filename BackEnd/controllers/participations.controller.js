@@ -332,6 +332,8 @@ function updateVictim(req,res){
 function deleteTestemunhaF (req , res) {
     const idParticipant =req.params.id;
     const update = [idParticipant,"Testemunha"];
+
+    if (idParticipant !='NULL' && typeof(idParticipant != 'undefined')) {
     const query = connect.con.query("DELETE FROM Participant WHERE id_participant=? AND participant_type=?", update , function (err, rows, fields){
         console.log(query.sql);
         if (!err){
@@ -342,11 +344,14 @@ function deleteTestemunhaF (req , res) {
                     res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
                 }
     });
+    }
 }
 //eliminar fisico de vitima
 function deleteVitimaF (req , res) {
     const idParticipant =req.params.id;
     const update = [idParticipant,"Vitima"];
+
+    if (idParticipant !='NULL' && typeof(idParticipant != 'undefined')) {
     const query = connect.con.query("DELETE FROM Participant WHERE id_participant=? AND participant_type=?", update , function (err, rows, fields){
         console.log(query.sql);
         if (!err){
@@ -357,10 +362,13 @@ function deleteVitimaF (req , res) {
                     res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
                 }
     });
+    }
 }
 //eliminar fisico de suspeito
 function deleteSuspectF (req , res) {
     const update =req.params.id;
+
+    if (idSuspect !='NULL' && typeof(idSuspect) != 'undefined') {
     const query = connect.con.query("DELETE FROM Suspect WHERE id_suspect = ?", update , function (err, rows, fields){
         console.log(query.sql);
         if (!err){
@@ -371,7 +379,82 @@ function deleteSuspectF (req , res) {
                     res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
                 }
     });
+    }
 }
+
+
+//inserir suspeitos numa determinada ocorrência
+function postSuspect(req,res){
+    req.sanitize('id_suspect').escape();
+    req.sanitize('name').escape();
+    req.sanitize('naturality').escape();
+    req.sanitize("phone_number").escape();
+    req.sanitize('genre').escape();
+    req.sanitize('cc_number').escape();
+    req.sanitize('job').escape();
+    req.sanitize('skin_color').escape();
+    req.sanitize('eyes_color').escape();
+    req.sanitize('hair_color').escape();
+    req.sanitize('height').escape();
+    req.sanitize('body_shape').escape();
+    
+   const errors = req.validationErrors();
+   if(errors){
+       res.send(errors);
+       return;
+   }
+   else{
+    //const idSuspect= req.body.id_suspect;
+    const name = req.body.name;
+    const naturality = req.body.naturality;
+    const phone_number = req.body.phone_number;
+    const genre = req.body.genre;
+    const cc_number = req.body.cc_number;
+    const job = req.body.job;
+    const skin_color = req.body.skin_color;
+    const eyes_color = req.body.eyes_color;
+    const hair_color = req.body.hair_color;
+    const height = req.body.height;
+    const body_shape = req.body.body_shape;
+    const active = 1;
+    
+
+        const post = {
+            //id_suspect:idSuspect,
+            name : name,
+            naturality : naturality,
+            phone_number: phone_number,
+            genre : genre,
+            cc_number : cc_number,
+            job : job,
+            skin_color : skin_color,
+            eyes_color : eyes_color,
+            hair_color : hair_color,
+            height: height,
+            body_shape: body_shape,
+            active:active
+        }    
+        
+        const query = connect.con.query ('INSERT INTO Suspect SET ?',post, function(err,post, fields){
+            console.log(query.sql);
+            if(!err){
+                res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
+            }
+            else{
+                console.log(err);
+                if(err.code == 'ER_DUP_ENTRY'){
+                    res.status(jsonMessages.db.duplicateId.status).send(jsonMessages.db.duplicateId);
+                }
+                else
+                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+            });
+        
+        }
+    }
+
+//inserir participantes numa determinada ocorrência
+
 
 
 //EXPORTAR AS FUNÇÕES
