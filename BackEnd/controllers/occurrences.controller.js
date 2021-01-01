@@ -98,6 +98,7 @@ function getAllPresences(req,res){
     });
 }
 
+
 //exportar módulos
 module.exports = {
     getAllActiveOccurrences:getAllActiveOccurrences,
