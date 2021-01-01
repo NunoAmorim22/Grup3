@@ -102,13 +102,8 @@ function getAllPresences(req,res){
 }
 
 
-
-//------------------------------------------
-//WARNING
-//falta fazer rotas no controlador das ocorrencias
-
 //exportar módulos
-modules.export = {
+module.exports = {
     getAllActiveOccurrences:getAllActiveOccurrences,
     getAllEndedOccurrences:getAllEndedOccurrences,
     getAllParticipations:getAllParticipations,
