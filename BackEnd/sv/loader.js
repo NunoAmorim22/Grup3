@@ -72,4 +72,7 @@ app.use ("/participants",participantsRouter);
 const participationsRouter = require("../routes/participations.route");
 app.use("/participations",participationsRouter);
 
+const occurrencesRouter = require("../routes/occurrences.route");
+app.use("/occurrences", occurrencesRouter);
+
 module.exports = app;
