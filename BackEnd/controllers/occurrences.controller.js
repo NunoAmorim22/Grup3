@@ -98,6 +98,8 @@ function getAllPresences(req,res){
     });
 }
 
+
+
 //------------------------------------------
 //WARNING
 //falta fazer rotas no controlador das ocorrencias
