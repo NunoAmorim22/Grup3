@@ -37,7 +37,7 @@ function saveVictim() {
           console.log(response);
           swal.fire({
             title: "Success!",
-            text: "Vítimas Registado",
+            text: "Vítimas Registada",
             type: "success"
           }).then(function () {
             // Redirect the user
