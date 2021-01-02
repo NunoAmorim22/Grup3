@@ -305,7 +305,16 @@ function occurrenceEnding() {
 }
 
 function cantGo() {
-  alert("Neste momento não lhe é permitido aceder a esta página.");
+  //alert("Neste momento não lhe é permitido aceder a esta página.");
+  swal.fire({
+    title: "Alerta!",
+    text: "Nao pode sair desta página!",
+    type: "Alert!"
+  }).then(function () {
+    // Redirect the user
+    //window.location.href = "./DadosOcorrencia.html";
+    //console.log('The Ok Button was clicked.');
+  });
 }
 
 function enableEditionSuspect() {
