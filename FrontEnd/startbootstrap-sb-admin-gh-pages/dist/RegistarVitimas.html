@@ -15,6 +15,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
         type="text/css" />
+    <!--Sweet Alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
@@ -38,103 +40,102 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-                        <form id="contactForm" name="sentMessage" data-toggle="validator">
-                            <div class="control-group">
-                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                    <label>Nome</label>
-                                    <input class="form-control" id="name" type="text" placeholder="Nome" required
-                                        autocomplete="off"
-                                        data-validation-required-message="Por favor, introduza o nome" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
+                        <!--<form id="contactForm" name="sentMessage" data-toggle="validator">-->
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Nome</label>
+                                <input class="form-control" id="nameVictim" type="text" placeholder="Nome" required
+                                    autocomplete="off" data-validation-required-message="Por favor, introduza o nome" />
+                                <p class="help-block text-danger"></p>
                             </div>
-                            <div class="control-group">
-                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                    <label>Naturalidade</label>
-                                    <input required class="form-control" id="natural" type="text"
-                                        placeholder="Naturalidade" autocomplete="off"
-                                        data-validation-required-message="Por favor, introduza a naturalidade" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Naturalidade</label>
+                                <input required class="form-control" id="naturalityVictim" type="text" placeholder="Naturalidade"
+                                    autocomplete="off"
+                                    data-validation-required-message="Por favor, introduza a naturalidade" />
+                                <p class="help-block text-danger"></p>
                             </div>
-                            <div class="control-group">
-                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                    <label>Data de Nascimento</label>
-                                    <input class="form-control" id="date" type="date" placeholder="Data de Nascimento"
-                                        autocomplete="off" required
-                                        data-validation-required-message="Por favor, introduza a data de nascimento" />
-                                    <p class="help-block text-danger"></p>
-                                </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Data de Nascimento</label>
+                                <input class="form-control" id="dateVictim" type="date" placeholder="Data de Nascimento"
+                                    autocomplete="off" required
+                                    data-validation-required-message="Por favor, introduza a data de nascimento" />
+                                <p class="help-block text-danger"></p>
                             </div>
-                            <label>Sexo</label>
-                            <div class="control-group">
-                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                    <input type="radio" id="male" name="sentMessage" value="Masculino" selected
-                                        required>
-                                    Masculino
-                                    <input type="radio" id="female" name="sentMessage" value="Feminino" selected
-                                        required>
-                                    Feminino
-                                </div>
+                        </div>
+                        <label>Sexo</label>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <input type="radio" id="maleVictim" name="sentMessage" value="Masculino" selected required>
+                                Masculino
+                                <input type="radio" id="femaleVictim" name="sentMessage" value="Feminino" selected required>
+                                Feminino
                             </div>
-                            <div class="control-group">
-                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                    <label>Cartão de Cidadão</label>
-                                    <input class="form-control" id="cc" type="text" placeholder="Cartão de Cidadão"
-                                        required autocomplete="off"
-                                        data-validation-required-message="Por favor, Introduzir número de cartão de cidadão." />
-                                    <p class="help-block text-danger"></p>
-                                </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Cartão de Cidadão</label>
+                                <input class="form-control" id="ccVictim" type="text" placeholder="Cartão de Cidadão" required
+                                    autocomplete="off"
+                                    data-validation-required-message="Por favor, Introduzir número de cartão de cidadão." />
+                                <p class="help-block text-danger"></p>
                             </div>
-                            <div class="control-group">
-                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                    <label>Contacto</label>
-                                    <input class="form-control" id="phone" type="phone" placeholder="Contacto"
-                                        autocomplete="off" required
-                                        data-validation-required-message="Por favor, introduza o contacto." />
-                                    <p class="help-block text-danger"></p>
-                                </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Contacto</label>
+                                <input class="form-control" id="phoneVictim" type="phone" placeholder="Contacto"
+                                    autocomplete="off" required
+                                    data-validation-required-message="Por favor, introduza o contacto." />
+                                <p class="help-block text-danger"></p>
                             </div>
-                            <div class="control-group">
-                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                    <label>Profissão</label>
-                                    <input class="form-control" id="job" type="text " placeholder="Profissão"
-                                        autocomplete="off" required
-                                        data-validation-required-message="Por favor, introduza a profissão." />
-                                    <p class="help-block text-danger"></p>
-                                </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Profissão</label>
+                                <input class="form-control" id="jobVictim" type="text " placeholder="Profissão"
+                                    autocomplete="off" required
+                                    data-validation-required-message="Por favor, introduza a profissão." />
+                                <p class="help-block text-danger"></p>
                             </div>
-                            <div class="control-group">
-                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                    <label>Email</label>
-                                    <input class="form-control" id="email" type="email" placeholder="Email"
-                                        autocomplete="off"
-                                        data-validation-required-message="Por favor, introduza o email." required />
-                                    <p class="help-block text-danger"></p>
-                                </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Email</label>
+                                <input class="form-control" id="emailVictim" type="email" placeholder="Email"
+                                    autocomplete="off" data-validation-required-message="Por favor, introduza o email."
+                                    required />
+                                <p class="help-block text-danger"></p>
                             </div>
-                            <div class="control-group">
-                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                    <label>Morada</label>
-                                    <input class="form-control" id="address" type="text" placeholder="Morada"
-                                        autocomplete="off" required
-                                        data-validation-required-message="Por favor, introduza a morada." />
-                                    <p class="help-block text-danger"></p>
-                                </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Morada</label>
+                                <input class="form-control" id="addressVictim" type="text" placeholder="Morada"
+                                    autocomplete="off" required
+                                    data-validation-required-message="Por favor, introduza a morada." />
+                                <p class="help-block text-danger"></p>
                             </div>
-                            <div class="control-group">
-                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                    <label>Localidade</label>
-                                    <input class="form-control" id="local" type="text" placeholder="Localidade"
-                                        autocomplete="off" required
-                                        data-validation-required-message="Por favor, introduza a localidade." />
-                                    <p class="help-block text-danger"></p>
-                                </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Localidade</label>
+                                <input class="form-control" id="cityVictim" type="text" placeholder="Localidade"
+                                    autocomplete="off" required
+                                    data-validation-required-message="Por favor, introduza a localidade." />
+                                <p class="help-block text-danger"></p>
                             </div>
-                            <div class="form-group" align=center><button onsubmit="victimRegister()"
-                                    class="btn btn-primary btn-xl btn-width" id="sendMessageButton"
-                                    type="submit">Gravar</button></div>
-                        </form>
+                        </div>
+                        <div class="form-group" align="center">
+                            <button class="btn btn-primary btn-xl btn-width" id="sendMessageButton" onclick="saveVictim()">
+                              Gravar
+                            </button>
+                          </div>
+                        <!--</form>-->
                     </div>
                 </div>
             </div>
@@ -175,10 +176,12 @@
     <!-- Third party plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Contact form JS-->
-    <script src="assets/mail/jqBootstrapValidation.js"></script>
-    <script src="assets/mail/contact_me.js"></script>
+    <!--<script src="assets/mail/jqBootstrapValidation.js"></script>
+    <script src="assets/mail/contact_me.js"></script>-->
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    <script src="js/fetchPostVitimas.js"></script>
+
 </body>
 
 </html>

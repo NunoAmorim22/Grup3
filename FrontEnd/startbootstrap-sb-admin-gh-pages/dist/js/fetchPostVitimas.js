@@ -12,13 +12,13 @@ function saveVictim() {
       genre = document.getElementById("femaleVictim").value;
     }
     data.genre = genre;
-    data.cc_number = document.getElementById("ccVitima").value;
-    data.job = document.getElementById("profissaoVitima").value;
-    data.birth_date = document.getElementById("dataVitima").value;
-    data.address = document.getElementById("moradaVitima").value;
-    data.phone_number = document.getElementById("contactoVitima").value;
-    data.email = document.getElementById("emailVitima").value;
-    data.city = document.getElementById("localidadeVitima").value;
+    data.cc_number = document.getElementById("ccVictim").value;
+    data.job = document.getElementById("jobVictim").value;
+    data.birth_date = document.getElementById("dateVictim").value;
+    data.address = document.getElementById("addressVictim").value;
+    data.phone_number = document.getElementById("phoneVictim").value;
+    data.email = document.getElementById("emailVictim").value;
+    data.city = document.getElementById("cityVictim").value;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
     fetch(`http://localhost:3000/participations/occurrences/vitima/${id_occurrence}`, {
