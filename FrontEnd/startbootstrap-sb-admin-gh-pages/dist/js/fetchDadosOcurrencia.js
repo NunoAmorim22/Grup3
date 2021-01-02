@@ -8,7 +8,7 @@ function refreshSuspect() {
       
   
       const renderUsers = document.getElementById("result");
-      const response = await fetch(`http://localhost:3000/participations/suspectsoccurrences/occurrences/${id_ocorrencia}/suspects/${id}`);
+      const response = await fetch(`http://localhost:3000/participations/suspectsoccurrences/occurrences/${id_ocorrencia}`);
       const users = await response.json();
   
       id_occurrence.setAttribute("value", users[0].id_occurrence);
