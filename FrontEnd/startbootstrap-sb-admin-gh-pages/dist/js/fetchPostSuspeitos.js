@@ -32,9 +32,18 @@ function saveSuspect() {
         console.log(response.statusText); //=> String
         console.log(response.headers); //=> Headers
       } else {
-        Swal.fire("Suspeito Registado");
+        //Swal.fire("Suspeito Registado");
         console.log("Success POST");
         console.log(response);
+        swal.fire({
+          title: "Success!",
+          text: "Suspeito Atualizado",
+          type: "success"
+        }).then(function () {
+          // Redirect the user
+          window.location.href = "./DadosOcorrencia.html";
+          console.log('The Ok Button was clicked.');
+        });
       }
     })
     .then(function (result) {
