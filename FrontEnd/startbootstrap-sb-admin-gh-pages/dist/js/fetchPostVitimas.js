@@ -36,9 +36,10 @@ function saveVictim() {
           console.log("Success POST");
           console.log(response);
           swal.fire({
-            title: "Success!",
-            text: "Vítimas Registada",
-            type: "success"
+            icon: "success",
+            title: "Successo!",
+            text: "Vítima Registada",
+            //type: "success"
           }).then(function () {
             // Redirect the user
             window.location.href = "./DadosOcorrencia.html";
@@ -53,4 +54,5 @@ function saveVictim() {
         alert("Submission error");
         console.error(err);
       });
+      
   }

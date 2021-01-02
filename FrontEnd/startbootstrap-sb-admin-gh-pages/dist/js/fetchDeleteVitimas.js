@@ -15,9 +15,10 @@ function DeleteVictim() {
         } else {
             //Swal.fire("Vitima Apagada");
             swal.fire({
-                title: "Success!",
+                icon: "success",
+                title: "Sucesso!",
                 text: "Vitima Apagada",
-                type: "success"
+                //type: "success"
               }).then(function () {
                 // Redirect the user
                 window.location.href = "./ListaVitimas.html";

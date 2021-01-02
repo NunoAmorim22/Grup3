@@ -28,9 +28,10 @@ function EditSuspect() {
         console.log("Success PUT");
         console.log(response);
         swal.fire({
-          title: "Success!",
+          icon:"success",
+          title: "Sucesso!",
           text: "Suspeito Atualizado",
-          type: "success"
+          //type: "success"
         }).then(function () {
           // Redirect the user
           window.location.href = "./ListaSuspeitos.html";

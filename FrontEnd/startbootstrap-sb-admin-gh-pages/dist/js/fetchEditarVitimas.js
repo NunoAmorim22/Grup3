@@ -28,9 +28,10 @@ function EditVictim() {
           console.log("Success PUT");
           console.log(response);
           swal.fire({
-            title: "Success!",
+            icon:"success",
+            title: "Sucesso!",
             text: "Vitima Atualizada",
-            type: "success"
+            //type: "success"
           }).then(function () {
             // Redirect the user
             window.location.href = "./ListaVitimas.html";
