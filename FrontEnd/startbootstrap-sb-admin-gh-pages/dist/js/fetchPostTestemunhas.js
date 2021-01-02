@@ -1,7 +1,5 @@
 function saveWitness() {
     var data = {};
-    //data.id_suspect = document.getElementById("idSuspect").value;
-    
     data.name = document.getElementById("nameWitness").value;
     data.naturality = document.getElementById("naturalityWitness").value;
     let id_occurrence = localStorage.getItem("id_occurrence");
