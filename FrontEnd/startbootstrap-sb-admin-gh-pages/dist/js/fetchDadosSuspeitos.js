@@ -2,6 +2,7 @@ function refreshSuspect() {
   async function fetchAsync() {
     let id_suspect = document.getElementById("idSuspeito");
     let id = localStorage.getItem("id_suspect");
+    let id_occurrence = localStorage.getItem("id_occurrence");
     let name = document.getElementById("nomeSuspeito");
     let naturality = document.getElementById("naturalidadeSuspeito");
     let genre = document.getElementById("sexoSuspeito");
@@ -14,7 +15,7 @@ function refreshSuspect() {
     let body_shape = document.getElementById("corpoSuspeito");
 
     const renderUsers = document.getElementById("result");
-    const response = await fetch(`http://localhost:3000/participations/suspectsoccurrences/occurrences/1/suspects/${id}`);
+    const response = await fetch(`http://localhost:3000/participations/suspectsoccurrences/occurrences/${id_occurrence}/suspects/${id}`);
     const users = await response.json();
 
     id_suspect.setAttribute("value", users[0].id_suspect);

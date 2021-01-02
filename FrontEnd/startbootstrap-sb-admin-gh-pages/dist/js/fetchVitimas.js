@@ -1,5 +1,6 @@
 //------------------------Funçao para fazer get dos suspeitos e colocar numa tabela-------------------------//
-const api_url = "http://localhost:3000/participations/allparticipants/occurrence/1/type/Vitima";
+let id_occurrence = localStorage.getItem("id_occurrence");
+const api_url = `http://localhost:3000/participations/allparticipants/occurrence/${id_occurrence}/type/Vitima`;
 
 // Defining async function
 async function getapi(url) {

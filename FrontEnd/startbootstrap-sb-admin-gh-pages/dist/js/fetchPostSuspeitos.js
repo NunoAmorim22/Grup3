@@ -4,6 +4,7 @@ function saveSuspect() {
   //data.id_suspect = document.getElementById("idSuspect").value;
   data.name = document.getElementById("nameSuspect").value;
   data.naturality = document.getElementById("naturalitySuspect").value;
+  let id_occurrence = localStorage.getItem("id_occurrence");
 
   let genre;
   if (document.getElementById("maleSuspect").checked) {
@@ -21,7 +22,7 @@ function saveSuspect() {
   data.body_shape = document.getElementById("bodySuspect").value;
   console.log(data); //debugging para ver os dados que foram enviados
   //chamada fetch para envio dos dados para o servior via POST
-  fetch("http://localhost:3000/participations/occurrences/1", {
+  fetch(`http://localhost:3000/participations/occurrences/${id_occurrence}`, {
     headers: { "Content-Type": "application/json" },
     method: "POST",
     body: JSON.stringify(data),
