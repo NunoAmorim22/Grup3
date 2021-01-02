@@ -37,7 +37,7 @@ function saveSuspect() {
         console.log(response);
         swal.fire({
           title: "Success!",
-          text: "Suspeito Atualizado",
+          text: "Suspeito Registado",
           type: "success"
         }).then(function () {
           // Redirect the user
