@@ -4,77 +4,35 @@ function refreshSuspect() {
       let id_ocorrencia = localStorage.getItem("id_occurrence");
       let local = document.getElementById("localOcorrencia");
       let data = document.getElementById("dataOcorrencia");
+      let equipa = document.getElementById("equipaOcorrencia");
       
   
       const renderUsers = document.getElementById("result");
       const response = await fetch(`http://localhost:3000/participations/suspectsoccurrences/occurrences/${id_ocorrencia}/suspects/${id}`);
       const users = await response.json();
   
-      id_suspect.setAttribute("value", users[0].id_suspect);
+      id_occurrence.setAttribute("value", users[0].id_occurrence);
   
   
-      if (users[0].name == "null") {
-        name.setAttribute("value", "");
+      if (users[0].local == "null") {
+        local.setAttribute("value", "");
       }
       else {
-        name.setAttribute("value", users[0].name);
+        local.setAttribute("value", users[0].local);
       }
-      if (users[0].naturality == "null") {
-        naturality.setAttribute("value", "");
-      }
-      else {
-        naturality.setAttribute("value", users[0].naturality);
-      }
-      if (users[0].genre == "null") {
-        genre.setAttribute("value", "");
+      if (users[0].data == "null") {
+        data.setAttribute("value", "");
       }
       else {
-        genre.setAttribute("value", users[0].genre);
+        data.setAttribute("value", users[0].data);
       }
-      if (users[0].cc_number == "null") {
-        cc_number.setAttribute("value", "");
-      }
-      else {
-        cc_number.setAttribute("value", users[0].cc_number);
-      }
-      if (users[0].job == "null") {
-        job.setAttribute("value", "");
+      if (users[0].equipa == "null") {
+        equipa.setAttribute("value", "");
       }
       else {
-        job.setAttribute("value", users[0].job);
+        equipa.setAttribute("value", users[0].equipa);
       }
-      if (users[0].skin_color == "null") {
-        skin_color.setAttribute("value", "");
-      }
-      else {
-        skin_color.setAttribute("value", users[0].skin_color);
-      }
-      if (users[0].eyes_color == "null") {
-        eyes_color.setAttribute("value", "");
-      }
-      else {
-        eyes_color.setAttribute("value", users[0].eyes_color);
-      }
-      if (users[0].hair_color == "null") {
-        hair_color.setAttribute("value", "");
-      }
-      else {
-        hair_color.setAttribute("value", users[0].hair_color);
-      }
-      if (users[0].height == "null") {
-        height.setAttribute("value", "");
-      }
-      else {
-        height.setAttribute("value", users[0].height);
-      }
-      if (users[0].body_shape == "null") {
-        body_shape.setAttribute("value", "");
-      }
-      else {
-        body_shape.setAttribute("value", users[0].body_shape);
-      }
-  
-  
+      
       console.log(users[0].id_suspect);
       console.log(users[0].name);
   
