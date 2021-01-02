@@ -54,6 +54,7 @@ function getAllEndedOccurrences(req,res){
 //garante que operacional marcou presenca - operational_presence_conf = 1
 
 //get das participaçoes em ocorrencias de um operacional logado  e respetivos creditos recebidos por cada uma delas
+//passar o operacional que está a ser logado
 function getAllParticipations(req,res){
     const idOperational= req.params.id;
 
@@ -80,6 +81,7 @@ function getAllParticipations(req,res){
 
 
 // get de operacionais de uma equipa, com  presenca marcada, e que fazem parte da equipa  de um determinado operacional que está logado
+//tem que se passar o id do operacional em questão para ele ir buscar as coisas associadas a ele, como a equipa e presenças dos colegas de equipa
 function getAllPresences(req,res){
     const idOperationalLog= req.params.id;
     
