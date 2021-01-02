@@ -496,3 +496,8 @@ function transportidVitima(idtotransport){
   localStorage.setItem("id_victim", idtotransport); 
   document.location.href = "./DadosVitimas.html";
 }
+
+function transportidOccurrence(idtotransport){
+  localStorage.setItem("id_occurrence", idtotransport); 
+  document.location.href = "./MenuOcorrencia.html";
+}

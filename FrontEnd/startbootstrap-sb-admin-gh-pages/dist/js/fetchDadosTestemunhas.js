@@ -2,6 +2,7 @@ function refreshWitness() {
     async function fetchAsync() {
       let id_participant = document.getElementById("idTestemunha");
       let id = localStorage.getItem("id_witness");
+      let id_occurrence = localStorage.getItem("id_occurrence");
       let name = document.getElementById("nomeTestemunha");
       let naturality = document.getElementById("naturalidadeTestemunha");
       let genre = document.getElementById("sexoTestemunha");
@@ -14,7 +15,7 @@ function refreshWitness() {
       let city = document.getElementById("localidadeTestemunha");
   
       const renderUsers = document.getElementById("result");
-      const response = await fetch(`http://localhost:3000/participations/participantsocurrences/occurrences/1/participants/${id}/type/Testemunha`);
+      const response = await fetch(`http://localhost:3000/participations/participantsocurrences/occurrences/${id_occurrence}/participants/${id}/type/Testemunha`);
       const users = await response.json();
   
       id_participant.setAttribute("value", users[0].id_participant);

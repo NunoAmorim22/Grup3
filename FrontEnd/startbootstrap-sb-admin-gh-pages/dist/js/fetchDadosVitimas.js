@@ -2,6 +2,7 @@ function refreshVictim() {
     async function fetchAsync() {
       let id_participant = document.getElementById("idVitima");
       let id = localStorage.getItem("id_victim");
+      let id_occurrence = localStorage.getItem("id_occurrence");
       let name = document.getElementById("nomeVitima");
       let naturality = document.getElementById("naturalidadeVitima");
       let genre = document.getElementById("sexoVitima");
@@ -14,7 +15,7 @@ function refreshVictim() {
       let city = document.getElementById("localidadeVitima");
   
       const renderUsers = document.getElementById("result");
-      const response = await fetch(`http://localhost:3000/participations/participantsocurrences/occurrences/1/participants/${id}/type/Vitima`);
+      const response = await fetch(`http://localhost:3000/participations/participantsocurrences/occurrences/${id_occurrence}/participants/${id}/type/Vitima`);
       const users = await response.json();
   
       id_participant.setAttribute("value", users[0].id_participant);

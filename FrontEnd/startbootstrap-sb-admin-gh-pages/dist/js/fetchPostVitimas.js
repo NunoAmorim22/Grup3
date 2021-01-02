@@ -4,7 +4,7 @@ function saveVictim() {
     
     data.name = document.getElementById("nameVictim").value;
     data.naturality = document.getElementById("naturalityVictim").value;
-  
+    let id_occurrence = localStorage.getItem("id_occurrence");
     let genre;
     if (document.getElementById("maleVictim").checked) {
       genre = document.getElementById("maleVictim").value;
@@ -21,7 +21,7 @@ function saveVictim() {
     data.city = document.getElementById("cityVictim").value;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch("http://localhost:3000/participations/occurrences/vitima/1", {
+    fetch(`http://localhost:3000/participations/occurrences/vitima/${id_occurrence}`, {
       headers: { "Content-Type": "application/json" },
       method: "POST",
       body: JSON.stringify(data),
