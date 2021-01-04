@@ -12,6 +12,7 @@ router.get("/allEnded",occurrencesController.getAllEndedOccurrences);
 router.get("/allPart/:id",occurrencesController.getAllParticipations);
 router.get("/allPres/:id",occurrencesController.getAllPresences);
 router.get("/allActiveTeamOccurrence/:id", occurrencesController.getAllActiveTeamOccurrences);
+router.get("/occurrenceData/:id", occurrencesController.getClickedOccurrenceData);
 
 //No final do DOC
 module.exports = router ;
