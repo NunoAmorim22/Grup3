@@ -13,13 +13,13 @@ function DeleteSuspect() {
     console.log(response.statusText); //=> String
     console.log(response.headers); //=> Headers
     } else {
-    //Swal.fire("Suspeito Apagado").then(document.location.href = "./ListaSuspeitos.html");
    console.log("Success DELETE");
    console.log(response);
    swal.fire({
-    title: "Success!",
+    icon: "success",
+    title: "Sucesso!",
     text: "Suspeito Apagado",
-    type: "success"
+    //type: "success"
 }).then(function () {
     // Redirect the user
     window.location.href = "./ListaSuspeitos.html";

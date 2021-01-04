@@ -17,7 +17,8 @@ function DeleteWitness() {
             console.log("Success DELETE");
             console.log(response);
             swal.fire({
-                title: "Success!",
+                icon: "success",
+                title: "Sucesso!",
                 text: "Testemunha Apagada",
                 type: "success"
             }).then(function () {

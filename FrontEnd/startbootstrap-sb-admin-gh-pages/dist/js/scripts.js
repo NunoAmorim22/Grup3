@@ -307,9 +307,10 @@ function occurrenceEnding() {
 function cantGo() {
   //alert("Neste momento não lhe é permitido aceder a esta página.");
   swal.fire({
+    icon: "warning",
     title: "Alerta!",
-    text: "Nao pode sair desta página!",
-    type: "Alert!"
+    text: "Não pode sair desta página!",
+    //type: 'sucess'
   }).then(function () {
     // Redirect the user
     //window.location.href = "./DadosOcorrencia.html";

@@ -37,9 +37,10 @@ function saveSuspect() {
         console.log("Success POST");
         console.log(response);
         swal.fire({
-          title: "Success!",
+          icon: "success",
+          title: "Sucesso!",
           text: "Suspeito Registado",
-          type: "success"
+          //type: "success"
         }).then(function () {
           // Redirect the user
           window.location.href = "./DadosOcorrencia.html";
