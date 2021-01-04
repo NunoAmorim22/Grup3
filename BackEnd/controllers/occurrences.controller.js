@@ -27,13 +27,13 @@ function getAllActiveOccurrences(req,res){
     });
 }
 
-//get de todas as ocorrencias que estao ativas
+//get de todas as ocorrencias que estao ativas de determinada equipa
 //Fazer----------------------------------------
 function getAllActiveTeamOccurrences(req,res){
-    
-    update =["Em Processo"];
+    const idOperational= req.params.id;
+    update =[idOperational,"Em Processo"];
 
-    const query =connect.con.query ("SELECT id_occurrence FROM Occurrence WHERE state=? order by id_occurrence", update, function(err, rows, fields){
+    const query =connect.con.query ("SELECT o.id_occurrence FROM Team_Inscription ti, Operational op, Team t, Occurrence o WHERE op.id_operational=ti.id_operational AND ti.id_team=t.id_team AND op.id_operational=?  AND o.state=?", update, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
