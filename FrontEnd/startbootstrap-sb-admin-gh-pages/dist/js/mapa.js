@@ -1,5 +1,5 @@
-//Função para o Mapa exemplo livro
-function myMap() {
+/*//Função para o Mapa exemplo livro
+function initMap() {
     //Ponto no mapa a localizar (cidado do porto)
     const porto = new google.maps.LatLng(41.14961, -8.61099);
   
@@ -31,3 +31,12 @@ function myMap() {
       infowindow.open(map, marker);
     });
   }
+*/
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8,
+  });
+}
