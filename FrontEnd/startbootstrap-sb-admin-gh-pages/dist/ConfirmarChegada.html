@@ -13,6 +13,13 @@
   <link href="css/styles.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
     crossorigin="anonymous"></script>
+  <!--GOOGLE MAP-->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0vMsMey7ulsTKk89cnPd32JdOZyOb8e4&callback=initMap&libraries=&v=weekly"
+    type="text/javascript"></script>
+  <!--sweet alert-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 </head>
 
 <body>
@@ -23,18 +30,15 @@
     </nav>
   </div>
   <!--Div com informação-->
-  <div class="container">
+  <div class="container pre-scrollable">
     <div>
       <label>Localização:</label><label></label>
     </div>
-    <div class="container-fluid" id="googleMap">
-      <div class="row">
-        <button onclick="myMap()" class="btn btn-primary btn-width" id="googleMap">Abrir mapa</button>
-      </div>
-    </div>
+    <div id="map"></div>
     <br>
     <div align=center>
-      <button class="btn btn-primary btn-xl btn-width" onclick="arrivalConfirmation()" id="" type=""> Confirmar Chegada</button>
+      <button class="btn btn-primary btn-xl btn-width" onclick="arrivalConfirmation()" id="" type=""> Confirmar
+        Chegada</button>
     </div>
   </div>
   <!--footer-->
@@ -67,6 +71,7 @@
     </footer>
   </div>
   <script src="js/scripts.js"></script>
+  <script src="js/mapa.js"></script>
 </body>
 
 </html>

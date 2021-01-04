@@ -27,6 +27,31 @@ function getAllActiveOccurrences(req,res){
     });
 }
 
+//get de todas as ocorrencias que estao ativas
+//Fazer----------------------------------------
+function getAllActiveTeamOccurrences(req,res){
+    
+    update =["Em Processo"];
+
+    const query =connect.con.query ("SELECT id_occurrence FROM Occurrence WHERE state=? order by id_occurrence", update, function(err, rows, fields){
+        console.log(query.sql);
+    
+        if(err) {
+            console.log(err);
+            res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+                else{
+                    if(rows.length==0) {
+                        res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+                    }
+                    else{
+                        res.send(rows);
+                    }
+                }
+    
+    });
+}
+
 //get de todas as ocorrencias finalizadas e respetivo indicativo de equipa que participou nela
 function getAllEndedOccurrences(req,res){
     
@@ -113,5 +138,6 @@ module.exports = {
     getAllActiveOccurrences:getAllActiveOccurrences,
     getAllEndedOccurrences:getAllEndedOccurrences,
     getAllParticipations:getAllParticipations,
-    getAllPresences:getAllPresences
+    getAllPresences:getAllPresences,
+    getAllActiveTeamOccurrences:getAllActiveTeamOccurrences
 }
