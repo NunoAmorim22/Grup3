@@ -2,7 +2,8 @@ function refreshSuspect() {
     async function fetchAsync() {
       let id_occurrence = document.getElementById("idOcorrencia");
       let id_ocorrencia = localStorage.getItem("id_occurrence");
-      let local = document.getElementById("localOcorrencia");
+      let county = document.getElementById("distritoOcorrencia");
+      let address = document.getElementById("ruaOcorrencia");
       let data = document.getElementById("dataOcorrencia");
       let equipa = document.getElementById("equipaOcorrencia");
       
@@ -15,10 +16,16 @@ function refreshSuspect() {
   
   
       if (users[0].local == "null") {
-        local.setAttribute("value", "");
+        county.setAttribute("value", "");
       }
       else {
-        local.setAttribute("value", users[0].address + users[0].county);
+        county.setAttribute("value", users[0].county);
+      }
+      if (users[0].local == "null") {
+        address.setAttribute("value", "");
+      }
+      else {
+        address.setAttribute("value", users[0].address);
       }
       if (users[0].data == "null") {
         data.setAttribute("value", "");
