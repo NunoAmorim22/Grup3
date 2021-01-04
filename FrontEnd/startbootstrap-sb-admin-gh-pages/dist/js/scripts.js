@@ -88,6 +88,16 @@ function evaluationAssign() {
     document.location.href = "./DadosOcorrencia.html";
   } else {
     alert("Preencha todos os campos!");
+    swal.fire({
+      icon: "alert",
+      title: "Alerta!",
+      text: "Preencha todos os campos!",
+      //type: "success"
+    }).then(function () {
+      // Redirect the user
+      window.location.href = "./DadosOcorrencia.html";
+      console.log('The Ok Button was clicked.');
+    });
   }
 }
 
