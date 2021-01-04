@@ -156,6 +156,51 @@ function getClickedOccurrenceData(req,res){
     });
 }
 
+//fechar ocorrencia
+function CloseOccurrence(req,res){
+    req.sanitize("id_occurrence").escape();
+    
+
+/*
+    req.checkBody("name","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:45});
+    req.checkBody("naturality","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:20});
+    req.checkBody("phone_number","Insira 9 números").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("genre","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:2});
+    req.checkBody("cc_number","Insira 8 números").matches(/^[0-9]+$/).isLength({ min: 0, max:8 });
+    req.checkBody("job","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:20});
+    req.checkBody("skin_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("eyes_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("hair_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("heigth","Insira 3 numeros (ex: 1.50)").matches(/^[0-9]+$/).isLength({ min: 0, max:3});
+    req.checkBody("body_shape","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+*/
+   
+    const errors = req.validationErrors();
+    console.log(errors);
+    if(errors){
+        res.send(errors);
+        return;
+    }
+    else{
+     const idOccurrence = req.params.id;
+     const state= "Concluído";   
+     if (idOccurrence !='NULL' && typeof(idOccurrence != 'undefined')) {
+        
+        const update = [state,idOccurrence];
+        const query = connect.con.query("UPDATE Occurrence SET state=? WHERE id_occurrence=?", update, function (err, rows, fields){
+            console.log(query.sql);
+            if (!err){
+                res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
+                    }
+                    else{
+                        console.log(err);
+                        res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                    }
+            });
+        }
+    }
+}
+
 //exportar módulos
 module.exports = {
     getAllActiveOccurrences:getAllActiveOccurrences,
@@ -163,5 +208,6 @@ module.exports = {
     getAllParticipations:getAllParticipations,
     getAllPresences:getAllPresences,
     getAllActiveTeamOccurrences:getAllActiveTeamOccurrences,
-    getClickedOccurrenceData:getClickedOccurrenceData
+    getClickedOccurrenceData:getClickedOccurrenceData,
+    CloseOccurrence:CloseOccurrence
 }
