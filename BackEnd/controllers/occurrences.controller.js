@@ -134,7 +134,7 @@ function getAllPresences(req,res){
 
 //get de dados de occorrencia que se clica no menu principal
 function getClickedOccurrenceData(req,res){
-    idOccurrence= req.sanitize("id_occurrence").escape();
+    idOccurrence= req.params.id;
     update =[idOccurrence];
 
     const query =connect.con.query ("SELECT o.id_occurrence, l.address, l.county, o.arrival_date, t.team_indicative  FROM Occurrence o, Request r, Location l, Team t WHERE  o.id_occurrence =? AND o.id_request=r.id_request AND r.id_location=l.id_location AND o.id_team=t.id_team", update, function(err, rows, fields){
