@@ -18,19 +18,19 @@ function refreshSuspect() {
         local.setAttribute("value", "");
       }
       else {
-        local.setAttribute("value", users[0].local);
+        local.setAttribute("value", users[0].address + users[0].county);
       }
       if (users[0].data == "null") {
         data.setAttribute("value", "");
       }
       else {
-        data.setAttribute("value", users[0].data);
+        data.setAttribute("value", users[0].arrival_date);
       }
       if (users[0].equipa == "null") {
         equipa.setAttribute("value", "");
       }
       else {
-        equipa.setAttribute("value", users[0].equipa);
+        equipa.setAttribute("value", users[0].team_indicative);
       }
       
       console.log(users[0].id_suspect);
