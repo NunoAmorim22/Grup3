@@ -26,34 +26,19 @@
   <!--div com info-->
   <div class="pre-scrollable">
     <div class="container">
-      <table class="table">
-        <thead>
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status" id="loading">
+          <span class="sr-only">Loading...</span>
+        </div>
+      <table class="table" id="lista-participacoes">
+       <!-- <thead>
           <tr>
             <th scope="col"></th>
             <th scope="col">ID Ocorrência</th>
             <th scope="col"> Créditos</th>
           </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>1234</td>
-            <td>15</td>
-
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>1235</td>
-            <td>20</td>
-
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>1236</td>
-            <td>10</td>
-
-          </tr>
-        </tbody>
+        </thead>-->
+        
       </table>
     </div>
   </div>
@@ -65,7 +50,7 @@
           <div>
             <div class="row">
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href=""><i
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="MenuPrincipal.html"><i
                     class="fas fa-arrow-left buttons-footer"></i></a>
               </div>
               <div>
@@ -87,6 +72,7 @@
     </footer>
   </div>
   </div>
+<script src="js/fetchParticipacoes.js"></script>
 </body>
 
 </html>
