@@ -37,7 +37,7 @@ function refreshVictim() {
         genre.setAttribute("value", "");
       }
       else {
-        genre.setAttribute("value", users[0].genre);
+        genre.value = users[0].genre;
       }
       if (users[0].cc_number == "null") {
         cc_number.setAttribute("value", "");

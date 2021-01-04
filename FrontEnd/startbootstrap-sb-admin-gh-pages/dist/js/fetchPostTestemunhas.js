@@ -3,13 +3,13 @@ function saveWitness() {
     data.name = document.getElementById("nameWitness").value;
     data.naturality = document.getElementById("naturalityWitness").value;
     let id_occurrence = localStorage.getItem("id_occurrence");
-    let genre;
+    /*let genre;
     if (document.getElementById("maleWitness").checked) {
       genre = document.getElementById("maleWitness").value;
     } else if (document.getElementById("femaleWitness").checked) {
       genre = document.getElementById("femaleWitness").value;
-    }
-    data.genre = genre;
+    }*/
+    data.genre = document.getElementById("genreWitness").value;
     data.cc_number = document.getElementById("ccWitness").value;
     data.job = document.getElementById("jobWitness").value;
     data.birth_date = document.getElementById("dateWitness").value;

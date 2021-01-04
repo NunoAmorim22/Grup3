@@ -60,10 +60,11 @@
               <label>Sexo</label>
               <div class="control-group">
                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <input type="radio" id="maleSuspect" name="sentMessage" value="M" selected required/>
-                  Masculino
-                  <input type="radio" id="femaleSuspect" name="sentMessage" value="F" selected required />
-                  Feminino
+                  <select id="genreSuspect" class="browser-default custom-select">
+                    <option disabled selected>Selecione o sexo da testemunha</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                </select>
 
                   <p class="help-block text-danger"></p>
                 </div>

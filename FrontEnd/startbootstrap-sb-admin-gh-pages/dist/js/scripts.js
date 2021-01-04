@@ -370,7 +370,7 @@ function enableEditionWitness() {
   document.getElementById("guardarTestemunha").style.display = "block";
 
   document.getElementById("nomeTestemunha").readOnly = false;
-  document.getElementById("sexoTestemunha").readOnly = false;
+  document.getElementById("sexoTestemunha").removeAttribute("disabled");//("desabled",false);
   document.getElementById("naturalidadeTestemunha").readOnly = false;
   document.getElementById("ccTestemunha").readOnly = false;
   document.getElementById("dataTestemunha").readOnly = false;

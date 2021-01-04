@@ -5,14 +5,14 @@ function saveSuspect() {
   data.name = document.getElementById("nameSuspect").value;
   data.naturality = document.getElementById("naturalitySuspect").value;
   let id_occurrence = localStorage.getItem("id_occurrence");
-
+/*
   let genre;
   if (document.getElementById("maleSuspect").checked) {
     genre = document.getElementById("maleSuspect").value;
   } else if (document.getElementById("femaleSuspect").checked) {
     genre = document.getElementById("femaleSuspect").value;
-  }
-  data.genre = genre;
+  }*/
+  data.genre = document.getElementById("genreSuspect").value;
   data.cc_number = document.getElementById("ccSuspect").value;
   data.job = document.getElementById("jobSuspect").value;
   data.skin_color = document.getElementById("skinSuspect").value;
