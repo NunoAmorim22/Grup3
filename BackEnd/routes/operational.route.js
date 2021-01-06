@@ -12,3 +12,6 @@ module.exports = router;
 
 router.get ("/all" , operationalController.getAllOperationals);
 router.delete("/deletes/:id" , operationalController.deleteOperationals);
+//dados do operacinal - rota para equipa , e resto
+router.get("/getOperationalTeam/:id", operationalController.getOprationalDataTeam);
+router.get("/Rest/:id", operationalController.getOprationalDataRest);
