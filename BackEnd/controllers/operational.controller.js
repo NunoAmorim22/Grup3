@@ -105,12 +105,6 @@ function getOprationalDataRest(req,res){
 
 
 
-
-
-
-
-
-
 module.exports = {
     getAllOperationals:getAllOperationals,
     deleteOperationals:deleteOperationals,
