@@ -1,18 +1,14 @@
-function refreshDadosPerfil() {
+function refreshDadosEditar() {
     async function fetchAsync() {
-      let id_operational = document.getElementById("idPerfil");
+      let id_operational = document.getElementById("idEditar");
       localStorage.setItem("id_operacional", "7");
       let id_operacional = localStorage.getItem("id_operacional");
-      let email_operational = document.getElementById("emailPerfil");
-      let name = document.getElementById("nomePerfil");
-      let team = document.getElementById("equipaPerfil");
-      let credits = document.getElementById("creditosPerfil");
+      let email_operational = document.getElementById("emailEditar");
+      let name = document.getElementById("nomeEditar");
   
       const renderUsers = document.getElementById("result");
       const response = await fetch(`http://localhost:3000/operationals/rest/${id_operacional}`);
       const users = await response.json();
-      const response1 = await fetch(`http://localhost:3000/operationals/getOperationalTeam/${id_operacional}`);
-      const users1 = await response1.json();
       id_operational.setAttribute("value", users[0].id_operational);
   
   
@@ -21,18 +17,6 @@ function refreshDadosPerfil() {
       }
       else {
         name.setAttribute("value", users[0].name);
-      }
-      if (users1[0].team_indicative == "null") {
-        team.setAttribute("value", "");
-      }
-      else {
-        team.setAttribute("value", users1[0].team_indicative);
-      }
-      if (users[0].credits == "null") {
-        credits.setAttribute("value", "");
-      }
-      else {
-        credits.value = users[0].credits;
       }
       if (users[0].email == "null") {
         email_operational.setAttribute("value", "");
@@ -52,4 +36,4 @@ function refreshDadosPerfil() {
       .catch((reason) => console.log(reason.message));
   }
   
-  refreshDadosPerfil();
+  refreshDadosEditar();
