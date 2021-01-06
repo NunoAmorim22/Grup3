@@ -1,9 +1,8 @@
-function refreshMenuOccurrence() {
+function refreshMenuPartida() {
     async function fetchAsync() {
-      let id_occurrence = document.getElementById("idOccurrence");
+      let id_occurrence = document.getElementById("occurrenceId");
       let id_ocorrencia = localStorage.getItem("id_occurrence");
-      let county = document.getElementById("countyOccurrence");
-      let address = document.getElementById("streetOccurrence");
+      let id_team = document.getElementById("teamId");
       
   
       const renderUsers = document.getElementById("result");
@@ -13,20 +12,13 @@ function refreshMenuOccurrence() {
       id_occurrence.setAttribute("value", users[0].id_occurrence);
   
   
-      if (users[0].local == "null") {
-        county.setAttribute("value", "");
+      if (users[0].id_team == "null") {
+        id_team.setAttribute("value", "");
       }
       else {
-        county.setAttribute("value", users[0].county);
+        id_team.setAttribute("value", users[0].id_team);
       }
-      if (users[0].local == "null") {
-        address.setAttribute("value", "");
-      }
-      else {
-        address.setAttribute("value", users[0].address);
-      }
-
-      localStorage.setItem("id_team", users[0].id_team);
+      
       
       
       console.log(users[0].id_suspect);
@@ -39,4 +31,4 @@ function refreshMenuOccurrence() {
       .catch((reason) => console.log(reason.message));
   }
   
-  refreshMenuOccurrence();
+  refreshMenuPartida();
