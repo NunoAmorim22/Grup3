@@ -124,30 +124,13 @@ function EditOperationalData(req,res){
     const idOperational = req.params.id;
     const name = req.body.name;
     const email =req.body.email;
-    const password= req.body
+    const password= req.body.password;
     
 
-        const update = [name,naturality,phone_number,genre,cc_number,job,skin_color,eyes_color,hair_color,height,body_shape,active,idOccurrence];
+        const update = [name,idOperational];
            
-            /*//id_suspect:idSuspect,
-            //id_participant:idParticipant,
-            name : name,
-            naturality : naturality,
-            phone_number: phone_number,
-            genre : genre,
-            cc_number : cc_number,
-            job : job,
-            skin_color : skin_color,
-            eyes_color : eyes_color,
-            hair_color : hair_color,
-            height: height,
-            body_shape: body_shape,
-            active:active,
-            id_occurrence:idOccurrence
-        }   */ 
-
-       
-        const query = connect.con.query ('INSERT INTO Suspect SET name=?,naturality=?,phone_number=? ,genre=? ,cc_number=? ,job=? ,skin_color=? ,eyes_color=? ,hair_color=? ,height=? ,body_shape=? ,active=?',update, function(err, rows, fields){
+        
+        const query = connect.con.query ('UPDATE Candidate SET name=? WHERE id_candidate=(SELECT id_candidate FROM Operational WHERE id_operational=?)',update, function(err, rows, fields){
             console.log(query.sql);
            
             if(!err){
