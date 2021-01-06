@@ -1,5 +1,5 @@
 //------------------------Funçao para fazer get dos suspeitos e colocar numa tabela-------------------------//
-localStorage.setItem("id_operacional", 5);
+localStorage.setItem("id_operacional", 2);
 let id_operacional = localStorage.getItem("id_operacional");
 const api_url = `http://localhost:3000/occurrences/allActiveTeamOccurrence/${id_operacional}`;
 
