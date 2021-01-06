@@ -108,64 +108,67 @@ function getOprationalDataRest(req,res){
 // vai receber id_operacional
 
 
-function EditOperationalData (req,res){
+function EditOperationalData(req,res){
     req.sanitize("id_operational").escape();
-    req.sanitize("email").escape();
     req.sanitize("name").escape();
+    req.sanitize("email").escape();
     req.sanitize("password").escape();
   
+    
+   const errors = req.validationErrors();
+   if(errors){
+       res.send(errors);
+       return;
+   }
+   else{
+    const idOperational = req.params.id;
+    const name = req.body.name;
+    const email =req.body.email;
+    const password= req.body
+    
 
-/*
-    req.checkBody("name","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:45});
-    req.checkBody("naturality","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:20});
-    req.checkBody("phone_number","Insira 9 números").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
-    req.checkBody("genre","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:2});
-    req.checkBody("cc_number","Insira 8 números").matches(/^[0-9]+$/).isLength({ min: 0, max:8 });
-    req.checkBody("job","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:20});
-    req.checkBody("skin_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
-    req.checkBody("eyes_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
-    req.checkBody("hair_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
-    req.checkBody("heigth","Insira 3 numeros (ex: 1.50)").matches(/^[0-9]+$/).isLength({ min: 0, max:3});
-    req.checkBody("body_shape","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
-*/
-   
-    const errors = req.validationErrors();
-    console.log(errors);
-    if(errors){
-        res.send(errors);
-        return;
-    }
-    else{
-     const idSuspect = req.params.id;  
-     const name = req.body.name;
-     const naturality = req.body.naturality;
-     const phone_number = req.body.phone_number;
-     const genre = req.body.genre;
-     const cc_number = req.body.cc_number;
-     const job = req.body.job;
-     const skin_color = req.body.skin_color;
-     const eyes_color = req.body.eyes_color;
-     const hair_color = req.body.hair_color;
-     const height = req.body.height;
-     const body_shape = req.body.body_shape;
-     //const active = req.body.active;
-     const active = 1;
+        const update = [name,naturality,phone_number,genre,cc_number,job,skin_color,eyes_color,hair_color,height,body_shape,active,idOccurrence];
+           
+            /*//id_suspect:idSuspect,
+            //id_participant:idParticipant,
+            name : name,
+            naturality : naturality,
+            phone_number: phone_number,
+            genre : genre,
+            cc_number : cc_number,
+            job : job,
+            skin_color : skin_color,
+            eyes_color : eyes_color,
+            hair_color : hair_color,
+            height: height,
+            body_shape: body_shape,
+            active:active,
+            id_occurrence:idOccurrence
+        }   */ 
 
-     if (idSuspect !='NULL' && typeof(idSuspect) != 'undefined') {
-        
-        const update = [name,naturality,phone_number,genre,cc_number,job,skin_color,eyes_color,hair_color,height,body_shape,active,idSuspect];
-        const query = connect.con.query("UPDATE Suspect SET name=?,naturality=?,phone_number=?,genre=?,cc_number=?,job=?,skin_color=?,eyes_color=?,hair_color=?,height=?,body_shape=?,active=? WHERE id_suspect=?", update, function (err, rows, fields){
+       
+        const query = connect.con.query ('INSERT INTO Suspect SET name=?,naturality=?,phone_number=? ,genre=? ,cc_number=? ,job=? ,skin_color=? ,eyes_color=? ,hair_color=? ,height=? ,body_shape=? ,active=?',update, function(err, rows, fields){
             console.log(query.sql);
-            if (!err){
-                res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
-                    }
-                    else{
-                        console.log(err);
-                        res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
-                    }
-            });
-        }
-    }
+           
+            if(!err){
+                //insertquery = res.location(rows.insertId);
+                //post=[idOccurrence,insertquery];
+                post=[idOccurrence];
+                const query = connect.con.query ('INSERT INTO ParticipationS SET id_occurrence=?, id_suspect=(SELECT MAX(id_suspect) FROM Suspect)',post, function(err,rows, fields){
+                    console.log(query.sql);
+                    res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
+                });
+            }
+            else{
+                console.log(err);
+                if(err.code == 'ER_DUP_ENTRY'){
+                    res.status(jsonMessages.db.duplicateId.status).send(jsonMessages.db.duplicateId);
+                }
+                else
+                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+    });
+    }    
 }
 
 module.exports = {
