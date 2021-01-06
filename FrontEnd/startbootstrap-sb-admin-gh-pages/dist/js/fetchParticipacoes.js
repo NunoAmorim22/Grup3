@@ -1,4 +1,5 @@
-const api_url = `http://localhost:3000/occurrences/allPart/5`;
+let id_operacional = localStorage.getItem("id_operacional");
+const api_url = `http://localhost:3000/occurrences/allPart/${id_operacional}`;
 // Defining async function
 async function getapi(url) {
   // Storing response
