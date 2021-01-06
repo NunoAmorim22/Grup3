@@ -6,3 +6,5 @@ router.get('/', function(req, res) {
     res.send('Operational');
     res.end();
 });
+
+module.exports = router;
