@@ -137,7 +137,9 @@ function getClickedOccurrenceData(req,res){
     idOccurrence= req.params.id;
     update =[idOccurrence];
 
-    const query =connect.con.query ("SELECT o.id_occurrence, l.address, l.county, To_char(o.arrival_date, 'YYYY-MM-DD') arrival_date, t.team_indicative, t.id_team  FROM Occurrence o, Request r, Location l, Team t WHERE  o.id_occurrence =? AND o.id_request=r.id_request AND r.id_location=l.id_location AND o.id_team=t.id_team", update, function(err, rows, fields){
+    // - -CONVERTER - - 
+    //DATE_FORMAT(SYSDATE(), '%Y-%m-%d)
+    const query =connect.con.query ("SELECT o.id_occurrence, l.address, l.county, DATE_FORMAT(o.arrival_date, '%Y-%m-%d') arrival_date, t.team_indicative, t.id_team  FROM Occurrence o, Request r, Location l, Team t WHERE  o.id_occurrence =? AND o.id_request=r.id_request AND r.id_location=l.id_location AND o.id_team=t.id_team", update, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
