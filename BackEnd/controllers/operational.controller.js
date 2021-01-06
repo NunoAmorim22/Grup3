@@ -136,8 +136,8 @@ function EditOperationalData(req,res){
             if(!err){
                 //insertquery = res.location(rows.insertId);
                 //post=[idOccurrence,insertquery];
-                post=[idOccurrence];
-                const query = connect.con.query ('INSERT INTO ParticipationS SET id_occurrence=?, id_suspect=(SELECT MAX(id_suspect) FROM Suspect)',post, function(err,rows, fields){
+                post=[email, password, idOperational];
+                const query = connect.con.query ('UPDATE User SET email=?, password=? WHERE id_user=(SELECT id_user FROM Operational WHERE id_operational=?)',post, function(err,rows, fields){
                     console.log(query.sql);
                     res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
                 });
@@ -160,5 +160,4 @@ module.exports = {
     getOprationalDataTeam:getOprationalDataTeam,
     getOprationalDataRest:getOprationalDataRest,
     EditOperationalData:EditOperationalData
-
 };
