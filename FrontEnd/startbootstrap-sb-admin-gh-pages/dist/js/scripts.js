@@ -261,58 +261,56 @@ function profileValidator() {
   }
 }
 
-function confirmPresence() {
-  if (confirm("Tem a certeza que deseja confirmar presença?")) {
-    alert("A confirmação de presença foi efetuada!");
-    document.location.href = "./MenuPrincipal.html";
-    ////////////////////////////MANDAR CONFIRMAÇAO DE PRESENÇA PARA BASE DE DADOS////////////////////////////////
-  } else {
-    alert(
-      "Cancelou o pedido de confirmação de presença.\nVai ser reencaminhado para a página principal."
-    );
-    document.location.href = "./MenuPrincipal.html";
-  }
-}
 
 function arrivalConfirmation() {
-  if (confirm("Tem a certeza que deseja confirmar a chegada ao local?")) {
-    alert("A confirmação de chegada ao local foi efetuada!");
-    document.location.href = "./DadosOcorrencia.html";
-    ////////////////////////////MANDAR CONFIRMAÇAO DE CHEGADA PARA BASE DE DADOS//////////////////////////////
-  } else {
-    alert(
-      "Cancelou o pedido de confirmação de chegada.\nVai ser reencaminhado para o menu de ocorrência."
-    );
-    document.location.href = "./MenuOcorrencia.html";
-  }
+  swal.fire({
+    title: 'Confirmar chegada ao local?',
+    //showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: `Confirmar`,
+    //denyButtonText: `Don't save`,
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      swal.fire({
+      icon: "success",
+      title: "Sucesso!",
+      text:"Confirmada a chegada ao local!",
+    }).then(function () {
+      // Redirect the user
+      window.location.href = "./DadosOcorrencia.html";
+      console.log('The Ok Button was clicked.');
+    });
+    } 
+  })
 }
 
 function departureConfirmation() {
-  //////////////TEMOS DE VERIFICAR SE AS OUTRAS CONFIRMAÇOES ESTAO FEITAS//////////////////////////////
   let confirmacaoEquipa = true;
   let confirmacaoMateriais = true;
-
   if (confirmacaoMateriais == true && confirmacaoEquipa == true) {
-    /////vai para o mapa, entretanto vai para a confirmaçao de chegada. Deve mudar isto bem como a mensagem de alert/////
-    alert(
-      "Confirmação de partida executada, vai ser reencaminhado para a pagina de confirmação de chegada."
-    );
-    document.location.href = "./ConfirmarChegada.html";
+    swal.fire({
+      icon: "success",
+      title: "Sucesso!",
+      text:"Confirmação de partida executada, vai ser reencaminhado para a pagina de confirmação de chegada.",
+  }).then(function () {
+      // Redirect the user
+      window.location.href = "./ConfirmarChegada.html";
+      console.log('The Ok Button was clicked.');
+    });
   } else {
-    alert("Deve confirmar a equipa e o material antes de prosseguir!");
+    swal.fire({
+      icon: "success",
+      title: "Sucesso!",
+      text:"Confirmação de partida executada, vai ser reencaminhado para a pagina de confirmação de chegada.",
+  }).then(function () {
+      // Redirect the user
+      window.location.href = "./ConfirmarChegada.html";
+      console.log('The Ok Button was clicked.');
+    });
   }
 }
 
-function occurrenceEnding() {
-  let avaliaçoesFeitas = false;
-  if (avaliaçoesFeitas) {
-    alert("A finalizar ocorrência.");
-    document.location.href = "./MenuPrincipal.html";
-  } else {
-    alert("Deve avaliar os intervenientes antes de finalizar a ocorrência!");
-    document.location.href = "./Avaliacoes.html";
-  }
-}
 
 function cantGo() {
   //alert("Neste momento não lhe é permitido aceder a esta página.");
