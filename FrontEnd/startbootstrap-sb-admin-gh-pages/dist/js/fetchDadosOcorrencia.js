@@ -1,4 +1,4 @@
-function refreshSuspect() {
+function refreshOccurrence() {
     async function fetchAsync() {
       let id_occurrence = document.getElementById("idOcorrencia");
       let id_ocorrencia = localStorage.getItem("id_occurrence");
@@ -50,4 +50,4 @@ function refreshSuspect() {
       .catch((reason) => console.log(reason.message));
   }
   
-  refreshSuspect();
+  refreshOccurrence();
