@@ -78,13 +78,13 @@ function getOprationalDataTeam(req,res){
 
 
 
-
+// vai buscar o resto dos dados do operacional quando se clica
 //aparecer Email,id,nome,equipa e creditos
 function getOprationalDataRest(req,res){
     
     idOperational=req.params.id;
 
-    const query =connect.con.query ("SSELECT c.email, op.id_operational, c.name, op.credits FROM Candidate c, Operational op WHERE op.id_candidate=c.id_candidate AND op.id_operational =?;",idOperational, function(err, rows, fields){
+    const query =connect.con.query ("SELECT c.email, op.id_operational, c.name, op.credits FROM Candidate c, Operational op WHERE op.id_candidate=c.id_candidate AND op.id_operational =?;",idOperational, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
@@ -103,12 +103,76 @@ function getOprationalDataRest(req,res){
     });
 }
 
+// editar um operacional
+// vai alterar email, nome, password e confirmar password
+// vai receber id_operacional
 
+
+function EditOperationalData (req,res){
+    req.sanitize("id_operational").escape();
+    req.sanitize("email").escape();
+    req.sanitize("name").escape();
+    req.sanitize("password").escape();
+  
+
+/*
+    req.checkBody("name","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:45});
+    req.checkBody("naturality","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:20});
+    req.checkBody("phone_number","Insira 9 números").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("genre","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:2});
+    req.checkBody("cc_number","Insira 8 números").matches(/^[0-9]+$/).isLength({ min: 0, max:8 });
+    req.checkBody("job","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:20});
+    req.checkBody("skin_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("eyes_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("hair_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("heigth","Insira 3 numeros (ex: 1.50)").matches(/^[0-9]+$/).isLength({ min: 0, max:3});
+    req.checkBody("body_shape","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+*/
+   
+    const errors = req.validationErrors();
+    console.log(errors);
+    if(errors){
+        res.send(errors);
+        return;
+    }
+    else{
+     const idSuspect = req.params.id;  
+     const name = req.body.name;
+     const naturality = req.body.naturality;
+     const phone_number = req.body.phone_number;
+     const genre = req.body.genre;
+     const cc_number = req.body.cc_number;
+     const job = req.body.job;
+     const skin_color = req.body.skin_color;
+     const eyes_color = req.body.eyes_color;
+     const hair_color = req.body.hair_color;
+     const height = req.body.height;
+     const body_shape = req.body.body_shape;
+     //const active = req.body.active;
+     const active = 1;
+
+     if (idSuspect !='NULL' && typeof(idSuspect) != 'undefined') {
+        
+        const update = [name,naturality,phone_number,genre,cc_number,job,skin_color,eyes_color,hair_color,height,body_shape,active,idSuspect];
+        const query = connect.con.query("UPDATE Suspect SET name=?,naturality=?,phone_number=?,genre=?,cc_number=?,job=?,skin_color=?,eyes_color=?,hair_color=?,height=?,body_shape=?,active=? WHERE id_suspect=?", update, function (err, rows, fields){
+            console.log(query.sql);
+            if (!err){
+                res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
+                    }
+                    else{
+                        console.log(err);
+                        res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                    }
+            });
+        }
+    }
+}
 
 module.exports = {
     getAllOperationals:getAllOperationals,
     deleteOperationals:deleteOperationals,
     getOprationalDataTeam:getOprationalDataTeam,
-    getOprationalDataRest:getOprationalDataRest
+    getOprationalDataRest:getOprationalDataRest,
+    EditOperationalData:EditOperationalData
 
 };
