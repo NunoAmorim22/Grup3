@@ -1,32 +1,29 @@
-function refreshMenuOccurrence() {
+function refreshMenuChegada() {
     async function fetchAsync() {
-      let id_occurrence = document.getElementById("idOccurrence");
+      let county = document.getElementById("chegadaDistrito");
       let id_ocorrencia = localStorage.getItem("id_occurrence");
-      let county = document.getElementById("countyOccurrence");
-      let address = document.getElementById("streetOccurrence");
+      let address = document.getElementById("chegadaRua");
       
   
       const renderUsers = document.getElementById("result");
       const response = await fetch(`http://localhost:3000/occurrences/occurrenceData/${id_ocorrencia}`);
       const users = await response.json();
   
-      id_occurrence.setAttribute("value", users[0].id_occurrence);
   
   
-      if (users[0].local == "null") {
+      if (users[0].county == "null") {
         county.setAttribute("value", "");
       }
       else {
         county.setAttribute("value", users[0].county);
       }
-      if (users[0].local == "null") {
+      if (users[0].address == "null") {
         address.setAttribute("value", "");
       }
       else {
         address.setAttribute("value", users[0].address);
       }
-
-      localStorage.setItem("id_team", users[0].id_team);
+      
       
       
       console.log(users[0].id_suspect);
@@ -39,4 +36,4 @@ function refreshMenuOccurrence() {
       .catch((reason) => console.log(reason.message));
   }
   
-  refreshMenuOccurrence();
+  refreshMenuChegada();
