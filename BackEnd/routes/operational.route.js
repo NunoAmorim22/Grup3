@@ -9,3 +9,5 @@ router.get('/', function(req, res) {
 
 //No final do Doc
 module.exports = router;
+
+router.get ("/all" , operationalController.getAllOperationals);

@@ -76,6 +76,6 @@ const occurrencesRouter = require("../routes/occurrences.route");
 app.use("/occurrences", occurrencesRouter);
 
 const operationalRouter = require("../routes/operational.route");
-app.use("/operational",operationalRouter);
+app.use("/operationals",operationalRouter);
 
 module.exports = app;
