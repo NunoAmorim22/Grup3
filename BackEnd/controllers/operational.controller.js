@@ -50,6 +50,7 @@ function deleteOperationals (req , res) {
 
 //get dos dados de operacional para o perfil
 //levar id de operacional
+//aparecer Email,id,nome,equipa e creditos
 
 function getOprationalData(req,res){
     
