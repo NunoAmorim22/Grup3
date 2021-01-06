@@ -29,8 +29,27 @@ function getAllOperationals(req,res){
     });
 }
 
+//delete operacionais 
+// id_operational
+function deleteOperationals (req , res) {
+    const idOperational =req.params.id;
+
+    if (idOperational!='NULL' && typeof(idOperational) != 'undefined') {
+    const query = connect.con.query("DELETE FROM Operational WHERE id_operational = ?", idOperational , function (err, rows, fields){
+        console.log(query.sql);
+        if (!err){
+            res.status(jsonMessages.db.successDeleteU.status).send (jsonMessages.db.successDeleteU);
+                }
+                else{
+                    console.log(err);
+                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+    });
+    }
+}
 
 module.exports = {
-    getAllOperationals:getAllOperationals
+    getAllOperationals:getAllOperationals,
+    deleteOperationals:deleteOperationals 
 
 };

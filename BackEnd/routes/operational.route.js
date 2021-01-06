@@ -11,3 +11,4 @@ router.get('/', function(req, res) {
 module.exports = router;
 
 router.get ("/all" , operationalController.getAllOperationals);
+router.delete("/deletes/:id" , operationalController.deleteOperationals);
