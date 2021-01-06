@@ -1,4 +1,4 @@
-const api_url = `http://localhost:3000/occurrences/allPart/6`;
+const api_url = `http://localhost:3000/occurrences/allPart/5`;
 // Defining async function
 async function getapi(url) {
   // Storing response
