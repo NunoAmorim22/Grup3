@@ -27,13 +27,13 @@
     <div>
       <div class="img-thumbnail" align=center><i class="fas fa-taxi fa-4x"></i></div>
       <div align=center>
-        <h4 for="">ID Ocorrência</h4><input class="form-control py-4" id="" type="" readonly placeholder="ID ocorrencia" />
+        <h4 for="">ID Ocorrência</h4><input class="form-control py-4" id="occurrenceId" type="" readonly placeholder="ID ocorrencia" />
 
       </div>
       <div class="img-thumbnail" align=center><i class="fas fa-users fa-4x"></i></div>
 
       <div align=center>
-        <h4 for="">ID equipa</h4><input class="form-control py-4" id="" type="" readonly placeholder="ID equipa" />
+        <h4 for="">ID equipa</h4><input class="form-control py-4" id="teamId" type="" readonly placeholder="ID equipa" />
 
       </div> <br>
 
@@ -54,15 +54,15 @@
                     class="fas fa-arrow-left buttons-footer"></i></a>
               </div>
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="MenuPrincipal.html"><i
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" onclick="cantGo()"><i
                     class="fas fa-home buttons-footer"></i></a>
               </div>
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="Perfil.html"><i
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" onclick="cantGo()"><i
                     class="fas fa-user buttons-footer"></i></a>
               </div>
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="ConfirmacaoPresenca.html"><i
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0"  onclick="cantGo()"><i
                     class="far fa-calendar-check buttons-footer"></i></i></a>
               </div>
             </div>
@@ -72,6 +72,7 @@
     </footer>
   </div>
   <script src="js/scripts.js"></script>
+  <script src="js/fetchMenuPartida.js"></script>
 </body>
 
 </html>
