@@ -86,6 +86,5 @@ function updateCreditsOp1(req,res){
 
 module.exports={
     getTeamOfLeader:getTeamOfLeader,
-    updateCredits:updateCredits,
     updateCreditsOp1:updateCreditsOp1
 }
