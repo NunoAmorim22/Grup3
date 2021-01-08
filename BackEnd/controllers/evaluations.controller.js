@@ -11,29 +11,26 @@ const jsonMessages = require("../assets/jsonMessages/bd");
 //Tem que levar no body esses creditos(=nota) que o lider atribui a cada operacional da equipa
 //Depois atualizar operational_evaluation (evaluation_credits) de cada operacional na ocorrencia
 
-function EditOperationalData(req,res){
-    req.sanitize("id_operational").escape();
-    req.sanitize("name").escape();
-    req.sanitize("email").escape();
-    req.sanitize("password").escape();
-  
-    
-   const errors = req.validationErrors();
+function updateCredits(req,res){
+    req.sanitize("id_occurrence").escape();
+ 
+ 
+    const errors = req.validationErrors();
    if(errors){
        res.send(errors);
        return;
    }
    else{
-    const idOperational = req.params.id;
-    const name = req.body.name;
-    const email =req.body.email;
-    const password= req.body.password;
-    
+    const idOccurrence= req.params.id;
+    const grade1 = req.body.grade;
+    const grade2 =req.body.grade;;
+    const grade3= req.body.grade;
+    const grade4= req.body.grade
 
-        const update = [name,idOperational];
+        const update = [grade1,grade2,grade3,grade4,idOccurrence];
            
         
-        const query = connect.con.query ('UPDATE Candidate SET name=? WHERE id_candidate=(SELECT id_candidate FROM Operational WHERE id_operational=?)',update, function(err, rows, fields){
+        const query = connect.con.query ("UPDATE Operational_evaluation SET grade=? AND id_occurrence=? AND id_occurrence IN (SELECT id_occurrence FROM Occurrence o , Operational_evaluation oe, Operational op , Team t, Team_Inscription ti WHERE o.occurrence=oe.id_occurrence AND oe.id_operacional=op.id_operational AND op.id_operational=ti.id_operational AND o.id_team=ti.id_team AND t.id_team=ti.id_team AND op.id_operational=l.id_operational)" ,update,function(err, rows, fields){
             console.log(query.sql);
            
             if(!err){
