@@ -1,4 +1,4 @@
-function EditProfile() {
+function EditArrival() {
     var data = {};
     let id_ocorrencia = localStorage.getItem("id_occurrence")
     
