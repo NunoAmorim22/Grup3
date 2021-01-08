@@ -5,6 +5,7 @@ function refreshOccurrence() {
       let county = document.getElementById("distritoOcorrencia");
       let address = document.getElementById("ruaOcorrencia");
       let data = document.getElementById("dataOcorrencia");
+      let hora = document.getElementById("horaOcorrencia");
       let equipa = document.getElementById("equipaOcorrencia");
       
   
@@ -27,11 +28,17 @@ function refreshOccurrence() {
       else {
         address.setAttribute("value", users[0].address);
       }
-      if (users[0].data == "null") {
+      if (users[0].arrival_date == "null") {
         data.setAttribute("value", "");
       }
       else {
         data.setAttribute("value", users[0].arrival_date);
+      }
+      if (users[0].arrival_time == "null") {
+        hora.setAttribute("value", "");
+      }
+      else {
+        hora.setAttribute("value", users[0].arrival_time);
       }
       if (users[0].equipa == "null") {
         equipa.setAttribute("value", "");

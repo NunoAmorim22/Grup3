@@ -190,7 +190,7 @@ function arrivalConfirmation() {
       console.log('The Ok Button was clicked.');
     });
     } 
-  })
+  });
 }
 function materialsConfirmation(){
   localStorage.setItem("confirmacaoMateriais", true);
@@ -262,7 +262,7 @@ function enableEditionSuspect() {
 
   document.getElementById("nomeSuspeito").readOnly = false;
   document.getElementById("naturalidadeSuspeito").readOnly = false;
-  document.getElementById("sexoSuspeito").readOnly = false;
+  document.getElementById("sexoSuspeito").removeAttribute("disabled");
   document.getElementById("ccSuspeito").readOnly = false;
   document.getElementById("profissaoSuspeito").readOnly = false;
   document.getElementById("peleSuspeito").readOnly = false;
@@ -293,7 +293,7 @@ function enableEditionVictim() {
   document.getElementById("guardarVitima").style.display = "block";
 
   document.getElementById("nomeVitima").readOnly = false;
-  document.getElementById("sexoVitima").readOnly = false;
+  document.getElementById("sexoVitima").removeAttribute("disabled");
   document.getElementById("naturalidadeVitima").readOnly = false;
   document.getElementById("ccVitima").readOnly = false;
   document.getElementById("dataVitima").readOnly = false;
