@@ -2,6 +2,35 @@
 const connect = require('../config/connect.js');
 const jsonMessages = require("../assets/jsonMessages/bd");
 
+//get da equipa de um leader numa ocorrencia
+function getTeamOfLeader(req,res){
+    const idOperationalLog= req.params.id;
+    
+
+    update =["1",idOperationalLog,"Em Processo","1"];
+
+    const query =connect.con.query ("SELECT DISTINCT ti.id_team,op.id_operational, c.name FROM Operational op, Team_Inscription ti, Candidate c, User u, Team t, Operational_evaluation ope  WHERE op.id_operational=ti.id_operational AND ope.operational_presence_conf=? AND op.id_operational=ope.id_operational AND op.id_candidate=c.id_candidate AND op.id_user=u.id_user  AND ti.id_team IN (SELECT t.id_team FROM Team_Inscription ti, Operational op, Team t, Occurrence o, Operational_evaluation ope WHERE op.id_operational=ti.id_operational AND ti.id_team=t.id_team AND op.id_operational=ope.id_operational AND op.id_operational=? AND o.state=? AND ope.operational_presence_conf=? AND op.id_operational NOT IN (SELECT id_operational FROM Leader))" , update, function(err, rows, fields){
+        console.log(query.sql);
+    
+        if(err) {
+            console.log(err);
+            res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+                else{
+                    if(rows.length==0) {
+                        res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+                    }
+                    else{
+                        res.send(rows);
+                    }
+                }
+    
+    });
+}
+
+
+
+
 //Função para atualizar os creditos de cada operacional conforme a avaliação do lider de equipa
 //---------------------------------------------------------------------------------------------------------------------
 //Levar na rota o id da ocorrencia
@@ -21,21 +50,24 @@ function updateCredits(req,res){
        return;
    }
    else{
-    const idOccurrence= req.params.id;
+    const idOccurrence= req.params.id_occu;
+    const idOperational=req.params.id_op;
+    const state="Concluído";
     const grade1 = req.body.grade;
     const grade2 =req.body.grade;;
     const grade3= req.body.grade;
     const grade4= req.body.grade
 
-        const update = [grade1,grade2,grade3,grade4,idOccurrence];
+
+    //update do primeiro operacional
+        const update = [grade1,idOccurrence, idOperational,state];
            
         
-        const query = connect.con.query ("UPDATE Operational_evaluation SET grade=? AND id_occurrence=? AND id_occurrence IN (SELECT id_occurrence FROM Occurrence o , Operational_evaluation oe, Operational op , Team t, Team_Inscription ti WHERE o.occurrence=oe.id_occurrence AND oe.id_operacional=op.id_operational AND op.id_operational=ti.id_operational AND o.id_team=ti.id_team AND t.id_team=ti.id_team AND op.id_operational=l.id_operational)" ,update,function(err, rows, fields){
+        const query = connect.con.query ("UPDATE Operational_evaluation SET grade=? WHERE id_occurrence=? AND  id_operational=?  AND id_occurrence IN (SELECT o.id_occurrence FROM Occurrence o , Operational op , Team t, Team_Inscription ti, Leader l WHERE op.id_operational=ti.id_operational AND o.id_team=ti.id_team AND t.id_team=ti.id_team AND op.id_operational!=l.id_operational AND o.state=?) AND id_operational IN (SELECT id_operational FROM Occurrence)" ,update,function(err, rows, fields){
             console.log(query.sql);
            
             if(!err){
-                //insertquery = res.location(rows.insertId);
-                //post=[idOccurrence,insertquery];
+              
                 post=[email, password, idOperational];
                 const query = connect.con.query ('UPDATE User SET email=?, password=? WHERE id_user=(SELECT id_user FROM Operational WHERE id_operational=?)',post, function(err,rows, fields){
                     console.log(query.sql);
@@ -52,4 +84,9 @@ function updateCredits(req,res){
                 }
     });
     }    
+}
+
+module.exports={
+    getTeamOfLeader:getTeamOfLeader,
+    updateCredits:updateCredits
 }
