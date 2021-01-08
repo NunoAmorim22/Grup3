@@ -14,6 +14,8 @@ router.get("/allPres/:id",occurrencesController.getAllPresences);
 router.get("/allActiveTeamOccurrence/:id", occurrencesController.getAllActiveTeamOccurrences);
 router.get("/occurrenceData/:id", occurrencesController.getClickedOccurrenceData);
 router.put("/closeOccurrence/:id", occurrencesController.CloseOccurrence);
+router.put("/arriveOccurrence/:id", occurrencesController.ConfirmArrived);
+
 
 //No final do DOC
 module.exports = router ;
