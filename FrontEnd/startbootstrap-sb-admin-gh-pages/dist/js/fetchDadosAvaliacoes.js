@@ -25,7 +25,8 @@ function refreshDadosAvaliacoes() {
       }
       else {
         operational2.setAttribute("value", users[1].name);
-        console.log(users[1].total_credits);
+        localStorage.setItem("avaliacao2",users[1].total_credits);
+        localStorage.setItem("id_avaliacao2",users[1].id_operational);
       }
       if (users[2].name == "null") {
         operational3.setAttribute("value", "");
