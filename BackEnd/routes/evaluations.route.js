@@ -8,4 +8,20 @@ router.get('/', function(req, res) {
 });
 
 
+router.get("/showteamids/:id", evaluationsController.getTeamOfLeader);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = router ;
