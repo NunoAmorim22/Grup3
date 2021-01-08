@@ -1,5 +1,6 @@
 function EditEvaluations() {
     let id_occurrence = localStorage.getItem("id_occurrence");
+    localStorage.setItem("avaliacao", true);
 
     let form1 = document.getElementById("member1");
     let form2 = document.getElementById("member2");
@@ -118,7 +119,7 @@ function EditEvaluations() {
                 alert("Submission error");
                 console.error(err);
             });
-           /* fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational3}` ,{
+            fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational3}` ,{
                 headers: { "Content-Type": "application/json" },
                 method: "PUT",
                 body: JSON.stringify(data2),
@@ -179,5 +180,5 @@ function EditEvaluations() {
                     .catch(function (err) {
                         alert("Submission error");
                         console.error(err);
-                    });*/
+                    });
 }
