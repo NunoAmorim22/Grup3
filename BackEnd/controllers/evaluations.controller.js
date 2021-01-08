@@ -53,6 +53,7 @@ function updateCreditsOp1(req,res){
     const idOccurrence= req.params.id_occu;
     const idOperational=req.params.id_op;
     const state="Concluído";
+    const totalCredits= req.body.total_credits;
     const grade = req.body.grade;
   
 
@@ -66,8 +67,8 @@ function updateCreditsOp1(req,res){
            
             if(!err){
               
-                post=[grade, idOperational];
-                const query = connect.con.query ('UPDATE Operational SET total_credits=(SELECT SUM(total_credits, ) FROM Operational WHERE id_operational=?),  WHERE id_operational=(SELECT LAST_INSERT_ID (id_operational) FROM Operational_Evaluation WHERE id_operational=?)',post, function(err,rows, fields){
+                post=[totalCredits,idOperational];
+                const query = connect.con.query ('UPDATE Operational SET total_credits=?  WHERE id_operational=?',post, function(err,rows, fields){
                     console.log(query.sql);
                     res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
                 });
