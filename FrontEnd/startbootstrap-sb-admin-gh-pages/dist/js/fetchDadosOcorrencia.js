@@ -31,7 +31,7 @@ function refreshOccurrence() {
         data.setAttribute("value", "");
       }
       else {
-        data.setAttribute("value", users[0].arrival_date);
+        data.setAttribute("value", users[0].arrival_time);
       }
       if (users[0].equipa == "null") {
         equipa.setAttribute("value", "");
