@@ -7,8 +7,10 @@ router.get('/', function(req, res) {
     res.end();
 });
 
-
+//get da equipa de um operacional se ele nao for leader
 router.get("/showteamids/:id", evaluationsController.getTeamOfLeader);
+//atualiza os creditos de um operacional numa ocorrencia e ainda os creditos totais do mesmo
+router.put("/occurrences/id_occu/refresh/:id_op", evaluationsController.updateCreditsOp1);
 
 
 
