@@ -81,4 +81,7 @@ app.use("/operationals",operationalRouter);
 const materialsRouter = require("../routes/materials.route");
 app.use("/materials",materialsRouter);
 
+const evaluationsRouter = require("../routes/evaluations.route");
+app.use("/evaluations",evaluationsRouter);
+
 module.exports = app;

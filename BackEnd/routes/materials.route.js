@@ -7,7 +7,7 @@ router.get('/', function(req, res) {
     res.end();
 });
 
-
+router.get("/allmaterials/:id",materialsControllers.getMaterialtype);
 
 
 
