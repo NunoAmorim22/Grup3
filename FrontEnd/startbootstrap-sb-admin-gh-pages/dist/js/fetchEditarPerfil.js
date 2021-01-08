@@ -5,19 +5,19 @@ function EditProfile() {
   data.name = document.getElementById("nomeEditar").value;
   let palavraPass = document.getElementById("passwordEditar").value;
   let rep_password = document.getElementById("rep_passwordEditar").value;
-  if ( palavraPass === "" || rep_password === "") {
-    if(palavraPass != rep_password){
-      alert("senhas diferentes");
-        editarPerfil.password.focus();
-      return false;
-    }else{
-      alert("Preencha o campo PalavraPass");
-        editarPerfil.password.focus();
-      return false;
-    }
-  }else {
-      data.password = palavraPass;
-    }
+  if (palavraPass === "" || rep_password === "") {
+
+    alert("Preencha o campo PalavraPass");
+    editarPerfil.password.focus();
+    return false;
+
+  } else if (palavraPass != rep_password) {
+    alert("senhas diferentes");
+    editarPerfil.password.focus();
+    return false;
+  } else {
+    data.password = palavraPass;
+  }
   console.log(data); //debugging para ver os dados que foram enviados
   //chamada fetch para envio dos dados para o servior via POST
   fetch(`http://localhost:3000/operationals/edits/${id_operational}`, {
