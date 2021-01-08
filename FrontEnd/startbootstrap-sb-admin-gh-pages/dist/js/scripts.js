@@ -75,155 +75,63 @@ function evaluationAssign() {
     }
   }
   if (ev1 != null && ev2 != null && ev3 != null && ev4 != null) {
-    alert(
-      "Avaliçao primeiro membro: " +
-        ev1 +
-        "\nAvaliçao segundo membro: " +
-        ev2 +
-        "\nAvaliçao terceiro membro: " +
-        ev3 +
-        "\nAvaliçao quarto membro: " +
-        ev4
-    );
-    document.location.href = "./DadosOcorrencia.html";
-  } else {
-    alert("Preencha todos os campos!");
+    localStorage.setItem("avaliacao", true);
     swal.fire({
       icon: "alert",
       title: "Alerta!",
-      text: "Preencha todos os campos!",
+      text: "Avaliçao primeiro membro: " +
+      ev1 +
+      "\nAvaliçao segundo membro: " +
+      ev2 +
+      "\nAvaliçao terceiro membro: " +
+      ev3 +
+      "\nAvaliçao quarto membro: " +
+      ev4,
       //type: "success"
     }).then(function () {
       // Redirect the user
       window.location.href = "./DadosOcorrencia.html";
       console.log('The Ok Button was clicked.');
     });
+  } else {
+    //alert("Preencha todos os campos!");
+    swal.fire({
+      icon: "alert",
+      title: "Alerta!",
+      text: "Preencha todos os campos!",
+      //type: "success"
+    })/*.then(function () {
+      // Redirect the user
+      window.location.href = "./DadosOcorrencia.html";
+      console.log('The Ok Button was clicked.');
+    })*/;
   }
 }
 
-function victimRegister() {
-  let name = document.getElementById("name").value;
-  let naturality = document.getElementById("natural").value;
-  let birthdate = document.getElementById("date").value;
-  let gender;
-  let cc = document.getElementById("cc").value;
-  let contact = document.getElementById("phone").value;
-  let job = document.getElementById("job").value;
-  let email = document.getElementById("email").value;
-  let address = document.getElementById("address").value;
-  let locality = document.getElementById("local").value;
-
-  if (document.getElementById("male").checked) {
-    gender = document.getElementById("male").value;
-  } else if (document.getElementById("female").checked) {
-    gender = document.getElementById("female").value;
-  }
-
-  if (
-    name != null &&
-    naturality != null &&
-    birthdate != "" &&
-    email != "" &&
-    gender != null &&
-    cc != "" &&
-    contact != null &&
-    job != null &&
-    address != "" &&
-    locality != ""
-  ) {
-    confirm(
-      "Tem a certeza que deseja gravar os dados? \nNome: " +
-        name +
-        "\nNaturalidade: " +
-        naturality +
-        "\nData de nascimento: " +
-        birthdate +
-        "\nSexo: " +
-        gender +
-        "\nCartão de Cidadão: " +
-        cc +
-        "\nContacto: " +
-        contact +
-        "\nProfissão: " +
-        job +
-        "\nE-mail: " +
-        email +
-        "\nMorada: " +
-        address +
-        "\nLocalidade: " +
-        locality
-    );
-    //document.location.href = './DadosOcorrencia.html';
-  }
-}
-
-function witnessRegister() {
-  let name = document.getElementById("nameWitness").value;
-  let naturality = document.getElementById("naturalityWitness").value;
-  let birthdate = document.getElementById("dateWitness").value;
-  let gender;
-  let cc = document.getElementById("ccWitness").value;
-  let contact = document.getElementById("phoneWitness").value;
-  let job = document.getElementById("jobWitness").value;
-  let email = document.getElementById("emailWitness").value;
-  let address = document.getElementById("addressWitness").value;
-  let locality = document.getElementById("localityWitness").value;
-
-  if (document.getElementById("maleWitness").checked) {
-    gender = document.getElementById("maleWitness").value;
-  } else if (document.getElementById("femaleWitness").checked) {
-    gender = document.getElementById("femaleWitness").value;
-  }
-}
-
-function suspectRegister() {
-  let name = document.getElementById("nameSuspect").value;
-  let naturality = document.getElementById("naturalitySuspect").value;
-  let gender;
-  let cc = document.getElementById("ccSuspect").value;
-  let job = document.getElementById("jobSuspect").value;
-  let skin = document.getElementById("skinSuspect").value;
-  let eye = document.getElementById("eyeSuspect").value;
-  let hair = document.getElementById("hairSuspect").value;
-  let height = document.getElementById("heightSuspect").value;
-  let body = document.getElementById("bodySuspect").value;
-
-  if (document.getElementById("maleSuspect").checked) {
-    gender = document.getElementById("maleSuspect").value;
-  } else if (document.getElementById("femaleSuspect").checked) {
-    gender = document.getElementById("femaleSuspect").value;
-  }
-
-  if (gender != null) {
-    if (
-      confirm(
-        "Tem a certeza que deseja gravar os dados? \nNome: " +
-          name +
-          "\nNaturalidade: " +
-          naturality +
-          "\nData de nascimento: " +
-          birthdate +
-          "\nSexo: " +
-          gender +
-          "\nCartão de Cidadão: " +
-          cc +
-          "\nContacto: " +
-          contact +
-          "\nProfissão: " +
-          job +
-          "\nE-mail: " +
-          email +
-          "\nMorada: " +
-          address +
-          "\nLocalidade: " +
-          locality
-      )
-    ) {
-      alert("Suspeito registado.");
-      document.location.href = "./DadosOcorrencia.html";
-    } else {
-      alert("Ação cancelada.");
-    }
+function occurrenceEnding(){
+  let avaliacao = localStorage.getItem("avaliacao");
+  if(avaliacao){
+    swal.fire({
+      icon: "success",
+      title: "Sucesso!",
+      text: "Ocorrência Finalizada!",
+      //type: "success"
+    }).then(function () {
+      // Redirect the user
+      window.location.href = "./MenuPrincipal.html";
+      console.log('The Ok Button was clicked.');
+    });
+  }else{
+    swal.fire({
+      icon: "alert",
+      title: "Alerta!",
+      text: "Deve avaliar os operacionais!",
+      //type: "success"
+    }).then(function () {
+      // Redirect the user
+      window.location.href = "./Avaliacoes.html";
+      console.log('The Ok Button was clicked.');
+    });
   }
 }
 
@@ -284,15 +192,38 @@ function arrivalConfirmation() {
     } 
   })
 }
-
+function materialsConfirmation(){
+  localStorage.setItem("confirmacaoMateriais", true);
+  swal.fire({
+    icon: "success",
+    title: "Sucesso!",
+    text:"Confirmação de material executada, vai ser reencaminhado para a pagina de menu de ocorrência.",
+}).then(function () {
+    // Redirect the user
+    window.location.href = "./MenuOcorrencia.html";
+    console.log('The Ok Button was clicked.');
+  });
+}
+function teamConfirmation(){
+  localStorage.setItem("confirmacaoEquipa", true);
+  swal.fire({
+    icon: "success",
+    title: "Sucesso!",
+    text:"Confirmação de equipa executada, vai ser reencaminhado para a página de menu de ocorrência.",
+}).then(function () {
+    // Redirect the user
+    window.location.href = "./MenuOcorrencia.html";
+    console.log('The Ok Button was clicked.');
+  });
+}
 function departureConfirmation() {
-  let confirmacaoEquipa = true;
-  let confirmacaoMateriais = true;
-  if (confirmacaoMateriais == true && confirmacaoEquipa == true) {
+  let confirmacaoEquipa = localStorage.getItem("confirmacaoEquipa");
+  let confirmacaoMateriais = localStorage.getItem("confirmacaoMateriais");
+  if (confirmacaoMateriais && confirmacaoEquipa ) {
     swal.fire({
       icon: "success",
       title: "Sucesso!",
-      text:"Confirmação de partida executada, vai ser reencaminhado para a pagina de confirmação de chegada.",
+      text:"Confirmação de partida executada, vai ser reencaminhado para a página de confirmação de chegada.",
   }).then(function () {
       // Redirect the user
       window.location.href = "./ConfirmarChegada.html";
@@ -300,12 +231,12 @@ function departureConfirmation() {
     });
   } else {
     swal.fire({
-      icon: "success",
-      title: "Sucesso!",
-      text:"Confirmação de partida executada, vai ser reencaminhado para a pagina de confirmação de chegada.",
+      icon: "error",
+      title: "Erro!",
+      text:"É necessário confirmar a equipa e o material!",
   }).then(function () {
       // Redirect the user
-      window.location.href = "./ConfirmarChegada.html";
+      window.location.href = "./MenuOcorrencia.html";
       console.log('The Ok Button was clicked.');
     });
   }
@@ -341,38 +272,6 @@ function enableEditionSuspect() {
   document.getElementById("corpoSuspeito").readOnly = false;
 }
 
-function saveSuspect() {
-  let id = document.getElementById("idSuspeito").value;
-  let name = document.getElementById("nomeSuspeito").value;
-  let naturality = document.getElementById("naturalidadeSuspeito").value;
-  let gender = document.getElementById("sexoSuspeito").value;
-  let cc = document.getElementById("ccSuspeito").value;
-  let job = document.getElementById("profissaoSuspeito").value;
-  let skin = document.getElementById("peleSuspeito").value;
-  let eye = document.getElementById("olhosSuspeito").value;
-  let hair = document.getElementById("cabeloSuspeito").value;
-  let height = document.getElementById("alturaSuspeito").value;
-  let body = document.getElementById("corpoSuspeito").value;
-
-  if (confirm("Deseja guardar os dados?")) {
-    alert("Dados modificados!");
-    ////////////////////GUARDAR DADOS NA BD//////////////////////////////
-    document.location.href = "";
-  } else {
-    document.location.href = "";
-  }
-}
-
-function erraseSuspect() {
-  let id = document.getElementById("idSuspeito").value;
-  if (confirm("Tem a certeza que deseja apagar o suspeito " + id + "?")) {
-    alert("Suspeito " + id + " apagado!");
-    ////////////////////APAGAR NA BASE DE DADOS//////////////////////////////
-    document.location.href = "./ListaSuspeitos.html";
-  } else {
-    document.location.href = "";
-  }
-}
 
 function enableEditionWitness() {
   document.getElementById("guardarTestemunha").style.display = "block";
@@ -389,36 +288,6 @@ function enableEditionWitness() {
   document.getElementById("localidadeTestemunha").readOnly = false;
 }
 
-function saveWitness() {
-  let id = document.getElementById("idTestemunha").value;
-  let name = document.getElementById("nomeTestemunha").value;
-  let gender = document.getElementById("sexoTestemunha").value;
-  let naturality = document.getElementById("naturalidadeTestemunha").value;
-  let cc = document.getElementById("ccTestemunha").value;
-  let birthdate = document.getElementById("dataTestemunha").value;
-  let contact = document.getElementById("contactoTestemunha").value;
-  let job = document.getElementById("profissaoTestemunha").value;
-  let email = document.getElementById("emailTestemunha").value;
-  let address = document.getElementById("moradaTestemunha").value;
-  let locality = document.getElementById("localidadeTestemunha").value;
-
-  if (confirm("Deseja guardar os dados?")) {
-    alert("Dados modificados!");
-    ////////////////////GUARDAR DADOS NA BD//////////////////////////////
-    document.location.href = "";
-  }
-}
-
-function erraseWitness() {
-  let id = document.getElementById("idTestemunha").value;
-  if (confirm("Tem a certeza que deseja apagar a testemunha " + id + "?")) {
-    alert("Testemunha " + id + " apagada!");
-    ////////////////////APAGAR NA BASE DE DADOS//////////////////////////////
-    document.location.href = "./ListaTestemunhas.html";
-  } else {
-    document.location.href = "";
-  }
-}
 
 function enableEditionVictim() {
   document.getElementById("guardarVitima").style.display = "block";
@@ -433,37 +302,6 @@ function enableEditionVictim() {
   document.getElementById("emailVitima").readOnly = false;
   document.getElementById("moradaVitima").readOnly = false;
   document.getElementById("localidadeVitima").readOnly = false;
-}
-
-function saveVictim() {
-  let id = document.getElementById("idVitima").value;
-  let name = document.getElementById("nomeVitima").value;
-  let gender = document.getElementById("sexoVitima").value;
-  let naturality = document.getElementById("naturalidadeVitima").value;
-  let cc = document.getElementById("ccVitima").value;
-  let birthdate = document.getElementById("dataVitima").value;
-  let contact = document.getElementById("contactoVitima").value;
-  let job = document.getElementById("profissaoVitima").value;
-  let email = document.getElementById("emailVitima").value;
-  let address = document.getElementById("moradaVitima").value;
-  let locality = document.getElementById("localidadeVitima").value;
-
-  if (confirm("Deseja guardar os dados?")) {
-    alert("Dados modificados!");
-    ////////////////////GUARDAR DADOS NA BD//////////////////////////////
-    document.location.href = "";
-  }
-}
-
-function erraseVictim() {
-  let id = document.getElementById("idVitima").value;
-  if (confirm("Tem a certeza que deseja apagar a vitima " + id + "?")) {
-    alert("Vitima " + id + " apagada!");
-    ////////////////////APAGAR NA BASE DE DADOS//////////////////////////////
-    document.location.href = "./ListaVitimas.html";
-  } else {
-    document.location.href = "";
-  }
 }
 
 function transportid(idtotransport){
