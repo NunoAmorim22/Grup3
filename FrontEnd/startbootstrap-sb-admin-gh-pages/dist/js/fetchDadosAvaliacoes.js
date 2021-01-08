@@ -33,14 +33,16 @@ function refreshDadosAvaliacoes() {
       }
       else {
         operational3.setAttribute("value", users[2].name);
-        console.log(users[2].total_credits);
+        localStorage.setItem("avaliacao3",users[2].total_credits);
+        localStorage.setItem("id_avaliacao3",users[2].id_operational);
       }
       if (users[3].name == "null") {
         operational4.setAttribute("value", "");
       }
       else {
         operational4.setAttribute("value", users[3].name);
-        console.log(users[3].total_credits);
+        localStorage.setItem("avaliacao4",users[3].total_credits);
+        localStorage.setItem("id_avaliacao4",users[3].id_operational);
       }
   
   

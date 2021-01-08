@@ -1,7 +1,6 @@
 function refreshDadosEditar() {
     async function fetchAsync() {
       let id_operational = document.getElementById("idEditar");
-      localStorage.setItem("id_operacional", "7");
       let id_operacional = localStorage.getItem("id_operacional");
       let email_operational = document.getElementById("emailEditar");
       let name = document.getElementById("nomeEditar");

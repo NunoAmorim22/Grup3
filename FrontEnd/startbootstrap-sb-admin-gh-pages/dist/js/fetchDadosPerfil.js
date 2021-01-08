@@ -28,11 +28,11 @@ function refreshDadosPerfil() {
       else {
         team.setAttribute("value", users1[0].team_indicative);
       }
-      if (users[0].credits == "null") {
+      if (users[0].total_credits == "null") {
         credits.setAttribute("value", "");
       }
       else {
-        credits.value = users[0].credits;
+        credits.value = users[0].total_credits;
       }
       if (users[0].email == "null") {
         email_operational.setAttribute("value", "");

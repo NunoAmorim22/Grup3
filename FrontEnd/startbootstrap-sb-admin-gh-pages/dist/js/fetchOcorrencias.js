@@ -1,8 +1,20 @@
 //------------------------Funçao para fazer get dos suspeitos e colocar numa tabela-------------------------//
-localStorage.setItem("id_operacional", 2);
 localStorage.removeItem("confirmacaoEquipa");
 localStorage.removeItem("confirmacaoMateriais");
 localStorage.removeItem("avaliacao");
+localStorage.removeItem("avaliacao1");
+localStorage.removeItem("avaliacao2");
+localStorage.removeItem("avaliacao3");
+localStorage.removeItem("avaliacao4");
+localStorage.removeItem("id_avaliacao1");
+localStorage.removeItem("id_avaliacao2");
+localStorage.removeItem("id_avaliacao3");
+localStorage.removeItem("id_avaliacao4");
+
+
+
+localStorage.setItem("id_operacional", 2);
+
 let id_operacional = localStorage.getItem("id_operacional");
 const api_url = `http://localhost:3000/occurrences/allActiveTeamOccurrence/${id_operacional}`;
 
