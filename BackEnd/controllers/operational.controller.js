@@ -127,10 +127,10 @@ function EditOperationalData(req,res){
     const password= req.body.password;
     
 
-        const update = [name,idOperational];
+        const update = [name,email,idOperational];
            
         
-        const query = connect.con.query ('UPDATE Candidate SET name=? WHERE id_candidate=(SELECT id_candidate FROM Operational WHERE id_operational=?)',update, function(err, rows, fields){
+        const query = connect.con.query ('UPDATE Candidate SET name=?, email=? WHERE id_candidate=(SELECT id_candidate FROM Operational WHERE id_operational=?)',update, function(err, rows, fields){
             console.log(query.sql);
            
             if(!err){
