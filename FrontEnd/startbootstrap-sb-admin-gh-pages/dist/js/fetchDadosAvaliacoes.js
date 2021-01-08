@@ -16,24 +16,29 @@ function refreshDadosAvaliacoes() {
       }
       else {
         operational1.setAttribute("value", users[0].name);
+        console.log(users[0].total_credits);
+
       }
       if (users[1].name == "null") {
         operational2.setAttribute("value", "");
       }
       else {
         operational2.setAttribute("value", users[1].name);
+        console.log(users[1].total_credits);
       }
       if (users[2].name == "null") {
         operational3.setAttribute("value", "");
       }
       else {
         operational3.setAttribute("value", users[2].name);
+        console.log(users[2].total_credits);
       }
       if (users[3].name == "null") {
         operational4.setAttribute("value", "");
       }
       else {
         operational4.setAttribute("value", users[3].name);
+        console.log(users[3].total_credits);
       }
   
   
