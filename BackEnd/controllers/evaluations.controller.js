@@ -40,7 +40,7 @@ function getTeamOfLeader(req,res){
 //Tem que levar no body esses creditos(=nota) que o lider atribui a cada operacional da equipa
 //Depois atualizar operational_evaluation (evaluation_credits) de cada operacional na ocorrencia
 
-function updateCredits(req,res){
+function updateCreditsOp1(req,res){
     req.sanitize("id_occurrence").escape();
  
  
@@ -53,23 +53,21 @@ function updateCredits(req,res){
     const idOccurrence= req.params.id_occu;
     const idOperational=req.params.id_op;
     const state="Concluído";
-    const grade1 = req.body.grade;
-    const grade2 =req.body.grade;;
-    const grade3= req.body.grade;
-    const grade4= req.body.grade
+    const grade = req.body.grade;
+  
 
 
     //update do primeiro operacional
-        const update = [grade1,idOccurrence, idOperational,state];
+        const update = [grade,grade,idOccurrence, idOperational,state];
            
         
-        const query = connect.con.query ("UPDATE Operational_evaluation SET grade=? WHERE id_occurrence=? AND  id_operational=?  AND id_occurrence IN (SELECT o.id_occurrence FROM Occurrence o , Operational op , Team t, Team_Inscription ti, Leader l WHERE op.id_operational=ti.id_operational AND o.id_team=ti.id_team AND t.id_team=ti.id_team AND op.id_operational!=l.id_operational AND o.state=?) AND id_operational IN (SELECT id_operational FROM Occurrence)" ,update,function(err, rows, fields){
+        const query = connect.con.query ("UPDATE Operational_evaluation SET grade=?, evaluation_credits=? WHERE id_occurrence=? AND  id_operational=?  AND id_occurrence IN (SELECT o.id_occurrence FROM Occurrence o , Operational op , Team t, Team_Inscription ti, Leader l WHERE op.id_operational=ti.id_operational AND o.id_team=ti.id_team AND t.id_team=ti.id_team AND op.id_operational!=l.id_operational AND o.state=?) AND id_operational IN (SELECT id_operational FROM Occurrence)" ,update,function(err, rows, fields){
             console.log(query.sql);
            
             if(!err){
               
-                post=[email, password, idOperational];
-                const query = connect.con.query ('UPDATE User SET email=?, password=? WHERE id_user=(SELECT id_user FROM Operational WHERE id_operational=?)',post, function(err,rows, fields){
+                post=[idOperational];
+                const query = connect.con.query ('UPDATE Operational SET total_credits,  WHERE id_operational=(SELECT LAST_INSERT_ID (id_operational) FROM Operational_Evaluation WHERE id_operational=?)',post, function(err,rows, fields){
                     console.log(query.sql);
                     res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
                 });
@@ -88,5 +86,5 @@ function updateCredits(req,res){
 
 module.exports={
     getTeamOfLeader:getTeamOfLeader,
-    updateCredits:updateCredits
+    updateCreditsOp1:updateCreditsOp1
 }

@@ -1,5 +1,6 @@
+let id_operational = localStorage.getItem("id_operacional");
 let id_equipa = localStorage.getItem("id_team");
-const api_url = `http://localhost:3000/occurrences/allPres/${id_equipa}`;
+const api_url = `http://localhost:3000/occurrences/allPres/${id_operational}`;
 // Defining async function
 async function getapi(url) {
   // Storing response
