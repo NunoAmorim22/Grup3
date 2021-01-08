@@ -84,7 +84,7 @@ function getOprationalDataRest(req,res){
     
     idOperational=req.params.id;
 
-    const query =connect.con.query ("SELECT c.email, op.id_operational, c.name, op.credits FROM Candidate c, Operational op WHERE op.id_candidate=c.id_candidate AND op.id_operational =?;",idOperational, function(err, rows, fields){
+    const query =connect.con.query ("SELECT c.email, op.id_operational, c.name, op.total_credits FROM Candidate c, Operational op WHERE op.id_candidate=c.id_candidate AND op.id_operational =?;",idOperational, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
