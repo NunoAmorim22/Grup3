@@ -1,3 +1,4 @@
+//-----------Para equipa por ocorrência-------------------
 const api_url = `http://localhost:3000/occurrences/allEnded`;
 // Defining async function
 async function getapi(url) {
