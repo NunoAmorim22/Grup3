@@ -60,7 +60,7 @@ function EditEvaluations() {
 
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational1}`, {
+    fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational1}` ,{
         headers: { "Content-Type": "application/json" },
         method: "PUT",
         body: JSON.stringify(data),
@@ -79,10 +79,6 @@ function EditEvaluations() {
                     title: "Sucesso!",
                     text: "Avaliações atribuidas e atualizadas",
                     //type: "success"
-                }).then(function () {
-                    // Redirect the user
-                    window.location.href = "./DadosOcorrencia.html";
-                    console.log('The Ok Button was clicked.');
                 });
             }
         })
@@ -93,4 +89,95 @@ function EditEvaluations() {
             alert("Submission error");
             console.error(err);
         });
+        fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational2}` ,{
+            headers: { "Content-Type": "application/json" },
+            method: "PUT",
+            body: JSON.stringify(data1),
+        })
+            .then(function (response) {
+                if (!response.ok) {
+                    console.log(response.status); //=> number 100–599
+                    console.log(response.statusText); //=> String
+                    console.log(response.headers); //=> Headers
+                } else {
+                    // Swal.fire("Suspeito Atualizado");
+                    console.log("Success PUT");
+                    console.log(response);
+                    swal.fire({
+                        icon: "success",
+                        title: "Sucesso!",
+                        text: "Avaliações atribuidas e atualizadas",
+                        //type: "success"
+                    });
+                }
+            })
+            .then(function (result) {
+                console.log(result);
+            })
+            .catch(function (err) {
+                alert("Submission error");
+                console.error(err);
+            });
+           /* fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational3}` ,{
+                headers: { "Content-Type": "application/json" },
+                method: "PUT",
+                body: JSON.stringify(data2),
+            })
+                .then(function (response) {
+                    if (!response.ok) {
+                        console.log(response.status); //=> number 100–599
+                        console.log(response.statusText); //=> String
+                        console.log(response.headers); //=> Headers
+                    } else {
+                        // Swal.fire("Suspeito Atualizado");
+                        console.log("Success PUT");
+                        console.log(response);
+                        swal.fire({
+                            icon: "success",
+                            title: "Sucesso!",
+                            text: "Avaliações atribuidas e atualizadas",
+                            //type: "success"
+                        });
+                    }
+                })
+                .then(function (result) {
+                    console.log(result);
+                })
+                .catch(function (err) {
+                    alert("Submission error");
+                    console.error(err);
+                });
+                fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational4}` ,{
+                    headers: { "Content-Type": "application/json" },
+                    method: "PUT",
+                    body: JSON.stringify(data3),
+                })
+                    .then(function (response) {
+                        if (!response.ok) {
+                            console.log(response.status); //=> number 100–599
+                            console.log(response.statusText); //=> String
+                            console.log(response.headers); //=> Headers
+                        } else {
+                            // Swal.fire("Suspeito Atualizado");
+                            console.log("Success PUT");
+                            console.log(response);
+                            swal.fire({
+                                icon: "success",
+                                title: "Sucesso!",
+                                text: "Avaliações atribuidas e atualizadas",
+                                //type: "success"
+                            }).then(function () {
+                                // Redirect the user
+                                window.location.href = "./DadosOcorrencia.html";
+                                console.log('The Ok Button was clicked.');
+                            });
+                        }
+                    })
+                    .then(function (result) {
+                        console.log(result);
+                    })
+                    .catch(function (err) {
+                        alert("Submission error");
+                        console.error(err);
+                    });*/
 }
