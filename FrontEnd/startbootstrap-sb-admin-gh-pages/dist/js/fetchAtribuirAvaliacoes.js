@@ -28,34 +28,34 @@ function EditEvaluations() {
     data.total_credits = parseInt(data.grade) + parseInt(total_credits1);
 
     var data1 = {};
-    for (let i = 1; i < form1.length; i++) {
-        let c = form1.getElementsByTagName("input")[i];
+    for (let i = 1; i < form2.length; i++) {
+        let c = form2.getElementsByTagName("input")[i];
         if (c.checked) {
           data1.grade = c.value;
         }
       }
     
-    data1.total_credits = parseInt(data1.grade) + parseInt(total_credits1);
+    data1.total_credits = parseInt(data1.grade) + parseInt(total_credits2);
 
     var data2 = {};
-    for (let i = 1; i < form1.length; i++) {
-        let c = form1.getElementsByTagName("input")[i];
+    for (let i = 1; i < form3.length; i++) {
+        let c = form3.getElementsByTagName("input")[i];
         if (c.checked) {
           data2.grade = c.value;
         }
       }
     
-    data2.total_credits = parseInt(data2.grade) + parseInt(total_credits1);
+    data2.total_credits = parseInt(data2.grade) + parseInt(total_credits3);
 
     var data3 = {};
-    for (let i = 1; i < form1.length; i++) {
-        let c = form1.getElementsByTagName("input")[i];
+    for (let i = 1; i < form4.length; i++) {
+        let c = form4.getElementsByTagName("input")[i];
         if (c.checked) {
           data3.grade = c.value;
         }
       }
     
-    data3.total_credits = parseInt(data3.grade) + parseInt(total_credits1);
+    data3.total_credits = parseInt(data3.grade) + parseInt(total_credits4);
 
 
     console.log(data); //debugging para ver os dados que foram enviados
