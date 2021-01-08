@@ -323,3 +323,17 @@ function transportidOccurrence(idtotransport){
   localStorage.setItem("id_occurrence", idtotransport); 
   document.location.href = "./MenuOcorrencia.html";
 }
+
+function coisaLinda(){
+  Swal.fire({
+    title: 'Querias!',
+    width: 300,
+    padding: '3em',
+    background: '#fff',
+    backdrop: `
+      url("https://media.giphy.com/media/o5HKScC1PflLO/giphy.gif")
+      bottom
+      no-repeat
+    `
+  })
+}
