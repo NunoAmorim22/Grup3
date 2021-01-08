@@ -237,7 +237,7 @@ function ConfirmArrived(req,res){
      if (idOccurrence !='NULL' && typeof(idOccurrence != 'undefined')) {
         
         const update = [idOccurrence];
-        const query = connect.con.query("UPDATE Occurrence SET arrival_time= CURRENT_TIMESTAMP WHERE id_occurrence=?", update, function (err, rows, fields){
+        const query = connect.con.query("UPDATE Occurrence SET arrival_time= CURRENT_TIMESTAMP, arrival_date= CURRENT_DATE WHERE id_occurrence=?", update, function (err, rows, fields){
             console.log(query.sql);
             if (!err){
                 res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
