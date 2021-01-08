@@ -79,12 +79,12 @@ function getOprationalDataTeam(req,res){
 
 
 // vai buscar o resto dos dados do operacional quando se clica
-//aparecer Email,id,nome,equipa e creditos
+//aparecer Email,id,nome,equipa , creditos e pass
 function getOprationalDataRest(req,res){
     
     idOperational=req.params.id;
 
-    const query =connect.con.query ("SELECT c.email, op.id_operational, c.name, op.total_credits FROM Candidate c, Operational op WHERE op.id_candidate=c.id_candidate AND op.id_operational =?;",idOperational, function(err, rows, fields){
+    const query =connect.con.query ("SELECT c.email, op.id_operational, c.name, op.total_credits, u.password  FROM Candidate c, Operational op, User u WHERE op_user=u.id_user AND op.id_candidate=c.id_candidate AND op.id_operational =?;",idOperational, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
