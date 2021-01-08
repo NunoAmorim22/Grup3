@@ -31,8 +31,14 @@
   </div>
   <!--Div com a informação-->
   <div class="container pre-scrollable">
-    <table class="table">
-      <thead>
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status" id="loading">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <table class="table" id="lista-materiais">
+      
+      <!--<thead>
         <tr>
           <th scope="col"></th>
           <th scope="col">Tipo de Material</th>
@@ -66,10 +72,10 @@
             <input type="radio" name="sentMessage" value="no" selected /> <i class="fas fa-times"></i>
           </td>
         </tr>
-      </tbody>
+      </tbody>-->
     </table>
     <div align=center>
-      <button onclick="" class="btn btn-primary btn-xl btn-width" id="" type="">
+      <button onclick="materialsConfirmation()" class="btn btn-primary btn-xl btn-width" id="" type="">
         Confirmar</button>
     </div>
   </div>
@@ -85,15 +91,15 @@
                     class="fas fa-arrow-left buttons-footer"></i></a>
               </div>
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="MenuPrincipal.html"><i
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" onclick="cantGo()"><i
                     class="fas fa-home buttons-footer"></i></a>
               </div>
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="Perfil.html"><i
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" onclick="cantGo()"><i
                     class="fas fa-user buttons-footer"></i></a>
               </div>
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="ConfirmacaoPresenca.html"><i
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" onclick="cantGo()"><i
                     class="far fa-calendar-check buttons-footer"></i></i></a>
               </div>
             </div>
@@ -103,6 +109,7 @@
     </footer>
   </div>
   <script src="js/scripts.js"></script>
+  <script src="js/fetchMateriais.js"></script>
 </body>
 
 </html>
