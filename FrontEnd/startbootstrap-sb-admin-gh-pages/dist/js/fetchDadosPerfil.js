@@ -1,7 +1,6 @@
 function refreshDadosPerfil() {
     async function fetchAsync() {
       let id_operational = document.getElementById("idPerfil");
-      localStorage.setItem("id_operacional", "7");
       let id_operacional = localStorage.getItem("id_operacional");
       let email_operational = document.getElementById("emailPerfil");
       let name = document.getElementById("nomePerfil");
@@ -13,6 +12,7 @@ function refreshDadosPerfil() {
       const users = await response.json();
       const response1 = await fetch(`http://localhost:3000/operationals/getOperationalTeam/${id_operacional}`);
       const users1 = await response1.json();
+      
       id_operational.setAttribute("value", users[0].id_operational);
   
   
