@@ -10,7 +10,11 @@ const models = require ('../models');
 
 
 
+
+
+
 //Criação de sessão
+const hour = 3600000;
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 app.use(expressSanitizer());
 app.use(cookieParser());
@@ -21,7 +25,7 @@ app.use(session({
   saveUninitialized: true,
   cookie: { 
     secure: true,
-    maxAge: 60000,
+    maxAge: 8 * hour,
     httpOnly: true,
   }
 }))
