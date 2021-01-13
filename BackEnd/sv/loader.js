@@ -9,8 +9,8 @@ const expressValidator = require('express-validator');
 const models = require ('../models');
 
 const hour = 3600000;
-req.session.cookie.expires = new Date(Date.now() + hour);
-//req.session.cookie.maxAge = 8 * hour;
+const expire = req.session.cookie.expires = new Date(Date.now() + hour);
+
 
 
 //Criação de sessão
@@ -22,9 +22,10 @@ app.use(session({
   secret: 'PSPg3',
   resave: false,
   saveUninitialized: true,
+  rolling: true,
   cookie: { 
     secure: true,
-    maxAge: 8 * hour,
+    maxAge: 8* hour,
     httpOnly: true,
   }
 }))
