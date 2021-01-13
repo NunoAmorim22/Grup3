@@ -19,3 +19,5 @@ router.get("/rest/:id", operationalController.getOprationalDataRest);
 router.put("/edits/:id", operationalController.EditOperationalData);
 //inserir novo user/candidato
 router.post("/adminsInserts", operationalController.InsertNewUserAdmin);
+//apagar operacionais pelo admin
+router.delete("/deleteAd/:id", operationalController.deleteOpByAdmin);

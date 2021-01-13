@@ -367,6 +367,7 @@ function deleteVitimaF (req , res) {
     });
     }
 }
+
 //eliminar fisico de suspeito
 function deleteSuspectF (req , res) {
     const update =req.params.id;
