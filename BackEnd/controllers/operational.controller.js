@@ -209,6 +209,9 @@ function InsertNewUserAdmin(req,res){
     }    
 }
 
+// delete operacionais pelo admin 
+
+
 
 
 
