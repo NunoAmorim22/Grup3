@@ -17,3 +17,5 @@ router.get("/getOperationalTeam/:id", operationalController.getOprationalDataTea
 router.get("/rest/:id", operationalController.getOprationalDataRest);
 //editar os dados do operacional e altera automaticamente os dados do utilizador- email e password
 router.put("/edits/:id", operationalController.EditOperationalData);
+//inserir novo user/candidato
+router.post("/adminsInserts", operationalController.InsertNewUserAdmin);

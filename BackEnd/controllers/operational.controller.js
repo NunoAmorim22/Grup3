@@ -154,10 +154,69 @@ function EditOperationalData(req,res){
     }    
 }
 
+
+// post para  o admin inserir novos operacionais e criar automaticamente conta
+// 1 - criar user
+// 2 - criar candidato
+// 3 - criar operacional :: só quando sit = "ACEITE"
+
+function InsertNewUserAdmin(req,res){
+    req.sanitize("name").escape();
+    req.sanitize("email").escape();
+    req.sanitize('password').escape();
+
+    
+    const errors = req.validationErrors();
+    console.log(errors);
+    if(errors){
+        res.send(errors);
+        return;
+    }
+    else{
+        const name = req.body.name;
+        const email = req.body.email;
+        const password = req.body.password;
+        const candidateType= "Operador";
+        const candidateSit="Pendente";
+
+    
+
+        const update = [email, password];
+           
+            
+       
+        const query = connect.con.query ('INSERT INTO User SET email=?, password=?',update, function(err, rows, fields){
+            console.log(query.sql);
+           
+            if(!err){
+
+              //inserir candidato com situação "pendente"
+                post=[name, email, candidateType, candidateSit];
+                const query = connect.con.query ('INSERT INTO Candidate SET name=?, email=?, candidate_type= ?, candidate_situation=?',post, function(err,rows, fields){
+                    console.log(query.sql);
+                    res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
+                });
+            }
+            else{
+                console.log(err);
+                if(err.code == 'ER_DUP_ENTRY'){
+                    res.status(jsonMessages.db.duplicateId.status).send(jsonMessages.db.duplicateId);
+                }
+                else
+                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+    });
+    }    
+}
+
+
+
+
 module.exports = {
     getAllOperationals:getAllOperationals,
     deleteOperationals:deleteOperationals,
     getOprationalDataTeam:getOprationalDataTeam,
     getOprationalDataRest:getOprationalDataRest,
-    EditOperationalData:EditOperationalData
+    EditOperationalData:EditOperationalData,
+    InsertNewUserAdmin:InsertNewUserAdmin
 };
