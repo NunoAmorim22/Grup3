@@ -1,4 +1,4 @@
-function RegistOperational() {
+function RegisterOperational() {
     var data = {};
 data.email = document.getElementById("inputEmailAddress").value;
 data.name = document.getElementById("inputName").value;
