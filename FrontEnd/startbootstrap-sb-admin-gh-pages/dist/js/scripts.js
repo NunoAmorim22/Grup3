@@ -23,6 +23,8 @@
   });
 })(jQuery);
 
+
+
 function login() {
   /*TEmporario para teste*/
 
@@ -192,6 +194,7 @@ function arrivalConfirmation() {
     } 
   });
 }
+
 function materialsConfirmation(){
   localStorage.setItem("confirmacaoMateriais", true);
   swal.fire({
@@ -216,6 +219,7 @@ function teamConfirmation(){
     console.log('The Ok Button was clicked.');
   });
 }
+
 function departureConfirmation() {
   let confirmacaoEquipa = localStorage.getItem("confirmacaoEquipa");
   let confirmacaoMateriais = localStorage.getItem("confirmacaoMateriais");
