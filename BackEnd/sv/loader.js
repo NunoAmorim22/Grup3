@@ -8,6 +8,9 @@ const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 const models = require ('../models');
 
+const hour = 3600000;
+req.session.cookie.expires = new Date(Date.now() + hour);
+//req.session.cookie.maxAge = 8 * hour;
 
 
 //Criação de sessão
@@ -21,7 +24,7 @@ app.use(session({
   saveUninitialized: true,
   cookie: { 
     secure: true,
-    maxAge: 60000,
+    maxAge: 8 * hour,
     httpOnly: true,
   }
 }))
