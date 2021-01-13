@@ -40,6 +40,9 @@ function getTeamOfLeader(req,res){
 //Tem que levar no body esses creditos(=nota) que o lider atribui a cada operacional da equipa
 //Depois atualizar operational_evaluation (evaluation_credits) de cada operacional na ocorrencia
 
+
+//update do primeiro operacional
+
 function updateCreditsOp1(req,res){
     req.sanitize("id_occurrence").escape();
  
@@ -58,7 +61,7 @@ function updateCreditsOp1(req,res){
   
 
 
-    //update do primeiro operacional
+    
         const update = [grade,grade,idOccurrence, idOperational,state];
            
         
@@ -85,7 +88,153 @@ function updateCreditsOp1(req,res){
     }    
 }
 
+// update do segundo operacional
+
+function updateCreditsOp2(req,res){
+    req.sanitize("id_occurrence").escape();
+ 
+ 
+    const errors = req.validationErrors();
+   if(errors){
+       res.send(errors);
+       return;
+   }
+   else{
+    const idOccurrence= req.params.id_occu;
+    const idOperational=req.params.id_op;
+    const state="Concluído";
+    const totalCredits= req.body.total_credits;
+    const grade = req.body.grade;
+  
+
+
+    
+        const update = [grade,grade,idOccurrence, idOperational,state];
+        // a grade = aos creditos a receber
+           
+        
+        const query = connect.con.query ("UPDATE Operational_evaluation SET grade=?, evaluation_credits=? WHERE id_occurrence=? AND  id_operational=?  AND id_occurrence IN (SELECT o.id_occurrence FROM Occurrence o , Operational op , Team t, Team_Inscription ti, Leader l WHERE op.id_operational=ti.id_operational AND o.id_team=ti.id_team AND t.id_team=ti.id_team AND op.id_operational!=l.id_operational AND o.state=?) AND id_operational IN (SELECT id_operational FROM Occurrence)" ,update,function(err, rows, fields){
+            console.log(query.sql);
+           
+            if(!err){
+              
+                post=[totalCredits,idOperational];
+                const query = connect.con.query ('UPDATE Operational SET total_credits=?  WHERE id_operational=?',post, function(err,rows, fields){
+                    console.log(query.sql);
+                    res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
+                });
+            }
+            else{
+                console.log(err);
+                if(err.code == 'ER_DUP_ENTRY'){
+                    res.status(jsonMessages.db.duplicateId.status).send(jsonMessages.db.duplicateId);
+                }
+                else
+                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+    });
+    }    
+}
+
+// update do terceiro operacional
+
+function updateCreditsOp3(req,res){
+    req.sanitize("id_occurrence").escape();
+ 
+ 
+    const errors = req.validationErrors();
+   if(errors){
+       res.send(errors);
+       return;
+   }
+   else{
+    const idOccurrence= req.params.id_occu;
+    const idOperational=req.params.id_op;
+    const state="Concluído";
+    const totalCredits= req.body.total_credits;
+    const grade = req.body.grade;
+  
+
+
+   
+        const update = [grade,grade,idOccurrence, idOperational,state];
+        // a grade = aos creditos a receber
+           
+        
+        const query = connect.con.query ("UPDATE Operational_evaluation SET grade=?, evaluation_credits=? WHERE id_occurrence=? AND  id_operational=?  AND id_occurrence IN (SELECT o.id_occurrence FROM Occurrence o , Operational op , Team t, Team_Inscription ti, Leader l WHERE op.id_operational=ti.id_operational AND o.id_team=ti.id_team AND t.id_team=ti.id_team AND op.id_operational!=l.id_operational AND o.state=?) AND id_operational IN (SELECT id_operational FROM Occurrence)" ,update,function(err, rows, fields){
+            console.log(query.sql);
+           
+            if(!err){
+              
+                post=[totalCredits,idOperational];
+                const query = connect.con.query ('UPDATE Operational SET total_credits=?  WHERE id_operational=?',post, function(err,rows, fields){
+                    console.log(query.sql);
+                    res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
+                });
+            }
+            else{
+                console.log(err);
+                if(err.code == 'ER_DUP_ENTRY'){
+                    res.status(jsonMessages.db.duplicateId.status).send(jsonMessages.db.duplicateId);
+                }
+                else
+                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+    });
+    }    
+}
+
+// update do quarto operacional
+
+function updateCreditsOp4(req,res){
+    req.sanitize("id_occurrence").escape();
+ 
+ 
+    const errors = req.validationErrors();
+   if(errors){
+       res.send(errors);
+       return;
+   }
+   else{
+    const idOccurrence= req.params.id_occu;
+    const idOperational=req.params.id_op;
+    const state="Concluído";
+    const totalCredits= req.body.total_credits;
+    const grade = req.body.grade;
+  
+
+
+   
+        const update = [grade,grade,idOccurrence, idOperational,state];
+        // a grade = aos creditos a receber
+           
+        
+        const query = connect.con.query ("UPDATE Operational_evaluation SET grade=?, evaluation_credits=? WHERE id_occurrence=? AND  id_operational=?  AND id_occurrence IN (SELECT o.id_occurrence FROM Occurrence o , Operational op , Team t, Team_Inscription ti, Leader l WHERE op.id_operational=ti.id_operational AND o.id_team=ti.id_team AND t.id_team=ti.id_team AND op.id_operational!=l.id_operational AND o.state=?) AND id_operational IN (SELECT id_operational FROM Occurrence)" ,update,function(err, rows, fields){
+            console.log(query.sql);
+           
+            if(!err){
+              
+                post=[totalCredits,idOperational];
+                const query = connect.con.query ('UPDATE Operational SET total_credits=?  WHERE id_operational=?',post, function(err,rows, fields){
+                    console.log(query.sql);
+                    res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
+                });
+            }
+            else{
+                console.log(err);
+                if(err.code == 'ER_DUP_ENTRY'){
+                    res.status(jsonMessages.db.duplicateId.status).send(jsonMessages.db.duplicateId);
+                }
+                else
+                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+    });
+    }    
+}
 module.exports={
     getTeamOfLeader:getTeamOfLeader,
-    updateCreditsOp1:updateCreditsOp1
+    updateCreditsOp1:updateCreditsOp1,
+    updateCreditsOp2:updateCreditsOp2,
+    updateCreditsOp3:updateCreditsOp3,
+    updateCreditsOp4:updateCreditsOp4
 }
