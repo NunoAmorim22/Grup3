@@ -7,12 +7,12 @@ let rep_password = document.getElementById("inputConfirmPassword").value;
 if (palavraPass === "" || rep_password === "") {
 
     alert("Preencha o campo PalavraPass");
-    editarPerfil.password.focus();
+    document.getElementById("inputPassword").focus();
     return false;
 
 } else if (palavraPass != rep_password) {
     alert("Senhas diferentes");
-    editarPerfil.password.focus();
+    document.getElementById("inputPassword").focus();
     return false;
 } else {
     data.password = palavraPass;
