@@ -8,12 +8,13 @@ const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 const models = require ('../models');
 
-const hour = 3600000;
-const expire = req.session.cookie.expires = new Date(Date.now() + hour);
+
+
 
 
 
 //Criação de sessão
+const hour = 3600000;
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 app.use(expressSanitizer());
 app.use(cookieParser());
@@ -22,10 +23,9 @@ app.use(session({
   secret: 'PSPg3',
   resave: false,
   saveUninitialized: true,
-  rolling: true,
   cookie: { 
     secure: true,
-    maxAge: 8* hour,
+    maxAge: 8 * hour,
     httpOnly: true,
   }
 }))
