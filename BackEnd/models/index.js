@@ -4,8 +4,8 @@ const path = require('path');
 const Sequelize = require('sequelize');
 
 const env = "MySQL";
-const config = require (path.join (__dirname, '/BackEnd/config/', 'config', 'config.jason')) [env];
-const sequelize = new Sequelize (config.database, config.username, password, config);
+const config = require ("../config/config.json") [env];
+const sequelize = new Sequelize (config.database, config.username, config.password);
 
 
 const db = {};
