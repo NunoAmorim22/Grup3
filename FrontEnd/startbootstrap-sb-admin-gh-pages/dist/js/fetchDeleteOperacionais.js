@@ -3,7 +3,7 @@ function DeleteOperational(id) {
     data.id_operational= id;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/operationals/deletes/${data.id_operational}`, {
+    fetch(`http://localhost:3000/operationals/deletesAd/${data.id_operational}`, {
     headers: {'Content-Type': 'application/json'},
     method: 'DELETE',
     body: JSON.stringify(data)

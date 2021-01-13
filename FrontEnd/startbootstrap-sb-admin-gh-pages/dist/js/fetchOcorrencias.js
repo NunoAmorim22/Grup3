@@ -10,7 +10,11 @@ localStorage.removeItem("id_avaliacao1");
 localStorage.removeItem("id_avaliacao2");
 localStorage.removeItem("id_avaliacao3");
 localStorage.removeItem("id_avaliacao4");
-
+localStorage.removeItem("id_team");
+localStorage.removeItem("id_victim");
+localStorage.removeItem("id_suspect");
+localStorage.removeItem("id_witness");
+localStorage.removeItem("id_occurrence");
 
 
 localStorage.setItem("id_operacional", 2);

@@ -19,49 +19,113 @@ function EditEvaluations() {
 
 
     var data = {};
+    data.grade = null;
     for (let i = 1; i < form1.length; i++) {
         let c = form1.getElementsByTagName("input")[i];
         if (c.checked) {
-          data.grade = c.value;
+            data.grade = c.value;
         }
-      }
-    
-    data.total_credits = parseInt(data.grade) + parseInt(total_credits1);
+    }
+    if (data.grade === null) {
+        swal.fire({
+            icon: "warning",
+            title: "Alerta!",
+            text: "Deve avaliar todos os operacionais!",
+            type: "warning"
+        }).then(function () {
+            // Redirect the user
+            // window.location.href = "./MenuPrincipal.html";
+            console.log('The Ok Button was clicked.');
+
+        });
+        return;
+    } else {
+        data.total_credits = parseInt(data.grade) + parseInt(total_credits1);
+    }
+
 
     var data1 = {};
+    data1.grade = null;
     for (let i = 1; i < form2.length; i++) {
         let c = form2.getElementsByTagName("input")[i];
         if (c.checked) {
-          data1.grade = c.value;
+            data1.grade = c.value;
         }
-      }
-    
-    data1.total_credits = parseInt(data1.grade) + parseInt(total_credits2);
+    }
+    if (data1.grade === null) {
+        swal.fire({
+            icon: "warning",
+            title: "Alerta!",
+            text: "Deve avaliar todos os operacionais!",
+            type: "warning"
+        }).then(function () {
+            // Redirect the user
+            // window.location.href = "./MenuPrincipal.html";
+            console.log('The Ok Button was clicked.');
+
+        });
+        return;
+    } else {
+        data1.total_credits = parseInt(data1.grade) + parseInt(total_credits2);
+    }
+
 
     var data2 = {};
+    data2.grade = null;
     for (let i = 1; i < form3.length; i++) {
         let c = form3.getElementsByTagName("input")[i];
         if (c.checked) {
-          data2.grade = c.value;
+            data2.grade = c.value;
         }
-      }
-    
-    data2.total_credits = parseInt(data2.grade) + parseInt(total_credits3);
+    }
+    if (data2.grade === null) {
+        swal.fire({
+            icon: "warning",
+            title: "Alerta!",
+            text: "Deve avaliar todos os operacionais!",
+            type: "warning"
+        }).then(function () {
+            // Redirect the user
+            // window.location.href = "./MenuPrincipal.html";
+            console.log('The Ok Button was clicked.');
+
+        });
+        return;
+    } else {
+        data2.total_credits = parseInt(data2.grade) + parseInt(total_credits3);
+    }
+
 
     var data3 = {};
+    data3.grade = null;
     for (let i = 1; i < form4.length; i++) {
         let c = form4.getElementsByTagName("input")[i];
         if (c.checked) {
-          data3.grade = c.value;
-        }
-      }
+            data3.grade = c.value;
+        } 
+    }if (data3.grade === null) {
+        swal.fire({
+            icon: "warning",
+            title: "Alerta!",
+            text: "Deve avaliar todos os operacionais!",
+            type: "warning"
+        }).then(function () {
+            // Redirect the user
+            // window.location.href = "./MenuPrincipal.html";
+            console.log('The Ok Button was clicked.');
+
+        });
+        return;
+    } else {
+        data3.total_credits = parseInt(data3.grade) + parseInt(total_credits4);
+    }
+
     
-    data3.total_credits = parseInt(data3.grade) + parseInt(total_credits4);
 
 
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational1}` ,{
+    fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational1}`, {
         headers: { "Content-Type": "application/json" },
         method: "PUT",
         body: JSON.stringify(data),
@@ -90,95 +154,95 @@ function EditEvaluations() {
             alert("Submission error");
             console.error(err);
         });
-        fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational2}` ,{
-            headers: { "Content-Type": "application/json" },
-            method: "PUT",
-            body: JSON.stringify(data1),
-        })
-            .then(function (response) {
-                if (!response.ok) {
-                    console.log(response.status); //=> number 100–599
-                    console.log(response.statusText); //=> String
-                    console.log(response.headers); //=> Headers
-                } else {
-                    // Swal.fire("Suspeito Atualizado");
-                    console.log("Success PUT");
-                    console.log(response);
-                    swal.fire({
-                        icon: "success",
-                        title: "Sucesso!",
-                        text: "Avaliações atribuidas e atualizadas",
-                        //type: "success"
-                    });
-                }
-            })
-            .then(function (result) {
-                console.log(result);
-            })
-            .catch(function (err) {
-                alert("Submission error");
-                console.error(err);
-            });
-            fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational3}` ,{
-                headers: { "Content-Type": "application/json" },
-                method: "PUT",
-                body: JSON.stringify(data2),
-            })
-                .then(function (response) {
-                    if (!response.ok) {
-                        console.log(response.status); //=> number 100–599
-                        console.log(response.statusText); //=> String
-                        console.log(response.headers); //=> Headers
-                    } else {
-                        // Swal.fire("Suspeito Atualizado");
-                        console.log("Success PUT");
-                        console.log(response);
-                        swal.fire({
-                            icon: "success",
-                            title: "Sucesso!",
-                            text: "Avaliações atribuidas e atualizadas",
-                            //type: "success"
-                        });
-                    }
-                })
-                .then(function (result) {
-                    console.log(result);
-                })
-                .catch(function (err) {
-                    alert("Submission error");
-                    console.error(err);
+    fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational2}`, {
+        headers: { "Content-Type": "application/json" },
+        method: "PUT",
+        body: JSON.stringify(data1),
+    })
+        .then(function (response) {
+            if (!response.ok) {
+                console.log(response.status); //=> number 100–599
+                console.log(response.statusText); //=> String
+                console.log(response.headers); //=> Headers
+            } else {
+                // Swal.fire("Suspeito Atualizado");
+                console.log("Success PUT");
+                console.log(response);
+                swal.fire({
+                    icon: "success",
+                    title: "Sucesso!",
+                    text: "Avaliações atribuidas e atualizadas",
+                    //type: "success"
                 });
-                fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational4}` ,{
-                    headers: { "Content-Type": "application/json" },
-                    method: "PUT",
-                    body: JSON.stringify(data3),
-                })
-                    .then(function (response) {
-                        if (!response.ok) {
-                            console.log(response.status); //=> number 100–599
-                            console.log(response.statusText); //=> String
-                            console.log(response.headers); //=> Headers
-                        } else {
-                            // Swal.fire("Suspeito Atualizado");
-                            console.log("Success PUT");
-                            console.log(response);
-                            swal.fire({
-                                icon: "success",
-                                title: "Sucesso!",
-                                text: "Avaliações atribuidas e atualizadas",
-                                //type: "success"
-                            }).then(function () {
-                                // Redirect the user
-                                window.location.href = "./DadosOcorrencia.html";
-                                console.log('The Ok Button was clicked.');
-                            });
-                        }
-                    })
-                    .then(function (result) {
-                        console.log(result);
-                    })
-                    .catch(function (err) {
-                        alert("Submission error");
-                        console.error(err);
-                    });
+            }
+        })
+        .then(function (result) {
+            console.log(result);
+        })
+        .catch(function (err) {
+            alert("Submission error");
+            console.error(err);
+        });
+    fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational3}`, {
+        headers: { "Content-Type": "application/json" },
+        method: "PUT",
+        body: JSON.stringify(data2),
+    })
+        .then(function (response) {
+            if (!response.ok) {
+                console.log(response.status); //=> number 100–599
+                console.log(response.statusText); //=> String
+                console.log(response.headers); //=> Headers
+            } else {
+                // Swal.fire("Suspeito Atualizado");
+                console.log("Success PUT");
+                console.log(response);
+                swal.fire({
+                    icon: "success",
+                    title: "Sucesso!",
+                    text: "Avaliações atribuidas e atualizadas",
+                    //type: "success"
+                });
+            }
+        })
+        .then(function (result) {
+            console.log(result);
+        })
+        .catch(function (err) {
+            alert("Submission error");
+            console.error(err);
+        });
+    fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational4}`, {
+        headers: { "Content-Type": "application/json" },
+        method: "PUT",
+        body: JSON.stringify(data3),
+    })
+        .then(function (response) {
+            if (!response.ok) {
+                console.log(response.status); //=> number 100–599
+                console.log(response.statusText); //=> String
+                console.log(response.headers); //=> Headers
+            } else {
+                // Swal.fire("Suspeito Atualizado");
+                console.log("Success PUT");
+                console.log(response);
+                swal.fire({
+                    icon: "success",
+                    title: "Sucesso!",
+                    text: "Avaliações atribuidas e atualizadas",
+                    //type: "success"
+                }).then(function () {
+                    // Redirect the user
+                    window.location.href = "./DadosOcorrencia.html";
+                    console.log('The Ok Button was clicked.');
+                });
+            }
+        })
+        .then(function (result) {
+            console.log(result);
+        })
+        .catch(function (err) {
+            alert("Submission error");
+            console.error(err);
+        });
 }

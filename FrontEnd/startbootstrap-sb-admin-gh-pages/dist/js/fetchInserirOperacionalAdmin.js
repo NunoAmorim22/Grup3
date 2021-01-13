@@ -1,4 +1,4 @@
-function RegistOperational() {
+function RegisterOperational() {
     var data = {};
 data.email = document.getElementById("inputEmailAddress").value;
 data.name = document.getElementById("inputName").value;
@@ -7,12 +7,12 @@ let rep_password = document.getElementById("inputConfirmPassword").value;
 if (palavraPass === "" || rep_password === "") {
 
     alert("Preencha o campo PalavraPass");
-    editarPerfil.password.focus();
+    document.getElementById("inputPassword").focus();
     return false;
 
 } else if (palavraPass != rep_password) {
     alert("Senhas diferentes");
-    editarPerfil.password.focus();
+    document.getElementById("inputPassword").focus();
     return false;
 } else {
     data.password = palavraPass;
