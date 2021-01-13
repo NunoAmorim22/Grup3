@@ -211,6 +211,23 @@ function InsertNewUserAdmin(req,res){
 
 // delete operacionais pelo admin 
 
+function deleteOpByAdmin(req , res) {
+    const idOperacional=req.params.id;
+    const update = [idOperacional];
+
+    if (update !='NULL' && typeof(update != 'undefined')) {
+    const query = connect.con.query("DELETE FROM Operational WHERE id_operational=?", update , function (err, rows, fields){
+        console.log(query.sql);
+        if (!err){
+            res.status(jsonMessages.db.successDeleteU.status).send (jsonMessages.db.successDeleteU);
+                }
+                else{
+                    console.log(err);
+                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+    });
+    }
+}
 
 
 
@@ -221,5 +238,6 @@ module.exports = {
     getOprationalDataTeam:getOprationalDataTeam,
     getOprationalDataRest:getOprationalDataRest,
     EditOperationalData:EditOperationalData,
-    InsertNewUserAdmin:InsertNewUserAdmin
+    InsertNewUserAdmin:InsertNewUserAdmin,
+    deleteOpByAdmin:deleteOpByAdmin
 };
