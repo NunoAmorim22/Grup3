@@ -6,7 +6,7 @@ const session = require ('express-session');
 const expressSanitizer = require ('express-sanitizer');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
-const models = require ('../models');
+const models = require ('../models/');
 
 
 
@@ -48,6 +48,9 @@ app.use(function(req, res, next) {
 app.use(passport.initialize());
 app.use(passport.session()); // sessões de login persistentes
 
+require('../routes/auth.route.js') (app, passport);
+require('../config/passport/passport.js') (passport, models.user);
+//app.use('/users', auth);
 
 
 
@@ -63,10 +66,6 @@ models.sequelize.sync().then(function() {
 
 
 
-//const auth = require('../routes/auth.route.js') (app, passport);
-//require('../config/passport/passport.js') (passport, models.user);
-
-//app.use('/users', auth);
 
 
 const suspectRouter = require("../routes/suspects.route");

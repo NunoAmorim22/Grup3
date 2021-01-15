@@ -1,10 +1,12 @@
+//PAG 269-------
+
 const express = require('express');
 //const router = express.Router();
 
 const userController = require('../controllers/users.controller.js');
 
 
-
+// APAGAR TUDO ----
 const LocalStrategy = require('passport-local').Strategy;
 
 module.exports = function(passport) {
