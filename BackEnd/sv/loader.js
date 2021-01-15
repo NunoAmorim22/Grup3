@@ -48,13 +48,15 @@ app.use(function(req, res, next) {
 app.use(passport.initialize());
 app.use(passport.session()); // sessões de login persistentes
 
-/*
+
+
+
 models.sequelize.sync().then(function() {
   console.log('Database looks fine')}) 
   
   .catch (function(err) {
   console.log(err, 'Something went wrong with the Database Update')
-});  */
+});  
 
 
 //Forçar a utilização do router e a exportação da app
@@ -64,11 +66,12 @@ models.sequelize.sync().then(function() {
 //const auth = require('../routes/auth.route.js') (app, passport);
 //require('../config/passport/passport.js') (passport, models.user);
 
+//app.use('/users', auth);
+
 
 const suspectRouter = require("../routes/suspects.route");
 app.use("/suspects", suspectRouter);
 
-//app.use('/users', auth);
 
 const participantsRouter = require("../routes/participants.route");
 app.use ("/participants",participantsRouter);
@@ -87,5 +90,8 @@ app.use("/materials",materialsRouter);
 
 const evaluationsRouter = require("../routes/evaluations.route");
 app.use("/evaluations",evaluationsRouter);
+
+const usersRouter = require("../routes/auth.route");
+app.use("/users",usersRouter);
 
 module.exports = app;

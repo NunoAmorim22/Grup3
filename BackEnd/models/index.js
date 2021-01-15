@@ -3,6 +3,10 @@ const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 
+const env = process.env.NODE_ENV || "MySQL";
+const config = require ("../config/config.json") [env];
+const sequelize = new Sequelize (config.database, config.username, config.password);
+
 
 const db = {};
 fs
@@ -18,7 +22,7 @@ return (file.indexOf(".") !== 0) && (file !== "index.js");
 });
 
 Object.keys(db).forEach(function(modelName) {
-    if("associate"in db [modelName]) {
+    if("associate" in db [modelName]) {
         db[modelName].associate(db);
     }
 });

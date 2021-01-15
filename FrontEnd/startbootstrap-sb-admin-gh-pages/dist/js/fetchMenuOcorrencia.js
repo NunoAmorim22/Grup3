@@ -4,8 +4,18 @@ function refreshMenuOccurrence() {
       let id_ocorrencia = localStorage.getItem("id_occurrence");
       let county = document.getElementById("countyOccurrence");
       let address = document.getElementById("streetOccurrence");
+
+      let confirmacaoEquipa = localStorage.getItem("confirmacaoEquipa");
+      let confirmacaoMaterial = localStorage.getItem("confirmacaoMateriais");
+
+      console.log(confirmacaoEquipa)
+      if(confirmacaoEquipa){
+        document.getElementById("buttonEquipa").style.background="#00ff9c";
+      }
+      if(confirmacaoMaterial){
+        document.getElementById("buttonMaterial").style.background="#00ff9c";
+      }
       
-  
       const renderUsers = document.getElementById("result");
       const response = await fetch(`http://localhost:3000/occurrences/occurrenceData/${id_ocorrencia}`);
       const users = await response.json();

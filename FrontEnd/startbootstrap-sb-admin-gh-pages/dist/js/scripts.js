@@ -218,21 +218,15 @@ function teamConfirmation(){
     window.location.href = "./MenuOcorrencia.html";
     console.log('The Ok Button was clicked.');
   });
-}
 
-function departureConfirmation() {
+  
+}
+function toDepartureWindow(){
   let confirmacaoEquipa = localStorage.getItem("confirmacaoEquipa");
   let confirmacaoMateriais = localStorage.getItem("confirmacaoMateriais");
   if (confirmacaoMateriais && confirmacaoEquipa ) {
-    swal.fire({
-      icon: "success",
-      title: "Sucesso!",
-      text:"Confirmação de partida executada, vai ser reencaminhado para a página de confirmação de chegada.",
-  }).then(function () {
-      // Redirect the user
-      window.location.href = "./ConfirmarChegada.html";
-      console.log('The Ok Button was clicked.');
-    });
+      window.location.href = "./ConfirmarPartida.html";
+    
   } else {
     swal.fire({
       icon: "error",
@@ -244,6 +238,18 @@ function departureConfirmation() {
       console.log('The Ok Button was clicked.');
     });
   }
+}
+
+function departureConfirmation() {
+    swal.fire({
+      icon: "success",
+      title: "Sucesso!",
+      text:"Confirmação de partida executada, vai ser reencaminhado para a página de confirmação de chegada.",
+  }).then(function () {
+      // Redirect the user
+      window.location.href = "./ConfirmarChegada.html";
+      console.log('The Ok Button was clicked.');
+    });
 }
 
 

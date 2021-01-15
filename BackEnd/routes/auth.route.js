@@ -1,7 +1,18 @@
-const router = require('express').Router();
-const userController = require('../controllers/auth.controller.js');
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
 
-module.exports = function(app, passport) {
-    router.get('/',userController.getUser);
-}
+//const userController = require('../controllers/users.controller.js');
+
+router.post ('/login',
+passport.authenticate('local' , {successRedirect:"/users",
+failureRedirect:'/login',
+failureFlash: true})
+);
+
+
+
+
+
+
 
