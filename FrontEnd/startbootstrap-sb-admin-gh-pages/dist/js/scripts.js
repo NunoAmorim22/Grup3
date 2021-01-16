@@ -347,3 +347,9 @@ function coisaLinda(){
     `
   })
 }
+
+function logout(){
+  localStorage.clear();
+
+  document.location.href = "./login.html";
+}
