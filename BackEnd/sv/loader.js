@@ -8,11 +8,6 @@ const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 const models = require ('../models/');
 
-
-
-
-
-
 //Criação de sessão
 const hour = 3600000;
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
@@ -63,10 +58,6 @@ models.sequelize.sync().then(function() {
 
 
 //Forçar a utilização do router e a exportação da app
-
-
-
-
 
 const suspectRouter = require("../routes/suspects.route");
 app.use("/suspects", suspectRouter);
