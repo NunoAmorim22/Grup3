@@ -1,32 +1,26 @@
 function EditEvaluations() {
     let id_occurrence = localStorage.getItem("id_occurrence");
     localStorage.setItem("avaliacao", true);
-
+/*
     let form1 = document.getElementById("member1");
     let form2 = document.getElementById("member2");
     let form3 = document.getElementById("member3");
     let form4 = document.getElementById("member4");
-
+*/
     let id_operational1 = localStorage.getItem("id_avaliacao1");
     let id_operational2 = localStorage.getItem("id_avaliacao2");
     let id_operational3 = localStorage.getItem("id_avaliacao3");
     let id_operational4 = localStorage.getItem("id_avaliacao4");
 
-    let total_credits1 = localStorage.getItem("avaliacao1");
-    let total_credits2 = localStorage.getItem("avaliacao2");
-    let total_credits3 = localStorage.getItem("avaliacao3");
-    let total_credits4 = localStorage.getItem("avaliacao4");
+    let total_credits1 = 12;//localStorage.getItem("avaliacao1");
+    let total_credits2 = 23;//localStorage.getItem("avaliacao2");
+    let total_credits3 = 10;//localStorage.getItem("avaliacao3");
+    let total_credits4 = 15;//localStorage.getItem("avaliacao4");
 
 
     var data = {};
-    data.grade = null;
-    for (let i = 1; i < form1.length; i++) {
-        let c = form1.getElementsByTagName("input")[i];
-        if (c.checked) {
-            data.grade = c.value;
-        }
-    }
-    if (data.grade === null) {
+    data.grade = document.getElementById("av1").value;
+    if (data.grade === "") {
         swal.fire({
             icon: "warning",
             title: "Alerta!",
@@ -45,13 +39,7 @@ function EditEvaluations() {
 
 
     var data1 = {};
-    data1.grade = null;
-    for (let i = 1; i < form2.length; i++) {
-        let c = form2.getElementsByTagName("input")[i];
-        if (c.checked) {
-            data1.grade = c.value;
-        }
-    }
+    data1.grade = document.getElementById("av2").value;
     if (data1.grade === null) {
         swal.fire({
             icon: "warning",
@@ -71,13 +59,7 @@ function EditEvaluations() {
 
 
     var data2 = {};
-    data2.grade = null;
-    for (let i = 1; i < form3.length; i++) {
-        let c = form3.getElementsByTagName("input")[i];
-        if (c.checked) {
-            data2.grade = c.value;
-        }
-    }
+    data2.grade = document.getElementById("av3").value;
     if (data2.grade === null) {
         swal.fire({
             icon: "warning",
@@ -97,13 +79,8 @@ function EditEvaluations() {
 
 
     var data3 = {};
-    data3.grade = null;
-    for (let i = 1; i < form4.length; i++) {
-        let c = form4.getElementsByTagName("input")[i];
-        if (c.checked) {
-            data3.grade = c.value;
-        } 
-    }if (data3.grade === null) {
+    data3.grade = document.getElementById("av4").value;
+    if (data3.grade === null) {
         swal.fire({
             icon: "warning",
             title: "Alerta!",
@@ -123,7 +100,11 @@ function EditEvaluations() {
     
 
 
-    console.log(data); //debugging para ver os dados que foram enviados
+    console.log(data); 
+    console.log(data1);
+    console.log(data2);
+    console.log(data3);
+    //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
     fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational1}`, {
         headers: { "Content-Type": "application/json" },

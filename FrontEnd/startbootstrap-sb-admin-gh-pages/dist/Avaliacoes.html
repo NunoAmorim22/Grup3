@@ -41,67 +41,37 @@
             </div>
           </div>
         </div>
-      <form id="member2">
+        <br>
         <div>
           <input class="form-control py-4" id="operacional2" type="" placeholder="Nome Operacional" readonly/>
           <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <input type="radio" name="sentMessage" value="1" selected /> 1
-              <br />
-              <input type="radio" name="sentMessage" value="2" selected /> 2
-              <br />
-              <input type="radio" name="sentMessage" value="3" selected /> 3
-              <br />
-              <input type="radio" name="sentMessage" value="4" selected /> 4
-              <br />
-              <input type="radio" name="sentMessage" value="5" selected /> 5
-              <br />
-              <p class="help-block text-danger"></p>
+            <div> 
+              <input class="custom-range" type="range" min="0" max="20" value="" id="notas2">
+              <input class="form-control py-4" type="text" name="" id="av2">
             </div>
           </div>
         </div>
-      </form>
-      <form id="member3">
+        <br>
         <div>
           <input class="form-control py-4" id="operacional3" type="" placeholder="Nome Operacional" readonly/>
           <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <input type="radio" name="sentMessage" value="1" selected /> 1
-              <br />
-              <input type="radio" name="sentMessage" value="2" selected /> 2
-              <br />
-              <input type="radio" name="sentMessage" value="3" selected /> 3
-              <br />
-              <input type="radio" name="sentMessage" value="4" selected /> 4
-              <br />
-              <input type="radio" name="sentMessage" value="5" selected /> 5
-              <br />
-              <p class="help-block text-danger"></p>
+            <div> 
+              <input class="custom-range" type="range" min="0" max="20" value="" id="notas3">
+              <input class="form-control py-4" type="text" name="" id="av3">
             </div>
           </div>
         </div>
-      </form>
-      <form id="member4">
+        <br>
         <div>
           <input class="form-control py-4" id="operacional4" type="" placeholder="Nome Operacional" readonly/>
           <div class="control-group">
-            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-              <input type="radio" name="sentMessage" value="1" selected /> 1
-              <br />
-              <input type="radio" name="sentMessage" value="2" selected /> 2
-              <br />
-              <input type="radio" name="sentMessage" value="3" selected /> 3
-              <br />
-              <input type="radio" name="sentMessage" value="4" selected /> 4
-              <br />
-              <input type="radio" name="sentMessage" value="5" selected /> 5
-              <br />
-              <p class="help-block text-danger"></p>
+            <div> 
+              <input class="custom-range" type="range" min="0" max="20" value="" id="notas4">
+              <input class="form-control py-4" type="text" name="" id="av4">
             </div>
           </div>
         </div>
-      </form>
-
+        <br>
       <div class="text-center">
         <a onclick="EditEvaluations()" class="btn btn-primary btn-width">Atribuir</a>
       </div>
@@ -140,11 +110,22 @@
   <script src="js/fetchDadosAvaliacoes.js"></script>
   <script src="js/fetchAtribuirAvaliacoes.js"></script>
   <script>
-    var slider = document.getElementById("notas1");
+    var slider1 = document.getElementById("notas1");
+    var slider2 = document.getElementById("notas2");
+    var slider3 = document.getElementById("notas3");
+    var slider4 = document.getElementById("notas4");
 
-
-    slider.oninput = function(){
-      document.getElementById("av1").setAttribute("value", slider.value);
+    slider1.oninput = function(){
+      document.getElementById("av1").setAttribute("value", slider1.value);
+    }
+    slider2.oninput = function(){
+      document.getElementById("av2").setAttribute("value", slider2.value);
+    }
+    slider3.oninput = function(){
+      document.getElementById("av3").setAttribute("value", slider3.value);
+    }
+    slider4.oninput = function(){
+      document.getElementById("av4").setAttribute("value", slider4.value);
     }
 </script>
 </body>
