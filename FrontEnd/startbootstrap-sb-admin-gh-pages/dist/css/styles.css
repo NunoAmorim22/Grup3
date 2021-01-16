@@ -3750,7 +3750,7 @@ input[type=button].btn-block {
 }
 
 .custom-range {
-  width: 100%;
+  width: 85%;
   height: 1.4rem;
   padding: 0;
   background-color: transparent;
@@ -3887,6 +3887,7 @@ input[type=button].btn-block {
 .custom-range:disabled::-ms-thumb {
   background-color: #adb5bd;
 }
+
 
 .custom-control-label::before,
 .custom-file-label,
@@ -10336,3 +10337,4 @@ body {
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
