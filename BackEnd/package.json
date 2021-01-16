@@ -1,5 +1,9 @@
 {
   "dependencies": {
+<<<<<<< HEAD
+    "bcrypt": "^5.0.0",
+=======
+>>>>>>> 32a48e9c6b6cfc05b182d61a993429e49b14f983
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
