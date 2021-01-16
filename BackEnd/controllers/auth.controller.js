@@ -11,7 +11,7 @@ var exports = module.exports = {};
 exports.signup = function(req, res) {
     res.status(jsonMessages.user.duplicate.status).send(jsonMessages.user.duplicate);
 };
-exports.signupSucess = function(req, res){
+exports.signupSuccess = function(req, res){
     res.satatus(jsonMessages.user.signupSuccess.status).send(jsonMessages.user.signupSuccess);
 };
 exports.signin = function(req, res) {
