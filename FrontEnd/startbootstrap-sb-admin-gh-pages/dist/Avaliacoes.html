@@ -35,9 +35,10 @@
         <div>
           <input class="form-control py-4" id="operacional1" type="" placeholder="Nome Operacional" readonly/>
           <div class="control-group">
-            <div> 
+            <div>
+              <label>A nota dada é:</label><input class="form-Grades" type="text" name="" id="av1"> 
               <input class="custom-range" type="range" min="0" max="20" value="" id="notas1">
-              <input class="form-control py-4" type="text" name="" id="av1">
+              
             </div>
           </div>
         </div>
@@ -140,18 +141,11 @@
   <script src="js/fetchDadosAvaliacoes.js"></script>
   <script src="js/fetchAtribuirAvaliacoes.js"></script>
   <script>
-<<<<<<< HEAD
-    var notas = document.getElementById("slider")
-
-    notas.oninput = function(){
-        notas.style.left = this.value + "%";
-=======
     var slider = document.getElementById("notas1");
 
 
     slider.oninput = function(){
       document.getElementById("av1").setAttribute("value", slider.value);
->>>>>>> 31f00bf53c2ae62896429b7cd607ed74f50eb4b0
     }
 </script>
 </body>
