@@ -1,15 +1,13 @@
 //PAG 265-------------
 
-
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
+//const router = express.Router();
 const passport = require('passport');
-
-//const userController = require('../controllers/users.controller.js');
+const authController= require("../controllers/auth.controller.js")
 
 
 module.exports = function(app, passport) {
-   /*router.get('/signup', authController.signup);
+   router.get('/signup', authController.signup);
    router.get('/signin', authController.signin);
    router.get('/signupSuccess', authController.signupSuccess);
    router.get('/signinSuccess', isLoggedIn, authController.signinSuccess);
@@ -30,7 +28,7 @@ module.exports = function(app, passport) {
         if (req.isAuthenticated())
             return next();
         res.redirect('/signin');
-    }*/
+    }
 };
 
 

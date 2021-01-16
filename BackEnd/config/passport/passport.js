@@ -1,6 +1,6 @@
 //pag 287--------
 module.exports = function(app, passport) {
-
+/*
     var bCrypt = require('bcrypt-nodejs');
 const jsonMessagesPath = __dirname + "/../../assets/jsonMessages/";
 var jsonMessages = require(jsonMessagesPath + "login");
@@ -88,5 +88,5 @@ jsonMessages.user.email
     }
   ));
 }
-    
-    }
+    */
+    } 
