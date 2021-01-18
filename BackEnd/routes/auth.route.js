@@ -1,26 +1,15 @@
-//PAG 265-------------
-
-const router = require('express').Router();
-//const router = express.Router();
-const passport = require('passport');
-const authController= require("../controllers/auth.controller.js")
-
-
+const authController = require('../controllers/auth.controller.js');
 module.exports = function(app, passport) {
-   router.get('/signup', authController.signup);
-   router.get('/signin', authController.signin);
-   router.get('/signupSuccess', authController.signupSuccess);
-   router.get('/signinSuccess', isLoggedIn, authController.signinSuccess);
-    
-   router.post
-('/signup', passport.authenticate('local-signup', {
+    app.get('/signup', authController.signup);
+    app.get('/signin', authController.signin);
+    app.get('/signupSuccess', authController.signupSuccess);
+    app.get('/signinSuccess', isLoggedIn, authController.signinSuccess);
+    app.post('/signup', passport.authenticate('local-signup', {
         successRedirect: '/signupSuccess',
         failureRedirect: '/signup'
     }));
-    router.get('/logout', authController.logout);
-    
-    router.post
-('/signin', passport.authenticate('local-signin', {
+    app.get('/logout', authController.logout);
+    app.post('/signin', passport.authenticate('local-signin', {
         successRedirect: '/signinSuccess',
         failureRedirect: '/signin'
     }));
@@ -30,22 +19,3 @@ module.exports = function(app, passport) {
         res.redirect('/signin');
     }
 };
-
-
-
-
-
-
-
-router.post ('/login',
-passport.authenticate('local' , {successRedirect:"/users",
-failureRedirect:'/login',
-failureFlash: true})
-);
-
-
-
-
-
-
-
