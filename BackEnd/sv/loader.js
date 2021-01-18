@@ -1,7 +1,7 @@
 //Módulos necessários ao servidor
 const app = require ('./server.js');
 //------------------------Faltava esta linha---------------------------------------//
-const router = require('./routes/main.route');
+//const router = require('./routes/main.route');
 //--------------------------------------------------------------------------------//
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
