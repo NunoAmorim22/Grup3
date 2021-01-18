@@ -1,12 +1,15 @@
 //Módulos necessários ao servidor
 const app = require ('./server.js');
+//------------------------Faltava esta linha---------------------------------------//
+const router = require('./routes/main.route');
+//--------------------------------------------------------------------------------//
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const session = require ('express-session');
 const expressSanitizer = require ('express-sanitizer');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
-const models = require ('../models/');
+const models = require ("../models/");
 
 //Criação de sessão
 const hour = 3600000;
@@ -53,15 +56,14 @@ models.sequelize.sync().then(function() {
   console.log('Database looks fine')}) 
   
   .catch (function(err) {
-  console.log(err, 'Something went wrong with the Database Update')
-});  
+  console.log(err, "Something went wrong with the Database Update")
+}); 
 
 
 //Forçar a utilização do router e a exportação da app
 
 const suspectRouter = require("../routes/suspects.route");
 app.use("/suspects", suspectRouter);
-
 
 const participantsRouter = require("../routes/participants.route");
 app.use ("/participants",participantsRouter);
