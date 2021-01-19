@@ -3,7 +3,7 @@
 //const express = require('express');
 //const router = express.Router();
 //-----------------------------------------------------CODIGO PAGINA 269 DO LIVRO-----------------------------------------------------------------------------//     
- //const jsonMessagesPath = _dirname + "/../assets/jsonMessages/";
+//const jsonMessagesPath = _dirname + "/../assets/jsonMessages/";
 //const jsonMessages = require(jsonMessagesPath + "login");
 const jsonMessages = require ("../assets/jsonMessages/login.js")
 var exports = module.exports = {};
