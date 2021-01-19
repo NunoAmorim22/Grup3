@@ -16,6 +16,11 @@ app.use(cors({
     exposedHeaders: ['location'],
     }));
     
+
+//Criação de rotas estáticas
+app.use('../assets', express.static ('assets'));
+app.use('../views', express.static ('views'));
+
 //Colocar app à escuta
 app.listen(port, function(err) {
     if(!err) {
@@ -26,12 +31,9 @@ app.listen(port, function(err) {
     }
 });
 
-//Criação de rotas estáticas
-app.use('../assets', express.static ('assets'));
-app.use('../views', express.static ('views'));
 
 //-----------------------------------------------------------------------------------------------------
-const passport = require('passport');
+/*const passport = require('passport');
 
  app.post('/login',
  passport.authenticate ('local', {successRedirect:'/', 
@@ -56,7 +58,7 @@ passport.use(new LocalStrategy(
         });
     }
 ))
-
+*/
 //-----------------------------------------------------------------------------------------------------------
 module.exports = app;
 require('./loader.js');
