@@ -376,3 +376,13 @@ function hideLeaderStuff() {
     document.getElementById("btnAvaliacoes").style.display = "none";
   }
 }
+
+function mandar(){
+let distrito = document.getElementById("chegadaDistrito").value;
+let distrito2= distrito.replace(/ /g,'+');
+console.log(distrito2);
+let rua = document.getElementById("chegadaRua").value;
+let rua2 = rua.replace(/ /g,'+');
+console.log(rua2);
+window.open(`https://www.google.com/maps/search/?api=1&query=${distrito2}+${rua2}`);
+}

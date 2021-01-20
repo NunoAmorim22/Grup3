@@ -18,7 +18,7 @@ localStorage.removeItem("id_occurrence");
 
 
 localStorage.setItem("id_operacional", 2);
-localStorage.setItem("tipo", "operacional");
+localStorage.setItem("tipo", "lider");
 
 hideAdminStuff();
 
