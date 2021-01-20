@@ -5,7 +5,7 @@ function Login() {
     
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/operationals/edits/${id_operational}`, {
+    fetch(`http://localhost:3000/singin`, {
       headers: { "Content-Type": "application/json" },
       method: "PUT",
       body: JSON.stringify(data),
