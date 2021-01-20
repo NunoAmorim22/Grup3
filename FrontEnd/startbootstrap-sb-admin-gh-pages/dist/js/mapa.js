@@ -30,8 +30,22 @@ function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     center: data.destrito2,
     zoom: 10,
-  });
+  });  
+}
 
+function initMap() {
+
+  // Ponto no mapa a localizar (cidade do Porto)
+  const porto = new google.maps.LatLng(41.14961  , -8.61099)
+
+  // Propriedades do mapa
+  const mapProp = {
+    center:porto, 
+    zoom:12, 
+    scrollwheel:false, 
+    draggable:false, 
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  }
 
 
 }
