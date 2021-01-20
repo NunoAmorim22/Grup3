@@ -9,4 +9,7 @@ router.get('/', function(req, res) {
 });
 
 
+//ranking por equipa
+router.get("/teams", rankingsController.getTeamAndCredits);
+
 module.exports = router ;
