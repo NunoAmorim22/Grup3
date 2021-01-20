@@ -12,10 +12,10 @@ function EditEvaluations() {
     let id_operational3 = localStorage.getItem("id_avaliacao3");
     let id_operational4 = localStorage.getItem("id_avaliacao4");
 
-    let total_credits1 = 12;//localStorage.getItem("avaliacao1");
-    let total_credits2 = 23;//localStorage.getItem("avaliacao2");
-    let total_credits3 = 10;//localStorage.getItem("avaliacao3");
-    let total_credits4 = 15;//localStorage.getItem("avaliacao4");
+    let total_credits1 = localStorage.getItem("avaliacao1");
+    let total_credits2 = localStorage.getItem("avaliacao2");
+    let total_credits3 = localStorage.getItem("avaliacao3");
+    let total_credits4 = localStorage.getItem("avaliacao4");
 
 
     var data = {};
