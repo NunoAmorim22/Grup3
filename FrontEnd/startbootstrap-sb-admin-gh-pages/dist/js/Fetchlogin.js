@@ -17,7 +17,7 @@ function Login() {
           console.log(response.headers); //=> Headers
         } else {
           // Swal.fire("Suspeito Atualizado");
-          console.log("Success PUT");
+          console.log("Success POST");
           console.log(response);
             window.location.href = "./MenuPrincipal.html";
            
