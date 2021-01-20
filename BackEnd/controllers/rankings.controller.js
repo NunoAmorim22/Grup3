@@ -28,7 +28,7 @@ function getTeamAndCredits(req,res){
 
 function getOperationalRanking(req,res){
     
-    const query =connect.con.query ("SELECT op.id_operational, op.total_credits FROM Operational op Order By op.total_credits desc;", function(err, rows, fields){
+    const query =connect.con.query ("SELECT op.id_operational, op.total_credits FROM Operational op Order By op.total_credits desc", function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
