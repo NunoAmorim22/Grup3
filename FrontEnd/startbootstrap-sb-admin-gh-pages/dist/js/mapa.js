@@ -26,14 +26,14 @@ function initMap() {
   
     // Janela de informação (info window)
   const infowindow = new google.maps.InfoWindow({
-    content: "É aqui a WebConference!"
+    content: "É aqui a ocorrência"
   })
 
   // Marcador
   const marker = new google.maps.Marker({
     position:porto,
     map:map,
-    title:"WebConference"
+    title:"Ocorrência"
   })
 
   // Listener
