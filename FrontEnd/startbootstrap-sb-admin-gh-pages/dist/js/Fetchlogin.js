@@ -5,9 +5,9 @@ function Login() {
     
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/singin`, {
+    fetch(`http://localhost:3000/signin`, {
       headers: { "Content-Type": "application/json" },
-      method: "PUT",
+      method: "POST",
       body: JSON.stringify(data),
     })
       .then(function (response) {
@@ -19,16 +19,8 @@ function Login() {
           // Swal.fire("Suspeito Atualizado");
           console.log("Success PUT");
           console.log(response);
-          swal.fire({
-            icon: "success",
-            title: "Sucesso!",
-            text: "Perfil Atualizado",
-            //type: "success"
-          }).then(function () {
-            // Redirect the user
-            window.location.href = "./Perfil.html";
-            console.log('The Ok Button was clicked.');
-          });
+            window.location.href = "./MenuPrincipal.html";
+           
         }
       })
       .then(function (result) {
