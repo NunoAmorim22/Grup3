@@ -82,13 +82,13 @@ function evaluationAssign() {
       icon: "alert",
       title: "Alerta!",
       text: "Avaliçao primeiro membro: " +
-      ev1 +
-      "\nAvaliçao segundo membro: " +
-      ev2 +
-      "\nAvaliçao terceiro membro: " +
-      ev3 +
-      "\nAvaliçao quarto membro: " +
-      ev4,
+        ev1 +
+        "\nAvaliçao segundo membro: " +
+        ev2 +
+        "\nAvaliçao terceiro membro: " +
+        ev3 +
+        "\nAvaliçao quarto membro: " +
+        ev4,
       //type: "success"
     }).then(function () {
       // Redirect the user
@@ -110,9 +110,9 @@ function evaluationAssign() {
   }
 }
 
-function occurrenceEnding(){
+function occurrenceEnding() {
   let avaliacao = localStorage.getItem("avaliacao");
-  if(avaliacao){
+  if (avaliacao) {
     swal.fire({
       icon: "success",
       title: "Sucesso!",
@@ -123,7 +123,7 @@ function occurrenceEnding(){
       window.location.href = "./MenuPrincipal.html";
       console.log('The Ok Button was clicked.');
     });
-  }else{
+  } else {
     swal.fire({
       icon: "alert",
       title: "Alerta!",
@@ -183,56 +183,56 @@ function arrivalConfirmation() {
     /* Read more about isConfirmed, isDenied below */
     if (result.isConfirmed) {
       swal.fire({
-      icon: "success",
-      title: "Sucesso!",
-      text:"Confirmada a chegada ao local!",
-    }).then(function () {
-      // Redirect the user
-      window.location.href = "./DadosOcorrencia.html";
-      console.log('The Ok Button was clicked.');
-    });
-    } 
+        icon: "success",
+        title: "Sucesso!",
+        text: "Confirmada a chegada ao local!",
+      }).then(function () {
+        // Redirect the user
+        window.location.href = "./DadosOcorrencia.html";
+        console.log('The Ok Button was clicked.');
+      });
+    }
   });
 }
 
-function materialsConfirmation(){
+function materialsConfirmation() {
   localStorage.setItem("confirmacaoMateriais", true);
   swal.fire({
     icon: "success",
     title: "Sucesso!",
-    text:"Confirmação de material executada, vai ser reencaminhado para a pagina de menu de ocorrência.",
-}).then(function () {
+    text: "Confirmação de material executada, vai ser reencaminhado para a pagina de menu de ocorrência.",
+  }).then(function () {
     // Redirect the user
     window.location.href = "./MenuOcorrencia.html";
     console.log('The Ok Button was clicked.');
   });
 }
-function teamConfirmation(){
+function teamConfirmation() {
   localStorage.setItem("confirmacaoEquipa", true);
   swal.fire({
     icon: "success",
     title: "Sucesso!",
-    text:"Confirmação de equipa executada, vai ser reencaminhado para a página de menu de ocorrência.",
-}).then(function () {
+    text: "Confirmação de equipa executada, vai ser reencaminhado para a página de menu de ocorrência.",
+  }).then(function () {
     // Redirect the user
     window.location.href = "./MenuOcorrencia.html";
     console.log('The Ok Button was clicked.');
   });
 
-  
+
 }
-function toDepartureWindow(){
+function toDepartureWindow() {
   let confirmacaoEquipa = localStorage.getItem("confirmacaoEquipa");
   let confirmacaoMateriais = localStorage.getItem("confirmacaoMateriais");
-  if (confirmacaoMateriais && confirmacaoEquipa ) {
-      window.location.href = "./ConfirmarPartida.html";
-    
+  if (confirmacaoMateriais && confirmacaoEquipa) {
+    window.location.href = "./ConfirmarPartida.html";
+
   } else {
     swal.fire({
       icon: "error",
       title: "Erro!",
-      text:"É necessário confirmar a equipa e o material!",
-  }).then(function () {
+      text: "É necessário confirmar a equipa e o material!",
+    }).then(function () {
       // Redirect the user
       window.location.href = "./MenuOcorrencia.html";
       console.log('The Ok Button was clicked.');
@@ -241,15 +241,15 @@ function toDepartureWindow(){
 }
 
 function departureConfirmation() {
-    swal.fire({
-      icon: "success",
-      title: "Sucesso!",
-      text:"Confirmação de partida executada, vai ser reencaminhado para a página de confirmação de chegada.",
+  swal.fire({
+    icon: "success",
+    title: "Sucesso!",
+    text: "Confirmação de partida executada, vai ser reencaminhado para a página de confirmação de chegada.",
   }).then(function () {
-      // Redirect the user
-      window.location.href = "./ConfirmarChegada.html";
-      console.log('The Ok Button was clicked.');
-    });
+    // Redirect the user
+    window.location.href = "./ConfirmarChegada.html";
+    console.log('The Ok Button was clicked.');
+  });
 }
 
 
@@ -314,27 +314,33 @@ function enableEditionVictim() {
   document.getElementById("localidadeVitima").readOnly = false;
 }
 
-function transportid(idtotransport){
-  localStorage.setItem("id_suspect", idtotransport); 
+function transportid(idtotransport) {
+  localStorage.setItem("id_suspect", idtotransport);
   document.location.href = "./DadosSuspeitos.html";
 }
 
-function transportidTestemunha(idtotransport){
-  localStorage.setItem("id_witness", idtotransport); 
+function transportidTestemunha(idtotransport) {
+  localStorage.setItem("id_witness", idtotransport);
   document.location.href = "./DadosTestemunha.html";
 }
 
-function transportidVitima(idtotransport){
-  localStorage.setItem("id_victim", idtotransport); 
+function transportidVitima(idtotransport) {
+  localStorage.setItem("id_victim", idtotransport);
   document.location.href = "./DadosVitimas.html";
 }
 
-function transportidOccurrence(idtotransport){
-  localStorage.setItem("id_occurrence", idtotransport); 
-  document.location.href = "./MenuOcorrencia.html";
+function transportidOccurrence(idtotransport) {
+  if (localStorage.getItem("tipo") == "lider") {
+    localStorage.setItem("id_occurrence", idtotransport);
+    document.location.href = "./MenuOcorrencia.html";
+  } else {
+    localStorage.setItem("id_occurrence", idtotransport);
+    document.location.href = "./DadosOcorrencia.html";
+  }
+
 }
 
-function coisaLinda(){
+function coisaLinda() {
   Swal.fire({
     title: 'Querias!',
     width: 300,
@@ -348,8 +354,25 @@ function coisaLinda(){
   })
 }
 
-function logout(){
+function logout() {
   localStorage.clear();
 
   document.location.href = "./login.html";
+}
+
+function hideAdminStuff() {
+  let tipo = localStorage.getItem("tipo");
+  if (tipo != "admin") {
+    document.getElementById("adminStuff").style.display = "none";
+    document.getElementById("listaOperacionais").style.display = "none";
+    document.getElementById("criarContaAdmin").style.display = "none";
+  }
+}
+
+
+function hideLeaderStuff() {
+  let tipo = localStorage.getItem("tipo");
+  if (tipo != "lider") {
+    document.getElementById("btnAvaliacoes").style.display = "none";
+  }
 }

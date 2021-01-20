@@ -9,6 +9,8 @@ function refreshOccurrence() {
       let equipa = document.getElementById("equipaOcorrencia");
       
   
+      hideLeaderStuff();
+
       const renderUsers = document.getElementById("result");
       const response = await fetch(`http://localhost:3000/occurrences/occurrenceData/${id_ocorrencia}`);
       const users = await response.json();

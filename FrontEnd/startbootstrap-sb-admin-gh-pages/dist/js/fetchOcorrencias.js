@@ -18,6 +18,9 @@ localStorage.removeItem("id_occurrence");
 
 
 localStorage.setItem("id_operacional", 2);
+localStorage.setItem("tipo", "operacional");
+
+hideAdminStuff();
 
 let id_operacional = localStorage.getItem("id_operacional");
 const api_url = `http://localhost:3000/occurrences/allActiveTeamOccurrence/${id_operacional}`;
@@ -33,11 +36,10 @@ async function getapi(url) {
   if (response) {
     hideloader();
   }
-  show(data);
+  show(data); 
 }
 // Calling that async function
 getapi(api_url);
-
 // Function to hide the loader
 function hideloader() {
   document.getElementById("loading").style.display = "none";
@@ -49,9 +51,12 @@ function show(data) {
 
   // Loop to access all rows
   for (let r of data) {
-    //if(r.active === 1){
-    tab += `<tr><td>${r.id_occurrence} </td> <td><a class="btn btn-link" onclick = "transportidOccurrence(${r.id_occurrence})"> <i class="fas fa-check"></i> </a></td></tr>`;
-    //}
+    if(localStorage.getItem("tipo") == "lider"){
+    tab += `<tr><td>${r.id_occurrence} </td> <td><a class="btn btn-link" name="irpara" onclick = "transportidOccurrence(${r.id_occurrence})"> <i class="fas fa-check"></i> </a></td></tr>`;
+    }
+    else{
+      tab += `<tr><td>${r.id_occurrence} </td> <td><a class="btn btn-link" name="irpara" onclick = "transportidOccurrence(${r.id_occurrence})"> <i class="fas fa-arrow-right"></i> </a></td></tr>`;
+    }
   }
   // Setting innerHTML as tab variable
   document.getElementById("lista-ocorrencias").innerHTML = tab;
