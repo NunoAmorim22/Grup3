@@ -6,9 +6,6 @@ const port = process.env.PORT || 3000 ;
 const express = require ('express');
 const app = express();
 
-
-
-
 //Controlo de acesso
 const cors = require('cors');
 app.use(cors());
