@@ -17,7 +17,7 @@ localStorage.removeItem("id_witness");
 localStorage.removeItem("id_occurrence");
 
 
-localStorage.setItem("id_operacional", 2);
+localStorage.setItem("id_operacional", 10);
 localStorage.setItem("tipo", "lider");
 
 hideAdminStuff();

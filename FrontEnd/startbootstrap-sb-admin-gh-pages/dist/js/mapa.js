@@ -73,13 +73,13 @@ function initMap() {
 var geocoder;
 var map;
 
-function initialize() {
+function initMap() {
 
   geocoder = new google.maps.Geocoder();
 
   var latlng = new google.maps.LatLng(0, 0);
   var mapOptions = {
-    zoom: 8,
+    zoom: 13,
     center: latlng
   };
 
@@ -92,8 +92,7 @@ function initialize() {
 function codeAddress() {
 
   // Define address to center map to
-  var address = document.getElementById("chegadaDistrito");
-  toString(address);
+  var address = "Portugal, " + document.getElementById("chegadaDistrito").value;
   console.log(address);
 
   geocoder.geocode({
@@ -118,4 +117,4 @@ function codeAddress() {
   });
 }
 
-initialize();
+initMap();
