@@ -11,5 +11,7 @@ router.get('/', function(req, res) {
 
 //ranking por equipa
 router.get("/teams", rankingsController.getTeamAndCredits);
+//ranking por operational
+router.get("/operationals", rankingsController.getOperationalRanking);
 
 module.exports = router ;

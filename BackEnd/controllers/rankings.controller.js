@@ -28,9 +28,7 @@ function getTeamAndCredits(req,res){
 
 function getOperationalRanking(req,res){
     
-    idOperational=req.params.id;
-
-    const query =connect.con.query ("SELECT   DISTINCT  t.team_indicative FROM Team_Inscription ti, Team t WHERE t.id_team=ti.id_team AND ti.id_team IN (SELECT t.id_team FROM Team_Inscription ti, Operational op, Team t, Occurrence o WHERE op.id_operational=ti.id_operational AND ti.id_team=t.id_team AND op.id_operational=?)",idOperational, function(err, rows, fields){
+    const query =connect.con.query ("SELECT op.id_operational, op.total_credits FROM Operational op Order By op.total_credits desc;", function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
@@ -50,6 +48,7 @@ function getOperationalRanking(req,res){
 }
 
 module.exports={
-    getTeamAndCredits:getTeamAndCredits
+    getTeamAndCredits:getTeamAndCredits,
+    getOperationalRanking
 
 }
