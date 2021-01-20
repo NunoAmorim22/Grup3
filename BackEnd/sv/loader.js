@@ -72,7 +72,10 @@ app.use("/materials",materialsRouter);
 const evaluationsRouter = require("../routes/evaluations.route");
 app.use("/evaluations",evaluationsRouter);
 
-const usersRouter = require("../routes/auth.route");
-app.use("/users",usersRouter);
+/*const usersRouter = require("../routes/auth.route");
+app.use("/users",usersRouter);*/
+
+const rankingsRouter = require("../routes/rankings.route");
+app.use("/rankings", rankingsRouter);
 
 module.exports = app;

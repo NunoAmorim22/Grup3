@@ -84,7 +84,7 @@ function getOprationalDataRest(req,res){
     
     idOperational=req.params.id;
 
-    const query =connect.con.query ("SELECT c.email, op.id_operational, c.name, op.total_credits, u.password  FROM Candidate c, Operational op, User u WHERE op.id_user=u.id_user AND op.id_candidate=c.id_candidate AND op.id_operational =?;",idOperational, function(err, rows, fields){
+    const query =connect.con.query ("SELECT c.email, op.id_operational, c.name, op.total_credits, u.password  FROM Candidate c, Operational op, User_old u WHERE op.id_user=u.id_user AND op.id_candidate=c.id_candidate AND op.id_operational =?;",idOperational, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
@@ -137,7 +137,7 @@ function EditOperationalData(req,res){
                 //insertquery = res.location(rows.insertId);
                 //post=[idOccurrence,insertquery];
                 post=[email, password, idOperational];
-                const query = connect.con.query ('UPDATE User SET email=?, password=? WHERE id_user=(SELECT id_user FROM Operational WHERE id_operational=?)',post, function(err,rows, fields){
+                const query = connect.con.query ('UPDATE User_old SET email=?, password=? WHERE id_user=(SELECT id_user FROM Operational WHERE id_operational=?)',post, function(err,rows, fields){
                     console.log(query.sql);
                     res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
                 });
@@ -185,7 +185,7 @@ function InsertNewUserAdmin(req,res){
            
             
        
-        const query = connect.con.query ('INSERT INTO User SET email=?, password=?',update, function(err, rows, fields){
+        const query = connect.con.query ('INSERT INTO User_old SET email=?, password=?',update, function(err, rows, fields){
             console.log(query.sql);
            
             if(!err){

@@ -9,7 +9,7 @@ function getTeamOfLeader(req,res){
 
     update =["1",idOperationalLog,"Em Processo","1"];
 
-    const query =connect.con.query ("SELECT DISTINCT ti.id_team,op.id_operational, c.name, op.total_credits FROM Operational op, Team_Inscription ti, Candidate c, User u, Team t, Operational_evaluation ope  WHERE op.id_operational=ti.id_operational AND ope.operational_presence_conf=? AND op.id_operational=ope.id_operational AND op.id_candidate=c.id_candidate AND op.id_user=u.id_user  AND ti.id_team IN (SELECT t.id_team FROM Team_Inscription ti, Operational op, Team t, Occurrence o, Operational_evaluation ope WHERE op.id_operational=ti.id_operational AND ti.id_team=t.id_team AND op.id_operational=ope.id_operational AND op.id_operational=? AND o.state=? AND ope.operational_presence_conf=? ) AND op.id_operational NOT IN (SELECT id_operational FROM Leader)" , update, function(err, rows, fields){
+    const query =connect.con.query ("SELECT DISTINCT ti.id_team,op.id_operational, c.name, op.total_credits FROM Operational op, Team_Inscription ti, Candidate c, User_old u, Team t, Operational_evaluation ope  WHERE op.id_operational=ti.id_operational AND ope.operational_presence_conf=? AND op.id_operational=ope.id_operational AND op.id_candidate=c.id_candidate AND op.id_user=u.id_user  AND ti.id_team IN (SELECT t.id_team FROM Team_Inscription ti, Operational op, Team t, Occurrence o, Operational_evaluation ope WHERE op.id_operational=ti.id_operational AND ti.id_team=t.id_team AND op.id_operational=ope.id_operational AND op.id_operational=? AND o.state=? AND ope.operational_presence_conf=? ) AND op.id_operational NOT IN (SELECT id_operational FROM Leader)" , update, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
