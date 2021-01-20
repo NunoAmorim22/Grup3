@@ -47,5 +47,24 @@ function initMap() {
     mapTypeId:google.maps.MapTypeId.ROADMAP
   }
 
+  // Mapa
+  const map = new google.maps.Map(document.getElementById("map"),mapProp);
+  
+    // Janela de informação (info window)
+  const infowindow = new google.maps.InfoWindow({
+    content: "É aqui a ocorrência"
+  })
 
-}
+  // Marcador
+  const marker = new google.maps.Marker({
+    position:porto,
+    map:map,
+    title:"Ocorrência"
+  })
+
+  // Listener
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  })
+
+} 
