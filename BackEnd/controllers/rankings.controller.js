@@ -3,7 +3,7 @@
 
 // GET DOS CREDITOS DAS EQUIPAS
 
-function getOprationalDataTeam(req,res){
+function getTeamAndCredits(req,res){
     
     idOperational=req.params.id;
 
