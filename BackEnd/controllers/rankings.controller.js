@@ -5,7 +5,7 @@ const connect = require('../config/connect.js');
 
 function getTeamAndCredits(req,res){
     
-    const query =connect.con.query ("SELECT t.team_indicative, SUM(op.total_credits) as total_credits  FROM Team t, Team_Inscription ti, Operational op WHERE t.id_team=ti.id_team AND op.id_operational=ti.id_operational GROUP BY t.team_indicative desc", function(err, rows, fields){
+    const query =connect.con.query ("SELECT t.team_indicative, SUM(op.total_credits) as total_credits FROM Team t, Team_Inscription ti, Operational op WHERE t.id_team=ti.id_team AND op.id_operational=ti.id_operational GROUP BY t.team_indicative desc ORDER BY total_credits desc", function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
