@@ -228,6 +228,14 @@ th {
   text-align: -webkit-match-parent;
 }
 
+th{
+  background-color: #083f7e9d;
+}
+
+tr{
+  background-color: #3891d0a1;
+}
+
 label {
   display: inline-block;
   margin-bottom: 0rem;
@@ -1664,7 +1672,7 @@ pre code {
 .table {
   width: 100%;
   margin-bottom: 1rem;
-  color: #3890D0;
+  color: #ffffff;
 }
 .table th,
 .table td {
@@ -1971,6 +1979,8 @@ pre code {
 .table-responsive > .table-bordered {
   border: 0;
 }
+
+
 
 .form-Grades{
   /*display: block;*/
