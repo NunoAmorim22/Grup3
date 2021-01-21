@@ -2,6 +2,11 @@ function Login() {
     var data = {};
     data.email = document.getElementById("emailLogin").value;
     data.password = document.getElementById("passwordLogin").value;
+
+    if(data.email == "" || data.password == ""){
+      document.getElementById("labelErro").style.display = "block";
+      return false;
+    }
     
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
@@ -25,9 +30,28 @@ function Login() {
       })
       .then(function (result) {
         console.log(result);
+        swal.fire({
+          icon: "error",
+          title: "Erro!",
+          text: "Credenciais erradas!",
+          //type: "success"
+      }).then(function () {
+          // Redirect the user
+          //window.location.href = "./DadosOcorrencia.html";
+          console.log('The Ok Button was clicked.');
+      });
       })
       .catch(function (err) {
-        alert("Submission error");
+        swal.fire({
+          icon: "error",
+          title: "Erro!",
+          text: "Erro de submissão",
+          //type: "success"
+      }).then(function () {
+          // Redirect the user
+          //window.location.href = "./DadosOcorrencia.html";
+          console.log('The Ok Button was clicked.');
+      });
         console.error(err);
       });
   }

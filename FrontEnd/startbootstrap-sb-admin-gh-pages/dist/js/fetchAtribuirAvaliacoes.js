@@ -120,12 +120,12 @@ function EditEvaluations() {
                 // Swal.fire("Suspeito Atualizado");
                 console.log("Success PUT");
                 console.log(response);
-                swal.fire({
+                /*swal.fire({
                     icon: "success",
                     title: "Sucesso!",
                     text: "Avaliações atribuídas e atualizadas",
                     //type: "success"
-                });
+                });*/
             }
         })
         .then(function (result) {
@@ -149,12 +149,12 @@ function EditEvaluations() {
                 // Swal.fire("Suspeito Atualizado");
                 console.log("Success PUT");
                 console.log(response);
-                swal.fire({
+                /*swal.fire({
                     icon: "success",
                     title: "Sucesso!",
                     text: "Avaliações atribuidas e atualizadas",
                     //type: "success"
-                });
+                });*/
             }
         })
         .then(function (result) {
@@ -178,12 +178,12 @@ function EditEvaluations() {
                 // Swal.fire("Suspeito Atualizado");
                 console.log("Success PUT");
                 console.log(response);
-                swal.fire({
+               /* swal.fire({
                     icon: "success",
                     title: "Sucesso!",
                     text: "Avaliações atribuidas e atualizadas",
                     //type: "success"
-                });
+                });*/
             }
         })
         .then(function (result) {
@@ -223,7 +223,16 @@ function EditEvaluations() {
             console.log(result);
         })
         .catch(function (err) {
-            alert("Submission error");
+            swal.fire({
+                icon: "error",
+                title: "Erro!",
+                text: "Erro de submissão",
+                //type: "success"
+            }).then(function () {
+                // Redirect the user
+                //window.location.href = "./DadosOcorrencia.html";
+                console.log('The Ok Button was clicked.');
+            });
             console.error(err);
         });
 }
