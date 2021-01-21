@@ -363,9 +363,32 @@ function logout() {
 function hideAdminStuff() {
   let tipo = localStorage.getItem("tipo");
   if (tipo != "admin") {
-    document.getElementById("adminStuff").style.display = "none";
+    //document.getElementById("adminStuff").style.display = "none";
     document.getElementById("listaOperacionais").style.display = "none";
     document.getElementById("criarContaAdmin").style.display = "none";
+  }else{
+    document.getElementById("tabelaparamandardebase").style.display = "none";
+    document.getElementById("participacoes").style.display = "none";
+    document.getElementById("equipaOcorrencia").style.display = "none";
+
+  }
+}
+
+function AdminCantGo(){
+  let tipo = localStorage.getItem("tipo");
+  if(tipo == "admin"){
+    swal.fire({
+      icon: "warning",
+      title: "Alerta!",
+      text: "Não pode aceder a esta página!",
+      //type: 'sucess'
+    }).then(function () {
+      // Redirect the user
+      //window.location.href = "./DadosOcorrencia.html";
+      //console.log('The Ok Button was clicked.');
+    });
+  }else{
+    document.location.href = "./ConfirmacaoPresenca.html";
   }
 }
 
