@@ -228,13 +228,13 @@ th {
   text-align: -webkit-match-parent;
 }
 
-th{
+/*th{
   background-color: #083f7e9d;
 }
 
 tr{
   background-color: #3891d0a1;
-}
+}*/
 
 label {
   display: inline-block;
@@ -1672,7 +1672,7 @@ pre code {
 .table {
   width: 100%;
   margin-bottom: 1rem;
-  color: #ffffff;
+  color: #3890D0;
 }
 .table th,
 .table td {
