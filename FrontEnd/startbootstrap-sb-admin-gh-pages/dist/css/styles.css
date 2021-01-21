@@ -1977,6 +1977,8 @@ pre code {
   width: 20%;
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -1991,6 +1993,7 @@ pre code {
   background-color: #e9ecef;
   opacity: 1;
 }
+
 
 .form-control {
   display: block;
