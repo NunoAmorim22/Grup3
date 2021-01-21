@@ -10,10 +10,10 @@ function refreshMenuOccurrence() {
 
       console.log(confirmacaoEquipa)
       if(confirmacaoEquipa){
-        document.getElementById("buttonEquipa").style.background="#00ff9c";
+        document.getElementById("buttonEquipa").style.background="rgb(29 144 53 / 98%)";
       }
       if(confirmacaoMaterial){
-        document.getElementById("buttonMaterial").style.background="#00ff9c";
+        document.getElementById("buttonMaterial").style.background="rgb(29 144 53 / 98%)";
       }
       
       const renderUsers = document.getElementById("result");
