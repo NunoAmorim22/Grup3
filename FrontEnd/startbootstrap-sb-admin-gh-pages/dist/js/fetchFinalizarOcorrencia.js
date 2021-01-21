@@ -1,9 +1,9 @@
-function FinalizarOcorrencia() {
+function CloseOccurrence() {
     var data = {};
     data.id_occurrence = localStorage.getItem("id_occurrence");
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/occurrences/closeOccurrence/${id_occurrence}`, {
+    fetch(`http://localhost:3000/occurrences/closeOccurrence/${data.id_occurrence}`, {
       headers: { "Content-Type": "application/json" },
       method: "PUT",
       body: JSON.stringify(data),

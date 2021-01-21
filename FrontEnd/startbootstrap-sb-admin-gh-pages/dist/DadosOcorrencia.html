@@ -58,7 +58,7 @@
               Lista Suspeitos
             </a>
             <div class="sb-sidenav-menu-heading">Outras Informações</div>
-            <a class="nav-link" id="btnAvaliacoes" href="Avaliacoes.html">
+            <a class="nav-link" id="btnAvaliacoes" onclick="checkEvaluations()">
               <div class="sb-nav-link-icon"><i class="far fa-dot-circle"></i></div>
               Avaliações
             </a>
@@ -100,7 +100,7 @@
             </div>
             <br>
             <div class="text-center">
-              <a class="btn btn-primary btn-width" onclick="">Finalizar Ocorrência</a>
+              <a class="btn btn-primary btn-width" onclick="CloseOccurrence()">Finalizar Ocorrência</a>
             </div>
           </form>
         </div>
@@ -142,6 +142,7 @@
     crossorigin="anonymous"></script>
   <script src="js/scripts.js"></script>
   <script src="js/fetchDadosOcorrencia.js"></script>
+  <script src="js/fetchFinalizarOcorrencia.js"></script>
 </body>
 
 </html>

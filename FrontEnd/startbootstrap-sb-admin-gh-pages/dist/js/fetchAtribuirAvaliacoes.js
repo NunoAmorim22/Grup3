@@ -123,7 +123,7 @@ function EditEvaluations() {
                 swal.fire({
                     icon: "success",
                     title: "Sucesso!",
-                    text: "Avaliações atribuidas e atualizadas",
+                    text: "Avaliações atribuídas e atualizadas",
                     //type: "success"
                 });
             }

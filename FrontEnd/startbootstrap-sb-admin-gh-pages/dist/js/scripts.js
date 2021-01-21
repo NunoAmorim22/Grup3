@@ -377,6 +377,23 @@ function hideLeaderStuff() {
   }
 }
 
+function checkEvaluations(){
+  if(localStorage.getItem("avaliacao")){
+    swal.fire({
+      icon: "warning",
+      title: "Alerta!",
+      text: "A avaliação já foi efetuada.",
+      //type: 'sucess'
+    }).then(function () {
+      // Redirect the user
+      window.location.href = "./DadosOcorrencia.html";
+      console.log('The Ok Button was clicked.');
+    });
+  }else{
+    window.location.href = "./Avaliacoes.html";
+  }
+}
+
 function mandar(){
 let distrito = document.getElementById("chegadaDistrito").value;
 let distrito2= distrito.replace(/ /g,'+');
