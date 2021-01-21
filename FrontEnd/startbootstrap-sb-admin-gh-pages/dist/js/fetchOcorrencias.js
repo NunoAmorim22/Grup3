@@ -47,7 +47,7 @@ function hideloader() {
 
 // Function to define innerHTML for HTML table
 function show(data) {
-  let tab = `<tr><th>ID Ocorrência</th></tr>`;
+  let tab = `<tr><th>ID Ocorrência</th><th></th></tr>`;
 
   // Loop to access all rows
   for (let r of data) {
