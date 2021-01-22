@@ -17,5 +17,6 @@ router.put("/closeOccurrence/:id", occurrencesController.CloseOccurrence);
 router.put("/arriveOccurrence/:id", occurrencesController.ConfirmArrived);
 
 
+
 //No final do DOC
 module.exports = router ;

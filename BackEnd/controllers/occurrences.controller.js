@@ -251,6 +251,9 @@ function ConfirmArrived(req,res){
     }
 }
 
+
+
+
 //exportar módulos
 module.exports = {
     getAllActiveOccurrences:getAllActiveOccurrences,
