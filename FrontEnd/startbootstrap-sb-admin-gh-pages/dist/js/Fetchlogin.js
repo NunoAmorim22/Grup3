@@ -36,6 +36,7 @@ function Login() {
         // Swal.fire("Suspeito Atualizado");
         console.log("Success POST");
         console.log(response);
+        ToFetchLoginData();
       }
     })
     .then(function (result) {
@@ -66,7 +67,7 @@ function ToFetchLoginData() {
     const renderUsers = document.getElementById("result");
     const response = await fetch(`http://localhost:3000/operationals/infoLogins`, {
       headers: { "Content-Type": "application/json" },
-      method: "GET",
+      method: "POST",
       body: JSON.stringify(data1),
     });
     const users = await response.json();
@@ -82,6 +83,6 @@ function ToFetchLoginData() {
   }
   //chama a função fetchAsync()
   fetchAsync()
-    .then((data) => console.log("ok")/*, window.location.href = "./MenuPrincipal.html"*/)
+    .then((data) => console.log("ok"),/* window.location.href = "./MenuPrincipal.html"*/)
     .catch((reason) => console.log(reason.message));
 }
