@@ -62,9 +62,13 @@ function ToFetchLoginData() {
     var data1 = {};
     data1.email = document.getElementById("emailLogin").value;
     console.log("TA A VIR AQUI");
-
+//${data1.email}
     const renderUsers = document.getElementById("result");
-    const response = await fetch(`http://localhost:3000/operationals/infoLogins`);
+    const response = await fetch(`http://localhost:3000/operationals/infoLogins`, {
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+      body: JSON.stringify(data1),
+    });
     const users = await response.json();
 
 
