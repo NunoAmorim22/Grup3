@@ -11,7 +11,8 @@ router.get('/', function(req, res) {
 router.get("/allmaterials/:id",materialsControllers.getMaterialtype);
 //CONFIRMAR MATERIAL UTILIZADO
 router.put("/confirmations/:id_req/materials/:id_mat", materialsControllers.UpdateUsedMaterial);
-
+//REPOR MATERIAL DEPOIS DE USADO
+router.put("/resets/:id_req/materials/:id_mat", materialsControllers.UpdateUsedMaterial);
 
 
 
