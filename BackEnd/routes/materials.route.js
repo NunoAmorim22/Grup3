@@ -7,7 +7,10 @@ router.get('/', function(req, res) {
     res.end();
 });
 
+//GET DO TIPO DE MATERIAL
 router.get("/allmaterials/:id",materialsControllers.getMaterialtype);
+//CONFIRMAR MATERIAL UTILIZADO
+router.put("/confirmations/:id_req/materials/:id_mat", materialsControllers.UpdateUsedMaterial);
 
 
 
