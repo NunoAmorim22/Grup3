@@ -66,7 +66,7 @@ function ToFetchLoginData() {
     const renderUsers = document.getElementById("result");
     const response = await fetch(`http://localhost:3000/operationals/infoLogins`, {
       headers: { "Content-Type": "application/json" },
-      method: "POST",
+      method: "GET",
       body: JSON.stringify(data1),
     });
     const users = await response.json();
