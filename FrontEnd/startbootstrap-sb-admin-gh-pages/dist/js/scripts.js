@@ -452,3 +452,7 @@ let rua2 = rua.replace(/ /g,'+');
 console.log(rua2);
 window.open(`https://www.google.com/maps/search/?api=1&query=${distrito2}+${rua2}`);
 }
+
+function turnRed(btnid){
+  document.getElementById(btnid).style.color="#FF0A0A";//rgb(144 29 29 / 100%)";
+}
