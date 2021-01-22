@@ -362,7 +362,7 @@ function logout() {
 
 function hideAdminStuff() {
   let tipo = localStorage.getItem("tipo");
-  if (tipo != "admin") {
+  if (tipo != "Admin") {
     //document.getElementById("adminStuff").style.display = "none";
     document.getElementById("listaOperacionais").style.display = "none";
     document.getElementById("criarContaAdmin").style.display = "none";
@@ -376,7 +376,7 @@ function hideAdminStuff() {
 
 function AdminCantGo(){
   let tipo = localStorage.getItem("tipo");
-  if(tipo == "admin"){
+  if(tipo == "Admin"){
     swal.fire({
       icon: "warning",
       title: "Alerta!",
@@ -395,7 +395,7 @@ function AdminCantGo(){
 
 function hideLeaderStuff() {
   let tipo = localStorage.getItem("tipo");
-  if (tipo != "lider") {
+  if (tipo != "Lider") {
     document.getElementById("btnAvaliacoes").style.display = "none";
     document.getElementById("btnFinalizar").setAttribute("onclick", "javascript: comoOperacional()") ;
     document.getElementById("btnFinalizar").innerHTML = "Finalizar participação";
@@ -404,7 +404,7 @@ function hideLeaderStuff() {
 
 function hideLeaderStuffMap() {
   let tipo = localStorage.getItem("tipo");
-  if (tipo != "lider") {
+  if (tipo != "Lider") {
     document.getElementById("btnChegada").setAttribute("onclick", "javascript: comoOperacionalMap()") ;
     document.getElementById("btnChegada").innerHTML = "Dados Ocorrência <i class='fas fa-arrow-right'></i>";
   }
