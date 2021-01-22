@@ -26,4 +26,4 @@ router.put("/checkins/:id", operationalController.checkedPresence);
 
 //---------------------------------------------------------------------------
 //GET DOS DADOS DE QUEM ESTÁ LOGADO- ID E LOGIN TYPE
-router.get("/infologins/:email", operationalController.loginInfo);
+router.get("/infologins", operationalController.loginInfo);

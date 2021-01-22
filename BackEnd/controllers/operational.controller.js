@@ -281,7 +281,7 @@ function checkedPresence(req,res){
 
 function loginInfo(req,res){
     
-    email=req.params.email;
+    email=req.body.email;
     post[email];
     const query =connect.con.query ("SELECT op.id_operational, uso.login_type FROM users us, User_old uso, Operational op  WHERE us.email=uso.email  AND us.email=? AND op.id_user=uso.id_user ",post, function(err, rows, fields){
         console.log(query.sql);
