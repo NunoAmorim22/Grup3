@@ -335,7 +335,7 @@ function transportidOccurrence(idtotransport) {
     document.location.href = "./MenuOcorrencia.html";
   } else {
     localStorage.setItem("id_occurrence", idtotransport);
-    document.location.href = "./DadosOcorrencia.html";
+    document.location.href = "./ConfirmarChegada.html";
   }
 
 }
@@ -397,7 +397,33 @@ function hideLeaderStuff() {
   let tipo = localStorage.getItem("tipo");
   if (tipo != "lider") {
     document.getElementById("btnAvaliacoes").style.display = "none";
+    document.getElementById("btnFinalizar").setAttribute("onclick", "javascript: comoOperacional()") ;
+    document.getElementById("btnFinalizar").innerHTML = "Finalizar participação";
   }
+}
+
+function hideLeaderStuffMap() {
+  let tipo = localStorage.getItem("tipo");
+  if (tipo != "lider") {
+    document.getElementById("btnChegada").setAttribute("onclick", "javascript: comoOperacionalMap()") ;
+    document.getElementById("btnChegada").innerHTML = "Dados Ocorrência <i class='fas fa-arrow-right'></i>";
+  }
+}
+
+function comoOperacional(){
+  swal.fire({
+    icon: "success",
+    title: "Sucesso!",
+    text: "A sua participação foi terminada com sucesso, irá ser reencaminhado para o menu principal",
+    //type: 'sucess'
+  }).then(function () {
+    // Redirect the user
+    window.location.href = "./MenuPrincipal.html";
+    console.log('The Ok Button was clicked.');
+  });
+}
+function comoOperacionalMap(){
+  window.location.href = "./DadosOcorrencia.html";
 }
 
 function checkEvaluations(){

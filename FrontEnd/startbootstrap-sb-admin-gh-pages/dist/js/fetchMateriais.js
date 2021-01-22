@@ -24,12 +24,12 @@ function hideloader() {
 
 // Function to define innerHTML for HTML table
 function show(data) {
-  let tab = `<tr><th>Tipo de material</th> <th>Confirmação</th></tr>`;
+  let tab = `<tr><th>Tipo de material</th><th>Quantidade</th><th>Confirmação</th></tr>`;
 
   // Loop to access all rows
   for (let r of data) {
    
-    tab += `<tr><td>${r.category} </td> <td><a class="btn" onclick = ""><i class="fas fa-check"></i></a> <a class="btn" onclick = ""><i class="fas fa-times"></i></a></td></tr>`;
+    tab += `<tr><td>${r.category}</td><td>${r.quantity}</td> <td><a class="btn" onclick = ""><i class="fas fa-check"></i></a> <a class="btn" onclick = ""><i class="fas fa-times"></i></a></td></tr>`;
    
   }
   // Setting innerHTML as tab variable

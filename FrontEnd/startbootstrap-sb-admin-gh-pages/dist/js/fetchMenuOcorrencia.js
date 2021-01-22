@@ -37,6 +37,7 @@ function refreshMenuOccurrence() {
       }
 
       localStorage.setItem("id_team", users[0].id_team);
+      localStorage.setItem("id_request", users[0].id_request);
       
       
       console.log(users[0].id_suspect);
