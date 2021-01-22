@@ -1,7 +1,6 @@
-function MaterialsConfirmation(id_material) {
+function MaterialsConfirmation(id_material, btnid) {
     var data = {};
-    let id_request = localStorage.getItem("id_request")
-    
+    let id_request = localStorage.getItem("id_request");
     
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
@@ -18,7 +17,7 @@ function MaterialsConfirmation(id_material) {
           // Swal.fire("Suspeito Atualizado");
           console.log("Success PUT");
           console.log(response);
-          document.getElementById("buttonMaterial").style.color="rgb(29 144 53 / 98%)";
+          document.getElementById(btnid).style.color="rgb(29 144 53 / 98%)";
         }
       })
       .then(function (result) {

@@ -454,5 +454,11 @@ window.open(`https://www.google.com/maps/search/?api=1&query=${distrito2}+${rua2
 }
 
 function turnRed(btnid){
+  console.log(btnid);
   document.getElementById(btnid).style.color="#FF0A0A";//rgb(144 29 29 / 100%)";
+}
+
+function turnGreen(btnid){
+  console.log(btnid);
+  document.getElementById(btnid).style.color="rgb(29 144 53 / 98%)";
 }

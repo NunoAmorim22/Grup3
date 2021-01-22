@@ -20,6 +20,16 @@ function Login() {
           console.log(response.status); //=> number 100–599
           console.log(response.statusText); //=> String
           console.log(response.headers); //=> Headers
+          swal.fire({
+          icon: "error",
+          title: "Erro!",
+          text: "Credenciais erradas!",
+          //type: "success"
+      }).then(function () {
+          // Redirect the user
+          //window.location.href = "./DadosOcorrencia.html";
+          console.log('The Ok Button was clicked.');
+      });
         } else {
           // Swal.fire("Suspeito Atualizado");
           console.log("Success POST");
@@ -30,16 +40,6 @@ function Login() {
       })
       .then(function (result) {
         console.log(result);
-        swal.fire({
-          icon: "error",
-          title: "Erro!",
-          text: "Credenciais erradas!",
-          //type: "success"
-      }).then(function () {
-          // Redirect the user
-          //window.location.href = "./DadosOcorrencia.html";
-          console.log('The Ok Button was clicked.');
-      });
       })
       .catch(function (err) {
         swal.fire({

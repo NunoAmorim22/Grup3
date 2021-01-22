@@ -67,7 +67,7 @@ function UpdateUsedMaterial(req,res){
         
      if (idRequest!='NULL' && typeof(idRequest!= 'undefined')) {
         
-        const update = [idRequest, idMaterial,idMaterial];
+        const update = [idRequest, idMaterial, idMaterial];
         const query = connect.con.query("UPDATE Material SET material_quantity = material_quantity - (SELECT quantity FROM Occurrence_material WHERE id_request=? AND id_material=?) WHERE id_material=?", update, function (err, rows, fields){
             console.log(query.sql);
             if (!err){
