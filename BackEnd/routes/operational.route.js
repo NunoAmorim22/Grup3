@@ -21,3 +21,5 @@ router.put("/edits/:id", operationalController.EditOperationalData);
 router.post("/adminsInserts", operationalController.InsertNewUserAdmin);
 //apagar operacionais pelo admin
 router.delete("/deletesAd/:id", operationalController.deleteOpByAdmin);
+//MARCAR PRESENÇA POR CADA OPERATIONAL
+router.put("/checkins/:id", operationalController.checkedPresence);
