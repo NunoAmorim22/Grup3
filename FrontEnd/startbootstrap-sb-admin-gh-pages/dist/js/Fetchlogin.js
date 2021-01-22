@@ -62,8 +62,8 @@ function ToFetchLoginData() {
   async function fetchAsync() {
     var data1 = {};
     data1.email = document.getElementById("emailLogin").value;
-    console.log("TA A VIR AQUI");
-//${data1.email}
+   
+    //${data1.email}
     const renderUsers = document.getElementById("result");
     const response = await fetch(`http://localhost:3000/operationals/infoLogins`, {
       headers: { "Content-Type": "application/json" },
@@ -71,18 +71,22 @@ function ToFetchLoginData() {
       body: JSON.stringify(data1),
     });
     const users = await response.json();
-
-
-    localStorage.setItem("id_operacional", users[0].id_operational);
+    console.log("TA A VIR AQUI");
     localStorage.setItem("tipo", users[0].login_type);
+   /* console.log(users[0].login_type.value);
+    if (users[0].login_type !== "Admin") {
+      localStorage.setItem("id_operacional", users[0].id_operational);
+    }*/
 
 
-    console.log(users[0].id_suspect);
+    window.location.href = "./MenuPrincipal.html"
+
+    
     console.log(users[0].name);
 
   }
   //chama a função fetchAsync()
   fetchAsync()
-    .then((data) => console.log("ok"),/* window.location.href = "./MenuPrincipal.html"*/)
+    .then((data) => console.log("ok"))
     .catch((reason) => console.log(reason.message));
 }
