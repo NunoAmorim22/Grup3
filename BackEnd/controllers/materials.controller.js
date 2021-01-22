@@ -85,7 +85,7 @@ function UpdateUsedMaterial(req,res){
 
 // Reposição de material -finalizar ocorrencia
 function ResetMaterial(req,res){
-    req.sanitize("id_request").escape();
+    req.sanitize("id_request").escape(); 
     req.sanitize("id_material").escape();
 /*
     req.checkBody("name","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:45});
