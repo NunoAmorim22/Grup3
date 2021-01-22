@@ -23,5 +23,7 @@ router.post("/adminsInserts", operationalController.InsertNewUserAdmin);
 router.delete("/deletesAd/:id", operationalController.deleteOpByAdmin);
 //MARCAR PRESENÇA POR CADA OPERATIONAL
 router.put("/checkins/:id", operationalController.checkedPresence);
+
+//---------------------------------------------------------------------------
 //GET DOS DADOS DE QUEM ESTÁ LOGADO- ID E LOGIN TYPE
 router.get("/infologins", operationalController.loginInfo);
