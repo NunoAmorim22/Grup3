@@ -275,6 +275,33 @@ function checkedPresence(req,res){
 }
 
 
+//GET DE DADOS DO USER QUE ESTÁ LOGADO
+//SELECT DE ID_OPERATIONAL
+//SELECT DE LOGIN TYPE
+
+function loginInfo(req,res){
+    
+    email=req.body.email;
+    post[email];
+    const query =connect.con.query ("SELECT op.id_operational, uso.login_type FROM users us, User_old uso, Operational op  WHERE us.email=uso.email  AND us.email=? AND op.id_user=uso.id_user ",post, function(err, rows, fields){
+        console.log(query.sql);
+    
+        if(err) {
+            console.log(err);
+            res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+                else{
+                    if(rows.length==0) {
+                        res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+                    }
+                    else{
+                        res.send(rows);
+                    }
+                }
+    
+    });
+}
+
 
 module.exports = {
     getAllOperationals:getAllOperationals,
@@ -284,5 +311,6 @@ module.exports = {
     EditOperationalData:EditOperationalData,
     InsertNewUserAdmin:InsertNewUserAdmin,
     deleteOpByAdmin:deleteOpByAdmin,
-    checkedPresence:checkedPresence
+    checkedPresence:checkedPresence,
+    loginInfo:loginInfo
 };
