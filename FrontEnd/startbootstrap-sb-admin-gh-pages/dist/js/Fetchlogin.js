@@ -62,7 +62,7 @@ function ToFetchLoginData() {
   async function fetchAsync() {
     var data1 = {};
     data1.email = document.getElementById("emailLogin").value;
-   
+
     //${data1.email}
     const renderUsers = document.getElementById("result");
     const response = await fetch(`http://localhost:3000/operationals/infoLogins`, {
@@ -73,15 +73,12 @@ function ToFetchLoginData() {
     const users = await response.json();
     console.log("TA A VIR AQUI");
     localStorage.setItem("tipo", users[0].login_type);
-   /* console.log(users[0].login_type.value);
-    if (users[0].login_type !== "Admin") {
-      localStorage.setItem("id_operacional", users[0].id_operational);
-    }*/
+    localStorage.setItem("id_operacional", users[0].id_operational);
 
 
     window.location.href = "./MenuPrincipal.html"
 
-    
+
     console.log(users[0].name);
 
   }

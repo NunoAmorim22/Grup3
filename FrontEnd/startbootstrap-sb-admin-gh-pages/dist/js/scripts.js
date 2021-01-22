@@ -391,6 +391,23 @@ function AdminCantGo(){
     document.location.href = "./ConfirmacaoPresenca.html";
   }
 }
+function AdminCantGoProfile(){
+  let tipo = localStorage.getItem("tipo");
+  if(tipo == "Admin"){
+    swal.fire({
+      icon: "warning",
+      title: "Alerta!",
+      text: "Não pode aceder a esta página!",
+      //type: 'sucess'
+    }).then(function () {
+      // Redirect the user
+      //window.location.href = "./DadosOcorrencia.html";
+      //console.log('The Ok Button was clicked.');
+    });
+  }else{
+    document.location.href = "./Perfil.html";
+  }
+}
 
 
 function hideLeaderStuff() {
