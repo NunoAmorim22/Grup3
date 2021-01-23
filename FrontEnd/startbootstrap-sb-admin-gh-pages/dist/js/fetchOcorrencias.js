@@ -15,6 +15,7 @@ localStorage.removeItem("id_victim");
 localStorage.removeItem("id_suspect");
 localStorage.removeItem("id_witness");
 localStorage.removeItem("id_occurrence");
+localStorage.removeItem("id_request");
 
 let materiais = [];
 localStorage.setItem("materiais", JSON.stringify(materiais));
