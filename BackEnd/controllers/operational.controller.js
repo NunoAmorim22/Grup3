@@ -221,10 +221,20 @@ function deleteOpByAdmin(req , res) {
         if (!err){
             //res.status(jsonMessages.db.successDeleteU.status).send (jsonMessages.db.successDeleteU);
 
-            const query = connect.con.query("DELETE FROM Operational WHERE id_operational=?" , update , function (err, rows, fields){
+            const query = connect.con.query("DELETE FROM User_old WHERE id_user=(SELECT id_user FROM  Operational WHERE id_operational=?)" , update , function (err, rows, fields){
                 console.log(query.sql);
                 if (!err){
-                    res.status(jsonMessages.db.successDeleteU.status).send (jsonMessages.db.successDeleteU);
+                    const query = connect.con.query("DELETE FROM Operational WHERE id_operational=?" , update , function (err, rows, fields){
+                        console.log(query.sql);
+                        if (!err){
+                            res.status(jsonMessages.db.successDeleteU.status).send (jsonMessages.db.successDeleteU);
+                                }
+                                else{
+                                    console.log(err);
+                                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                                }
+                    });
+                    //res.status(jsonMessages.db.successDeleteU.status).send (jsonMessages.db.successDeleteU);
                         }
                         else{
                             console.log(err);
