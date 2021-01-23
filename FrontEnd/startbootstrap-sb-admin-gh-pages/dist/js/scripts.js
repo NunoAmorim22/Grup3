@@ -365,7 +365,7 @@ function hideAdminStuff() {
   if (tipo != "Admin") {
     //document.getElementById("adminStuff").style.display = "none";
     document.getElementById("listaOperacionais").style.display = "none";
-    //document.getElementById("criarContaAdmin").style.display = "none";
+    document.getElementById("criarContaAdmin").style.display = "none";
   }else{
     document.getElementById("tabelaparamandardebase").style.display = "none";
     document.getElementById("participacoes").style.display = "none";
