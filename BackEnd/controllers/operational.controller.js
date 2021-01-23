@@ -281,8 +281,8 @@ function checkedPresence(req,res){
 
 function loginInfo(req,res){
     
-    email=req.body.email;
-    post=[email];
+    const email=req.body.email;
+    const post=[email];
     const query =connect.con.query ("SELECT op.id_operational, uso.login_type FROM users us, User_old uso, Operational op  WHERE us.email=uso.email  AND us.email=? AND op.id_user=uso.id_user ",post, function(err, rows, fields){
         console.log(query.sql);
         
@@ -310,9 +310,11 @@ function loginInfo(req,res){
 
 function AdminloginInfo(req,res){
     
-    email=req.body.email;
-    post=[email];
-    const query =connect.con.query ("SELECT  uso.login_type FROM users us, User_old uso WHERE us.email=uso.email  AND us.email=?",post, function(err, rows, fields){
+   const email=req.body.email;
+   const typeL= "Admin";
+
+   const post=[email, typeL];
+    const query =connect.con.query ("SELECT  uso.login_type FROM users us, User_old uso WHERE us.email=uso.email  AND us.email=? AND us.login_type=?",post, function(err, rows, fields){
         console.log(query.sql);
         
         if(err) {
