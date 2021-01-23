@@ -14,11 +14,11 @@ async function getapi1(url) {
   show1(data); 
 }
 // Calling that async function
-getapi1(api_url1);
+/*getapi1(api_url1);
 // Function to hide the loader
 function hideloader1() {
   document.getElementById("loading1").style.display = "none";
-}
+}*/
 
 // Function to define innerHTML for HTML table
 function show1(data) {

@@ -36,7 +36,8 @@ function Login() {
         // Swal.fire("Suspeito Atualizado");
         console.log("Success POST");
         console.log(response);
-        ToFetchLoginData();
+       // ToFetchLoginData();
+       window.location.href = "./MenuPrincipal.html";
       }
     })
     .then(function (result) {
@@ -154,7 +155,7 @@ function ToFetchLoginDataAdmin() {
 
     //${data1.email}
     const renderUsers = document.getElementById("result");
-    const response = await fetch(`http://localhost:3000/operationals/infoLogins`, {
+    const response = await fetch(`http://localhost:3000/operationals/infologinsadmin`, {
       headers: { "Content-Type": "application/json" },
       method: "POST",
       body: JSON.stringify(data1),

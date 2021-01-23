@@ -330,7 +330,7 @@ function transportidVitima(idtotransport) {
 }
 
 function transportidOccurrence(idtotransport) {
-  if (localStorage.getItem("tipo") == "lider") {
+  if (localStorage.getItem("tipo") == "Lider") {
     localStorage.setItem("id_occurrence", idtotransport);
     document.location.href = "./MenuOcorrencia.html";
   } else {
@@ -351,7 +351,7 @@ function coisaLinda() {
       bottom
       no-repeat
     `
-  })
+  })//url("https://cdn.awsli.com.br/600x450/14/14828/produto/34355376/ab054cf50c.jpg")
 }
 
 function logout() {
