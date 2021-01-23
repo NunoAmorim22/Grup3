@@ -36,8 +36,8 @@ function Login() {
         // Swal.fire("Suspeito Atualizado");
         console.log("Success POST");
         console.log(response);
-       // ToFetchLoginData();
-       window.location.href = "./MenuPrincipal.html";
+        ToFetchLoginData();
+       //window.location.href = "./MenuPrincipal.html";
       }
     })
     .then(function (result) {
