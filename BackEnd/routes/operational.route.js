@@ -24,7 +24,7 @@ router.delete("/deletesAd/:id", operationalController.deleteOpByAdmin);
 //MARCAR PRESENÇA POR CADA OPERATIONAL
 router.put("/checkins/:id", operationalController.checkedPresence);
 //RETIRAR PRESENÇA
-router.put("/chekouts/:id", operationalController.PresenceReset);
+router.put("/checkouts/:id", operationalController.PresenceReset);
 
 //---------------------------------------------------------------------------
 //GET DOS DADOS DE QUEM ESTÁ LOGADO- ID E LOGIN TYPE
