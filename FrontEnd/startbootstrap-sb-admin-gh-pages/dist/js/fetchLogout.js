@@ -4,7 +4,7 @@ function Logout() {
    
     }
     fetchAsync()
-    .then(console.log("ok"),ResetPresence(), window.location.href = "./login.html", localStorage.clear())
+    .then(console.log("ok"), ResetPresence())
     .catch((reason) => console.log(reason.message));
 
 }
@@ -29,6 +29,8 @@ function Logout() {
           // Swal.fire("Suspeito Atualizado");
           console.log("Success PUT");
           console.log(response);
+          localStorage.clear();
+          window.location.href = "./login.html";
         }
       })
       .then(function (result) {
