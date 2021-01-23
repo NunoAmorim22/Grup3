@@ -55,7 +55,7 @@ function updateCreditsOp1(req,res){
    else{
     const idOccurrence= req.params.id_occu;
     const idOperational=req.params.id_op;
-    const state="Concluído";
+    const state="Em Processo";
     const totalCredits= req.body.total_credits;
     const grade = req.body.grade;
   
