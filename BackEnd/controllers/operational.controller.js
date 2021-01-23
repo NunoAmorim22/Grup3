@@ -303,6 +303,33 @@ function loginInfo(req,res){
 }
 
 
+
+//login info admin
+//tabela users
+// retorna nome , email e login_type
+
+function AdminloginInfo(req,res){
+    
+    email=req.body.email;
+    post=[email];
+    const query =connect.con.query ("SELECT  uso.login_type FROM users us, User_old uso WHERE us.email=uso.email  AND us.email=? ",post, function(err, rows, fields){
+        console.log(query.sql);
+        
+        if(err) {
+            console.log(err);
+            res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                }
+                else{
+                    if(rows.length==0) {
+                        res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
+                    }
+                    else{
+                        res.send(rows);
+                    }
+                }
+    
+    });
+}
 module.exports = {
     getAllOperationals:getAllOperationals,
     deleteOperationals:deleteOperationals,
@@ -312,5 +339,6 @@ module.exports = {
     InsertNewUserAdmin:InsertNewUserAdmin,
     deleteOpByAdmin:deleteOpByAdmin,
     checkedPresence:checkedPresence,
-    loginInfo:loginInfo
+    loginInfo:loginInfo,
+    AdminloginInfo:AdminloginInfo
 };
