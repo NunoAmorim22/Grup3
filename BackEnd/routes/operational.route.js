@@ -26,6 +26,9 @@ router.put("/checkins/:id", operationalController.checkedPresence);
 //RETIRAR PRESENÇA
 router.put("/checkouts/:id", operationalController.PresenceReset);
 
+//ALTERAR PASSWORD
+router.put("/changepwds", operationalController.changePassword);
+
 //---------------------------------------------------------------------------
 //GET DOS DADOS DE QUEM ESTÁ LOGADO- ID E LOGIN TYPE
 router.post("/infologins", operationalController.loginInfo);
