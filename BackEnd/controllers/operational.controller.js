@@ -312,7 +312,7 @@ function AdminloginInfo(req,res){
     
     email=req.body.email;
     post=[email];
-    const query =connect.con.query ("SELECT  uso.login_type FROM users us, User_old uso WHERE us.email=uso.email  AND us.email=? ",post, function(err, rows, fields){
+    const query =connect.con.query ("SELECT  uso.login_type FROM users us, User_old uso WHERE us.email=uso.email  AND us.email=?",post, function(err, rows, fields){
         console.log(query.sql);
         
         if(err) {
