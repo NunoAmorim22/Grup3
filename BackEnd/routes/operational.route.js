@@ -30,3 +30,6 @@ router.post("/infologins", operationalController.loginInfo);
 
 //GET DOS DADOS DE ADMIN ID E LOGIN TYPE
 router.post("/infologinsadmin", operationalController.AdminloginInfo);
+
+//RETIRAR PRESENÇA
+router.put("/chekouts/:id", operationalController.PresenceReset);

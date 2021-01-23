@@ -353,6 +353,55 @@ function AdminloginInfo(req,res){
     
     });
 }
+
+//reset presença
+//tabela operational_evaluations
+
+function PresenceReset(req,res){
+    req.sanitize("operational_presenc_conf").escape();
+    req.sanitize("id_operational").escape();
+
+/*
+    req.checkBody("name","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:45});
+    req.checkBody("naturality","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:20});
+    req.checkBody("phone_number","Insira 9 números").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("genre","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:2});
+    req.checkBody("cc_number","Insira 8 números").matches(/^[0-9]+$/).isLength({ min: 0, max:8 });
+    req.checkBody("job","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:20});
+    req.checkBody("skin_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("eyes_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("hair_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("heigth","Insira 3 numeros (ex: 1.50)").matches(/^[0-9]+$/).isLength({ min: 0, max:3});
+    req.checkBody("body_shape","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+*/
+   
+    const errors = req.validationErrors();
+    console.log(errors);
+    if(errors){
+        res.send(errors);
+        return;
+    }
+    else{
+     const idPresence="0"; 
+     const idOccurrence=req.params.id;
+        
+     if (idOccurrence!='NULL' && typeof(idOccurrence!= 'undefined')) {
+        
+        const update = [idPresence,idOccurrence];
+        const query = connect.con.query("UPDATE Operational_evaluation SET operational_presence_conf=? WHERE id_operational=?", update, function (err, rows, fields){
+            console.log(query.sql);
+            if (!err){
+                res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
+                    }
+                    else{
+                        console.log(err);
+                        res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                    }
+            });
+        }
+    }
+}
+
 module.exports = {
     getAllOperationals:getAllOperationals,
     deleteOperationals:deleteOperationals,
@@ -363,5 +412,6 @@ module.exports = {
     deleteOpByAdmin:deleteOpByAdmin,
     checkedPresence:checkedPresence,
     loginInfo:loginInfo,
-    AdminloginInfo:AdminloginInfo
+    AdminloginInfo:AdminloginInfo,
+    PresenceReset:PresenceReset
 };
