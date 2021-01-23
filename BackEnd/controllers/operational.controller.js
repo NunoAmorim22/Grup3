@@ -220,9 +220,8 @@ function deleteOpByAdmin(req , res) {
         console.log(query.sql);
         if (!err){
             res.status(jsonMessages.db.successDeleteU.status).send (jsonMessages.db.successDeleteU);
-
-            post=[idOperacional];
-            const query = connect.con.query("DELETE FROM Candidate WHERE id_candidate=(SELECT id_candidate FROM Operational WHERE id_operational=?)", post , function (err, rows, fields){
+            
+            const query = connect.con.query("DELETE FROM Candidate WHERE id_candidate=(SELECT id_candidate FROM Operational WHERE id_operational=LAST_INSERT_ID())", post , function (err, rows, fields){
                 console.log(query.sql);
                 if (!err){
                     res.status(jsonMessages.db.successDeleteU.status).send (jsonMessages.db.successDeleteU);
