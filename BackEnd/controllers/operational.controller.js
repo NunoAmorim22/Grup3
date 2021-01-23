@@ -314,7 +314,7 @@ function AdminloginInfo(req,res){
    const typeL= "Admin";
 
    const post=[email, typeL];
-    const query =connect.con.query ("SELECT  us.tipo FROM users us WHERE  us.email=? AND us.tipo=?",post, function(err, rows, fields){
+    const query =connect.con.query ("SELECT  us.tipo FROM users us WHERE  us.email=? AND us.tipo=?", post, function(err, rows, fields){
         console.log(query.sql);
         
         if(err) {
