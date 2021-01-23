@@ -2,7 +2,7 @@ function ConfirmPresence() {
     let id_operacional = localStorage.getItem("id_operacional");
     
     
-    console.log(data); //debugging para ver os dados que foram enviados
+   // console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
     fetch(`http://localhost:3000/operationals/checkins/${id_operacional}`, {
       headers: { "Content-Type": "application/json" },
@@ -18,7 +18,7 @@ function ConfirmPresence() {
           console.log("Success PUT");
           console.log(response);
           swal.fire({
-            title: 'Confirmar chegada ao local?',
+            title: 'Confirmar presença?',
             //showDenyButton: true,
             showCancelButton: true,
             confirmButtonText: `Confirmar`,

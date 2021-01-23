@@ -162,8 +162,7 @@ function ToFetchLoginDataAdmin() {
     });
     const users = await response.json();
     console.log("TA A VIR AQUI");
-    localStorage.setItem("tipo", users[0].login_type);
-    localStorage.setItem("id_operacional", users[0].id_operational);
+    localStorage.setItem("tipo", users[0].tipo);
     console.log("Admin");
 
     window.location.href = "./MenuPrincipal.html"
