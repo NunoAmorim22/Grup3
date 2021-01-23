@@ -16,6 +16,17 @@ localStorage.removeItem("id_suspect");
 localStorage.removeItem("id_witness");
 localStorage.removeItem("id_occurrence");
 
+let materiais = [];
+localStorage.setItem("materiais", JSON.stringify(materiais));
+
+
+
+let arraydemerda = JSON.parse(localStorage.getItem("materiais"));
+
+console.log(arraydemerda.length); 
+for(let i of arraydemerda){
+  console.log(i);
+}
 
 /*localStorage.setItem("id_operacional", 1);
 localStorage.setItem("tipo", "lider");*/
@@ -51,7 +62,7 @@ function show(data) {
 
   // Loop to access all rows
   for (let r of data) {
-    if(localStorage.getItem("tipo") == "lider"){
+    if(localStorage.getItem("tipo") == "Lider"){
     tab += `<tr><td>${r.id_occurrence} </td> <td><a class="btn btn-link" name="irpara" onclick = "transportidOccurrence(${r.id_occurrence})"> <i class="fas fa-check"></i> </a></td></tr>`;
     }
     else{
