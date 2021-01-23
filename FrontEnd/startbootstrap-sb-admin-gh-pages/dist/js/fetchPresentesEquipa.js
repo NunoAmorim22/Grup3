@@ -12,6 +12,7 @@ async function getapi(url) {
   if (response) {
     hideloader();
   }
+  document.getElementById("id_team").setAttribute("value",id_equipa);
   show(data);
 }
 // Calling that async function
@@ -34,7 +35,7 @@ function show(data) {
   }
   // Setting innerHTML as tab variable
   document.getElementById("lista-presencas").innerHTML = tab;
-  document.getElementById("id_team").setAttribute("value",id_equipa);
+  
 }
 
 //----------------------------------------------------------------------------------------//

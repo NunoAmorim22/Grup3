@@ -216,15 +216,25 @@ function deleteOpByAdmin(req , res) {
     const update = [idOperacional];
 
     if (update !='NULL' && typeof(update != 'undefined')) {
-    const query = connect.con.query("DELETE FROM Candidate WHERE id_candidate=(SELECT id_candidate FROM Operational WHERE id_operational=?)", update , function (err, rows, fields){
+    const query = connect.con.query("DELETE FROM User_old WHERE id_user=(SELECT id_user FROM  Operational WHERE id_operational=?)", update , function (err, rows, fields){
         console.log(query.sql);
         if (!err){
             //res.status(jsonMessages.db.successDeleteU.status).send (jsonMessages.db.successDeleteU);
 
-            const query = connect.con.query("DELETE FROM Operational WHERE id_operational=?" , update , function (err, rows, fields){
+            const query = connect.con.query("DELETE FROM Candidate WHERE id_candidate=(SELECT id_candidate FROM Operational WHERE id_operational=?)" , update , function (err, rows, fields){
                 console.log(query.sql);
                 if (!err){
-                    res.status(jsonMessages.db.successDeleteU.status).send (jsonMessages.db.successDeleteU);
+                    const query = connect.con.query("DELETE FROM Operational WHERE id_operational=?" , update , function (err, rows, fields){
+                        console.log(query.sql);
+                        if (!err){
+                            res.status(jsonMessages.db.successDeleteU.status).send (jsonMessages.db.successDeleteU);
+                                }
+                                else{
+                                    console.log(err);
+                                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                                }
+                    });
+                    //res.status(jsonMessages.db.successDeleteU.status).send (jsonMessages.db.successDeleteU);
                         }
                         else{
                             console.log(err);
@@ -343,6 +353,103 @@ function AdminloginInfo(req,res){
     
     });
 }
+
+//reset presença
+//tabela operational_evaluations
+
+function PresenceReset(req,res){
+    req.sanitize("operational_presenc_conf").escape();
+    req.sanitize("id_operational").escape();
+
+/*
+    req.checkBody("name","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:45});
+    req.checkBody("naturality","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:20});
+    req.checkBody("phone_number","Insira 9 números").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("genre","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:2});
+    req.checkBody("cc_number","Insira 8 números").matches(/^[0-9]+$/).isLength({ min: 0, max:8 });
+    req.checkBody("job","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:20});
+    req.checkBody("skin_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("eyes_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("hair_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("heigth","Insira 3 numeros (ex: 1.50)").matches(/^[0-9]+$/).isLength({ min: 0, max:3});
+    req.checkBody("body_shape","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+*/
+   
+    const errors = req.validationErrors();
+    console.log(errors);
+    if(errors){
+        res.send(errors);
+        return;
+    }
+    else{
+     const idPresence="0"; 
+     const idOccurrence=req.params.id;
+        
+     if (idOccurrence!='NULL' && typeof(idOccurrence!= 'undefined')) {
+        
+        const update = [idPresence,idOccurrence];
+        const query = connect.con.query("UPDATE Operational_evaluation SET operational_presence_conf=? WHERE id_operational=?", update, function (err, rows, fields){
+            console.log(query.sql);
+            if (!err){
+                res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
+                    }
+                    else{
+                        console.log(err);
+                        res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                    }
+            });
+        }
+    }
+}
+
+//altera password
+//altera tabela users
+//put
+
+function changePassword(req,res){
+    req.sanitize("email").escape();
+
+
+/*
+    req.checkBody("name","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:45});
+    req.checkBody("naturality","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:20});
+    req.checkBody("phone_number","Insira 9 números").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("genre","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:2});
+    req.checkBody("cc_number","Insira 8 números").matches(/^[0-9]+$/).isLength({ min: 0, max:8 });
+    req.checkBody("job","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:20});
+    req.checkBody("skin_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("eyes_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("hair_color","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+    req.checkBody("heigth","Insira 3 numeros (ex: 1.50)").matches(/^[0-9]+$/).isLength({ min: 0, max:3});
+    req.checkBody("body_shape","Insira apenas texto").matches(/^[a-z ]+$/i).isLength({ min: 0, max:10});
+*/
+   
+    const errors = req.validationErrors();
+    console.log(errors);
+    if(errors){
+        res.send(errors);
+        return;
+    }
+    else{
+        const email=req.body.email;
+        const update=[email];
+        
+     if (email!='NULL' && typeof(email!= 'undefined')) {
+        
+        const query = connect.con.query("UPDATE users SET password=? WHERE id_user=(SELECT us.id_user FROM users us, User_old uso WHERE us.email=uso.email  AND us.email=?)", update, function (err, rows, fields){
+            console.log(query.sql);
+            if (!err){
+                res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
+                    }
+                    else{
+                        console.log(err);
+                        res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                    }
+            });
+        }
+    }
+}
+
 module.exports = {
     getAllOperationals:getAllOperationals,
     deleteOperationals:deleteOperationals,
@@ -353,5 +460,7 @@ module.exports = {
     deleteOpByAdmin:deleteOpByAdmin,
     checkedPresence:checkedPresence,
     loginInfo:loginInfo,
-    AdminloginInfo:AdminloginInfo
+    AdminloginInfo:AdminloginInfo,
+    PresenceReset:PresenceReset,
+    changePassword:changePassword
 };
