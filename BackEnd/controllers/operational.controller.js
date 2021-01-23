@@ -433,6 +433,7 @@ function changePassword(req,res){
     }
     else{
         const email=req.body.email;
+        const password=req.body.password;
         const update=[password,email];
         
      if (email!='NULL' && typeof(email!= 'undefined')) {
