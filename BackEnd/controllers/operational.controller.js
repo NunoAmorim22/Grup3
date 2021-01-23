@@ -408,6 +408,7 @@ function PresenceReset(req,res){
 
 function changePassword(req,res){
     req.sanitize("email").escape();
+    req.sanitize("password").escape();
 
 
 /*
@@ -432,7 +433,7 @@ function changePassword(req,res){
     }
     else{
         const email=req.body.email;
-        const update=[email];
+        const update=[password,email];
         
      if (email!='NULL' && typeof(email!= 'undefined')) {
         
