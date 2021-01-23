@@ -1,11 +1,10 @@
-function EditArrival() {
-    var data = {};
-    let id_ocorrencia = localStorage.getItem("id_occurrence");
+function ConfirmPresence() {
+    let id_operacional = localStorage.getItem("id_operacional");
     
     
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/occurrences/arriveOccurrence/${id_ocorrencia}`, {
+    fetch(`http://localhost:3000/operationals/checkins/${id_operacional}`, {
       headers: { "Content-Type": "application/json" },
       method: "PUT",
     })
@@ -30,10 +29,10 @@ function EditArrival() {
               swal.fire({
               icon: "success",
               title: "Sucesso!",
-              text:"Confirmada a chegada ao local!",
+              text:"Presença confirmada!",
             }).then(function () {
               // Redirect the user
-              window.location.href = "./DadosOcorrencia.html";
+              window.location.href = "./MenuPrincipal.html";
               console.log('The Ok Button was clicked.');
             });
             } 
