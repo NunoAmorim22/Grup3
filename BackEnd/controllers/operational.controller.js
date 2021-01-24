@@ -161,7 +161,7 @@ function EditOperationalData(req,res){
                       };
 
                       post=[email, generateHash, idOperational];
-                      
+
                 const query = connect.con.query ('UPDATE users SET email=?, password=? WHERE id_user=(SELECT id_user FROM Operational WHERE id_operational=?)',post, function(err,rows, fields){
                     console.log(query.sql);
                     res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
@@ -462,6 +462,14 @@ function changePassword(req,res){
         const update=[password,email];
         
      if (email!='NULL' && typeof(email!= 'undefined')) {
+
+        var generateHash = function(password) { 
+            console.log(password);
+    
+            return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+          };
+
+          update=[generateHash, email];
         
         const query = connect.con.query("UPDATE users AS us INNER JOIN User_old AS uso ON us.email=uso.email SET us.password=? WHERE us.email=?", update, function (err, rows, fields){
             console.log(query.sql);
