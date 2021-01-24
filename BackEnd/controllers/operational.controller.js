@@ -161,7 +161,9 @@ function EditOperationalData(req,res){
                         return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
                       };
 
-                      post=[email, generateHash, idOperational];
+                      var userPassword = generateHash(password);
+
+                      post=[email, userPassword, idOperational];
 
                 const query = connect.con.query ('UPDATE users SET email=?, password=? WHERE id_user=(SELECT id_user FROM Operational WHERE id_operational=?)',post, function(err,rows, fields){
                     console.log(query.sql);
