@@ -142,13 +142,13 @@ function EditOperationalData(req,res){
                     //res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
                 });
 
-                if(!err){
+               
                     const query = connect.con.query ('UPDATE users SET email=?, password=? WHERE id_user=(SELECT id_user FROM Operational WHERE id_operational=?)',post, function(err,rows, fields){
                         console.log(query.sql);
                         res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
                     });
 
-                }
+                
             }
             else{
                 console.log(err);
