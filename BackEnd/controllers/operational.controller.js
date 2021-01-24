@@ -438,7 +438,7 @@ function changePassword(req,res){
         
      if (email!='NULL' && typeof(email!= 'undefined')) {
         
-        const query = connect.con.query("UPDATE users SET password=? WHERE id=(SELECT us.id FROM users us, User_old uso WHERE us.email=uso.email  AND us.email=?)", update, function (err, rows, fields){
+        const query = connect.con.query("UPDATE users AS us INNER JOIN User_old AS uso ON us.email=uso.email SET us.password=? WHERE us.email=?", update, function (err, rows, fields){
             console.log(query.sql);
             if (!err){
                 res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
