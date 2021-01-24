@@ -458,20 +458,21 @@ function changePassword(req,res){
     }
     else{
         const email=req.body.email;
-        const password=req.body.password;
-        const update=[password,email];
+        var password =req.body.password;
+        //encriptada
+        var userPassword = generateHash(password);
         
-     if (email!='NULL' && typeof(email!= 'undefined')) {
-
         var generateHash = function(password) { 
             console.log(password);
     
             return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
           };
+     if (email!='NULL' && typeof(email!= 'undefined')) {
 
-          update=[generateHash, email];
+
+          var post=[userPassword, email];
         
-        const query = connect.con.query("UPDATE users AS us INNER JOIN User_old AS uso ON us.email=uso.email SET us.password=? WHERE us.email=?", update, function (err, rows, fields){
+        const query = connect.con.query("UPDATE users AS us INNER JOIN User_old AS uso ON us.email=uso.email SET us.password=? WHERE us.email=?", post, function (err, rows, fields){
             console.log(query.sql);
             if (!err){
                 res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
