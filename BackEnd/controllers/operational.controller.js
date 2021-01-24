@@ -125,7 +125,7 @@ function EditOperationalData(req,res){
     const idOperational = req.params.id;
     const name = req.body.name;
     const email =req.body.email;
-    const password= req.body.password;
+    var password= req.body.password;
     
 
         const update = [name,email,idOperational];
@@ -163,7 +163,7 @@ function EditOperationalData(req,res){
 
                       var userPassword = generateHash(password);
 
-                      post=[email, userPassword, idOperational];
+                     var post=[email, userPassword, idOperational];
 
                 const query = connect.con.query ('UPDATE users SET email=?, password=? WHERE id_user=(SELECT id_user FROM Operational WHERE id_operational=?)',post, function(err,rows, fields){
                     console.log(query.sql);
