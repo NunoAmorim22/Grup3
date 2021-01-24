@@ -1,6 +1,7 @@
 //conectar BD e mensagens
 const connect = require('../config/connect.js');
 const jsonMessages = require("../assets/jsonMessages/bd");
+var bCrypt = require('bcrypt-nodejs');
 
 
 //get de todos os operacionais
@@ -459,7 +460,7 @@ function changePassword(req,res){
     else{
         const email=req.body.email;
         var password =req.body.password;
-        var bCrypt = require('bcrypt-nodejs');
+        
         //encriptada
         var userPassword = generateHash(password);
         
