@@ -85,7 +85,7 @@ function getOprationalDataRest(req,res){
     
     idOperational=req.params.id;
 
-    const query =connect.con.query ("SELECT c.email, op.id_operational, c.name, op.total_credits, u.password  FROM Candidate c, Operational op, User_old u WHERE op.id_user=u.id_user AND op.id_candidate=c.id_candidate AND op.id_operational =?;",idOperational, function(err, rows, fields){
+    const query =connect.con.query ("SELECT c.email, op.id_operational, c.name, op.total_credits, u.password  FROM Candidate c, Operational op, User_old u WHERE op.id_user=u.id_user AND op.id_candidate=c.id_candidate AND op.id_operational =?",idOperational, function(err, rows, fields){
         console.log(query.sql);
     
         if(err) {
@@ -165,7 +165,7 @@ function EditOperationalData(req,res){
 
                      var post=[email, userPassword, idOperational];
 
-                const query = connect.con.query ('UPDATE users SET email=?, password=? WHERE id_user=(SELECT id_user FROM Operational WHERE id_operational=?)',post, function(err,rows, fields){
+                const query = connect.con.query ('UPDATE users SET email=?, password=? WHERE id=(SELECT id_user FROM Operational WHERE id_operational=?)',post, function(err,rows, fields){
                     console.log(query.sql);
                     res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
                     });
