@@ -366,7 +366,7 @@ function hideAdminStuff() {
     //document.getElementById("adminStuff").style.display = "none";
     document.getElementById("listaOperacionais").style.display = "none";
     document.getElementById("criarContaAdmin").style.display = "none";
-  }else{
+  } else {
     document.getElementById("tabelaparamandardebase").style.display = "none";
     document.getElementById("participacoes").style.display = "none";
     document.getElementById("equipaOcorrencia").style.display = "none";
@@ -374,9 +374,9 @@ function hideAdminStuff() {
   }
 }
 
-function AdminCantGo(){
+function AdminCantGo() {
   let tipo = localStorage.getItem("tipo");
-  if(tipo == "Admin"){
+  if (tipo == "Admin") {
     swal.fire({
       icon: "warning",
       title: "Alerta!",
@@ -387,13 +387,13 @@ function AdminCantGo(){
       //window.location.href = "./DadosOcorrencia.html";
       //console.log('The Ok Button was clicked.');
     });
-  }else{
+  } else {
     document.location.href = "./ConfirmacaoPresenca.html";
   }
 }
-function AdminCantGoProfile(){
+function AdminCantGoProfile() {
   let tipo = localStorage.getItem("tipo");
-  if(tipo == "Admin"){
+  if (tipo == "Admin") {
     swal.fire({
       icon: "warning",
       title: "Alerta!",
@@ -404,7 +404,7 @@ function AdminCantGoProfile(){
       //window.location.href = "./DadosOcorrencia.html";
       //console.log('The Ok Button was clicked.');
     });
-  }else{
+  } else {
     document.location.href = "./Perfil.html";
   }
 }
@@ -413,8 +413,9 @@ function AdminCantGoProfile(){
 function hideLeaderStuff() {
   let tipo = localStorage.getItem("tipo");
   if (tipo != "Lider") {
+    document.getElementById("outrasInfo").style.display = "none";
     document.getElementById("btnAvaliacoes").style.display = "none";
-    document.getElementById("btnFinalizar").setAttribute("onclick", "javascript: comoOperacional()") ;
+    document.getElementById("btnFinalizar").setAttribute("onclick", "javascript: comoOperacional()");
     document.getElementById("btnFinalizar").innerHTML = "Finalizar participação";
   }
 }
@@ -422,12 +423,12 @@ function hideLeaderStuff() {
 function hideLeaderStuffMap() {
   let tipo = localStorage.getItem("tipo");
   if (tipo != "Lider") {
-    document.getElementById("btnChegada").setAttribute("onclick", "javascript: comoOperacionalMap()") ;
+    document.getElementById("btnChegada").setAttribute("onclick", "javascript: comoOperacionalMap()");
     document.getElementById("btnChegada").innerHTML = "Dados Ocorrência <i class='fas fa-arrow-right'></i>";
   }
 }
 
-function comoOperacional(){
+function comoOperacional() {
   swal.fire({
     icon: "success",
     title: "Sucesso!",
@@ -439,12 +440,12 @@ function comoOperacional(){
     console.log('The Ok Button was clicked.');
   });
 }
-function comoOperacionalMap(){
+function comoOperacionalMap() {
   window.location.href = "./DadosOcorrencia.html";
 }
 
-function checkEvaluations(){
-  if(localStorage.getItem("avaliacao")){
+function checkEvaluations() {
+  if (localStorage.getItem("avaliacao")) {
     swal.fire({
       icon: "warning",
       title: "Alerta!",
@@ -455,31 +456,52 @@ function checkEvaluations(){
       window.location.href = "./DadosOcorrencia.html";
       console.log('The Ok Button was clicked.');
     });
-  }else{
+  } else {
     window.location.href = "./Avaliacoes.html";
   }
 }
 
-function mandar(){
-let distrito = document.getElementById("chegadaDistrito").value;
-let distrito2= distrito.replace(/ /g,'+');
-console.log(distrito2);
-let rua = document.getElementById("chegadaRua").value;
-let rua2 = rua.replace(/ /g,'+');
-console.log(rua2);
-window.open(`https://www.google.com/maps/search/?api=1&query=${distrito2}+${rua2}`);
+function mandar() {
+  let distrito = document.getElementById("chegadaDistrito").value;
+  let distrito2 = distrito.replace(/ /g, '+');
+  console.log(distrito2);
+  let rua = document.getElementById("chegadaRua").value;
+  let rua2 = rua.replace(/ /g, '+');
+  console.log(rua2);
+  window.open(`https://www.google.com/maps/search/?api=1&query=${distrito2}+${rua2}`);
 }
 
-function turnRed(btnid){
+function turnRed(btnid) {
   console.log(btnid);
-  document.getElementById(btnid).style.color="#FF0A0A";//rgb(144 29 29 / 100%)";
+  document.getElementById(btnid).style.color = "#FF0A0A";//rgb(144 29 29 / 100%)";
 }
 
-function turnGreen(btnid){
+function turnGreen(btnid) {
   console.log(btnid);
-  document.getElementById(btnid).style.color="rgb(29 144 53 / 98%)";
+  document.getElementById(btnid).style.color = "rgb(29 144 53 / 98%)";
 }
 
 
+function recieveMail() {
+  if(document.getElementById("forgotEmail").value !== ""){
+  localStorage.setItem("Email", document.getElementById("forgotEmail").value);
+  }else{
+    swal.fire({
+      icon: "warning",
+      title: "Alerta!",
+      text: "Deve submeter um email.",
+      //type: 'sucess'
+    }).then(function () {
+      // Redirect the user
+      console.log('The Ok Button was clicked.');
+      
+    });
+    return false;
+  }
 
-
+  document.getElementById("forgotEmailDiv").style.display = "none";
+  document.getElementById("forgotPasswordDiv").style.display = "block";
+  document.getElementById("forgotRepPassDiv").style.display = "block";
+  document.getElementById("forgotbtn").setAttribute("onclick", "javascript: ReporPassword()");
+  document.getElementById("forgotbtn").innerHTML = "Submeter Palavra-passe";
+}

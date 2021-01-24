@@ -5,19 +5,34 @@ function EditProfile() {
   data.name = document.getElementById("nomeEditar").value;
   let palavraPass = document.getElementById("passwordEditar").value;
   let rep_password = document.getElementById("rep_passwordEditar").value;
-  if (palavraPass === "" || rep_password === "") {
-
-    alert("Preencha o campo PalavraPass");
-    editarPerfil.password.focus();
+  if (palavraPass === "" || rep_password === "" || data.email === "" || data.name === "") {
+    swal.fire({
+        icon: "warning",
+        title: "Alerta!",
+        text: "Preencha todos os campos!",
+        //type: "success"
+    }).then(function () {
+        // Redirect the user
+        console.log('The Ok Button was clicked.');
+    });
+    document.getElementById("inputPassword").focus();
     return false;
 
-  } else if (palavraPass != rep_password) {
-    alert("senhas diferentes");
-    editarPerfil.password.focus();
+} else if (palavraPass != rep_password) {
+    swal.fire({
+        icon: "warning",
+        title: "Alerta!",
+        text: "Senhas diferentes!",
+        //type: "success"
+    }).then(function () {
+        // Redirect the user
+        console.log('The Ok Button was clicked.');
+    });
+    document.getElementById("inputPassword").focus();
     return false;
-  } else {
+} else {
     data.password = palavraPass;
-  }
+}
   console.log(data); //debugging para ver os dados que foram enviados
   //chamada fetch para envio dos dados para o servior via POST
   fetch(`http://localhost:3000/operationals/edits/${id_operational}`, {
