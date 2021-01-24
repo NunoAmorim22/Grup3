@@ -125,6 +125,7 @@ function EditOperationalData(req,res){
     const idOperational = req.params.id;
     const name = req.body.name;
     const email =req.body.email;
+    //não está encriptada.
     var password= req.body.password;
     
 
@@ -179,7 +180,7 @@ function EditOperationalData(req,res){
                     else
                         res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
                     }
-                    
+                    var post=[email, password, idOperational];
                     const query = connect.con.query ('UPDATE User_old SET email=?, password=? WHERE id=(SELECT id_user FROM Operational WHERE id_operational=?)',post, function(err,rows, fields){
                         console.log(query.sql);
                         res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
