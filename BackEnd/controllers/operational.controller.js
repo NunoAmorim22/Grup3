@@ -459,6 +459,7 @@ function changePassword(req,res){
     else{
         const email=req.body.email;
         var password =req.body.password;
+        var bCrypt = require('bcrypt-nodejs');
         //encriptada
         var userPassword = generateHash(password);
         
