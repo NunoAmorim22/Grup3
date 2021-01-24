@@ -170,6 +170,7 @@ function EditOperationalData(req,res){
                     res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
                     });
                 }
+                
                 else{
                     console.log(err);
                     if(err.code == 'ER_DUP_ENTRY'){
@@ -178,6 +179,11 @@ function EditOperationalData(req,res){
                     else
                         res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
                     }
+                    
+                    const query = connect.con.query ('UPDATE User_old SET email=?, password=? WHERE id=(SELECT id_user FROM Operational WHERE id_operational=?)',post, function(err,rows, fields){
+                        console.log(query.sql);
+                        res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
+                        });
     });
     }    
 }
