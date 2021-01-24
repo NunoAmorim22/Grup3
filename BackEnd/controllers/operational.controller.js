@@ -460,15 +460,15 @@ function changePassword(req,res){
     else{
         const email=req.body.email;
         var password =req.body.password;
-        
-        //encriptada
-        var userPassword = generateHash(password);
-        
-        var generateHash = function(password) { 
+         var generateHash = function(password) { 
             console.log(password);
     
             return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
           };
+        //encriptada
+        var userPassword = generateHash(password);
+        
+       
      if (email!='NULL' && typeof(email!= 'undefined')) {
 
 
