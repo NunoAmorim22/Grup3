@@ -482,13 +482,13 @@ function changePassword(req,res){
         const query = connect.con.query("UPDATE users AS us INNER JOIN User_old AS uso ON us.email=uso.email SET us.password=? WHERE us.email=?", post, function (err, rows, fields){
             console.log(query.sql);
             if (!err){
-                var post=[email, password, idOperational];
-                    const query = connect.con.query ('UPDATE User_old SET email=?, password=? WHERE id=(SELECT id_user FROM Operational WHERE id_operational=?)',post, function(err,rows, fields){
+                var post=[password, email];
+                    const query = connect.con.query ('UPDATE User_old AS uso INNER JOIN users AS us ON us.email=uso.email SET uso.password=? WHERE uso.email=?',post, function(err,rows, fields){
                         console.log(query.sql);
                         res.status(jsonMessages.db.successInsert.status).send (jsonMessages.db.successInsert);
                         });
                         
-                res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
+                //res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
                     }
                     else{
                         console.log(err);
