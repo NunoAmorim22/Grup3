@@ -1,12 +1,7 @@
 function EditEvaluations() {
     let id_occurrence = localStorage.getItem("id_occurrence");
     localStorage.setItem("avaliacao", true);
-/*
-    let form1 = document.getElementById("member1");
-    let form2 = document.getElementById("member2");
-    let form3 = document.getElementById("member3");
-    let form4 = document.getElementById("member4");
-*/
+
     let id_operational1 = localStorage.getItem("id_avaliacao1");
     let id_operational2 = localStorage.getItem("id_avaliacao2");
     let id_operational3 = localStorage.getItem("id_avaliacao3");
@@ -27,8 +22,6 @@ function EditEvaluations() {
             text: "Deve avaliar todos os operacionais!",
             type: "warning"
         }).then(function () {
-            // Redirect the user
-            // window.location.href = "./MenuPrincipal.html";
             console.log('The Ok Button was clicked.');
 
         });
@@ -47,8 +40,6 @@ function EditEvaluations() {
             text: "Deve avaliar todos os operacionais!",
             type: "warning"
         }).then(function () {
-            // Redirect the user
-            // window.location.href = "./MenuPrincipal.html";
             console.log('The Ok Button was clicked.');
 
         });
@@ -67,8 +58,6 @@ function EditEvaluations() {
             text: "Deve avaliar todos os operacionais!",
             type: "warning"
         }).then(function () {
-            // Redirect the user
-            // window.location.href = "./MenuPrincipal.html";
             console.log('The Ok Button was clicked.');
 
         });
@@ -87,8 +76,6 @@ function EditEvaluations() {
             text: "Deve avaliar todos os operacionais!",
             type: "warning"
         }).then(function () {
-            // Redirect the user
-            // window.location.href = "./MenuPrincipal.html";
             console.log('The Ok Button was clicked.');
 
         });
@@ -97,15 +84,11 @@ function EditEvaluations() {
         data3.total_credits = parseInt(data3.grade) + parseInt(total_credits4);
     }
 
-    
-
-
-    console.log(data); 
+    console.log(data);
     console.log(data1);
     console.log(data2);
     console.log(data3);
-    //debugging para ver os dados que foram enviados
-    //chamada fetch para envio dos dados para o servior via POST
+
     fetch(`https://pspoperacionais.herokuapp.com/evaluations/occurrences/${id_occurrence}/refresh/${id_operational1}`, {
         headers: { "Content-Type": "application/json" },
         method: "PUT",
@@ -117,15 +100,8 @@ function EditEvaluations() {
                 console.log(response.statusText); //=> String
                 console.log(response.headers); //=> Headers
             } else {
-                // Swal.fire("Suspeito Atualizado");
                 console.log("Success PUT");
                 console.log(response);
-                /*swal.fire({
-                    icon: "success",
-                    title: "Sucesso!",
-                    text: "Avaliações atribuídas e atualizadas",
-                    //type: "success"
-                });*/
             }
         })
         .then(function (result) {
@@ -135,7 +111,8 @@ function EditEvaluations() {
             alert("Submission error");
             console.error(err);
         });
-    fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational2}`, {
+
+    fetch(`https://pspoperacionais.herokuapp.com/evaluations/occurrences/${id_occurrence}/refresh/${id_operational2}`, {
         headers: { "Content-Type": "application/json" },
         method: "PUT",
         body: JSON.stringify(data1),
@@ -146,15 +123,8 @@ function EditEvaluations() {
                 console.log(response.statusText); //=> String
                 console.log(response.headers); //=> Headers
             } else {
-                // Swal.fire("Suspeito Atualizado");
                 console.log("Success PUT");
                 console.log(response);
-                /*swal.fire({
-                    icon: "success",
-                    title: "Sucesso!",
-                    text: "Avaliações atribuidas e atualizadas",
-                    //type: "success"
-                });*/
             }
         })
         .then(function (result) {
@@ -164,7 +134,8 @@ function EditEvaluations() {
             alert("Submission error");
             console.error(err);
         });
-    fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational3}`, {
+
+    fetch(`https://pspoperacionais.herokuapp.com/evaluations/occurrences/${id_occurrence}/refresh/${id_operational3}`, {
         headers: { "Content-Type": "application/json" },
         method: "PUT",
         body: JSON.stringify(data2),
@@ -175,15 +146,8 @@ function EditEvaluations() {
                 console.log(response.statusText); //=> String
                 console.log(response.headers); //=> Headers
             } else {
-                // Swal.fire("Suspeito Atualizado");
                 console.log("Success PUT");
                 console.log(response);
-               /* swal.fire({
-                    icon: "success",
-                    title: "Sucesso!",
-                    text: "Avaliações atribuidas e atualizadas",
-                    //type: "success"
-                });*/
             }
         })
         .then(function (result) {
@@ -193,7 +157,8 @@ function EditEvaluations() {
             alert("Submission error");
             console.error(err);
         });
-    fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational4}`, {
+        
+    fetch(`https://pspoperacionais.herokuapp.com/evaluations/occurrences/${id_occurrence}/refresh/${id_operational4}`, {
         headers: { "Content-Type": "application/json" },
         method: "PUT",
         body: JSON.stringify(data3),
@@ -204,16 +169,13 @@ function EditEvaluations() {
                 console.log(response.statusText); //=> String
                 console.log(response.headers); //=> Headers
             } else {
-                // Swal.fire("Suspeito Atualizado");
                 console.log("Success PUT");
                 console.log(response);
                 swal.fire({
                     icon: "success",
                     title: "Sucesso!",
                     text: "Avaliações atribuidas e atualizadas",
-                    //type: "success"
                 }).then(function () {
-                    // Redirect the user
                     window.location.href = "./DadosOcorrencia.html";
                     console.log('The Ok Button was clicked.');
                 });
@@ -227,10 +189,7 @@ function EditEvaluations() {
                 icon: "error",
                 title: "Erro!",
                 text: "Erro de submissão",
-                //type: "success"
             }).then(function () {
-                // Redirect the user
-                //window.location.href = "./DadosOcorrencia.html";
                 console.log('The Ok Button was clicked.');
             });
             console.error(err);

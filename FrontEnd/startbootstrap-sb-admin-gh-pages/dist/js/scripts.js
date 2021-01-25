@@ -23,204 +23,37 @@
   });
 })(jQuery);
 
-
-
-function login() {
-  /*TEmporario para teste*/
-
-  const email = "daniela@gmail.com";
-  const password = "12345";
-  let mail = document.getElementById("inputEmailAddress").value;
-  let pass = document.getElementById("inputPassword").value;
-  console.log("as");
-  if ((mail === email) & (pass === password)) {
-    console.log("as");
-    document.location.href = "./MenuPrincipal.html";
-  } else {
-    alert("credencias erradas");
-  }
-}
-
-function evaluationAssign() {
-  let ev1;
-  let ev2;
-  let ev3;
-  let ev4;
-
-  let form1 = document.getElementById("member1");
-  let form2 = document.getElementById("member2");
-  let form3 = document.getElementById("member3");
-  let form4 = document.getElementById("member4");
-
-  for (let i = 1; i < form1.length; i++) {
-    let c = form1.getElementsByTagName("input")[i];
-    if (c.checked) {
-      ev1 = c.value;
-    }
-  }
-  for (let i = 1; i < form2.length; i++) {
-    let c = form2.getElementsByTagName("input")[i];
-    if (c.checked) {
-      ev2 = c.value;
-    }
-  }
-  for (let i = 1; i < form3.length; i++) {
-    let c = form3.getElementsByTagName("input")[i];
-    if (c.checked) {
-      ev3 = c.value;
-    }
-  }
-  for (let i = 1; i < form4.length; i++) {
-    let c = form4.getElementsByTagName("input")[i];
-    if (c.checked) {
-      ev4 = c.value;
-    }
-  }
-  if (ev1 != null && ev2 != null && ev3 != null && ev4 != null) {
-    localStorage.setItem("avaliacao", true);
-    swal.fire({
-      icon: "alert",
-      title: "Alerta!",
-      text: "Avaliçao primeiro membro: " +
-        ev1 +
-        "\nAvaliçao segundo membro: " +
-        ev2 +
-        "\nAvaliçao terceiro membro: " +
-        ev3 +
-        "\nAvaliçao quarto membro: " +
-        ev4,
-      //type: "success"
-    }).then(function () {
-      // Redirect the user
-      window.location.href = "./DadosOcorrencia.html";
-      console.log('The Ok Button was clicked.');
-    });
-  } else {
-    //alert("Preencha todos os campos!");
-    swal.fire({
-      icon: "alert",
-      title: "Alerta!",
-      text: "Preencha todos os campos!",
-      //type: "success"
-    })/*.then(function () {
-      // Redirect the user
-      window.location.href = "./DadosOcorrencia.html";
-      console.log('The Ok Button was clicked.');
-    })*/;
-  }
-}
-
-function occurrenceEnding() {
-  let avaliacao = localStorage.getItem("avaliacao");
-  if (avaliacao) {
-    swal.fire({
-      icon: "success",
-      title: "Sucesso!",
-      text: "Ocorrência Finalizada!",
-      //type: "success"
-    }).then(function () {
-      // Redirect the user
-      window.location.href = "./MenuPrincipal.html";
-      console.log('The Ok Button was clicked.');
-    });
-  } else {
-    swal.fire({
-      icon: "alert",
-      title: "Alerta!",
-      text: "Deve avaliar os operacionais!",
-      //type: "success"
-    }).then(function () {
-      // Redirect the user
-      window.location.href = "./Avaliacoes.html";
-      console.log('The Ok Button was clicked.');
-    });
-  }
-}
-
-function profileValidator() {
-  let name = editarPerfil.name.value;
-  let password = editarPerfil.password.value;
-  let rep_password = editarPerfil.rep_password.value;
-
-  if (name == "") {
-    alert("Preecha o campo com o seu nome!");
-    editarPerfil.name.focus();
-    return false;
-  }
-  if (name.length < 5) {
-    alert("insira o seu nome completo!");
-    editarPerfil.name.focus();
-    return false;
-  }
-  if (password == "") {
-    alert("Preecha o campo com a password!");
-    editarPerfil.password.focus();
-    return false;
-  }
-  if (rep_password == "") {
-    alert("Preecha o campo da confirmação de password!");
-    editarPerfil.rep_password.focus();
-    return false;
-  }
-  if (password != rep_password) {
-    alert("senhas diferentes");
-    editarPerfil.password.focus();
-    return false;
-  } else {
-    document.location.href = "./Perfil.html";
-  }
-}
-
-
-function arrivalConfirmation() {
-  swal.fire({
-    title: 'Confirmar chegada ao local?',
-    //showDenyButton: true,
-    showCancelButton: true,
-    confirmButtonText: `Confirmar`,
-    //denyButtonText: `Don't save`,
-  }).then((result) => {
-    /* Read more about isConfirmed, isDenied below */
-    if (result.isConfirmed) {
-      swal.fire({
-        icon: "success",
-        title: "Sucesso!",
-        text: "Confirmada a chegada ao local!",
-      }).then(function () {
-        // Redirect the user
-        window.location.href = "./DadosOcorrencia.html";
-        console.log('The Ok Button was clicked.');
-      });
-    }
-  });
-}
-
+//funcao para confirmar o material e guardar informacao que esta confirmacao foi feita
 function materialsConfirmation() {
-  localStorage.setItem("confirmacaoMateriais", true);
   swal.fire({
     icon: "success",
     title: "Sucesso!",
     text: "Confirmação de material executada, vai ser reencaminhado para a pagina de menu de ocorrência.",
   }).then(function () {
     // Redirect the user
+  localStorage.setItem("confirmacaoMateriais", true);
     window.location.href = "./MenuOcorrencia.html";
     console.log('The Ok Button was clicked.');
   });
 }
+
+//funcao para confirmar equipa e guardar informacao que esta foi feita
 function teamConfirmation() {
-  localStorage.setItem("confirmacaoEquipa", true);
   swal.fire({
     icon: "success",
     title: "Sucesso!",
     text: "Confirmação de equipa executada, vai ser reencaminhado para a página de menu de ocorrência.",
   }).then(function () {
     // Redirect the user
+    localStorage.setItem("confirmacaoEquipa", true);
     window.location.href = "./MenuOcorrencia.html";
     console.log('The Ok Button was clicked.');
   });
 
 
 }
+
+//funcao para verificar se o user pode avancar no fluxo
 function toDepartureWindow() {
   let confirmacaoEquipa = localStorage.getItem("confirmacaoEquipa");
   let confirmacaoMateriais = localStorage.getItem("confirmacaoMateriais");
@@ -240,6 +73,7 @@ function toDepartureWindow() {
   }
 }
 
+//funcao para redirecionar o user para a pagina de confirmar chegada
 function departureConfirmation() {
   swal.fire({
     icon: "success",
@@ -252,7 +86,7 @@ function departureConfirmation() {
   });
 }
 
-
+//funcao para a limitar acessos a algumas paginas em determinados momentos
 function cantGo() {
   swal.fire({
     icon: "warning",

@@ -1,8 +1,11 @@
 function DeleteWitness() {
     var data = {};
+
     data.id_witness = document.getElementById("idTestemunha").value;
+
     console.log(data); //debugging para ver os dados que foram enviados
-    //chamada fetch para envio dos dados para o servior via POST
+
+    //chamada fetch para envio dos dados para o servior via DELETE
     fetch(`https://pspoperacionais.herokuapp.com/participations/deletewits/${data.id_witness}`, {
         headers: { 'Content-Type': 'application/json' },
         method: 'DELETE',
@@ -13,7 +16,6 @@ function DeleteWitness() {
             console.log(response.statusText); //=> String
             console.log(response.headers); //=> Headers
         } else {
-            //Swal.fire("Testemunha Apagada");
             console.log("Success DELETE");
             console.log(response);
             swal.fire({

@@ -1,4 +1,4 @@
-//------------------------Funçao para fazer get dos suspeitos e colocar numa tabela-------------------------//
+//------------------------Funçao para fazer get das vitimas e colocar numa tabela-------------------------//
 let id_occurrence = localStorage.getItem("id_occurrence");
 const api_url = `https://pspoperacionais.herokuapp.com/participations/allparticipants/occurrence/${id_occurrence}/type/Vitima`;
 
@@ -29,8 +29,9 @@ function show(data) {
 
   // Loop to access all rows
   for (let r of data) {
-    if(r.active === 1){
-    tab += `<tr><td>${r.name} </td> <td>${r.id_participant}</td><td><a class="btn" onclick = "transportidVitima(${r.id_participant})"><i class="fas fa-folder-plus"></i></a></td></tr>`;
+    //verifica se a vitima está ativa
+    if (r.active === 1) {
+      tab += `<tr><td>${r.name} </td> <td>${r.id_participant}</td><td><a class="btn" onclick = "transportidVitima(${r.id_participant})"><i class="fas fa-folder-plus"></i></a></td></tr>`;
     }
   }
   // Setting innerHTML as tab variable

@@ -27,9 +27,7 @@ function show(data) {
 
   // Loop to access all rows
   for (let r of data) {
-    //if(r.team == "2"){
     tab += `<tr><td>${r.team_indicative} </td> <td>${r.id_occurrence}</td></tr>`;
-    //}
   }
   // Setting innerHTML as tab variable
   document.getElementById("lista-porEquipa").innerHTML = tab;

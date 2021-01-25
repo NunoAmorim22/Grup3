@@ -81,11 +81,6 @@ function refreshSuspect() {
     else {
       body_shape.setAttribute("value", users[0].body_shape);
     }
-
-
-    console.log(users[0].id_suspect);
-    console.log(users[0].name);
-
   }
   //chama a função fetchAsync()
   fetchAsync()

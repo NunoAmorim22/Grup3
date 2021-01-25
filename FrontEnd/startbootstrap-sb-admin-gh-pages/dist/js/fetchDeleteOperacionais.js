@@ -1,8 +1,10 @@
 function DeleteOperational(id) {
     var data = {};
     data.id_operational= id;
+
     console.log(data); //debugging para ver os dados que foram enviados
-    //chamada fetch para envio dos dados para o servior via POST
+
+    //chamada fetch para envio dos dados para o servior via DELETE
     fetch(`https://pspoperacionais.herokuapp.com/operationals/deletesAd/${data.id_operational}`, {
     headers: {'Content-Type': 'application/json'},
     method: 'DELETE',
@@ -19,7 +21,6 @@ function DeleteOperational(id) {
     icon: "success",
     title: "Sucesso!",
     text: "Operacional Apagado",
-    //type: "success"
 }).then(function () {
     // Redirect the user
     window.location.href = "";

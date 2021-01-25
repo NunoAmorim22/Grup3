@@ -1,4 +1,4 @@
-//------------------------Funçao para fazer get dos suspeitos e colocar numa tabela-------------------------//
+//-------Limpa o que há de irrelevante do local storage sempre que volta à pág incial-----//
 localStorage.removeItem("confirmacaoEquipa");
 localStorage.removeItem("confirmacaoMateriais");
 localStorage.removeItem("avaliacao");
@@ -17,24 +17,17 @@ localStorage.removeItem("id_witness");
 localStorage.removeItem("id_occurrence");
 localStorage.removeItem("id_request");
 
+//---inicializa e guarda o vetor que será usado mais tarde----//
 let materiais = [];
 localStorage.setItem("materiais", JSON.stringify(materiais));
 
-
-
-let arraydemerda = JSON.parse(localStorage.getItem("materiais"));
-
-console.log(arraydemerda.length); 
-for(let i of arraydemerda){
-  console.log(i);
-}
-
-/*localStorage.setItem("id_operacional", 1);
-localStorage.setItem("tipo", "lider");*/
-
+//serve para adaptar a interface ao tipo de utilizador
 hideAdminStuff();
 
+//------------------------Funçao para fazer get das ocorrencias em que o operacional está inserido e colocar numa tabela-------------------------//
+
 let id_operacional = localStorage.getItem("id_operacional");
+
 const api_url = `https://pspoperacionais.herokuapp.com/occurrences/allActiveTeamOccurrence/${id_operacional}`;
 
 // Defining async function
@@ -48,7 +41,7 @@ async function getapi(url) {
   if (response) {
     hideloader();
   }
-  show(data); 
+  show(data);
 }
 // Calling that async function
 getapi(api_url);
@@ -63,15 +56,12 @@ function show(data) {
 
   // Loop to access all rows
   for (let r of data) {
-    if(localStorage.getItem("tipo") == "Lider"){
-    tab += `<tr><td>${r.id_occurrence} </td> <td><a class="btn btn-link" name="irpara" onclick = "transportidOccurrence(${r.id_occurrence})"> <i class="fas fa-check"></i> </a></td></tr>`;
-    }
-    else{
+    if (localStorage.getItem("tipo") == "Lider") {
+      tab += `<tr><td>${r.id_occurrence} </td> <td><a class="btn btn-link" name="irpara" onclick = "transportidOccurrence(${r.id_occurrence})"> <i class="fas fa-check"></i> </a></td></tr>`;
+    } else {
       tab += `<tr><td>${r.id_occurrence} </td> <td><a class="btn btn-link" name="irpara" onclick = "transportidOccurrence(${r.id_occurrence})"> <i class="fas fa-arrow-right"></i> </a></td></tr>`;
     }
   }
   // Setting innerHTML as tab variable
   document.getElementById("lista-ocorrencias").innerHTML = tab;
 }
-
-//----------------------------------------------------------------------------------------//

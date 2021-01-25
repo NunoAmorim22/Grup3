@@ -10,15 +10,15 @@
   <title>Confirmar Chegada</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="assets/img/favicon-32x32.png" />
-  <!-- Core theme CSS (includes Bootstrap)-->
   <link href="css/styles.css" rel="stylesheet" />
-  <!-- Font Awesome icons (free version)-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
     crossorigin="anonymous"></script>
+
   <!--GOOGLE MAP-->
   <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0vMsMey7ulsTKk89cnPd32JdOZyOb8e4&callback=initMap&libraries=&v=weekly"
-    type="text/javascript"></script>
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0vMsMey7ulsTKk89cnPd32JdOZyOb8e4&callback=initMap&libraries=&v=weekly"
+  type="text/javascript"></script>
+
   <!--sweet alert-->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
@@ -31,7 +31,7 @@
       <a class="navbar-brand" href=""><i class="fas fa-street-view"></i> Confirmação de Chegada</a>
     </nav>
   </div>
-  <!--Parte da Página com a informação-->
+  <!--Div com informação-->
   <div class="container pre-scrollable">
     <div>
       <h6>Distrito: </h6><input class="form-control py-4" id="chegadaDistrito" type="" readonly
@@ -42,19 +42,16 @@
       <h6>Rua: </h6><input class="form-control py-4" id="chegadaRua" type="" readonly placeholder="Rua" />
     </div>
     <br>
-    <!--Botão para redirecionar para o google Maps-->
-    <a id="mapaLink" class="btn btn-primary btn-xl" onclick="mandar()">Go To Maps <i
-        class="fas fa-map-marked-alt"></i></a>
+    <a id="mapaLink" class="btn btn-primary btn-xl" onclick="mandar()">Go To Maps <i class="fas fa-map-marked-alt"></i></a>
     <br>
     <br>
-    <!--div com o google maps API-->
     <div id="map">
-    </div>
-    <br>
-    <div align=center>
-      <button class="btn btn-primary btn-xl btn-width" id="btnChegada" onclick="EditArrival()" type=""> Confirmar
-        Chegada</button>
-    </div>
+  </div>
+  <br>
+  <div align=center>
+    <button class="btn btn-primary btn-xl btn-width" id="btnChegada" onclick="EditArrival()" type=""> Confirmar
+      Chegada</button>
+  </div>
   </div>
   <!--footer-->
   <div class="footer">
@@ -85,13 +82,10 @@
       </div>
     </footer>
   </div>
-  
-  <!--Chamada a ficheiros java-->
   <script src="js/scripts.js"></script>
   <script src="js/mapa.js"></script>
   <script src="js/fetchMenuChegada.js"></script>
   <script src="js/fetchConfirmarChegada.js"></script>
-
 </body>
 
 </html>

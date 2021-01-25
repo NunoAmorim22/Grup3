@@ -40,11 +40,6 @@ function refreshDadosPerfil() {
       else {
         email_operational.value = users[0].email;
       }
-  
-  
-      console.log(users[0].id_suspect);
-      console.log(users[0].name);
-  
     }
     //chama a função fetchAsync()
     fetchAsync()

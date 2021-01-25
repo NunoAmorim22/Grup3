@@ -44,13 +44,7 @@ function refreshDadosAvaliacoes() {
         localStorage.setItem("avaliacao4",users[3].total_credits);
         localStorage.setItem("id_avaliacao4",users[3].id_operational);
       }
-  
-  
-      console.log(users[0].id_suspect);
-      console.log(users[0].name);
-  
     }
-    //chama a função fetchAsync()
     fetchAsync()
       .then((data) => console.log("ok"))
       .catch((reason) => console.log(reason.message));

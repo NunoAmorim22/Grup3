@@ -1,3 +1,4 @@
+//get do racking de operacionais
 const api_url1 = `https://pspoperacionais.herokuapp.com/rankings/teams`;
 
 // Defining async function
@@ -11,7 +12,7 @@ async function getapi1(url) {
   if (response) {
     hideloader1();
   }
-  show1(data); 
+  show1(data);
 }
 // Calling that async function
 getapi1(api_url1);
@@ -26,10 +27,13 @@ function show1(data) {
   let num = 1;
   // Loop to access all rows
   for (let r of data) {
-    if(num == 6){
+    //aparecem apenas as primeiras 5 equipas
+    if (num == 6) {
       break;
     }
-    tab += `<tr><td>${num+"º"}</td><td>${r.team_indicative} </td> <td>${r.total_credits}</td></tr>`;
+    tab += `<tr><td>${num + "º"}</td><td>${r.team_indicative} </td> <td>${
+      r.total_credits
+    }</td></tr>`;
     num++;
   }
   // Setting innerHTML as tab variable

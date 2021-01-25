@@ -81,11 +81,6 @@ function refreshWitness() {
       else {
         city.setAttribute("value", users[0].city);
       }
-  
-  
-      console.log(users[0].id_suspect);
-      console.log(users[0].name);
-  
     }
     //chama a função fetchAsync()
     fetchAsync()

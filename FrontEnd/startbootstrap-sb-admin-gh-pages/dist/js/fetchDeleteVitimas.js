@@ -1,8 +1,10 @@
 function DeleteVictim() {
     var data = {};
     data.id_victim = document.getElementById("idVitima").value;
+    
     console.log(data); //debugging para ver os dados que foram enviados
-    //chamada fetch para envio dos dados para o servior via POST
+
+    //chamada fetch para envio dos dados para o servior via DELETE
     fetch(`https://pspoperacionais.herokuapp.com/participations/deleteVictims/${data.id_victim}`, {
         headers: { 'Content-Type': 'application/json' },
         method: 'DELETE',
@@ -13,12 +15,10 @@ function DeleteVictim() {
             console.log(response.statusText); //=> String
             console.log(response.headers); //=> Headers
         } else {
-            //Swal.fire("Vitima Apagada");
             swal.fire({
                 icon: "success",
                 title: "Sucesso!",
                 text: "Vitima Apagada",
-                //type: "success"
               }).then(function () {
                 // Redirect the user
                 window.location.href = "./ListaVitimas.html";
@@ -26,7 +26,6 @@ function DeleteVictim() {
               });
             console.log("Success DELETE");
             console.log(response);
-            //document.location.href="./ListaVitimas.html";
         }
     }).then(function (result) {
         console.log(result);

@@ -1,8 +1,10 @@
 function DeleteSuspect() {
     var data = {};
     data.id_suspect= document.getElementById("idSuspeito").value;
+
     console.log(data); //debugging para ver os dados que foram enviados
-    //chamada fetch para envio dos dados para o servior via POST
+
+    //chamada fetch para envio dos dados para o servior via DELETE
     fetch(`https://pspoperacionais.herokuapp.com/participations/deletesuspects/${data.id_suspect}`, {
     headers: {'Content-Type': 'application/json'},
     method: 'DELETE',
@@ -19,7 +21,6 @@ function DeleteSuspect() {
     icon: "success",
     title: "Sucesso!",
     text: "Suspeito Apagado",
-    //type: "success"
 }).then(function () {
     // Redirect the user
     window.location.href = "./ListaSuspeitos.html";

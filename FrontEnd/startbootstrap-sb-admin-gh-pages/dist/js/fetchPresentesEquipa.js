@@ -1,6 +1,8 @@
+//Função para fazer GET dos elementos da equipa que estão presentes e criar a tabela com os dados
 let id_operational = localStorage.getItem("id_operacional");
 let id_equipa = localStorage.getItem("id_team");
 const api_url = `https://pspoperacionais.herokuapp.com/occurrences/allPres/${id_operational}`;
+
 // Defining async function
 async function getapi(url) {
   // Storing response
@@ -12,9 +14,10 @@ async function getapi(url) {
   if (response) {
     hideloader();
   }
-  document.getElementById("id_team").setAttribute("value",id_equipa);
+  document.getElementById("id_team").setAttribute("value", id_equipa);
   show(data);
 }
+
 // Calling that async function
 getapi(api_url);
 
@@ -29,13 +32,8 @@ function show(data) {
 
   // Loop to access all rows
   for (let r of data) {
-    //if(r.team == "2"){
     tab += `<tr><td>${r.id_operational} </td> <td>${r.name}</td></tr>`;
-    //}
   }
   // Setting innerHTML as tab variable
   document.getElementById("lista-presencas").innerHTML = tab;
-  
 }
-
-//----------------------------------------------------------------------------------------//

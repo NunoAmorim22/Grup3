@@ -3,15 +3,12 @@ function Login() {
   data.email = document.getElementById("emailLogin").value;
   data.password = document.getElementById("passwordLogin").value;
 
-
-
   if (data.email == "" || data.password == "") {
     document.getElementById("labelErro").style.display = "block";
     return false;
   }
 
-  console.log(data); //debugging para ver os dados que foram enviados
-  //chamada fetch para envio dos dados para o servior via POST
+  console.log(data);
   fetch(`https://pspoperacionais.herokuapp.com/signin`, {
     headers: { "Content-Type": "application/json" },
     method: "POST",
@@ -26,18 +23,13 @@ function Login() {
           icon: "error",
           title: "Erro!",
           text: "Credenciais erradas!",
-          //type: "success"
         }).then(function () {
-          // Redirect the user
-          //window.location.href = "./DadosOcorrencia.html";
           console.log('The Ok Button was clicked.');
         });
       } else {
-        // Swal.fire("Suspeito Atualizado");
         console.log("Success POST");
         console.log(response);
         ToFetchLoginData();
-       //window.location.href = "./MenuPrincipal.html";
       }
     })
     .then(function (result) {
@@ -48,10 +40,7 @@ function Login() {
         icon: "error",
         title: "Erro!",
         text: "Erro de submissão",
-        //type: "success"
       }).then(function () {
-        // Redirect the user
-        //window.location.href = "./DadosOcorrencia.html";
         console.log('The Ok Button was clicked.');
       });
       console.error(err);
@@ -63,15 +52,12 @@ function LoginAdmin() {
   data.email = document.getElementById("emailLogin").value;
   data.password = document.getElementById("passwordLogin").value;
 
-
-
   if (data.email == "" || data.password == "") {
     document.getElementById("labelErro").style.display = "block";
     return false;
   }
 
-  console.log(data); //debugging para ver os dados que foram enviados
-  //chamada fetch para envio dos dados para o servior via POST
+  console.log(data);
   fetch(`https://pspoperacionais.herokuapp.com/signin`, {
     headers: { "Content-Type": "application/json" },
     method: "POST",
@@ -86,14 +72,10 @@ function LoginAdmin() {
           icon: "error",
           title: "Erro!",
           text: "Credenciais erradas!",
-          //type: "success"
         }).then(function () {
-          // Redirect the user
-          //window.location.href = "./DadosOcorrencia.html";
           console.log('The Ok Button was clicked.');
         });
       } else {
-        // Swal.fire("Suspeito Atualizado");
         console.log("Success POST");
         console.log(response);
         ToFetchLoginDataAdmin();
@@ -107,10 +89,7 @@ function LoginAdmin() {
         icon: "error",
         title: "Erro!",
         text: "Erro de submissão",
-        //type: "success"
       }).then(function () {
-        // Redirect the user
-        //window.location.href = "./DadosOcorrencia.html";
         console.log('The Ok Button was clicked.');
       });
       console.error(err);
@@ -123,7 +102,6 @@ function ToFetchLoginData() {
     var data1 = {};
     data1.email = document.getElementById("emailLogin").value;
 
-    //${data1.email}
     const renderUsers = document.getElementById("result");
     const response = await fetch(`https://pspoperacionais.herokuapp.com/operationals/infoLogins`, {
       headers: { "Content-Type": "application/json" },
@@ -131,16 +109,10 @@ function ToFetchLoginData() {
       body: JSON.stringify(data1),
     });
     const users = await response.json();
-    console.log("TA A VIR AQUI");
     localStorage.setItem("tipo", users[0].login_type);
     localStorage.setItem("id_operacional", users[0].id_operational);
-    console.log("Normal");
 
-    window.location.href = "./MenuPrincipal.html"
-
-
-    console.log(users[0].name);
-
+    window.location.href = "./MenuPrincipal.html";
   }
   //chama a função fetchAsync()
   fetchAsync()
@@ -153,7 +125,6 @@ function ToFetchLoginDataAdmin() {
     var data1 = {};
     data1.email = document.getElementById("emailLogin").value;
 
-    //${data1.email}
     const renderUsers = document.getElementById("result");
     const response = await fetch(`https://pspoperacionais.herokuapp.com/operationals/infologinsadmin`, {
       headers: { "Content-Type": "application/json" },
@@ -161,15 +132,9 @@ function ToFetchLoginDataAdmin() {
       body: JSON.stringify(data1),
     });
     const users = await response.json();
-    console.log("TA A VIR AQUI");
     localStorage.setItem("tipo", users[0].tipo);
-    console.log("Admin");
 
-    window.location.href = "./MenuPrincipal.html"
-
-
-    console.log(users[0].name);
-
+    window.location.href = "./MenuPrincipal.html";
   }
   //chama a função fetchAsync()
   fetchAsync()

@@ -43,7 +43,6 @@ function refreshDadosEditar() {
       console.log(users[0].name);
   
     }
-    //chama a função fetchAsync()
     fetchAsync()
       .then((data) => console.log("ok"))
       .catch((reason) => console.log(reason.message));
