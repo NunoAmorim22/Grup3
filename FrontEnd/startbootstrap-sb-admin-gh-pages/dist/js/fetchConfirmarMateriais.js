@@ -2,8 +2,7 @@ function MaterialsConfirmation(id_material, btnid) {
   var data = {};
   let id_request = localStorage.getItem("id_request");
 
-  console.log(data); //debugging para ver os dados que foram enviados
-  //chamada fetch para envio dos dados para o servior via POST
+  console.log(data); 
   fetch(`https://pspoperacionais.herokuapp.com/materials/confirmations/${id_request}/materials/${id_material}`, {
     headers: { "Content-Type": "application/json" },
     method: "PUT",
@@ -14,7 +13,6 @@ function MaterialsConfirmation(id_material, btnid) {
         console.log(response.statusText); //=> String
         console.log(response.headers); //=> Headers
       } else {
-        // Swal.fire("Suspeito Atualizado");
         console.log("Success PUT");
         console.log(response);
         document.getElementById(btnid).style.color = "rgb(29 144 53 / 98%)";

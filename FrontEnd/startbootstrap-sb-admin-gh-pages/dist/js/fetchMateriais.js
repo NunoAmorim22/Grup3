@@ -28,12 +28,9 @@ function show(data) {
   let btnid = 1;
   // Loop to access all rows
   for (let r of data) {
-   
     tab += `<tr><td>${r.category}</td><td>${r.quantity}</td> <td><a class="btn" id="conf${btnid}" onclick = "MaterialsConfirmation(${r.id_material}, 'conf${btnid}')"><i class="fas fa-check"></i></a> <a class="btn" id="${btnid}" onclick = "turnRed(${btnid})"><i class="fas fa-times"></i></a></td></tr>`;
     btnid++;
   }
   // Setting innerHTML as tab variable
   document.getElementById("lista-materiais").innerHTML = tab;
 }
-
-//----------------------------------------------------------------------------------------//

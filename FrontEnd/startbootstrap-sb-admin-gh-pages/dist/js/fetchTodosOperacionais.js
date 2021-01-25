@@ -1,4 +1,6 @@
+//funcao que faz get de todos os operacionais aceites e coloca na tabela para acesso do admin
 const api_url = `https://pspoperacionais.herokuapp.com/operationals/all`;
+
 // Defining async function
 async function getapi(url) {
   // Storing response
@@ -26,12 +28,8 @@ function show(data) {
 
   // Loop to access all rows
   for (let r of data) {
-    //if(r.team == "2"){
     tab += `<tr><td>${r.id_operational} </td> <td>${r.name}</td> <td><a class="btn" onclick = "DeleteOperational(${r.id_operational})"><i class="far fa-trash-alt"></i></a></td></tr>`;
-    //}
   }
   // Setting innerHTML as tab variable
   document.getElementById("lista-operacionais").innerHTML = tab;
 }
-
-//----------------------------------------------------------------------------------------//

@@ -27,12 +27,9 @@ function show(data) {
 
   // Loop to access all rows
   for (let r of data) {
-    //if(r.team == "2"){
     tab += `<tr><td>${r.id_occurrence} </td> <td>${r.evaluation_credits}</td></tr>`;
-    //}
   }
   // Setting innerHTML as tab variable
   document.getElementById("lista-participacoes").innerHTML = tab;
 }
 
-//----------------------------------------------------------------------------------------//

@@ -4,12 +4,12 @@ function RegisterOperational() {
     data.name = document.getElementById("inputName").value;
     let palavraPass = document.getElementById("inputPassword").value;
     let rep_password = document.getElementById("inputConfirmPassword").value;
+
     if (palavraPass === "" || rep_password === "" || data.email === "" || data.name === "") {
         swal.fire({
             icon: "warning",
             title: "Alerta!",
             text: "Preencha todos os campos!",
-            //type: "success"
         }).then(function () {
             // Redirect the user
             console.log('The Ok Button was clicked.');
@@ -22,7 +22,6 @@ function RegisterOperational() {
             icon: "warning",
             title: "Alerta!",
             text: "Senhas diferentes!",
-            //type: "success"
         }).then(function () {
             // Redirect the user
             console.log('The Ok Button was clicked.');
@@ -32,7 +31,9 @@ function RegisterOperational() {
     } else {
         data.password = palavraPass;
     }
+
     console.log(data); //debugging para ver os dados que foram enviados
+
     //chamada fetch para envio dos dados para o servior via POST
     fetch(`https://pspoperacionais.herokuapp.com/operationals/adminsInserts`, {
         headers: { "Content-Type": "application/json" },
@@ -45,14 +46,12 @@ function RegisterOperational() {
                 console.log(response.statusText); //=> String
                 console.log(response.headers); //=> Headers
             } else {
-                //Swal.fire("Suspeito Registado");
                 console.log("Success POST");
                 console.log(response);
                 swal.fire({
                     icon: "success",
                     title: "Sucesso!",
                     text: "Operacional Registado!",
-                    //type: "success"
                 }).then(function () {
                     // Redirect the user
                     window.location.href = "./MenuPrincipal.html";

@@ -1,6 +1,6 @@
 function Logout() {
     async function fetchAsync() {
-    const response = await fetch(`http://localhost:3000/logout`);
+    const response = await fetch(`https://pspoperacionais.herokuapp.com/logout`);
    
     }
     fetchAsync()
@@ -13,8 +13,6 @@ function Logout() {
  function ResetPresence() {
     let id_operacional = localStorage.getItem("id_operacional");
     
-    
-   // console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
     fetch(`https://pspoperacionais.herokuapp.com/operationals/checkouts/${id_operacional}`, {
       headers: { "Content-Type": "application/json" },
@@ -26,7 +24,6 @@ function Logout() {
           console.log(response.statusText); //=> String
           console.log(response.headers); //=> Headers
         } else {
-          // Swal.fire("Suspeito Atualizado");
           console.log("Success PUT");
           console.log(response);
           localStorage.clear();

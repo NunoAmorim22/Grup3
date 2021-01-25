@@ -8,7 +8,7 @@ function refreshOccurrence() {
       let hora = document.getElementById("horaOcorrencia");
       let equipa = document.getElementById("equipaOcorrencia");
       
-  
+      
       hideLeaderStuff();
 
       const renderUsers = document.getElementById("result");
