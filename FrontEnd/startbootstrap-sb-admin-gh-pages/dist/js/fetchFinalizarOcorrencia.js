@@ -1,6 +1,22 @@
 function CloseOccurrence() {
   id_occurrence = localStorage.getItem("id_occurrence");
 
+  //verifica se as avaliacoes ja foram feitas
+  let avaliacao = localStorage.getItem("avaliacao");
+  if (!avaliacao) {
+    swal
+      .fire({
+        icon: "alert",
+        title: "Alerta!",
+        text: "Deve avaliar os operacionais!"
+      })
+      .then(function () {
+        // Redirect the user
+        window.location.href = "./Avaliacoes.html";
+        console.log("The Ok Button was clicked.");
+      });
+  }
+
   //chamada fetch para envio dos dados para o servior via PUT
   fetch(
     `https://pspoperacionais.herokuapp.com/occurrences/closeOccurrence/${id_occurrence}`,
