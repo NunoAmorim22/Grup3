@@ -1,3 +1,4 @@
+//para apagar o suspeito da lista de suspeitos 
 function DeleteSuspect() {
     var data = {};
     data.id_suspect= document.getElementById("idSuspeito").value;

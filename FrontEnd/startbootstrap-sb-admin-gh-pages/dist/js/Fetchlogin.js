@@ -1,3 +1,6 @@
+//funcoes para fazer o login na aplicacao e fazer get dos dados do user caso este possa fazer login
+
+//funcao de login como user normal
 function Login() {
   var data = {};
   data.email = document.getElementById("emailLogin").value;
@@ -19,16 +22,19 @@ function Login() {
         console.log(response.status); //=> number 100–599
         console.log(response.statusText); //=> String
         console.log(response.headers); //=> Headers
-        swal.fire({
-          icon: "error",
-          title: "Erro!",
-          text: "Credenciais erradas!",
-        }).then(function () {
-          console.log('The Ok Button was clicked.');
-        });
+        swal
+          .fire({
+            icon: "error",
+            title: "Erro!",
+            text: "Credenciais erradas!",
+          })
+          .then(function () {
+            console.log("The Ok Button was clicked.");
+          });
       } else {
         console.log("Success POST");
         console.log(response);
+        //chama a funcao que faz o get dos dados
         ToFetchLoginData();
       }
     })
@@ -36,17 +42,20 @@ function Login() {
       console.log(result);
     })
     .catch(function (err) {
-      swal.fire({
-        icon: "error",
-        title: "Erro!",
-        text: "Erro de submissão",
-      }).then(function () {
-        console.log('The Ok Button was clicked.');
-      });
+      swal
+        .fire({
+          icon: "error",
+          title: "Erro!",
+          text: "Erro de submissão",
+        })
+        .then(function () {
+          console.log("The Ok Button was clicked.");
+        });
       console.error(err);
     });
 }
 
+//funcao de login como admin
 function LoginAdmin() {
   var data = {};
   data.email = document.getElementById("emailLogin").value;
@@ -68,16 +77,19 @@ function LoginAdmin() {
         console.log(response.status); //=> number 100–599
         console.log(response.statusText); //=> String
         console.log(response.headers); //=> Headers
-        swal.fire({
-          icon: "error",
-          title: "Erro!",
-          text: "Credenciais erradas!",
-        }).then(function () {
-          console.log('The Ok Button was clicked.');
-        });
+        swal
+          .fire({
+            icon: "error",
+            title: "Erro!",
+            text: "Credenciais erradas!",
+          })
+          .then(function () {
+            console.log("The Ok Button was clicked.");
+          });
       } else {
         console.log("Success POST");
         console.log(response);
+        //chama a funcao que vai buscar os dados do admin
         ToFetchLoginDataAdmin();
       }
     })
@@ -85,29 +97,34 @@ function LoginAdmin() {
       console.log(result);
     })
     .catch(function (err) {
-      swal.fire({
-        icon: "error",
-        title: "Erro!",
-        text: "Erro de submissão",
-      }).then(function () {
-        console.log('The Ok Button was clicked.');
-      });
+      swal
+        .fire({
+          icon: "error",
+          title: "Erro!",
+          text: "Erro de submissão",
+        })
+        .then(function () {
+          console.log("The Ok Button was clicked.");
+        });
       console.error(err);
     });
 }
 
+//funcao que retorna os dados de users normais
 function ToFetchLoginData() {
-
   async function fetchAsync() {
     var data1 = {};
     data1.email = document.getElementById("emailLogin").value;
 
     const renderUsers = document.getElementById("result");
-    const response = await fetch(`https://pspoperacionais.herokuapp.com/operationals/infoLogins`, {
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-      body: JSON.stringify(data1),
-    });
+    const response = await fetch(
+      `https://pspoperacionais.herokuapp.com/operationals/infoLogins`,
+      {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify(data1),
+      }
+    );
     const users = await response.json();
     localStorage.setItem("tipo", users[0].login_type);
     localStorage.setItem("id_operacional", users[0].id_operational);
@@ -120,17 +137,21 @@ function ToFetchLoginData() {
     .catch((reason) => console.log(reason.message));
 }
 
+//funcao que retorna os dados do admin
 function ToFetchLoginDataAdmin() {
   async function fetchAsync() {
     var data1 = {};
     data1.email = document.getElementById("emailLogin").value;
 
     const renderUsers = document.getElementById("result");
-    const response = await fetch(`https://pspoperacionais.herokuapp.com/operationals/infologinsadmin`, {
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-      body: JSON.stringify(data1),
-    });
+    const response = await fetch(
+      `https://pspoperacionais.herokuapp.com/operationals/infologinsadmin`,
+      {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify(data1),
+      }
+    );
     const users = await response.json();
     localStorage.setItem("tipo", users[0].tipo);
 

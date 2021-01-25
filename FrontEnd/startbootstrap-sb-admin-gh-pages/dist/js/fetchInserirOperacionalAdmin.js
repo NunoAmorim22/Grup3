@@ -1,3 +1,4 @@
+//funcao para o admin registar um candidato a operacinal
 function RegisterOperational() {
     var data = {};
     data.email = document.getElementById("inputEmailAddress").value;

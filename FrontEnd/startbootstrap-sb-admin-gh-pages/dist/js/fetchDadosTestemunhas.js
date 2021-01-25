@@ -1,3 +1,5 @@
+//coloca os dados respetivos a testemunha selecionado na janela dados suspeito
+
 function refreshWitness() {
     async function fetchAsync() {
       let id_participant = document.getElementById("idTestemunha");
@@ -87,5 +89,5 @@ function refreshWitness() {
       .then((data) => console.log("ok"))
       .catch((reason) => console.log(reason.message));
   }
-  
+  //chama a funcao quando inicia a pag
   refreshWitness();

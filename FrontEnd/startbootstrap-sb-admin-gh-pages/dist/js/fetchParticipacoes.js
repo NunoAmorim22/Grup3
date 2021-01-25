@@ -1,3 +1,4 @@
+//Coloca as ocorrencias onde o user participou e os creditos obtidos
 let id_operacional = localStorage.getItem("id_operacional");
 const api_url = `https://pspoperacionais.herokuapp.com/occurrences/allPart/${id_operacional}`;
 // Defining async function

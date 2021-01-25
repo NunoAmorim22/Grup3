@@ -1,3 +1,4 @@
+//funcao para terminar a ocorrencia e ao mesmo repor os materiais usados na occorencia
 function CloseOccurrence() {
   id_occurrence = localStorage.getItem("id_occurrence");
 
@@ -8,7 +9,7 @@ function CloseOccurrence() {
       .fire({
         icon: "alert",
         title: "Alerta!",
-        text: "Deve avaliar os operacionais!"
+        text: "Deve avaliar os operacionais!",
       })
       .then(function () {
         // Redirect the user
@@ -33,6 +34,8 @@ function CloseOccurrence() {
       } else {
         console.log("Success PUT");
         console.log(response);
+
+        //repoe os materias usados, chamando a funcao MaterialsReturn
         for (let id of JSON.parse(localStorage.getItem("materiais"))) {
           MaterialsReturn(id);
         }

@@ -1,9 +1,11 @@
+//funcao que coloca os dados no menu de confirmacao de chegada
 function refreshMenuChegada() {
   async function fetchAsync() {
     let county = document.getElementById("chegadaDistrito");
     let id_ocorrencia = localStorage.getItem("id_occurrence");
     let address = document.getElementById("chegadaRua");
 
+    //adapta a interface ao user
     hideLeaderStuffMap();
 
     const renderUsers = document.getElementById("result");
@@ -29,4 +31,5 @@ function refreshMenuChegada() {
     .catch((reason) => console.log(reason.message));
 }
 
+//chama a funcao quando inicia a pag
 refreshMenuChegada();

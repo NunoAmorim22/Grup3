@@ -1,3 +1,4 @@
+//funcao que edita os dados da respetiva testemunha
 function EditWitness() {
   var data = {};
   data.id_wits = document.getElementById("idTestemunha").value;

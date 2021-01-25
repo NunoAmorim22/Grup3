@@ -1,3 +1,4 @@
+//delete do operacional feito pelo admin
 function DeleteOperational(id) {
     var data = {};
     data.id_operational= id;

@@ -1,3 +1,4 @@
+//delete da testemunha da lista de testemunhas
 function DeleteWitness() {
     var data = {};
 

@@ -1,3 +1,5 @@
+//coloca os dados na janela menu de ocorrencia
+
 function refreshMenuOccurrence() {
   async function fetchAsync() {
     let id_occurrence = document.getElementById("idOccurrence");
@@ -45,5 +47,5 @@ function refreshMenuOccurrence() {
     .then((data) => console.log("ok"))
     .catch((reason) => console.log(reason.message));
 }
-
+//chama a funcao quando inicia a pag
 refreshMenuOccurrence();

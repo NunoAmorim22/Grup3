@@ -1,3 +1,4 @@
+//para fazer delete de uma vitima da lista de vitimas
 function DeleteVictim() {
     var data = {};
     data.id_victim = document.getElementById("idVitima").value;

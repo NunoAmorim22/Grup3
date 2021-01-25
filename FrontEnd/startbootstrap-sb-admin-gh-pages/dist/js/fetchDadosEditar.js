@@ -1,3 +1,4 @@
+//Funcao para colocar os dados na pagina editar perfil
 function refreshDadosEditar() {
     async function fetchAsync() {
       let id_operational = document.getElementById("idEditar");
@@ -47,5 +48,5 @@ function refreshDadosEditar() {
       .then((data) => console.log("ok"))
       .catch((reason) => console.log(reason.message));
   }
-  
+  //chama a funcao quando inicia a pag
   refreshDadosEditar();

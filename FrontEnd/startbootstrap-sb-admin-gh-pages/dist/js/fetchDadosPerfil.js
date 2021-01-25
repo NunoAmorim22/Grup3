@@ -1,3 +1,4 @@
+//Coloca os dados na janela de perfil
 function refreshDadosPerfil() {
     async function fetchAsync() {
       let id_operational = document.getElementById("idPerfil");
@@ -46,5 +47,6 @@ function refreshDadosPerfil() {
       .then((data) => console.log("ok"))
       .catch((reason) => console.log(reason.message));
   }
-  
+
+  //chama a funcao quando inicia a pag
   refreshDadosPerfil();

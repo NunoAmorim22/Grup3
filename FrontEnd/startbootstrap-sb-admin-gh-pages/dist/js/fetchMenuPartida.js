@@ -1,3 +1,4 @@
+//coloca os dados no menu de confimacao de partida
 function refreshMenuPartida() {
     async function fetchAsync() {
       let id_occurrence = document.getElementById("occurrenceId");
@@ -22,5 +23,6 @@ function refreshMenuPartida() {
       .then((data) => console.log("ok"))
       .catch((reason) => console.log(reason.message));
   }
-  
+
+//chama a funcao quando inicia a pag
   refreshMenuPartida();

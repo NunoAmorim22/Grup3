@@ -1,3 +1,4 @@
+//funcao que edita os dados do respetivo suspeito
 function EditSuspect() {
   var data = {};
   data.id_suspect = document.getElementById("idSuspeito").value;

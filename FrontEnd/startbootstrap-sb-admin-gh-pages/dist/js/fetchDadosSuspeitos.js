@@ -1,3 +1,4 @@
+//coloca os dados respetivos ao suspeito selecionado na janela dados suspeito
 function refreshSuspect() {
   async function fetchAsync() {
     let id_suspect = document.getElementById("idSuspeito");
@@ -87,5 +88,5 @@ function refreshSuspect() {
     .then((data) => console.log("ok"))
     .catch((reason) => console.log(reason.message));
 }
-
+//chama a funcao quando inicia a pag
 refreshSuspect();

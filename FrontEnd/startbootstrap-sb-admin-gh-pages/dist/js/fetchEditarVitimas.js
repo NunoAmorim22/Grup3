@@ -1,3 +1,4 @@
+//funcao para editar os dados da respetiva vitima
 function EditVictim() {
   var data = {};
   data.id_victim = document.getElementById("idVitima").value;

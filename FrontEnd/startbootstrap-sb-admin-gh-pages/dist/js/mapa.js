@@ -1,3 +1,5 @@
+///funcoes que iniciam o mapa e colocam o marcador no sitio correto conforme os dados de localizacao que a ocorrencia tem
+
 var geocoder;
 var map;
 

@@ -1,12 +1,14 @@
+//funcao para enviar para o servidor a informacao dos materiais que serao levados para a ocorrencia
 function MaterialsConfirmation(id_material, btnid) {
-  var data = {};
   let id_request = localStorage.getItem("id_request");
 
-  console.log(data); 
-  fetch(`https://pspoperacionais.herokuapp.com/materials/confirmations/${id_request}/materials/${id_material}`, {
-    headers: { "Content-Type": "application/json" },
-    method: "PUT",
-  })
+  fetch(
+    `https://pspoperacionais.herokuapp.com/materials/confirmations/${id_request}/materials/${id_material}`,
+    {
+      headers: { "Content-Type": "application/json" },
+      method: "PUT",
+    }
+  )
     .then(function (response) {
       if (!response.ok) {
         console.log(response.status); //=> number 100–599

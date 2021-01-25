@@ -1,3 +1,4 @@
+//Eviar dados de perfil editados para a base de dados
 function EditProfile() {
   var data = {};
   let id_operational = document.getElementById("idEditar").value;

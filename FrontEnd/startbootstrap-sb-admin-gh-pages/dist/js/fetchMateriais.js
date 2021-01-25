@@ -1,3 +1,5 @@
+//Funcao que coloca os materias atribuidos a ocorrencia numa tabela
+
 let id_occurrence = localStorage.getItem("id_occurrence");
 const api_url = `https://pspoperacionais.herokuapp.com/materials/allmaterials/${id_occurrence}`;
 

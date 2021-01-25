@@ -1,4 +1,5 @@
-function refreshDadosPerfil() {
+//Coloca os dados na janela de confirmar presenca
+function refreshDadosPresenca() {
   async function fetchAsync() {
     let id_operational = document.getElementById("idPresenca");
     let id_operacional = localStorage.getItem("id_operacional");
@@ -24,4 +25,5 @@ function refreshDadosPerfil() {
     .catch((reason) => console.log(reason.message));
 }
 
-refreshDadosPerfil();
+//chama a funcao quando inicia a pag
+refreshDadosPresenca();
