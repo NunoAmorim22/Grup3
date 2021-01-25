@@ -32,6 +32,8 @@ function EditArrival() {
                   text: "Confirmada a chegada ao local!",
                 })
                 .then(function () {
+                  let state = false;
+                  localStorage.setItem("avaliacao", state);
                   window.location.href = "./DadosOcorrencia.html";
                   console.log("The Ok Button was clicked.");
                 });

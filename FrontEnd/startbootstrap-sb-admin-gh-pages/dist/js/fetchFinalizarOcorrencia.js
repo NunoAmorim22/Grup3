@@ -4,10 +4,13 @@ function CloseOccurrence() {
 
   //verifica se as avaliacoes ja foram feitas
   let avaliacao = localStorage.getItem("avaliacao");
-  if (!avaliacao) {
+  console.log(avaliacao);
+  if (avaliacao === "true") {
+    console.log("proceder a finalizacao");
+  }else{
     swal
       .fire({
-        icon: "alert",
+        icon: "warning",
         title: "Alerta!",
         text: "Deve avaliar os operacionais!",
       })
@@ -16,6 +19,7 @@ function CloseOccurrence() {
         window.location.href = "./Avaliacoes.html";
         console.log("The Ok Button was clicked.");
       });
+      return false;
   }
 
   //chamada fetch para envio dos dados para o servior via PUT
