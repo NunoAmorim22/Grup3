@@ -96,9 +96,9 @@ function cantGo() {
   });
 }
 
+//Função para ativar a edição dos dados dos suspeitos;
 function enableEditionSuspect() {
   document.getElementById("guardarSuspeito").style.display = "block";
-
   document.getElementById("nomeSuspeito").readOnly = false;
   document.getElementById("naturalidadeSuspeito").readOnly = false;
   document.getElementById("sexoSuspeito").removeAttribute("disabled");
@@ -111,12 +111,11 @@ function enableEditionSuspect() {
   document.getElementById("corpoSuspeito").readOnly = false;
 }
 
-
+//Função para ativar a edição dos dados da testemunhas;
 function enableEditionWitness() {
   document.getElementById("guardarTestemunha").style.display = "block";
-
   document.getElementById("nomeTestemunha").readOnly = false;
-  document.getElementById("sexoTestemunha").removeAttribute("disabled");//("desabled",false);
+  document.getElementById("sexoTestemunha").removeAttribute("disabled");
   document.getElementById("naturalidadeTestemunha").readOnly = false;
   document.getElementById("ccTestemunha").readOnly = false;
   document.getElementById("dataTestemunha").readOnly = false;
@@ -127,10 +126,9 @@ function enableEditionWitness() {
   document.getElementById("localidadeTestemunha").readOnly = false;
 }
 
-
+//Função para ativar a edição dos dados da vitima;
 function enableEditionVictim() {
   document.getElementById("guardarVitima").style.display = "block";
-
   document.getElementById("nomeVitima").readOnly = false;
   document.getElementById("sexoVitima").removeAttribute("disabled");
   document.getElementById("naturalidadeVitima").readOnly = false;
@@ -143,21 +141,25 @@ function enableEditionVictim() {
   document.getElementById("localidadeVitima").readOnly = false;
 }
 
+//Função para o botao, na lista de suspeitos, para levar o id para a pagina de editar os dados;
 function transportid(idtotransport) {
   localStorage.setItem("id_suspect", idtotransport);
   document.location.href = "./DadosSuspeitos.html";
 }
 
+//Função para o botao, na lista de testemunhas, para levar o id para a pagina de editar os dados;
 function transportidTestemunha(idtotransport) {
   localStorage.setItem("id_witness", idtotransport);
   document.location.href = "./DadosTestemunha.html";
 }
 
+//Função para o botao, na lista de vitimas, para levar o id para a pagina de editar os dados;
 function transportidVitima(idtotransport) {
   localStorage.setItem("id_victim", idtotransport);
   document.location.href = "./DadosVitimas.html";
 }
 
+//Função para o botao de aceitar ocorrencia, no modo lider, para enviar o id da ocorrencia;
 function transportidOccurrence(idtotransport) {
   if (localStorage.getItem("tipo") == "Lider") {
     localStorage.setItem("id_occurrence", idtotransport);
@@ -166,12 +168,14 @@ function transportidOccurrence(idtotransport) {
     localStorage.setItem("id_occurrence", idtotransport);
     document.location.href = "./ConfirmarChegada.html";
   }
-
 }
 
+//Função que tem de ser descoberta pelo professor;
+//Nos queriamos colocar a opção de alterar a foto de perfil mas ocorreu um imprevisto e nao tivemos tempo, logo criamos esta função 
+//para que todos os botoes tivessem interação
 function coisaLinda() {
   Swal.fire({
-    title: 'Querias!',
+    title: 'Tentamos...',
     width: 300,
     padding: '3em',
     background: '#fff',
@@ -180,15 +184,10 @@ function coisaLinda() {
       bottom
       no-repeat
     `
-  })//url("https://cdn.awsli.com.br/600x450/14/14828/produto/34355376/ab054cf50c.jpg")
+  })
 }
 
-function logout() {
-  localStorage.clear();
-
-  document.location.href = "./login.html";
-}
-
+//Função para esconder as opções do dropdown do menu principal que pertencem ao admin
 function hideAdminStuff() {
   let tipo = localStorage.getItem("tipo");
   if (tipo != "Admin") {
@@ -203,6 +202,7 @@ function hideAdminStuff() {
   }
 }
 
+//Função para impedir que o admin se redirecione para algumas paginas
 function AdminCantGo() {
   let tipo = localStorage.getItem("tipo");
   if (tipo == "Admin") {
@@ -212,14 +212,13 @@ function AdminCantGo() {
       text: "Não pode aceder a esta página!",
       //type: 'sucess'
     }).then(function () {
-      // Redirect the user
-      //window.location.href = "./DadosOcorrencia.html";
-      //console.log('The Ok Button was clicked.');
     });
   } else {
     document.location.href = "./ConfirmacaoPresenca.html";
   }
 }
+
+//Função para impedir que o admin se redirecione para algumas paginas (como por exemplo o perfil porque nao é operacional!);
 function AdminCantGoProfile() {
   let tipo = localStorage.getItem("tipo");
   if (tipo == "Admin") {
@@ -227,18 +226,14 @@ function AdminCantGoProfile() {
       icon: "warning",
       title: "Alerta!",
       text: "Não pode aceder a esta página!",
-      //type: 'sucess'
     }).then(function () {
-      // Redirect the user
-      //window.location.href = "./DadosOcorrencia.html";
-      //console.log('The Ok Button was clicked.');
     });
   } else {
     document.location.href = "./Perfil.html";
   }
 }
 
-
+//Função para dentro das ocorrencias, esconder no menu lateral das ocorrencias, a opção de avaliações para os operacionais;
 function hideLeaderStuff() {
   let tipo = localStorage.getItem("tipo");
   if (tipo != "Lider") {
@@ -249,6 +244,7 @@ function hideLeaderStuff() {
   }
 }
 
+//Função para na pagina do "ConfirmarChegada" so o lider conseguir marcar a chegada ao local; 
 function hideLeaderStuffMap() {
   let tipo = localStorage.getItem("tipo");
   if (tipo != "Lider") {
@@ -257,29 +253,31 @@ function hideLeaderStuffMap() {
   }
 }
 
+//Função para quando a aplicação é usada por um operacional e ele quer terminar a sua participação na função;
 function comoOperacional() {
   swal.fire({
     icon: "success",
     title: "Sucesso!",
     text: "A sua participação foi terminada com sucesso, irá ser reencaminhado para o menu principal",
-    //type: 'sucess'
   }).then(function () {
     // Redirect the user
     window.location.href = "./MenuPrincipal.html";
     console.log('The Ok Button was clicked.');
   });
 }
+
+//Função para enviar os operacionais, que nao sao lideres, para a localização de uma ocorrência;
 function comoOperacionalMap() {
   window.location.href = "./DadosOcorrencia.html";
 }
 
+//Função que verifica se a avaliação aos operacionais ja foi feita, e nao o deixa repetir a avaliação;
 function checkEvaluations() {
   if (localStorage.getItem("avaliacao")) {
     swal.fire({
       icon: "warning",
       title: "Alerta!",
       text: "A avaliação já foi efetuada.",
-      //type: 'sucess'
     }).then(function () {
       // Redirect the user
       window.location.href = "./DadosOcorrencia.html";
@@ -290,6 +288,7 @@ function checkEvaluations() {
   }
 }
 
+//Função auxiliar do Mapa, para enviar a localização da operação para o google Maps;
 function mandar() {
   let distrito = document.getElementById("chegadaDistrito").value;
   let distrito2 = distrito.replace(/ /g, '+');
@@ -300,17 +299,20 @@ function mandar() {
   window.open(`https://www.google.com/maps/search/?api=1&query=${distrito2}+${rua2}`);
 }
 
+//Função para colocar os botões da pagina do "ConfirmarMaterial" a vermelho caso nao se confirme o material;
 function turnRed(btnid) {
   console.log(btnid);
-  document.getElementById(btnid).style.color = "#FF0A0A";//rgb(144 29 29 / 100%)";
+  document.getElementById(btnid).style.color = "#FF0A0A";
 }
 
+//Função para colocar os botões da pagina do "ConfirmarMaterial" a verde caso se confirme o material;
 function turnGreen(btnid) {
   console.log(btnid);
   document.getElementById(btnid).style.color = "rgb(29 144 53 / 98%)";
 }
 
-
+//Na Página de repor palavra-passe, esta função verifica se foi colocado um email
+// no input e disponibiliza os inputs para alterar a palavra passe;
 function recieveMail() {
   if(document.getElementById("forgotEmail").value !== ""){
   localStorage.setItem("Email", document.getElementById("forgotEmail").value);
@@ -327,7 +329,6 @@ function recieveMail() {
     });
     return false;
   }
-
   document.getElementById("forgotEmailDiv").style.display = "none";
   document.getElementById("forgotPasswordDiv").style.display = "block";
   document.getElementById("forgotRepPassDiv").style.display = "block";
