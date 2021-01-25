@@ -1,6 +1,6 @@
 //------------------------Funçao para fazer get das testemunhas e colocar numa tabela-------------------------//
 let id_occurrence = localStorage.getItem("id_occurrence");
-const api_url = `http://localhost:3000/participations/allparticipants/occurrence/${id_occurrence}/type/Testemunha`;
+const api_url = `https://pspoperacionais.herokuapp.com/participations/allparticipants/occurrence/${id_occurrence}/type/Testemunha`;
 
 // Defining async function
 async function getapi(url) {

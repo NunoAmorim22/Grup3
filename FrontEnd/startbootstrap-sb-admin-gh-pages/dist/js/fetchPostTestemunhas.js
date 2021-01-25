@@ -19,7 +19,7 @@ function saveWitness() {
     data.city = document.getElementById("localityWitness").value;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/participations/occurrences/wits/${id_occurrence}`, {
+    fetch(`https://pspoperacionais.herokuapp.com/participations/occurrences/wits/${id_occurrence}`, {
       headers: { "Content-Type": "application/json" },
       method: "POST",
       body: JSON.stringify(data),

@@ -32,7 +32,7 @@ function ReporPassword() {
         data.password = palavraPass;
     }
       console.log(data);
-      fetch(`http://localhost:3000/operationals/changepwds`, {
+      fetch(`https://pspoperacionais.herokuapp.com/operationals/changepwds`, {
     headers: { "Content-Type": "application/json" },
     method: "PUT",
     body: JSON.stringify(data),

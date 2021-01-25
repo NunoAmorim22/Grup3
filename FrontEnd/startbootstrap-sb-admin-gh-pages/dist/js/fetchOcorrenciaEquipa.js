@@ -1,5 +1,5 @@
 //-----------Para equipa por ocorrência-------------------
-const api_url = `http://localhost:3000/occurrences/allEnded`;
+const api_url = `https://pspoperacionais.herokuapp.com/occurrences/allEnded`;
 // Defining async function
 async function getapi(url) {
   // Storing response

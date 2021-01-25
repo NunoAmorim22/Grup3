@@ -1,4 +1,4 @@
-const api_url = `http://localhost:3000/operationals/all`;
+const api_url = `https://pspoperacionais.herokuapp.com/operationals/all`;
 // Defining async function
 async function getapi(url) {
   // Storing response

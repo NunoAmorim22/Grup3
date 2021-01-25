@@ -1,4 +1,4 @@
-const api_url2 = `http://localhost:3000/rankings/operationals`;
+const api_url2 = `https://pspoperacionais.herokuapp.com/rankings/operationals`;
 
 // Defining async function
 async function getapi2(url) {

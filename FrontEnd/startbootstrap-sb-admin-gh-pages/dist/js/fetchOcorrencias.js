@@ -35,7 +35,7 @@ localStorage.setItem("tipo", "lider");*/
 hideAdminStuff();
 
 let id_operacional = localStorage.getItem("id_operacional");
-const api_url = `http://localhost:3000/occurrences/allActiveTeamOccurrence/${id_operacional}`;
+const api_url = `https://pspoperacionais.herokuapp.com/occurrences/allActiveTeamOccurrence/${id_operacional}`;
 
 // Defining async function
 async function getapi(url) {

@@ -6,7 +6,7 @@ function refreshMenuPartida() {
       
   
       const renderUsers = document.getElementById("result");
-      const response = await fetch(`http://localhost:3000/occurrences/occurrenceData/${id_ocorrencia}`);
+      const response = await fetch(`https://pspoperacionais.herokuapp.com/occurrences/occurrenceData/${id_ocorrencia}`);
       const users = await response.json();
   
       id_occurrence.setAttribute("value", users[0].id_occurrence);

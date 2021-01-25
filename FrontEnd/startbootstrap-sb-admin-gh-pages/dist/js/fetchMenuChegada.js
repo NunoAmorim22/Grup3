@@ -6,7 +6,7 @@ function refreshMenuChegada() {
       
       hideLeaderStuffMap();
       const renderUsers = document.getElementById("result");
-      const response = await fetch(`http://localhost:3000/occurrences/occurrenceData/${id_ocorrencia}`);
+      const response = await fetch(`https://pspoperacionais.herokuapp.com/occurrences/occurrenceData/${id_ocorrencia}`);
       const users = await response.json();
   
   

@@ -21,7 +21,7 @@ function saveVictim() {
     data.city = document.getElementById("cityVictim").value;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/participations/occurrences/vitima/${id_occurrence}`, {
+    fetch(`https://pspoperacionais.herokuapp.com/participations/occurrences/vitima/${id_occurrence}`, {
       headers: { "Content-Type": "application/json" },
       method: "POST",
       body: JSON.stringify(data),

@@ -1,5 +1,5 @@
 let id_occurrence = localStorage.getItem("id_occurrence");
-const api_url = `http://localhost:3000/materials/allmaterials/${id_occurrence}`;
+const api_url = `https://pspoperacionais.herokuapp.com/materials/allmaterials/${id_occurrence}`;
 
 // Defining async function
 async function getapi(url) {
