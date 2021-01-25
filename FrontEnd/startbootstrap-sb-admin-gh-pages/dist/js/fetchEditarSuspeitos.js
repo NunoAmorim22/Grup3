@@ -13,7 +13,7 @@ function EditSuspect() {
   data.body_shape = document.getElementById("corpoSuspeito").value;
   console.log(data); //debugging para ver os dados que foram enviados
   //chamada fetch para envio dos dados para o servior via POST
-  fetch(`http://localhost:3000/participations/suspects/${data.id_suspect}`, {
+  fetch(`https://pspoperacionais.herokuapp.com/participations/suspects/${data.id_suspect}`, {
     headers: { "Content-Type": "application/json" },
     method: "PUT",
     body: JSON.stringify(data),

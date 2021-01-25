@@ -35,7 +35,7 @@ function EditProfile() {
 }
   console.log(data); //debugging para ver os dados que foram enviados
   //chamada fetch para envio dos dados para o servior via POST
-  fetch(`http://localhost:3000/operationals/edits/${id_operational}`, {
+  fetch(`https://pspoperacionais.herokuapp.com/operationals/edits/${id_operational}`, {
     headers: { "Content-Type": "application/json" },
     method: "PUT",
     body: JSON.stringify(data),

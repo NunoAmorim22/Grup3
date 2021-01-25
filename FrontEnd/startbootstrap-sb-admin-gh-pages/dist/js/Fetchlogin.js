@@ -12,7 +12,7 @@ function Login() {
 
   console.log(data); //debugging para ver os dados que foram enviados
   //chamada fetch para envio dos dados para o servior via POST
-  fetch(`http://localhost:3000/signin`, {
+  fetch(`https://pspoperacionais.herokuapp.com/signin`, {
     headers: { "Content-Type": "application/json" },
     method: "POST",
     body: JSON.stringify(data),
@@ -72,7 +72,7 @@ function LoginAdmin() {
 
   console.log(data); //debugging para ver os dados que foram enviados
   //chamada fetch para envio dos dados para o servior via POST
-  fetch(`http://localhost:3000/signin`, {
+  fetch(`https://pspoperacionais.herokuapp.com/signin`, {
     headers: { "Content-Type": "application/json" },
     method: "POST",
     body: JSON.stringify(data),
@@ -125,7 +125,7 @@ function ToFetchLoginData() {
 
     //${data1.email}
     const renderUsers = document.getElementById("result");
-    const response = await fetch(`http://localhost:3000/operationals/infoLogins`, {
+    const response = await fetch(`https://pspoperacionais.herokuapp.com/operationals/infoLogins`, {
       headers: { "Content-Type": "application/json" },
       method: "POST",
       body: JSON.stringify(data1),
@@ -155,7 +155,7 @@ function ToFetchLoginDataAdmin() {
 
     //${data1.email}
     const renderUsers = document.getElementById("result");
-    const response = await fetch(`http://localhost:3000/operationals/infologinsadmin`, {
+    const response = await fetch(`https://pspoperacionais.herokuapp.com/operationals/infologinsadmin`, {
       headers: { "Content-Type": "application/json" },
       method: "POST",
       body: JSON.stringify(data1),

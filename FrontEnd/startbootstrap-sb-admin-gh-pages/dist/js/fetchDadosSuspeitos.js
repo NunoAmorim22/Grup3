@@ -15,7 +15,7 @@ function refreshSuspect() {
     let body_shape = document.getElementById("corpoSuspeito");
 
     const renderUsers = document.getElementById("result");
-    const response = await fetch(`http://localhost:3000/participations/suspectsoccurrences/occurrences/${id_occurrence}/suspects/${id}`);
+    const response = await fetch(`https://pspoperacionais.herokuapp.com/participations/suspectsoccurrences/occurrences/${id_occurrence}/suspects/${id}`);
     const users = await response.json();
 
     id_suspect.setAttribute("value", users[0].id_suspect);

@@ -15,7 +15,7 @@ function refreshWitness() {
       let city = document.getElementById("localidadeTestemunha");
   
       const renderUsers = document.getElementById("result");
-      const response = await fetch(`http://localhost:3000/participations/participantsocurrences/occurrences/${id_occurrence}/participants/${id}/type/Testemunha`);
+      const response = await fetch(`https://pspoperacionais.herokuapp.com/participations/participantsocurrences/occurrences/${id_occurrence}/participants/${id}/type/Testemunha`);
       const users = await response.json();
   
       id_participant.setAttribute("value", users[0].id_participant);
