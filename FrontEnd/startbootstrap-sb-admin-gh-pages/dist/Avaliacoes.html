@@ -17,6 +17,7 @@
     type="text/css" />
   <!-- Core theme CSS (includes Bootstrap)-->
   <link href="css/styles.css" rel="stylesheet" />
+  <!--Sweet Alert-->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
@@ -28,49 +29,49 @@
         <i class="fas fa-star"></i> Avaliações</a>
     </nav>
   </div>
-  <!--Div com a informação-->
+  <!--Parte da Página com a informação-->
   <div class="container pre-scrollable ">
     <div class="container">
-        <div>
-          <input class="form-control py-4" id="operacional1" type="" placeholder="Nome Operacional" readonly/>
-          <div class="control-group">
-            <div>
-              <label>Nota atribuída: </label> <input class="form-Grades" type="" name="" id="av1" readonly/>  
-              <input class="custom-range" type="range" min="0" max="20" value="" id="notas1">
-            </div>
+      <div>
+        <input class="form-control py-4" id="operacional1" type="" placeholder="Nome Operacional" readonly />
+        <div class="control-group">
+          <div>
+            <label>Nota atribuída: </label> <input class="form-Grades" type="" name="" id="av1" readonly />
+            <input class="custom-range" type="range" min="0" max="20" value="" id="notas1">
           </div>
         </div>
-        <br>
-        <div>
-          <input class="form-control py-4" id="operacional2" type="" placeholder="Nome Operacional" readonly/>
-          <div class="control-group">
-            <div> 
-              <label>Nota atribuída: </label> <input class="form-Grades" type="text" name="" id="av2" readonly/> 
-              <input class="custom-range" type="range" min="0" max="20" value="" id="notas2">
-            </div>
+      </div>
+      <br>
+      <div>
+        <input class="form-control py-4" id="operacional2" type="" placeholder="Nome Operacional" readonly />
+        <div class="control-group">
+          <div>
+            <label>Nota atribuída: </label> <input class="form-Grades" type="text" name="" id="av2" readonly />
+            <input class="custom-range" type="range" min="0" max="20" value="" id="notas2">
           </div>
         </div>
-        <br>
-        <div>
-          <input class="form-control py-4" id="operacional3" type="" placeholder="Nome Operacional" readonly/>
-          <div class="control-group">
-            <div> 
-              <label>Nota atribuída: </label> <input class="form-Grades" type="text" name="" id="av3" readonly/> 
-              <input class="custom-range" type="range" min="0" max="20" value="" id="notas3">
-            </div>
+      </div>
+      <br>
+      <div>
+        <input class="form-control py-4" id="operacional3" type="" placeholder="Nome Operacional" readonly />
+        <div class="control-group">
+          <div>
+            <label>Nota atribuída: </label> <input class="form-Grades" type="text" name="" id="av3" readonly />
+            <input class="custom-range" type="range" min="0" max="20" value="" id="notas3">
           </div>
         </div>
-        <br>
-        <div>
-          <input class="form-control py-4" id="operacional4" type="" placeholder="Nome Operacional" readonly/>
-          <div class="control-group">
-            <div> 
-              <label>Nota atribuída: </label> <input class="form-Grades" type="text" name="" id="av4" readonly/> 
-              <input class="custom-range" type="range" min="0" max="20" value="" id="notas4">
-            </div>
+      </div>
+      <br>
+      <div>
+        <input class="form-control py-4" id="operacional4" type="" placeholder="Nome Operacional" readonly />
+        <div class="control-group">
+          <div>
+            <label>Nota atribuída: </label> <input class="form-Grades" type="text" name="" id="av4" readonly />
+            <input class="custom-range" type="range" min="0" max="20" value="" id="notas4">
           </div>
         </div>
-        <br>
+      </div>
+      <br>
       <div class="text-center">
         <a onclick="EditEvaluations()" class="btn btn-primary btn-width">Atribuir</a>
       </div>
@@ -92,11 +93,11 @@
                     class="fas fa-home buttons-footer"></i></a>
               </div>
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0"  onclick="cantGo()"><i
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" onclick="cantGo()"><i
                     class="fas fa-user buttons-footer"></i></a>
               </div>
               <div>
-                <a class="btn btn-link btn-sm2 order-1 order-lg-0"  onclick="cantGo()"><i
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" onclick="cantGo()"><i
                     class="far fa-calendar-check buttons-footer"></i></i></a>
               </div>
             </div>
@@ -105,28 +106,31 @@
       </div>
     </footer>
   </div>
+  <!--Chamada a ficheiros java-->
   <script src="js/scripts.js"></script>
   <script src="js/fetchDadosAvaliacoes.js"></script>
   <script src="js/fetchAtribuirAvaliacoes.js"></script>
+  <!--Funções auxiliares para os slider's-->
   <script>
     var slider1 = document.getElementById("notas1");
     var slider2 = document.getElementById("notas2");
     var slider3 = document.getElementById("notas3");
     var slider4 = document.getElementById("notas4");
 
-    slider1.oninput = function(){
+    slider1.oninput = function () {
       document.getElementById("av1").setAttribute("value", slider1.value);
     }
-    slider2.oninput = function(){
+    slider2.oninput = function () {
       document.getElementById("av2").setAttribute("value", slider2.value);
     }
-    slider3.oninput = function(){
+    slider3.oninput = function () {
       document.getElementById("av3").setAttribute("value", slider3.value);
     }
-    slider4.oninput = function(){
+    slider4.oninput = function () {
       document.getElementById("av4").setAttribute("value", slider4.value);
     }
-</script>
+  </script>
+
 </body>
 
 </html>

@@ -22,115 +22,110 @@
 </head>
 
 <body>
+  <!--nave-->
   <div class="nave">
     <nav class="fixed-nav-bar sb-topnav navbar navbar-expand navbar-dark bg-dark sticky-top">
       <a class="navbar-brand" href="">
         <i class="fas fa-user-secret"></i> Registar Suspeito</a>
     </nav>
   </div>
-  <!-- Contact Section-->
-  <div class="pre-scrollable">
+    <!--Parte da Página com a informação-->
+    <div class="pre-scrollable">
     <section class="page-section" id="contact">
       <div class="container">
         <div class="divider-custom">
           <div class="divider-custom-line"></div>
           <div class="divider-custom-line"></div>
         </div>
-        <!-- Contact Section Form-->
         <div class="row">
           <div class="col-lg-8 mx-auto">
-           <!-- <form id="contactForm" name="sentMessage" data-toggle="validator">-->
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Nome</label>
-                  <input class="form-control" id="nameSuspect" type="text" placeholder="Nome" autocomplete="off"
-                    />
-                  <p class="help-block text-danger"></p>
-                </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Nome</label>
+                <input class="form-control" id="nameSuspect" type="text" placeholder="Nome" autocomplete="off" />
+                <p class="help-block text-danger"></p>
               </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Naturalidade</label>
-                  <input class="form-control" id="naturalitySuspect" type="text" placeholder="Naturalidade" autocomplete="off"
-                    />
-                  <p class="help-block text-danger"></p>
-                </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Naturalidade</label>
+                <input class="form-control" id="naturalitySuspect" type="text" placeholder="Naturalidade"
+                  autocomplete="off" />
+                <p class="help-block text-danger"></p>
               </div>
+            </div>
 
-              <label>Sexo</label>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <select id="genreSuspect" class="browser-default custom-select">
-                    <option disabled selected>Selecione o sexo da testemunha</option>
-                    <option value="M">Masculino</option>
-                    <option value="F">Feminino</option>
+            <label>Sexo</label>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <select id="genreSuspect" class="browser-default custom-select">
+                  <option disabled selected>Selecione o sexo da testemunha</option>
+                  <option value="M">Masculino</option>
+                  <option value="F">Feminino</option>
                 </select>
 
-                  <p class="help-block text-danger"></p>
-                </div>
+                <p class="help-block text-danger"></p>
               </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Cartão de Cidadão</label>
-                  <input class="form-control" id="ccSuspect" type="text" placeholder="Cartão de cidadão" autocomplete="off"
-                    />
-                  <p class="help-block text-danger"></p>
-                </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Cartão de Cidadão</label>
+                <input class="form-control" id="ccSuspect" type="text" placeholder="Cartão de cidadão"
+                  autocomplete="off" />
+                <p class="help-block text-danger"></p>
               </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Profissão</label>
-                  <input class="form-control" id="jobSuspect" type="text" placeholder="Profissão" autocomplete="off"
-                     />
-                  <p class="help-block text-danger"></p>
-                </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Profissão</label>
+                <input class="form-control" id="jobSuspect" type="text" placeholder="Profissão" autocomplete="off" />
+                <p class="help-block text-danger"></p>
               </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Cor de pele</label>
-                  <input class="form-control" id="skinSuspect" type="text" placeholder="Cor de pele" 
-                    data-validation-required-message="Por favor, introduza a cor da pele" />
-                  <p class="help-block text-danger"></p>
-                </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Cor de pele</label>
+                <input class="form-control" id="skinSuspect" type="text" placeholder="Cor de pele"
+                  data-validation-required-message="Por favor, introduza a cor da pele" />
+                <p class="help-block text-danger"></p>
               </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Cor dos olhos</label>
-                  <input class="form-control" id="eyeSuspect" type="text" placeholder="Cor dos olhos"  />
-                  <p class="help-block text-danger"></p>
-                </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Cor dos olhos</label>
+                <input class="form-control" id="eyeSuspect" type="text" placeholder="Cor dos olhos" />
+                <p class="help-block text-danger"></p>
               </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Cor de cabelo</label>
-                  <input class="form-control" id="hairSuspect" type="text " placeholder="Cor de cabelo"  />
-                  <p class="help-block text-danger"></p>
-                </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Cor de cabelo</label>
+                <input class="form-control" id="hairSuspect" type="text " placeholder="Cor de cabelo" />
+                <p class="help-block text-danger"></p>
               </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Altura</label>
-                  <input class="form-control" id="heightSuspect" type="number" placeholder="Altura" autocomplete="off"
-                     />
-                  <p class="help-block text-danger"></p>
-                </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Altura</label>
+                <input class="form-control" id="heightSuspect" type="number" placeholder="Altura" autocomplete="off" />
+                <p class="help-block text-danger"></p>
               </div>
-              <div class="control-group">
-                <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                  <label>Formato do corpo</label>
-                  <input class="form-control" id="bodySuspect" type="text" placeholder="Formato do corpo" autocomplete="off"
-                    data-validation-required-message="Por favor, introduza o formato do corpo" />
-                  <p class="help-block text-danger"></p>
-                </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                <label>Formato do corpo</label>
+                <input class="form-control" id="bodySuspect" type="text" placeholder="Formato do corpo"
+                  autocomplete="off" data-validation-required-message="Por favor, introduza o formato do corpo" />
+                <p class="help-block text-danger"></p>
               </div>
-              <br />
-              <div id="success"></div>
-              <div class="form-group" align="center">
-                <button class="btn btn-primary btn-xl btn-width" id="sendMessageButton" onclick="saveSuspect()">
-                  Gravar
-                </button>
-              </div>
-           <!-- </form>-->
+            </div>
+            <br />
+            <div id="success"></div>
+            <div class="form-group" align="center">
+              <button class="btn btn-primary btn-xl btn-width" id="sendMessageButton" onclick="saveSuspect()">
+                Gravar
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -170,12 +165,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Third party plugin JS-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-  <!-- Contact form JS-->
- <!-- <script src="assets/mail/jqBootstrapValidation.js"></script>-->
- <!-- <script src="assets/mail/contact_me.js"></script>-->
+  <!--Chamada a ficheiros java-->
   <script src="js/fetchPostSuspeitos.js"></script>
-  <!-- Core theme JS-->
- <!-- <script src="js/scripts.js"></script>-->
+  <script src="js/scripts.js"></script>
 </body>
 
 </html>

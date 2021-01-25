@@ -10,9 +10,11 @@
   <title>Confirmar Equipa</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="assets/img/favicon-32x32.png" />
+  <!-- Core theme CSS (includes Bootstrap)-->
   <link href="css/styles.css" rel="stylesheet" />
   <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
     crossorigin="anonymous" />
+  <!-- Font Awesome icons (free version)-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
     crossorigin="anonymous"></script>
   <!--sweet alert-->
@@ -26,7 +28,7 @@
       <a class="navbar-brand" href=""> <i class="fas fa-users"></i> Confirmação de Equipa</a>
     </nav>
   </div>
-  <!--div com informação-->
+  <!--Parte da Página com a informação-->
   <div class="pre-scrollable">
     <div class="container">
       <div align=center>
@@ -36,16 +38,16 @@
       <div align=center>
         <h6>Confirmação de Presenças</h6>
       </div>
-      <div class="d-flex justify-content-center" >
+      <div class="d-flex justify-content-center">
         <div class="spinner-border" role="status" id="loading">
           <span class="sr-only">Loading...</span>
         </div>
       </div>
       <table class="table" id="lista-presencas">
-        
+
       </table>
-      </div> 
-      <div align=center><a class="btn btn-primary btn-width" onclick="teamConfirmation()">Confirmar</a></div>
+    </div>
+    <div align=center><a class="btn btn-primary btn-width" onclick="teamConfirmation()">Confirmar</a></div>
   </div>
   <!--footer-->
   <div class="footer">
@@ -76,8 +78,11 @@
       </div>
     </footer>
   </div>
+
+  <!--Chamada a ficheiros java-->
   <script src="js/scripts.js"></script>
   <script src="js/fetchPresentesEquipa.js"></script>
+
 </body>
 
 </html>
