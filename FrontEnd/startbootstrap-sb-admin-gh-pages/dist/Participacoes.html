@@ -10,9 +10,13 @@
   <title>Participações</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="assets/img/favicon-32x32.png" />
+  <!-- Core theme CSS (includes Bootstrap)-->
   <link href="css/styles.css" rel="stylesheet" />
+  <!-- Font Awesome icons (free version)-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
     crossorigin="anonymous"></script>
+  <!--sweet alert-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <body>
@@ -23,22 +27,21 @@
         <i class="fas fa-clipboard-check"></i> Participações</a>
     </nav>
   </div>
-  <!--div com info-->
-  
-      <div class="card-body">
-        <div class="table">
-          <div class="d-flex justify-content-center">
-            <div class="spinner-border" role="status" id="loading">
-              <span class="sr-only">Loading...</span>
-            </div>
-          </div>
-          <div class="pre-scrollable">
-            <div class="container">
-              <table id="lista-participacoes" class="table"></table>
-            </div>
-          </div>
+    <!--Parte da Página com a informação-->
+    <div class="card-body">
+    <div class="table">
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status" id="loading">
+          <span class="sr-only">Loading...</span>
         </div>
       </div>
+      <div class="pre-scrollable">
+        <div class="container">
+          <table id="lista-participacoes" class="table"></table>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!--footer-->
   <div class="footer">
@@ -70,7 +73,9 @@
     </footer>
   </div>
 
+  <!--Chamada a ficheiros java-->   
   <script src="js/fetchParticipacoes.js"></script>
+
 </body>
 
 </html>
