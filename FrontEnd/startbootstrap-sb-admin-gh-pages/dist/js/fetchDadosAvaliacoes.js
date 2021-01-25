@@ -7,7 +7,7 @@ function refreshDadosAvaliacoes() {
       let id_operational = localStorage.getItem("id_operacional")
       
       const renderUsers = document.getElementById("result");
-      const response = await fetch(`http://localhost:3000/evaluations/showteamids/${id_operational}`);
+      const response = await fetch(`https://pspoperacionais.herokuapp.com/evaluations/showteamids/${id_operational}`);
       const users = await response.json();
   
   

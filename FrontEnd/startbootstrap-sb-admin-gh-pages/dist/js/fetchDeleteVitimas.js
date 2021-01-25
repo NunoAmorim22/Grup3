@@ -3,7 +3,7 @@ function DeleteVictim() {
     data.id_victim = document.getElementById("idVitima").value;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/participations/deleteVictims/${data.id_victim}`, {
+    fetch(`https://pspoperacionais.herokuapp.com/participations/deleteVictims/${data.id_victim}`, {
         headers: { 'Content-Type': 'application/json' },
         method: 'DELETE',
         body: JSON.stringify(data)

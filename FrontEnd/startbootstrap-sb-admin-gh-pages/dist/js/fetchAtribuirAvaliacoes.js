@@ -106,7 +106,7 @@ function EditEvaluations() {
     console.log(data3);
     //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/evaluations/occurrences/${id_occurrence}/refresh/${id_operational1}`, {
+    fetch(`https://pspoperacionais.herokuapp.com/evaluations/occurrences/${id_occurrence}/refresh/${id_operational1}`, {
         headers: { "Content-Type": "application/json" },
         method: "PUT",
         body: JSON.stringify(data),

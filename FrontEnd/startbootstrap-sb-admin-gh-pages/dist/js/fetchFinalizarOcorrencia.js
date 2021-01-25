@@ -3,7 +3,7 @@ function CloseOccurrence() {
   data.id_occurrence = localStorage.getItem("id_occurrence");
   console.log(data); //debugging para ver os dados que foram enviados
   //chamada fetch para envio dos dados para o servior via POST
-  fetch(`http://localhost:3000/occurrences/closeOccurrence/${data.id_occurrence}`, {
+  fetch(`https://pspoperacionais.herokuapp.com/occurrences/closeOccurrence/${data.id_occurrence}`, {
     headers: { "Content-Type": "application/json" },
     method: "PUT",
     body: JSON.stringify(data),
@@ -46,7 +46,7 @@ function MaterialsReturn(id_mat) {
   let id_req = localStorage.getItem("id_request");
   console.log(data); //debugging para ver os dados que foram enviados
   //chamada fetch para envio dos dados para o servior via POST
-  fetch(`http://localhost:3000/materials/resets/${id_req}/materials/${id_mat}`, {
+  fetch(`https://pspoperacionais.herokuapp.com/materials/resets/${id_req}/materials/${id_mat}`, {
     headers: { "Content-Type": "application/json" },
     method: "PUT",
     body: JSON.stringify(data),

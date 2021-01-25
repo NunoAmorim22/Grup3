@@ -4,7 +4,7 @@ function MaterialsConfirmation(id_material, btnid) {
 
   console.log(data); //debugging para ver os dados que foram enviados
   //chamada fetch para envio dos dados para o servior via POST
-  fetch(`http://localhost:3000/materials/confirmations/${id_request}/materials/${id_material}`, {
+  fetch(`https://pspoperacionais.herokuapp.com/materials/confirmations/${id_request}/materials/${id_material}`, {
     headers: { "Content-Type": "application/json" },
     method: "PUT",
   })

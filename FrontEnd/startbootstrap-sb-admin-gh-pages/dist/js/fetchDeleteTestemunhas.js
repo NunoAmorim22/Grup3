@@ -3,7 +3,7 @@ function DeleteWitness() {
     data.id_witness = document.getElementById("idTestemunha").value;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/participations/deletewits/${data.id_witness}`, {
+    fetch(`https://pspoperacionais.herokuapp.com/participations/deletewits/${data.id_witness}`, {
         headers: { 'Content-Type': 'application/json' },
         method: 'DELETE',
         body: JSON.stringify(data)

@@ -13,7 +13,7 @@ function EditWitness() {
     data.city = document.getElementById("localidadeTestemunha").value;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/participations/wits/${data.id_wits}`, {
+    fetch(`https://pspoperacionais.herokuapp.com/participations/wits/${data.id_wits}`, {
       headers: { "Content-Type": "application/json" },
       method: "PUT",
       body: JSON.stringify(data),

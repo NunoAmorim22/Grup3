@@ -8,7 +8,7 @@ function refreshDadosEditar() {
       let rep_pass = document.getElementById("rep_passwordEditar");
 
       const renderUsers = document.getElementById("result");
-      const response = await fetch(`http://localhost:3000/operationals/rest/${id_operacional}`);
+      const response = await fetch(`https://pspoperacionais.herokuapp.com/operationals/rest/${id_operacional}`);
       const users = await response.json();
       id_operational.setAttribute("value", users[0].id_operational);
   

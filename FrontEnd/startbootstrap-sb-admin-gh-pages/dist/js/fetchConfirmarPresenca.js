@@ -4,7 +4,7 @@ function ConfirmPresence() {
     
    // console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/operationals/checkins/${id_operacional}`, {
+    fetch(`https://pspoperacionais.herokuapp.com/operationals/checkins/${id_operacional}`, {
       headers: { "Content-Type": "application/json" },
       method: "PUT",
     })

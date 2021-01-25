@@ -5,7 +5,7 @@ function EditArrival() {
     
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/occurrences/arriveOccurrence/${id_ocorrencia}`, {
+    fetch(`https://pspoperacionais.herokuapp.com/occurrences/arriveOccurrence/${id_ocorrencia}`, {
       headers: { "Content-Type": "application/json" },
       method: "PUT",
     })

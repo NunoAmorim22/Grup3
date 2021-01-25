@@ -15,7 +15,7 @@ function refreshVictim() {
       let city = document.getElementById("localidadeVitima");
   
       const renderUsers = document.getElementById("result");
-      const response = await fetch(`http://localhost:3000/participations/participantsocurrences/occurrences/${id_occurrence}/participants/${id}/type/Vitima`);
+      const response = await fetch(`https://pspoperacionais.herokuapp.com/participations/participantsocurrences/occurrences/${id_occurrence}/participants/${id}/type/Vitima`);
       const users = await response.json();
   
       id_participant.setAttribute("value", users[0].id_participant);

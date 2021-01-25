@@ -13,7 +13,7 @@ function EditVictim() {
     data.city = document.getElementById("localidadeVitima").value;
     console.log(data); //debugging para ver os dados que foram enviados
     //chamada fetch para envio dos dados para o servior via POST
-    fetch(`http://localhost:3000/participations/victims/${data.id_victim}`, {
+    fetch(`https://pspoperacionais.herokuapp.com/participations/victims/${data.id_victim}`, {
       headers: { "Content-Type": "application/json" },
       method: "PUT",
       body: JSON.stringify(data),
