@@ -10,12 +10,10 @@
   <title>Equipa por Ocorrência</title>
   <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="assets/img/favicon-32x32.png" />
-  <!-- Core theme CSS (includes Bootstrap)-->
   <link href="css/styles.css" rel="stylesheet" />
-  <!-- Font Awesome icons (free version)-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
     crossorigin="anonymous"></script>
-  <!--sweet alert-->
+      <!--sweet alert-->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
@@ -26,51 +24,54 @@
       <a class="navbar-brand" href=""> <i class="fas fa-users"></i> Equipa por Ocorrência</a>
     </nav>
   </div>
-  <!--Parte da Página com a informação-->
+  <!--div com info-->
   <div class="pre-scrollable">
     <div class="container">
       <div class="d-flex justify-content-center">
         <div class="spinner-border" role="status" id="loading">
           <span class="sr-only">Loading...</span>
         </div>
-        <!--div para a tabela das equipas-->
-        <table class="table" id="lista-porEquipa">
-        </table>
-      </div>
+      <table class="table" id="lista-porEquipa">
+        <!-- <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Indicativo de Equipa</th>
+            <th scope="col"> Id Ocorrência</th>
+          </tr>
+        </thead>-->
+      </table>
     </div>
-    <!--footer-->
-    <div class="footer">
-      <footer class="py-4 bg-light mt-auto ">
-        <div class="container-fluid">
-          <div class="d-flex align-items-center justify-content-between small">
-            <div>
-              <div class="row">
-                <div>
-                  <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="MenuPrincipal.html"><i
-                      class="fas fa-arrow-left buttons-footer"></i></a>
-                </div>
-                <div>
-                  <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="MenuPrincipal.html"><i
-                      class="fas fa-home buttons-footer"></i></a>
-                </div>
-                <div>
-                  <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="Perfil.html"><i
-                      class="fas fa-user buttons-footer"></i></a>
-                </div>
-                <div>
-                  <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="ConfirmacaoPresenca.html"><i
-                      class="far fa-calendar-check buttons-footer"></i></i></a>
-                </div>
+  </div>
+  <!--footer-->
+  <div class="footer">
+    <footer class="py-4 bg-light mt-auto ">
+      <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between small">
+          <div>
+            <div class="row">
+              <div>
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="MenuPrincipal.html"><i
+                    class="fas fa-arrow-left buttons-footer"></i></a>
+              </div>
+              <div>
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="MenuPrincipal.html"><i
+                    class="fas fa-home buttons-footer"></i></a>
+              </div>
+              <div>
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="Perfil.html"><i
+                    class="fas fa-user buttons-footer"></i></a>
+              </div>
+              <div>
+                <a class="btn btn-link btn-sm2 order-1 order-lg-0" href="ConfirmacaoPresenca.html"><i
+                    class="far fa-calendar-check buttons-footer"></i></i></a>
               </div>
             </div>
           </div>
         </div>
-      </footer>
-    </div>
-
-    <!--Chamada a ficheiros java-->
-    <script src="js/fetchOcorrenciaEquipa.js"></script>
-
+      </div>
+    </footer>
+  </div>
+  <script src="js/fetchOcorrenciaEquipa.js"></script>
 </body>
 
 </html>

@@ -29,15 +29,50 @@
         <i class="fas fa-box-open"></i> Confirmar Material</a>
     </nav>
   </div>
-  <!--Parte da Página com a informação-->
+  <!--Div com a informação-->
   <div class="container pre-scrollable">
     <div class="d-flex justify-content-center">
       <div class="spinner-border" role="status" id="loading">
         <span class="sr-only">Loading...</span>
       </div>
     </div>
-    <!--div para a tabela dos materiais-->
     <table class="table" id="lista-materiais">
+      
+      <!--<thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Tipo de Material</th>
+          <th scope="col">Confirmação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td> Armas</td>
+          <td>
+            <input type="radio" name="sentMessage" value="yes" selected /> <i class="fas fa-check"></i>
+            <input type="radio" name="sentMessage" value="no" selected /> <i class="fas fa-times"></i>
+          </td>
+
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td> Motas</td>
+          <td>
+            <input type="radio" name="sentMessage" value="yes" selected /> <i class="fas fa-check"></i>
+            <input type="radio" name="sentMessage" value="no" selected /> <i class="fas fa-times"></i>
+          </td>
+
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Carros</td>
+          <td>
+            <input type="radio" name="sentMessage" value="yes" selected /> <i class="fas fa-check"></i>
+            <input type="radio" name="sentMessage" value="no" selected /> <i class="fas fa-times"></i>
+          </td>
+        </tr>
+      </tbody>-->
     </table>
     <div align=center>
       <button onclick="materialsConfirmation()" class="btn btn-primary btn-xl btn-width" id="" type="">
@@ -73,12 +108,9 @@
       </div>
     </footer>
   </div>
-
-  <!--Chamada a ficheiros java-->
   <script src="js/scripts.js"></script>
   <script src="js/fetchMateriais.js"></script>
   <script src="js/fetchConfirmarMateriais.js"></script>
-
 </body>
 
 </html>

@@ -32,9 +32,10 @@
         style="display: none;" onclick="EditSuspect()"><i class="far fa-check-circle"></i></button>
     </nav>
   </div>
-  <!--Parte da Página com a informação-->
+  <!--div com inf-->
   <div class="pre-scrollable">
     <div class="container">
+      <!-- <form method="POST">-->
       <div class="form-group">
         <label class="" for="">ID Suspeito</label>
         <input class="form-control py-4" id="idSuspeito" readonly />
@@ -53,7 +54,7 @@
           <option disabled selected>Selecione o sexo do suspeito</option>
           <option value="M">Masculino</option>
           <option value="F">Feminino</option>
-        </select>
+      </select>
       </div>
       <div class="form-group">
         <label class="" for="">Cartão de Cidadão</label>
@@ -91,6 +92,7 @@
             class="far fa-trash-alt"></i>
           Apagar</button>
       </div>
+      <!--</form>-->
     </div>
   </div>
   <!--footer-->
@@ -122,8 +124,6 @@
       </div>
     </footer>
   </div>
-
-  <!--Chamada a ficheiros java-->
   <script src="js/scripts.js"></script>
   <script src="js/fetchDadosSuspeitos.js"></script>
   <script src="js/fetchDeleteSuspeitos.js"></script>

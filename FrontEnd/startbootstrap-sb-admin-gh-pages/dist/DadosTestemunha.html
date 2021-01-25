@@ -31,7 +31,7 @@
                 style="display: none;" onclick="EditWitness()"><i class="far fa-check-circle"></i></button>
         </nav>
     </div>
-    <!--Parte da Página com a informação-->
+    <!--div com info-->
     <div class="pre-scrollable">
         <div class="container">
             <form>
@@ -50,6 +50,7 @@
                         <option value="M">Masculino</option>
                         <option value="F">Feminino</option>
                     </select>
+                    <!--<input class="form-control py-4" id="sexoTestemunha" type="" readonly />-->
                 </div>
                 <div class="form-group">
                     <label class="" for="">Naturalidade</label>
@@ -84,7 +85,7 @@
                     <input class="form-control py-4" id="localidadeTestemunha" type="" readonly />
                 </div>
                 <div align=center>
-                    <button class="btn btn-primary btn-xl" type="button" onclick="enableEditionWitness()"><i
+                    <button class="btn btn-primary btn-xl"  type="button" onclick="enableEditionWitness()"><i
                             class="far fa-edit"></i> Editar</button>
                     <button class="btn btn-primary btn-xl" type="button" onclick="DeleteWitness()"><i
                             class="far fa-trash-alt"></i>
@@ -122,8 +123,6 @@
             </div>
         </footer>
     </div>
-
-    <!--Chamada a ficheiros java-->
     <script src="js/scripts.js"></script>
     <script src="js/fetchDadosTestemunhas.js"></script>
     <script src="js/fetchDeleteTestemunhas.js"></script>
