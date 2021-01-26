@@ -273,7 +273,7 @@ function comoOperacionalMap() {
 
 //Função que verifica se a avaliação aos operacionais ja foi feita, e nao o deixa repetir a avaliação;
 function checkEvaluations() {
-  if (localStorage.getItem("avaliacao")) {
+  if (localStorage.getItem("avaliacao") === "true") {
     swal.fire({
       icon: "warning",
       title: "Alerta!",
